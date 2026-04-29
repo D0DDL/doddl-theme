@@ -1,0 +1,404 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "mealtime_set_v2": {
+      "type": "mealtime-set-v2",
+      "blocks": {
+        "banner": {
+          "type": "banner",
+          "settings": {
+            "bg_image": "shopify://shop_images/Bundle_Boxes.png",
+            "image_position": "center right",
+            "banner_height": 310,
+            "image_scale": 70,
+            "bg_color": "#f5f5f5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "eyebrow": "Complete Baby to Toddler Mealtime Set",
+            "eyebrow_color": "#3d157d",
+            "eyebrow_size": 11,
+            "heading": "Everything your baby needs from first bites to family meals",
+            "heading_size": 28,
+            "heading_color": "#3d157d",
+            "heading_weight": "800",
+            "body": "doddl products are expertly engineered for each stage of your child's development. Why? Because the right tools at the right stage changes everything.",
+            "body_color": "#1a1a2e",
+            "body_size": 15
+          }
+        },
+        "image_grid": {
+          "type": "image_grid",
+          "settings": {
+            "label_1": "Baby Cutlery + Case",
+            "label_position_1": "top-left",
+            "label_size_1": 14,
+            "label_weight_1": "700",
+            "label_color_1": "#ffffff",
+            "label_2": "3 Piece Cutlery + Case",
+            "label_position_2": "top-left",
+            "label_size_2": 14,
+            "label_weight_2": "700",
+            "label_color_2": "#ffffff",
+            "label_3": "2-in-1 Bowl",
+            "label_position_3": "top-left",
+            "label_size_3": 14,
+            "label_weight_3": "700",
+            "label_color_3": "#ffffff",
+            "label_4": "2-in-1 Plate",
+            "label_position_4": "top-left",
+            "label_size_4": 14,
+            "label_weight_4": "700",
+            "label_color_4": "#ffffff"
+          }
+        },
+        "hotspots": {
+          "type": "hotspots",
+          "settings": {
+            "section_heading": "What's in your set",
+            "heading_size": 25,
+            "heading_color": "#3d157d",
+            "heading_weight": "800",
+            "image": "shopify://shop_images/inside_box_square.jpg",
+            "image_position": "center center",
+            "image_height": 670,
+            "image_scale": 70,
+            "popup_name_size": 13,
+            "popup_desc_size": 12,
+            "hs_name_1": "2-in-1 Suction Plate",
+            "hs_desc_1": "Ergonomic shape and removable suction helps your child learn to use a plate",
+            "hs_x_1": 33,
+            "hs_y_1": 45,
+            "hs_name_2": "2-in-1 Suction Bowl",
+            "hs_desc_2": "Oval shape and high back make learning to scoop easy. Super strong suction is easy to remove and reattach.",
+            "hs_x_2": 45,
+            "hs_y_2": 71,
+            "hs_name_3": "Toddler Spoon and Fork with Case",
+            "hs_desc_3": "Expertly designed handles advances pincer grip",
+            "hs_x_3": 78,
+            "hs_y_3": 30,
+            "hs_name_4": "Baby Cutlery and Case",
+            "hs_desc_4": "Compact design and expertly shaped handes support self-feeding while developing skills",
+            "hs_x_4": 49,
+            "hs_y_4": 35,
+            "hs_name_5": "Toddler Knife",
+            "hs_desc_5": "100% safe toddler knife, handle sits in the palm making it easy to push down through food",
+            "hs_x_5": 80,
+            "hs_y_5": 67,
+            "hs_name_6": "",
+            "hs_desc_6": "",
+            "hs_x_6": 80,
+            "hs_y_6": 70
+          }
+        },
+        "stage_guide": {
+          "type": "stage_guide",
+          "settings": {
+            "section_heading": "Grows with your child",
+            "heading_size": 25,
+            "heading_color": "#3d157d",
+            "heading_weight": "800",
+            "pill_size": 13,
+            "stage_heading_size": 27,
+            "body_size": 16,
+            "signs_label_size": 14,
+            "bullet_size": 15,
+            "product_name_size": 16,
+            "product_bullet_size": 15,
+            "stage_1_name": "Explore, taste, try",
+            "stage_1_age": "6-11 months",
+            "stage_1_heading": "First foods, first wins",
+            "stage_1_body": "Food on the face, hands trying, something clicking into place. doddl stage 1 products are designed for tiny hands that are just discovering what mealtimes are all about.",
+            "stage_1_bullet_1": "Sitting in a high chair with a little support",
+            "stage_1_bullet_2": "Reaching and grasping objects consistantly",
+            "stage_1_bullet_3": "Bringing hand to mouth confidently",
+            "stage_1_bullet_4": "Showing a real interest in food",
+            "stage_1_p1_img": "shopify://shop_images/1_9994c785-9516-46c4-8c6b-d5788e83d89e.png",
+            "stage_1_p1_name": "Baby Spoon and Fork",
+            "stage_1_p1_b1": "Ergonomic handles are easy to grasp and designed to develop the palmer grasp to pincer grip",
+            "stage_1_p1_b2": "Comfortable utensile ends are gentle on gums but not chewable, to avoid confusion",
+            "stage_1_p1_link": "shopify://products/baby-cutlery-set-travel-case",
+            "stage_1_p2_img": "shopify://shop_images/2_b3c84c53-7797-49c9-a34e-9615ca1f9c85.png",
+            "stage_1_p2_name": "2-in-1 Suction Bowl",
+            "stage_1_p2_b1": "Oval shape and higher back makes learning to scoop easier",
+            "stage_1_p2_b2": "Lower front makes food easy to see, important for sensory development. Strong suction keeps bowl in position and can be removed to reveal a non-slip base",
+            "stage_1_p2_link": "shopify://products/the-doddl-2-in-1-suction-bowl",
+            "stage_1_p3_img": "shopify://shop_images/3_b333168a-9dec-4933-947f-056c7b37cfb1.png",
+            "stage_1_p3_name": "Easy to Introduce",
+            "stage_1_p3_b1": "Lay the baby spoon and fork on your baby's tray alongside their food and let them explore. Model cutlery use as much as possible, baby's learn by copying",
+            "stage_1_p3_b2": "Load the baby spoon or fork with yoghurt or similar and lay on their tray, handle towards them. Encourage your baby to pick it up, adding plenty of enthusiasm when they do!",
+            "stage_1_p3_link": "",
+            "stage_2_name": "Developing Control",
+            "stage_2_age": "12-24 months",
+            "stage_2_heading": "I can do it myself!",
+            "stage_2_body": "The desire for independence is growing and their hands are making their biggest development leap, the palmar grasp makes way for something more precise. The right tools make that transition happen faster — and with a lot less mess.",
+            "stage_2_bullet_1": "Starting to pick things up between thumb and finger",
+            "stage_2_bullet_2": "Attempting to scoop food",
+            "stage_2_bullet_3": "Trying to self-feed for most of the meal",
+            "stage_2_bullet_4": "Frustrated if you try to help!",
+            "stage_2_p1_img": "shopify://shop_images/4_68ef6944-a8cb-44e7-a75f-1584b38c7dfa.png",
+            "stage_2_p1_name": "2-in-1 Suction Plate",
+            "stage_2_p1_b1": "Oval shape keeps food in easy reach, raised back and lipped front keeps food and snacks on the plate reducing mess",
+            "stage_2_p1_b2": "Plate purposefully not sectioned to avoid creating food sensory issues. Strong suction keeps plate firmly in position.",
+            "stage_2_p1_link": "",
+            "stage_2_p2_img": "shopify://shop_images/5_a24ca40c-cbbe-4432-b4e1-3fdcebd711c5.png",
+            "stage_2_p2_name": "Toddler Spoon and Fork",
+            "stage_2_p2_b1": "Expertly shaped and weighted handle makes self-feeding easy and develops grip strength",
+            "stage_2_p2_b2": "Builds co-ordination, confidence and independence while naturally encouraging the correct grip",
+            "stage_2_p2_link": "shopify://products/toddler-spoon-and-fork-set",
+            "stage_2_p3_img": "shopify://shop_images/6_a4e67556-bc56-478a-ae1a-7045922bfccf.png",
+            "stage_2_p3_name": "Easy to Introduce",
+            "stage_2_p3_b1": "Pre-load the spoon and lay it on your toddlers tray, handle facing them",
+            "stage_2_p3_b2": "Once your toddler feels confident scooping, pre-load the fork in the same way. Continue to model by eating together",
+            "stage_2_p3_link": "",
+            "stage_3_name": "Self-feeding with confidence",
+            "stage_3_age": "24 months - 5 years",
+            "stage_3_heading": "Full Independence",
+            "stage_3_body": "The desire for independence is at its fiercest right now — and your toddlers hands are starting to match it. The right tools turn that determination into genuine skill faster than you'd think.",
+            "stage_3_bullet_1": "Using a fork and spoon with confidence",
+            "stage_3_bullet_2": "Interested in cutting their own food",
+            "stage_3_bullet_3": "Eating with two utentils at once",
+            "stage_3_bullet_4": "Sitting at the table independently",
+            "stage_3_p1_img": "shopify://shop_images/7_3ade6bb2-0acd-44a5-8fa6-2133444332c0.png",
+            "stage_3_p1_name": "Toddler Knife",
+            "stage_3_p1_b1": "Handle sits in the palm supporting your toddlers developing wrist muscles and allowing them to push down through all food",
+            "stage_3_p1_b2": "Naturally encourages the correct grip needed for adult knives",
+            "stage_3_p1_link": "shopify://products/childrens-spoon-fork-knife-set",
+            "stage_3_p2_img": "shopify://shop_images/8_95446b71-57cb-4097-9bb6-aef4b4b94eba.png",
+            "stage_3_p2_name": "2-in-1 Bowl and Plate (suction removed)",
+            "stage_3_p2_b1": "Suction rim is easy to remove and reattach helping support your child as they transition from suction to non-suction.",
+            "stage_3_p2_b2": "To reattach suction rim, simply pinch the suction rim and tableware together and run your thumb round the inside edge.",
+            "stage_3_p2_link": "",
+            "stage_3_p3_img": "shopify://shop_images/9_293c2f46-0d45-4505-b97e-2b6f80aafa40.png",
+            "stage_3_p3_name": "Easy to Introduce",
+            "stage_3_p3_b1": "Hold your hand over your toddlers hand and push down through soft foods initially (like banana) then let them practice.",
+            "stage_3_p3_b2": "Encourage the use of the knife at every mealtime so they can practice. Your toddler can now get involved in food preparation and cooking too!",
+            "stage_3_p3_link": "shopify://products/toddler-knife"
+          }
+        },
+        "faq_JqFLM4": {
+          "type": "faq",
+          "settings": {
+            "heading": "Materials",
+            "heading_size": 24,
+            "heading_color": "#3d157d",
+            "heading_weight": "800",
+            "question_size": 15,
+            "answer_size": 14,
+            "q_1": "Safety",
+            "a_1": "BPA and phthalate-free, Non toxic and contains no microplastics\nCertified safe: EN14372 and to FDA standards",
+            "q_2": "Care",
+            "a_2": "Made from premium, long lasting materials. Dishwasher safe. Materials not suitable for use in microwave, oven, grill or steriliser.",
+            "q_3": "Sustainability",
+            "a_3": "All doddl products are engineered from long lasting, high-quality materials, meaning they can be used for years. However, when you have finished benefitting from your doddl, you can now rehome them (currently UK only) helping to ensure no doddl product is wasted. To rehome your doddl email Team@doddl.com and one of our team will be happy to help.",
+            "q_4": "",
+            "a_4": "",
+            "q_5": "",
+            "a_5": "",
+            "q_6": "",
+            "a_6": ""
+          }
+        },
+        "video_WU9bV9": {
+          "type": "video",
+          "settings": {
+            "heading": "This is doddl",
+            "heading_size": 22,
+            "heading_color": "#3d157d",
+            "heading_weight": "800",
+            "video": "shopify://files/videos/doddl_Brand video_General.mp4"
+          }
+        },
+        "video": {
+          "type": "video",
+          "settings": {
+            "heading": "",
+            "heading_size": 22,
+            "heading_color": "#3d157d",
+            "heading_weight": "800"
+          }
+        },
+        "faq": {
+          "type": "faq",
+          "settings": {
+            "heading": "Your most-asked questions, answered",
+            "heading_size": 24,
+            "heading_color": "#3d157d",
+            "heading_weight": "800",
+            "question_size": 15,
+            "answer_size": 14,
+            "q_1": "My baby keeps throwing the spoon. Is that normal?",
+            "a_1": "Completely normal, and actually a good sign - it means they are engaging with it. Keep placing it back down. Every throw-and-retrieve is a motor skills workout. Consistency is key.",
+            "q_2": "When should I move to the toddler cutlery?",
+            "a_2": "Every child is different, but generally when your baby is around 11 months old, is eating more substantial foods and has developed some co-ordination.",
+            "q_3": "Do I need to teach my child how to hold the handle?",
+            "a_3": "No, the handle has been expertly designed to make it intuitive to use. The ergonomic shape also naturally encourages the correct grip. Trust the product. Over-correcting can reduce confidence and slow progress.",
+            "q_4": "When can I remove the suction from the bowl and bowl?",
+            "a_4": "When your toddler is not (constantly!) sweeping the bowl off the tray, try the non-slip base. You can switch back any time. Some meals or environments still benefit from suction even at 2 years old.",
+            "q_5": "Is the toddler knife really safe?",
+            "a_5": "Yes. The doddl toddler knife has a specially designed blade that can cut all foods but is totally safe for small hands. The handle makes it easy for your toddler to control and use successfully.",
+            "q_6": "My child is 3 and still struggling. Should I be worried?",
+            "a_6": "Every child develops at their own pace. The doddl set is used by occupational therapists with children who have developmental delays. If you have specific concerns, we always recommend speaking to your health visitor or GP."
+          }
+        },
+        "swatches": {
+          "type": "swatches",
+          "settings": {
+            "heading": "What's their colour?",
+            "heading_size": 16,
+            "subtext": "Available in",
+            "subtext_size": 13,
+            "swatch_name_size": 10,
+            "color_1": "#20a281",
+            "color_name_1": "Fresh Green",
+            "color_2": "#eb4f85",
+            "color_name_2": "Pop Pink",
+            "color_3": "#5e3bd2",
+            "color_name_3": "Royal Purple",
+            "color_4": "#7ddac8",
+            "color_name_4": "Mellow Aqua",
+            "color_5": "#ebb9c2",
+            "color_name_5": "Dusky Rose",
+            "color_6": "#bba2cc",
+            "color_name_6": "Soft Lavender",
+            "color_7": "#fadd73",
+            "color_name_7": "Sunshine",
+            "color_8": "",
+            "color_name_8": "",
+            "shop_link": "",
+            "shop_link_text": "Shop all colours"
+          }
+        }
+      },
+      "block_order": [
+        "banner",
+        "image_grid",
+        "hotspots",
+        "stage_guide",
+        "faq_JqFLM4",
+        "video_WU9bV9",
+        "video",
+        "faq",
+        "swatches"
+      ],
+      "settings": {}
+    },
+    "image_link_blocks_pbViYK": {
+      "type": "image-link-blocks",
+      "blocks": {
+        "item_TdDQ9x": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Baby_1.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_aADYEE": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Website_mobile_banners_1300_x_1500_px_3.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_UmDgyN": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/danielle.sheehan.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_AkrTe4": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/weanmeupscotty_04.jpg",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_3cj88z": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-01-23_160144.jpg",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_WeQhMV": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Paigesarah26_02.jpg",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "item_TdDQ9x",
+        "item_aADYEE",
+        "item_UmDgyN",
+        "item_AkrTe4",
+        "item_3cj88z",
+        "item_WeQhMV"
+      ],
+      "name": "Image link blocks",
+      "settings": {
+        "full_width": false,
+        "block_size": "medium",
+        "subheading": "Over 25,000 5-star reviews",
+        "title": "Trusted by 1 Million+ parents",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    }
+  },
+  "order": [
+    "mealtime_set_v2",
+    "image_link_blocks_pbViYK"
+  ]
+}

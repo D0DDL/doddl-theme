@@ -1,0 +1,44 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "page.about.json",
+  "context": {
+    "market": "31278e09-01a3-48de-800f-2818c0029211"
+  },
+  "sections": {
+    "media_with_text_E7Yney": {
+      "settings": {},
+      "blocks": {
+        "image_qey393": {
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_24.png",
+            "media_width": 50,
+            "icon_width": 72,
+            "subheading": "Meet our Founder",
+            "title": "Created by a parent, for parents. This is innovation with heart.",
+            "content": "<p>doddl began with a simple moment that <strong>changed everything.</strong></p><p>Like millions of parents, our founder Cat was fed-up of <strong>stressful, messy, frustrating mealtimes</strong> with her young children. On a family holiday — three little ones in tow — her daughter’s fork handle snapped. Cat watched as she <strong>instinctively grasped</strong> the short, stubby end… and suddenly ate <strong>more confidently and successfully</strong> than ever before.</p><p>In that moment, Cat realised the issue wasn’t her children.<br/><br/><strong>It was their utensils.</strong></p><p>Determined to make mealtimes easier for families everywhere, Cat set out to design a better solution. She spent two years working closely with <strong>child development specialists</strong> to engineer tools that genuinely support how children learn to eat.</p><p>The result was <strong>doddl</strong>.</p><p>Today, the doddl range is loved by <strong>millions of families</strong> around the world. Every product combines deep developmental insight with thoughtful design and precision engineering — creating feeding tools that <em><strong>intuitively</strong></em><strong> teach your child to eat independently</strong> and confidently, right from the start.</p><p>And why does it matter? Because mealtimes offer <strong>powerful learning moments.</strong><br/><br/>And now, with doddl, you can make the most of them — helping your child <strong>build skills, independence, and confidence with every bite.</strong></p>",
+            "link_text": "Shop doddl",
+            "link_url": "https://doddl.com/collections/shop-all"
+          }
+        }
+      }
+    },
+    "video_pzTNj3": {
+      "settings": {},
+      "blocks": {
+        "heading_qhbAUb": {
+          "settings": {
+            "text": "doddl"
+          }
+        }
+      }
+    }
+  }
+}

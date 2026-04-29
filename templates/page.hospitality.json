@@ -1,0 +1,537 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "media_with_text_TiwCeQ": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_EyCXT7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DODDL_BUNDLES_40_6255_88f7e9fa-775a-40fc-868d-83a9dc80c681.jpg",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-center-start text-start",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "Bring doddl to your customers",
+            "content": "<p><strong>We are growing at pace and currently expanding our network of global partners in new markets and across multiple categories. <br/></strong></p><p>In <strong>retail</strong>, doddl is <strong>attracting new customers</strong> who want to invest in high quality, innovative products that work - with a focus on value over price.</p><p>In hospitality, our products are making a positive difference in<strong> venues across the UK and Asia.</strong></p><p>In Early Years Education doddl is supporting <strong>children's development </strong>and <strong>helping them to get school ready </strong>in so many ways.   </p><p>Contact our team for more information about the benefits to you and your business.</p><p></p>",
+            "link_text": "Contact us",
+            "link_url": "shopify://pages/contact",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#301562",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "video_E4pTQc": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Be part of it. Stock doddl today.mp4",
+            "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "autoplay": true,
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Introducing doddl",
+            "title": "",
+            "content": "<p>Recommended by <a href=\"/pages/what-the-experts-think\" target=\"_blank\" title=\"What the experts think\">child development experts</a>, multiple award winning, 5-star rated by over 20,000 customers and available in 70+ countries. We are doddl. </p>",
+            "link_text": "See the doddl range",
+            "link_url": "shopify://collections/shop-all",
+            "background": "#fbfbfb",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_EyCXT7",
+        "video_E4pTQc"
+      ],
+      "settings": {
+        "full_width": false,
+        "alternate_media_position": false,
+        "spacing": "none"
+      }
+    },
+    "text_with_icons_4UkBa4": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_6JVnrN": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/1_d408c90c-ec99-457f-afeb-89f366155bb1.png",
+            "mobile_icon_width": 120,
+            "icon_width": 120,
+            "icon_background_type": "circle",
+            "icon_background": "",
+            "icon_color": "#343a40",
+            "title": "Retail",
+            "content": "<p>We are the <strong>leading baby and toddler cutlery brand</strong> in the UK. With the global tableware sector identified for <strong>substantial growth</strong> in the next few years we are perfectly placed to help you capitalise.  Find out more about the benefits of doddl:</p><ul><li>Our products are <strong>innovative and solve problems</strong> like no other brand on the market</li><li>Our<strong> customers invest more </strong>in our products because of the benefits they deliver</li><li>Our products recieve <strong>very high referral rates</strong></li><li><strong>Our customer base is vast, </strong>mums, dads, grandparents, carers, family members and friends</li><li>Our products are <strong>5-star rated </strong>and <strong>recommended by child feeding, development and nutritional experts</strong></li></ul><p></p>"
+          }
+        },
+        "item_4eNACU": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/3.png",
+            "mobile_icon_width": 120,
+            "icon_width": 120,
+            "icon_background_type": "circle",
+            "icon_background": "",
+            "icon_color": "#301562",
+            "title": "Early Years Education",
+            "content": "<p><strong>Enhancing learning and success at mealtimes.</strong></p><p>At doddl we don't cut corners with our products. <strong>Thoroughly researched and rigorously tested, </strong>doddl products are multiple award winning and certified safe. With doddl you can rest assured that you are offering the children in your care the <strong>very best quality products </strong>that offer clear benefits. Find out more:</p><ul><li><strong>Enhanced learning</strong> and skill development</li><li><strong>Easier, more successful </strong>mealtimes</li><li><strong>More eating and less waste</strong></li><li>High quality, long lasting and <strong>dishwasher safe</strong></li><li>Recommended by parents of children with <strong>SEN</strong></li></ul>"
+          }
+        },
+        "item_RGDwdz": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/2_919faa2b-8626-4b2c-a5d7-d0dfa2d5ebde.png",
+            "mobile_icon_width": 120,
+            "icon_width": 120,
+            "icon_background_type": "circle",
+            "icon_background": "#eaeaea",
+            "icon_color": "#301562",
+            "title": "Hospitality",
+            "content": "<p><strong>Elevate your dining experience.</strong></p><p>Create an <strong>exceptional experience</strong> for your young patrons and their families by introducing our expertly designed products for babies and toddlers. Enhance<strong> your dining establishment's family-friendly reputation</strong> while satisfying parents and captivating young diners.</p><p>Find out more about the proven benefits of doddl:</p><ul><li><strong>Less mess</strong> and clear-up time</li><li><strong>Calmer </strong>eating environment</li><li><strong>Long-lasting</strong>, high quality and dishwasher safe</li><li><strong>Added value</strong> and point of difference to your competitors</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "item_6JVnrN",
+        "item_4eNACU",
+        "item_RGDwdz"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "title": "The benefits of doddl",
+        "heading_tag": "custom-about-title",
+        "text_alignment": "center",
+        "icon_spacing": "small",
+        "background": "rgba(0,0,0,0)",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "media_with_text_EDMkE8": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_GmrFyB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/doddl_unedited_LR4256_LR.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "The impact of doddl",
+            "content": "<p><strong>Matthew Siadatan - Balihoo Restaurant</strong><br/><br/>\"At Ballihoo, we aim to offer the best service possible, and as we are family led, we try and heighten even the tiniest of toddler's experiences. We all have moments when we come across <strong>something we get really excited about.</strong> The inclusion of doddl has done that for our little people at Lower Mill Estate.</p><p>The cutlery is very clever, sleek and sophisticated, so it elevates our little guests' food journey and the mum's and dad's love it too.</p><p>The nature of the cutlery and plates <strong>brings calmness, education and elegance</strong> to the table and the difference it has made to eating time is clearly apparent. Its very durable too, so it is proving to withstand the wear and tear of a busy restaurant. </p><p>It's versatility is great, and can be used over starters, mains and desserts, and also very easy to clean and polish!\"</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#fbfbfb",
+            "background_gradient": "",
+            "text_color": "#1a1a1a",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_rBM7cB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Coigne_post.png",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 96,
+            "subheading": "The Coigne Nursery",
+            "title": "",
+            "content": "<p>\"A big shout out to doddl cutlery. As many of you know, the Coigne children love using doddl cutlery and <strong>as practitioners we have seen some amazing results</strong> in independence at lunchtime and snack time, as well as with their fine motorskills.\"</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#fbfbfb",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_M6MbpC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/thumbnail_PHOTO-2023-08-08-20-54-58_a3d24b32-7584-47d9-8f78-c2d8c040cb2d.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Forest Green Rovers (FGR)",
+            "title": "",
+            "content": "<p>“doddl provides a solution for the younger guests in hospitality areas at The New Lawn, as most parents know mealtimes can be stressful. doddl is providing cutlery that is the right-size and easy for the children to use, <strong>this means that the families are having a positive experience </strong>and children<strong> </strong>are enjoying using the products. It makes sense to offer doddl as we are a family-friendly club that encourages education, food is a key part of a child’s life, <strong>if they enjoy eating the food here at FGR then they will return with their families.</strong> This also helps with the development of their personal skills.”</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#fbfbfb",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_QjPEkH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Happy_boy_and_dad_aqua.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "Customer reviews",
+            "content": "<p><strong>\"It was like magic?!</strong> He managed to pick the loaded spoon up comfortably and eat. I was amazed at how well he did. Thank you for a great product. Have recommended to friends.\" Hannah<br/><br/>\"My 18 month old finds holding this cutlery much easier. Shes more confident in self feeding. <strong>Well made and worth every penny!\" </strong>Laura<br/><br/>\"These sets are brilliant. My 16 month old son is <strong>so much better at using cutlery</strong> himself. We bought the bowl also and it does not move. Really worth the money!\"  Charlotte</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#fbfbfb",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_GmrFyB",
+        "image_rBM7cB",
+        "image_M6MbpC",
+        "image_QjPEkH"
+      ],
+      "settings": {
+        "full_width": false,
+        "alternate_media_position": false,
+        "spacing": "small"
+      }
+    },
+    "logo_list_taLkVU": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_yUhJx6": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo-list2.png",
+            "logo_width": 90,
+            "link": ""
+          }
+        },
+        "logo_MhzpJ9": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo-list1.png",
+            "logo_width": 90,
+            "link": ""
+          }
+        },
+        "logo_VJFc9J": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/KAE_logos_2023_Innovation_KAE-logo-circular-year-red_1.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_irh7nx": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo-list3.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_UYa9CT": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo-list6.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_bBQnjJ": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo-list7.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_6r3rVJ": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo-list8.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_ELpRXH": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo-list4.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_yUhJx6",
+        "logo_MhzpJ9",
+        "logo_VJFc9J",
+        "logo_irh7nx",
+        "logo_UYa9CT",
+        "logo_bBQnjJ",
+        "logo_6r3rVJ",
+        "logo_ELpRXH"
+      ],
+      "name": "Logo list",
+      "settings": {
+        "full_width": true,
+        "stack_mobile": true,
+        "title": "Logo list",
+        "content": "",
+        "text_alignment": "start",
+        "items_per_row": 4,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "logo_item_background": "",
+        "logo_item_border": ""
+      }
+    },
+    "rich_text_KJj4HF": {
+      "type": "rich-text",
+      "blocks": {
+        "icon_UwDArw": {
+          "type": "icon",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/Press.png",
+            "icon_width": 64,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": ""
+          }
+        },
+        "heading_kfPkD6": {
+          "type": "heading",
+          "settings": {
+            "text": "\"The nature of the cutlery and plates brings calmness, education and elegance to the table and the difference it has made to eating time is clearly apparent.\"",
+            "heading_tag": "custom-rich-title",
+            "text_color": "#ffffff",
+            "gradient": ""
+          }
+        },
+        "richtext_etCKYG": {
+          "type": "richtext",
+          "settings": {
+            "content": ""
+          }
+        },
+        "richtext_9VBPjb": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Matthew - Balihoo Restaurant</p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_UwDArw",
+        "heading_kfPkD6",
+        "richtext_etCKYG",
+        "richtext_9VBPjb"
+      ],
+      "settings": {
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "#2f1562",
+        "background_gradient": "linear-gradient(90deg, rgba(48, 21, 98, 1), rgba(76, 46, 132, 1) 97%)",
+        "text_color": "#ffffff"
+      }
+    },
+    "before_after_image_yFzPWX": {
+      "type": "before-after-image",
+      "settings": {
+        "full_width": false,
+        "subheading": "",
+        "title": "The doddl difference",
+        "content": "<p><strong>Others<br/></strong>Long slim handles are difficult to hold and control, ends are ineffective.</p><p><strong>doddl</strong> <br/>Expertly shaped handles are easy to grip and control and help develop grip strength. Stainless steel ends are highly effective  but certified safe.</p>",
+        "before_image": "shopify://shop_images/2_2.png",
+        "after_image": "shopify://shop_images/1_2.png",
+        "expand_image": false,
+        "text_position": "start",
+        "before_after_text_position": "top",
+        "before_text": "others",
+        "after_text": "doddl",
+        "drag_initial_position": 46,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "before_text_color": "#ffffff",
+        "after_text_color": "#ffffff",
+        "drag_cursor_background": "#ffffff",
+        "drag_cursor_color": "#000000"
+      }
+    },
+    "scrolling_text_cMAQcj": {
+      "type": "scrolling-text",
+      "settings": {
+        "full_width": true,
+        "text": "Talk to us today about doddl",
+        "text_size": "medium",
+        "text_style": "fill",
+        "scrolling_mode": "auto",
+        "scrolling_speed": 8,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "text_gradient": "linear-gradient(90deg, rgba(48, 21, 98, 1), rgba(76, 46, 132, 1) 97%)"
+      }
+    },
+    "faq_c4UB8k": {
+      "type": "faq",
+      "blocks": {
+        "item_9K3B8w": {
+          "type": "item",
+          "settings": {
+            "title": "Where do you supply from?",
+            "content": "<p>We have complete fulfilment operations established in China, US & UK. Our fulfillment operations allow us to offer partners a flexible approach to supply, to ensure they can work in the most efficient way. We are currently establishing a new Fulfilment Operation within mainland Europe details of which we hope to be confirming shortly.</p>"
+          }
+        },
+        "item_JNCVWD": {
+          "type": "item",
+          "settings": {
+            "title": "Do you offer market exclusivity arrangements for Distributors?",
+            "content": "<p>Yes, we do. We are very proud of how we work with partners to create a Market Entry Plan and market exclusivity rights will be reviewed as part of this process.</p>"
+          }
+        },
+        "item_ExhYfj": {
+          "type": "item",
+          "settings": {
+            "title": "Do you provide Marketing Support to partners?",
+            "content": "<p>As a doddl partner, you will have full access to the doddl marketing asset shared drive, where you will find everything you will need to support the growth of the brand in your market. Assets are editable so that you can localise them for your market. In addition, we also share assets created by partners that have performed well in the local market.</p><p>As a doddl partner, you will also be able to share your ideas for required assets with the doddl marketing team who will, where possible, provide the support you require.</p>"
+          }
+        },
+        "item_kXK8mc": {
+          "type": "item",
+          "settings": {
+            "title": "How will I keep up to speed with the world of doddl?",
+            "content": "<p>As a doddl partner, you will work with one of the doddl team who will help support the growth of the brand in your market. You will meet regularly and receive updates about initiatives taken by the brand and partners across the globe. We will work with you to support any opportunities you identify to grow the brand within your market.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_9K3B8w",
+        "item_JNCVWD",
+        "item_ExhYfj",
+        "item_kXK8mc"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "FAQ",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "Our customer support is available Monday to Friday: 8am-8:30pm.",
+        "answer_time": "Average answer time: 24h",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "featured_collection_Y9fkt9": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "shop-all",
+        "products": [
+          "toddler-spoon-and-fork-set",
+          "childrens-spoon-fork-knife-set",
+          "gift-wrapping",
+          "doddl-toddler-plate",
+          "the-doddl-2-in-1-suction-bowl",
+          "baby-cutlery-set-travel-case"
+        ],
+        "full_width": true,
+        "stack_products": true,
+        "show_progress_bar": false,
+        "products_count": 6,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 5,
+        "subheading": "",
+        "title": "Best Sellers",
+        "content": "",
+        "link_url": "",
+        "link_text": "View all",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "media_with_text_TiwCeQ",
+    "text_with_icons_4UkBa4",
+    "media_with_text_EDMkE8",
+    "logo_list_taLkVU",
+    "rich_text_KJj4HF",
+    "before_after_image_yFzPWX",
+    "scrolling_text_cMAQcj",
+    "faq_c4UB8k",
+    "featured_collection_Y9fkt9"
+  ]
+}

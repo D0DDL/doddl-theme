@@ -1,0 +1,497 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "media_with_text_E7Yney": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_qey393": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/johny_b9fb096b-4747-47dd-aca3-f76ed44617e6.jpg",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Adapted cutlery for all, including children with Autism, Down Syndrome and Motor skill challenges",
+            "title": "doddl is for every child.",
+            "content": "<p>We believe in solving parents’ problems whilst nurturing and celebrating the early stages of independence in <strong>every single child</strong>. So we’ve designed inclusive products that make learning to self-feed as easy as possible. </p><p>We know that being able to self-feed is important, that for a child,  ‘I can do it!’ is powerful, because with it brings confidence and independence which are the foundations for children to fulfil their potential.</p><p>This is where doddl really makes a difference for all children, including children who find standard cutlery particularly challenging and may be looking for adapted cutlery including children with <strong>Autism</strong>, <strong>Down Syndome</strong>, <strong>Dyspraxia</strong>, <strong>Cerebral Palsy</strong>, <strong>Arthritis</strong>, <strong>Developmental Co-ordination Disorder</strong> or <strong>children with Development and Motorskill delays</strong>.</p>",
+            "link_text": "Shop doddl",
+            "link_url": "shopify://collections/shop-all",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_qey393"
+      ],
+      "name": "Media with text",
+      "settings": {
+        "full_width": false,
+        "alternate_media_position": false,
+        "spacing": "small"
+      }
+    },
+    "text_with_icons_mN4rNg": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_xJRqeR": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/doddl_2023_Engineered_Icon_7316c180-cca0-4c4b-bc9e-477fcb1c0f44.png",
+            "mobile_icon_width": 120,
+            "icon_width": 120,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "#343a40",
+            "title": "Short chunky handles",
+            "content": "<p>The unique design of doddl cutlery makes it easier for children with reduced grip, hand or arm function, sensory and fine motor difficulties to eat successfully. <strong>Short, chunky handles </strong>are much easier to control whilst helping your child develop a stronger grip and better co-ordination. </p>"
+          }
+        },
+        "item_QET6HB": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/doddl_2023_5_Star_Reviews_Icon_87e17495-9c36-47c3-818c-9523553b5ed0.png",
+            "mobile_icon_width": 120,
+            "icon_width": 120,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "#301562",
+            "title": "Easy grip design",
+            "content": "<p>Soft touch areas encourage correct finger placement and makes the <strong>cutlery handles easier to grip</strong>. The handle of the doddl knife sits comfortably in your child’s palm allowing them to push down through all types of food successfully. doddl has been thoughtfully designed alongside development experts who both <strong>approve and recommend</strong> doddl.</p>"
+          }
+        },
+        "item_c7ARnn": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/doddl_2023_Certified_safe_Icon_f747756e-fe6d-4d2f-8bc9-cb42a7684b83.png",
+            "mobile_icon_width": 120,
+            "icon_width": 120,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "#301562",
+            "title": "Engineered for success",
+            "content": "<p>The doddl knife, fork and spoon are certified safe but are highly effective, enabling successful scooping, stabbing, and chopping of all food, <strong>helping to build confidence </strong>and independence in every child. High quality and incredibly long lasting doddl can be used between 12 months and 5+ years and beyond.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_xJRqeR",
+        "item_QET6HB",
+        "item_c7ARnn"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "title": "How doddl helps",
+        "heading_tag": "custom-about-title",
+        "text_alignment": "center",
+        "icon_spacing": "small",
+        "background": "rgba(0,0,0,0)",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "logo_list_4gQxKL": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_86NczX": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo-list2.png",
+            "logo_width": 90,
+            "link": ""
+          }
+        },
+        "logo_R7hByN": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo-list1.png",
+            "logo_width": 90,
+            "link": ""
+          }
+        },
+        "logo_WEgWjP": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/KAE_logos_2023_Innovation_KAE-logo-circular-year-red_1.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_kpqgPA": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo-list3.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_QqfPDP": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo-list6.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_Rb4i8m": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo-list7.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_pXxeBD": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo-list8.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_MQAGYt": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo-list4.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_86NczX",
+        "logo_R7hByN",
+        "logo_WEgWjP",
+        "logo_kpqgPA",
+        "logo_QqfPDP",
+        "logo_Rb4i8m",
+        "logo_pXxeBD",
+        "logo_MQAGYt"
+      ],
+      "disabled": true,
+      "name": "Logo list",
+      "settings": {
+        "full_width": true,
+        "stack_mobile": true,
+        "title": "Logo list",
+        "content": "",
+        "text_alignment": "start",
+        "items_per_row": 4,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "logo_item_background": "",
+        "logo_item_border": ""
+      }
+    },
+    "video_pzTNj3": {
+      "type": "video",
+      "blocks": {
+        "play_gzyRzK": {
+          "type": "play",
+          "settings": {}
+        },
+        "heading_qhbAUb": {
+          "type": "heading",
+          "settings": {
+            "text": "How to introduce doddl toddler cutlery to your child",
+            "heading_tag": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "play_gzyRzK",
+        "heading_qhbAUb"
+      ],
+      "name": "Video",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "autoplay": false,
+        "video_size": "fill",
+        "video": "shopify://files/videos/'How to' film - toddler cutlery_with VO-Liberty Roberts.mov.mov",
+        "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "timeline_YQy9PF": {
+      "type": "timeline",
+      "blocks": {
+        "slide_7djExe": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-10-24_113611_Ada_Grace.png",
+            "navigation_label": "Meet Ada Grace",
+            "subheading": "What's the impact of doddl?",
+            "title": "Find out what our customers say",
+            "content": "<p><strong>Meet Ada Grace. Written by her mum Emma. </strong><br/>Ada-Grace has Down Syndrome, and this sometimes means it can be a slow and steady wins the race for getting to grips (quite literally) with motor skills and development. Believe me when I say, I've tried every kind of cutlery set out there...<strong>until doddl came to our rescue! </strong>In just 4 days, you could see the progress she had made! </p><p><strong>This has been a complete game changer for us</strong>. Ada Grace is so much happier, and as a sceptical parent of most things (you'd be surprised at how many products really aren't made with SEN children in mind), I can honestly say doddl have certainly achieved this. I'm so pleased to finally find something on which has made such an incredible difference to our daily routine. </p>"
+          }
+        },
+        "slide_XN83X4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/i_am_remy_b_02.jpg",
+            "navigation_label": "Meet Remy",
+            "subheading": "The impact of doddl",
+            "title": "Meet Remy",
+            "content": "<p><strong>By Remy's mum Amy </strong></p><p>\"Children with additional needs often struggle with their fine motor skills meaning that basic skills such as self feeding can become tricky. When searching for a solution to help our son Remy we came across doddl. doddl’s unique design enabled Remy to be able to grip his cutlery better and the short handles have him more control when picking up his food and transferring to his mouth.<strong> This literally was a game changer for Remy and made such a huge difference when he was learning to use cutlery.</strong> When used along side the doddl plate he is able to easily feed himself with minimal mess which is amazing for us parents. <br/><br/>We would highly recommend doddl for all little ones but especially those with additional needs as anything that makes our children’s lives that little bit easier has to be a win right?!\" </p>"
+          }
+        },
+        "slide_UtV6iT": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Jacobs_Journey.jpg",
+            "navigation_label": "Meet Jacob",
+            "subheading": "The impact of doddl",
+            "title": "Meet Jacob",
+            "content": "<p><strong>Written by Tania, Jacobs mum</strong>. <br/><br/>Jacob was with a postnatal diagnosis of Down Syndrome and Hirschsprung’s Disease. He was first introduced to doddl cutlery at nursery to try and encourage self-feeding for his yoghurt, after I had seen other SEN parents have success with them on Instagram. It’s the perfect shape and size for his small hands and<strong> much easier for him to control. </strong></p><p>Jacob is not only enjoying some solids, he’s also self feeding. <strong>He seems much more inclined to feed himself with using his doddl cutlery. </strong>He’s using the doddl spoon and fork every day to try all these new varieties of food, and not only are we extremely pleased and proud as parents, all the staff that work with Jacob and his peers also mention how well he is doing.<br/><br/>Thank you doddl for creating a product that’s adaptable, practical and a resounding success!</p>"
+          }
+        },
+        "slide_TyDnFn": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/image1_0d8c7e72-06f8-47cc-9912-7020d3043b4d.png",
+            "navigation_label": "Meet Alex",
+            "subheading": "The impact of doddl",
+            "title": "Meet Alex",
+            "content": "<p><strong>Written by Alex's mum Niki </strong></p><p>\"I just wanted to drop you a line to thank you for your <strong>amazingly designed cutlery! </strong>My little boy is 26 months old and has Autism, and whilst he loves his food, he has never been able to use cutlery by himself before. In fact he often refused to eat from cutlery at all, even when fed. </p><p>This morning, the first time he used his doddl spoon, <strong>Alex fed himself for the first time ever</strong>. I can't tell you how much it means to see our boy hitting a milestone like this, after trying to help with his independent feeding for so long. <strong>doddl is a life changer!</strong></p><p>Thank you so much - we'll recommend you to all our friends at ASD tots groups and will have to buy 3 more sets to keep at grandparents and day care! Thank you, your design is improving the lives of kids like Alex and parents like me!\"</p>"
+          }
+        },
+        "slide_ir8WWQ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-10-25_121929.png",
+            "navigation_label": "Meet Tom",
+            "subheading": "The impact of doddl",
+            "title": "Meet Tom",
+            "content": "<p><strong>By Tom's mum Tanya</strong></p><p>\"<strong>You have no idea what this fork has done here today</strong> Tom has never been able to use any cutlery so specifically due to his disability, coordination was simply too difficult for him! With this fork he had success for the first time and so has the desire to continue on his own.\" 😍😍😍😍😍</p>"
+          }
+        },
+        "slide_RY9XLM": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Copy_of_doddl_unedited_LR109.jpg",
+            "navigation_label": "More reviews",
+            "subheading": "The impact of doddl",
+            "title": "Reviews from customers",
+            "content": "<p>“My daughter (whom has additional needs) had a few sets and <strong>I cannot recommend them high enough</strong>. Holds a knife and fork perfect now too 😁” Steve D.</p><p>“I’ve been using these with my toddler for a couple of weeks, he’s never really taken to any cutlery set (suspected autism) and prefers to use his hands however <strong>he has really taken to these</strong>. The size is great”. Jessi.</p><p>“This is a really excellent company to deal with, they were so helpful in every aspect of my purchase. I had bought the spoon and fork set (on my daughter's recommendation who had been using the full set for some time) for my grandson who has autism, he really coped so well with them. I have since bought the knife and again <strong>it has proved to be such a help.</strong> Someone has really watched small children struggle with<br/>cutlery and given a lot of thought into helping little fingers master the art<br/>of using knife, fork and spoon. Thank you all so much” Barbara H.</p><p>“Lovely set of cutlery. <strong>Small chunky handles are perfect for smaller hands.</strong> I am a carer for younger children and find these really useful especially for. Disabled & autistic children to use” Rena M.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "slide_7djExe",
+        "slide_XN83X4",
+        "slide_UtV6iT",
+        "slide_TyDnFn",
+        "slide_ir8WWQ",
+        "slide_RY9XLM"
+      ],
+      "name": "Timeline",
+      "settings": {
+        "full_width": true,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_mRNMNc": {
+      "type": "rich-text",
+      "blocks": {
+        "icon_fFAyna": {
+          "type": "icon",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/Press.png",
+            "icon_width": 64,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": ""
+          }
+        },
+        "heading_TA7eFy": {
+          "type": "heading",
+          "settings": {
+            "text": "“Our products are designed to make eating easier and more enjoyable for every child, helping them develop the confidence and independence they deserve.\"",
+            "heading_tag": "custom-rich-title",
+            "text_color": "#ffffff",
+            "gradient": ""
+          }
+        },
+        "richtext_zKhFEQ": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Cat Dodd</p>"
+          }
+        },
+        "richtext_wUHPm9": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Founder and CEO</p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_fFAyna",
+        "heading_TA7eFy",
+        "richtext_zKhFEQ",
+        "richtext_wUHPm9"
+      ],
+      "settings": {
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(90deg, rgba(48, 21, 98, 1), rgba(76, 46, 132, 1) 97%)",
+        "text_color": "#ffffff"
+      }
+    },
+    "scrolling_text_3AFVCw": {
+      "type": "scrolling-text",
+      "settings": {
+        "full_width": true,
+        "text": "For every child, of all abilities.",
+        "text_size": "medium",
+        "text_style": "fill",
+        "scrolling_mode": "auto",
+        "scrolling_speed": 8,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "text_gradient": "linear-gradient(90deg, rgba(48, 21, 98, 1), rgba(76, 46, 132, 1) 97%)"
+      }
+    },
+    "faq_bNPQd3": {
+      "type": "faq",
+      "blocks": {
+        "item_fxa8zb": {
+          "type": "item",
+          "settings": {
+            "title": "What is adapted cutlery? ",
+            "content": "<p>Adapted cutlery is knives, forks and spoons which are specially designed to make them easier to use.  <a href=\"https://doddl.com/collections/shop-all\" title=\"https://doddl.com/collections/shop-all\">doddl cutlery</a> helps ALL children, and is perfect for babies and toddlers, including those who have motor skill challenges, such<br/>as dyspraxia, autism, Down Syndrome, and any conditions which mean that usual standard cutlery is particularly challenging.</p>"
+          }
+        },
+        "item_cm8kVX": {
+          "type": "item",
+          "settings": {
+            "title": "How do adaptive utensils work? ",
+            "content": "<p>Adaptive utensils for children are designed to help little ones with any physical or motor challenges to eat confidently all by themselves. They are expertly shaped to make it much easier for anyone who has restricted or problematic movement in their wrists, arms or hands eat more successfully.</p><p>Many conditions can make gripping traditional utensils painful, frustrating and difficult for young children. However, because of the expert design features, <a href=\"https://doddl.com/collections/shop-all\" title=\"https://doddl.com/collections/shop-all\">doddl utensils</a> make it much more comfortable and easier for children to use.<br/>The shorter, chunkier handles are easy to grip and have soft touch areas that comfortably encourage the correct finger placement making them far more manageable than long handled cutlery. doddl enables every child to feel the<br/>success of eating with cutlery all by themselves. </p>"
+          }
+        },
+        "item_CAtFqX": {
+          "type": "item",
+          "settings": {
+            "title": "What are the benefits of adaptive (eating) utensils?",
+            "content": "<p>Adaptive cutlery is designed to help babies and toddlers to eat independently, and that’s exactly what <a href=\"https://doddl.com/collections/shop-all\" title=\"https://doddl.com/collections/shop-all\">doddl cutlery</a> offers for <strong>all </strong>children. The impact of cutlery that is designed to make eating successfully easy is far reaching. Not only does it promote better utensil control, allowing children to experience the success of feeding themselves, but this in turn eases the pressure on parents and carers. By reducing eating and clean up times and making the whole <a href=\"https://doddl.com/blogs/tips-and-advice/make-mealtimes-about-the-experience-not-just-the-food\" title=\"https://doddl.com/blogs/tips-and-advice/make-mealtimes-about-the-experience-not-just-the-food\">mealtime experience</a> positive and more enjoyable for everyone. The benefits to self-esteem, confidence and<br/>fostering independence can be dramatic and can positively affect all areas of development. </p><p>Choosing the right utensils can make a huge difference to help avoid the negative side effects of challenging mealtime experiences. </p>"
+          }
+        },
+        "item_wp9Yy8": {
+          "type": "item",
+          "settings": {
+            "title": "Who uses adaptive utensils?  ",
+            "content": "<p>Adaptive eating utensils can be used by anyone who has problems grasping standard utensils. Conditions such as<br/>autism, Down Syndrome, dyspraxia, cerebral palsy, arthritis, multiple sclerosis, developmental delays and numerous other conditions that cause weakness in fine motor skills and tactile sensation which make grasping and manipulating utensils difficult. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_fxa8zb",
+        "item_cm8kVX",
+        "item_CAtFqX",
+        "item_wp9Yy8"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "FAQ",
+        "content": "<p>Find out more about how doddl helps ALL children</p>",
+        "team_avatar_width": 160,
+        "support_hours": "Our customer support is available Monday to Friday: 8am-8:30pm.",
+        "answer_time": "Average answer time: 24h",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "featured_collection_aM7pJe": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "shop-all",
+        "products": [
+          "toddler-spoon-and-fork-set",
+          "childrens-spoon-fork-knife-set",
+          "doddl-toddler-plate",
+          "the-doddl-2-in-1-suction-bowl",
+          "baby-cutlery-set-travel-case"
+        ],
+        "full_width": true,
+        "stack_products": true,
+        "show_progress_bar": false,
+        "products_count": 6,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 5,
+        "subheading": "",
+        "title": "Best Sellers",
+        "content": "",
+        "link_url": "",
+        "link_text": "View all",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "media_with_text_E7Yney",
+    "text_with_icons_mN4rNg",
+    "logo_list_4gQxKL",
+    "video_pzTNj3",
+    "timeline_YQy9PF",
+    "rich_text_mRNMNc",
+    "scrolling_text_3AFVCw",
+    "faq_bNPQd3",
+    "featured_collection_aM7pJe"
+  ]
+}

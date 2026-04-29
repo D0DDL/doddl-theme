@@ -1,0 +1,422 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "media_with_text_E7Yney": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_qey393": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Aqua_3_p_and_plate.png",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Our purpose",
+            "title": "The power of mealtimes",
+            "content": "<p>We believe mealtimes <strong>are more than just eating</strong>. They're an opportunity to educate our children, enjoy shared experiences and build life-long memories. </p><p>But only with the <strong>right tools.</strong></p><p>By combining <strong>deep child development insights with advanced design and engineering </strong>we've created innovative feeding tools that intuitively teach your child to eat, all on their own. Helping to unleash their independence, and <strong>increasing their skills and confidence</strong> every single mealtime.<br/><br/>And at doddl, we think independence really matters, because for a child,<strong> ‘I can do it!</strong>’ is immensly powerful and the confidence it instils creates the foundations for them to blossom and grow into <strong>inspired adults who have the ability to inspire the world.</strong></p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_qey393"
+      ],
+      "name": "Media with text",
+      "settings": {
+        "full_width": false,
+        "alternate_media_position": false,
+        "spacing": "small"
+      }
+    },
+    "video_pzTNj3": {
+      "type": "video",
+      "blocks": {
+        "play_gzyRzK": {
+          "type": "play",
+          "settings": {}
+        },
+        "heading_qhbAUb": {
+          "type": "heading",
+          "settings": {
+            "text": "Hello, we're doddl",
+            "heading_tag": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "play_gzyRzK",
+        "heading_qhbAUb"
+      ],
+      "name": "Video",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "autoplay": false,
+        "video_size": "auto",
+        "video": "shopify://files/videos/doddl_Brand video_General.mp4",
+        "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "text_with_icons_XymWEQ": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_GeEkfU": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/doddl_2023_Engineered_Icon_7316c180-cca0-4c4b-bc9e-477fcb1c0f44.png",
+            "mobile_icon_width": 120,
+            "icon_width": 120,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "#343a40",
+            "title": "Advanced design",
+            "content": "<p>Deep child development insights combined with advanced design and engineering to deliver products that genuinely enhance development and reduce stress at mealtimes.</p>"
+          }
+        },
+        "item_ExTVDX": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/doddl_2023_5_Star_Reviews_Icon_87e17495-9c36-47c3-818c-9523553b5ed0.png",
+            "mobile_icon_width": 120,
+            "icon_width": 120,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "#301562",
+            "title": "Emotional connections",
+            "content": "<p>Our products take away the challenges children face and enable them to learn to eat on their own quickly, intuitively and correctly, enhancing their development and helping you make the most of mealtimes together.</p>"
+          }
+        },
+        "item_CrrnqB": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/doddl_2023_Certified_safe_Icon_f747756e-fe6d-4d2f-8bc9-cb42a7684b83.png",
+            "mobile_icon_width": 120,
+            "icon_width": 120,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "#301562",
+            "title": "High quality",
+            "content": "<p>Premium materials combined with complex manufacturing to create high quality products with long lasting results.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_GeEkfU",
+        "item_ExTVDX",
+        "item_CrrnqB"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "title": "The DNA of doddl",
+        "heading_tag": "custom-about-title",
+        "text_alignment": "center",
+        "icon_spacing": "small",
+        "background": "rgba(0,0,0,0)",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "blog_posts_YcjDJk": {
+      "type": "blog-posts",
+      "blocks": {
+        "article_W4MEpP": {
+          "type": "article",
+          "settings": {
+            "article": "tips-and-advice/cat-doddl-inventor",
+            "background": "",
+            "text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "article_W4MEpP"
+      ],
+      "name": "Featured blog post",
+      "settings": {
+        "full_width": true,
+        "show_excerpt": true,
+        "show_date": true,
+        "show_author": false,
+        "show_comments_count": false,
+        "show_category": true,
+        "subheading": "",
+        "title": "Blog posts",
+        "content": "",
+        "link_url": "",
+        "link_text": "View all",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "scrolling_text_3AFVCw": {
+      "type": "scrolling-text",
+      "settings": {
+        "full_width": true,
+        "text": "Unleashing independence.",
+        "text_size": "medium",
+        "text_style": "fill",
+        "scrolling_mode": "auto",
+        "scrolling_speed": 8,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "text_gradient": "linear-gradient(90deg, rgba(48, 21, 98, 1), rgba(76, 46, 132, 1) 97%)"
+      }
+    },
+    "timeline_YQy9PF": {
+      "type": "timeline",
+      "blocks": {
+        "slide_NthmYq": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Messy_Eating1.jpg",
+            "navigation_label": "2013",
+            "subheading": "2013",
+            "title": "Idea for designing first technologically advanced cutlery for toddlers.",
+            "content": "<p>Born out of stressful and messy mealtimes with her children, doddl Founder Cat longed for a more enjoyable and relaxing experience. While on holiday with her family, her daughter’s fork handle broke, but she proceeded to use the stubby utensil end much more effectively. In that moment Cat envisioned a <a href=\"https://doddl.com/products/doddl-toddler-feeding-set\" target=\"_blank\" title=\"https://doddl.com/products/doddl-toddler-feeding-set\">toddler cutlery set</a> that was specifically engineered to help young children succeed immediately, whilst developing critical motor skills. </p>"
+          }
+        },
+        "slide_RLwtED": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/kids.jpg",
+            "navigation_label": "2015",
+            "subheading": "2015",
+            "title": "doddl launches with a successful crowdfunding campaign.",
+            "content": "<p>Following nearly 2 years of extensive research, testing and numerous design iterations, combined with the critical input from child development experts, the final prototypes are created. Doddl is officially launched to the public through Kickstarter crowd funding. Following this, we are selected as finalists for the Great British Inventors Project</p>"
+          }
+        },
+        "slide_GJByjc": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Retail_launch_2016.jpg",
+            "navigation_label": "2017",
+            "subheading": "2017",
+            "title": "doddl available in major retail (UK) and sells to over 20 countries.",
+            "content": "<p>Now available in JoJo Maman Bebe & Boots in the UK and is sold in Australia, France, Poland, Lithuania and more.</p>"
+          }
+        },
+        "slide_KtpdGY": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/japan.png",
+            "navigation_label": "2018",
+            "subheading": "2018",
+            "title": "Multi-award-winning doddl launches successfully in Japan and Taiwan.",
+            "content": "<p>Through new partnerships established in Japan and Taiwan doddl launches successfully in to these 2 key markets. doddl is featured on a popular Taiwanese reality TV show. </p>"
+          }
+        },
+        "slide_eYYMxw": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/baby_cutlery_launches_2019.jpg",
+            "navigation_label": "2019 & 2020",
+            "subheading": "2019 & 2020",
+            "title": "doddl baby cutlery launches to market",
+            "content": "<p>Following on from the success of doddl toddler cutlery, it was time to design a solution for babies from 6 months. Modelled on the original doddl design but re-engineered for a babies development, doddl baby cutlery was born. </p>"
+          }
+        },
+        "slide_TDAfGi": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/plates.jpg",
+            "navigation_label": "2021",
+            "subheading": "2021",
+            "title": "Celebrity fans share their doddl experience and the doddl plate launches.",
+            "content": "<p>Having purchased doddl, Joe Wicks, Gemma Atkinson, Lucy Mecklenburgh, Deliciously Ella, Camilla Thurlow and Kate Lawler share their doddl experiences. The doddl plate, with clever design features becomes the newest product in the doddl range. </p>"
+          }
+        },
+        "slide_bAUNTf": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/DODDL_BUNDLES_20_6222_copy.jpg",
+            "navigation_label": "2023",
+            "subheading": "2023",
+            "title": "Announced as winner of The Kings Award for Innovation and a world's first* the doddl 2-in-1 bowl launches",
+            "content": "<p>The King's Award for Enterprise -Innovation recognises a select number of businesses across the UK who have demostrated true innovation and commercial success over the past 5 years. On the back of this accolade, doddl launches a world's first, the doddl 2-in-1 bowl. *patent pending </p>"
+          }
+        },
+        "slide_tDqABe": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Blacnk_stand.jpg",
+            "navigation_label": "2024",
+            "subheading": "2024",
+            "title": "Biggest demand for doddl in history. New product development advances.",
+            "content": "<p>Watch this space....!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "slide_NthmYq",
+        "slide_RLwtED",
+        "slide_GJByjc",
+        "slide_KtpdGY",
+        "slide_eYYMxw",
+        "slide_TDAfGi",
+        "slide_bAUNTf",
+        "slide_tDqABe"
+      ],
+      "name": "Timeline",
+      "settings": {
+        "full_width": true,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_mRNMNc": {
+      "type": "rich-text",
+      "blocks": {
+        "icon_fFAyna": {
+          "type": "icon",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/Press.png",
+            "icon_width": 64,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": ""
+          }
+        },
+        "heading_TA7eFy": {
+          "type": "heading",
+          "settings": {
+            "text": "“Beautifully designed, our products are engineered specifically for babies and young children, to make eating independently easy, creating the kind of mealtimes I always wanted for my children”",
+            "heading_tag": "custom-rich-title",
+            "text_color": "#ffffff",
+            "gradient": ""
+          }
+        },
+        "richtext_zKhFEQ": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Cat Dodd</p>"
+          }
+        },
+        "richtext_wUHPm9": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Founder and CEO</p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_fFAyna",
+        "heading_TA7eFy",
+        "richtext_zKhFEQ",
+        "richtext_wUHPm9"
+      ],
+      "settings": {
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(90deg, rgba(48, 21, 98, 1), rgba(76, 46, 132, 1) 97%)",
+        "text_color": "#ffffff"
+      }
+    },
+    "multiple_images_with_text_9K4URK": {
+      "type": "multiple-images-with-text",
+      "blocks": {
+        "item_dLPTJx": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/At_doddl_we_care_about_the_future_of_our_children.jpg",
+            "image_rotation_degrees": 0,
+            "subheading": "Sustainability",
+            "title": "At doddl we care about the future of our children.",
+            "content": "<p>It’s at the heart of what we do. That means we take our responsibility to look after the future of the planet seriously. We are striving to make doddl as genuinely eco-friendly as possible, without impacting the unique benefits that our products offer. For us, this is an evolution that we are firmly committed to. <a href=\"/pages/our-commitment-to-the-future\" title=\"Our commitment to the future\">Find out more</a></p>",
+            "button_url": "",
+            "button_text": ""
+          }
+        },
+        "item_VfQHWU": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Child_development.jpg",
+            "image_rotation_degrees": -15,
+            "subheading": "Inspiring children in readiness for their future",
+            "title": "At doddl we believe in nurturing a child’s development.",
+            "content": "<p>We support and fund <strong>2benterprising</strong>, an organisation partnering with schools to inspire the next generation of ambitious, healthy, ethical and enterprising citizens. To help young children develop the skills they need to confidently make decisions, communicate effectively and contribute positively to their community. <a href=\"/pages/our-commitment-to-the-future\" title=\"Our commitment to the future\">Find out more</a></p>",
+            "button_url": "",
+            "button_text": ""
+          }
+        },
+        "item_g9z6rj": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Expert_option_1.jpg",
+            "image_rotation_degrees": 0,
+            "subheading": "Embedding knowledge and expertise into all of our products",
+            "title": "Expert led.",
+            "content": "<p>From the very beginning of doddl we have worked in partnership with experts from across Feeding, Child Development, Occupational Therapy & Nutrition. Their insights are embedded into doddl products and their endorsements continue to add credibility and confidence to our range.<a href=\"/pages/what-the-experts-think\" title=\"What the experts think\"> Expert Endorsements </a></p>",
+            "button_url": "",
+            "button_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_dLPTJx",
+        "item_VfQHWU",
+        "item_g9z6rj"
+      ],
+      "name": "Multiple images with text",
+      "settings": {
+        "full_width": true,
+        "images_layout": "stacked",
+        "collage_images_alignment": "middle",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "media_with_text_E7Yney",
+    "video_pzTNj3",
+    "text_with_icons_XymWEQ",
+    "blog_posts_YcjDJk",
+    "scrolling_text_3AFVCw",
+    "timeline_YQy9PF",
+    "rich_text_mRNMNc",
+    "multiple_images_with_text_9K4URK"
+  ]
+}

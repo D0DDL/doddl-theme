@@ -1,0 +1,374 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "image_with_text_overlay_8rEcBY": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_wCWd8Q": {
+          "type": "heading",
+          "settings": {
+            "text": "Delivery and Orders",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_ENjznC": {
+          "type": "richtext",
+          "settings": {
+            "content": "<h4>Your questions answered.</h4>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_wCWd8Q",
+        "richtext_ENjznC"
+      ],
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "sm",
+        "image": "shopify://shop_images/brown-packing-being-shipped.jpg",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#2f1562",
+        "overlay_opacity": 20
+      }
+    },
+    "rich_text_DiFHjj": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_pjqQcm": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "Christmas Closure",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_4mqwEi": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "content": "<p>We’ll be taking a short Christmas break to spend time with our families.</p><p>Orders placed <strong>from 24 December to 2 January</strong> will be <strong>dispatched on 2 January</strong>.</p><p>If anything is urgent, please email us at <a><strong>hello@doddl.com</strong></a> and we’ll do our best to help.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pjqQcm",
+        "richtext_4mqwEi"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "accordion_content_ykgJde": {
+      "type": "accordion-content",
+      "blocks": {
+        "item_HCMzQy": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "What is the doddl guarantee?",
+            "content": "<p>We feel very confident that you will love your doddl purchase. That's why we guarantee it. So, if for any reason you aren’t happy with the doddl you purchased from doddl.com, you can just return the item and we’ll give you a full refund, including your original postage fee (please note if you have paid for Gift Wrapping, this unfortunately can not be refunded).</p><p>Simply e-mail our customer service team at team@doddl.com to advise that you wish to return your goods (please include your original order number) and we will give you a customer reference number to include with your return items. If you would like to speak to one of our Customer Service team, please call +44 (0)<br/>7903 786337 between 09:00 and 16:00 GMT Monday to Friday.</p><p>Please note, the cost of returning goods to us will need to be paid for by you. You are responsible for the goods while in transit until they reach our offices and responsibility for loss or damage to your item sits with you, or for you to dispute with your delivery service providers, until it reaches doddl HQ.</p><p>Upon receipt of the goods we will give you a full refund of the amount paid within 10 days. Please ensure goods reach us within 28 days of receipt to qualify for a full refund. Any items not returned to us within 28 days, will not be refunded.</p>",
+            "page": ""
+          }
+        },
+        "item_mxcQNx": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "What does the free delivery relate to?",
+            "content": "<p>We offer free delivery for product orders totalling over £25 (please note gifting is not a product) and relates to Royal Mail 2nd Class delivery and please note this is for UK residents only.  Please note the maximum limited to receive free shipping is 6 items per order. If you have specific requirements please contact us directly on team@doddl.com. </p>",
+            "page": ""
+          }
+        },
+        "item_a7PRBH": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "How much does delivery cost?",
+            "content": "<p>Delivery charges are specific to the country to which you would like your order delivered and the type of delivery you choose:</p><ul><li><strong>UK</strong> – Next day delivery (Note, this is next working day and orders must be placed by 12:00 to receive next day) £5.95 / 1st class £3.95/ 2nd class £2.95</li><li><strong>Europe</strong> – Royal Mail International Standard - £8.95</li><li><strong>Worldwide</strong> – Tracked Delivery – £10.95</li></ul><p>Please note for international deliveries you may be subject to taxes in your home country. please contact team@doddl.com for more information.</p><p></p>",
+            "page": ""
+          }
+        },
+        "item_qHRRK9": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "How long will it take for my doddl order to arrive?",
+            "content": "<p>It very much depends on where you are in the world, but as an approximate guide, if you have purchased from doddl.com:</p><p>UK Next Day delivery relates to orders placed before 12:00 Monday-Friday.</p><p>UK is 1 to 5 days (depending on which postal service you selected at checkout), Europe is typically 1 to 2 weeks.</p><p>For customers who have purchased from our US doddl store delivery can take between 2-5 days</p><p>Rest of world from either of our stores is typically 2 to 4 weeks, but could be up to 6 weeks for certain countries.</p><p>Please contact team@doddl.com if you have any concerns about your doddl order.</p>",
+            "page": ""
+          }
+        },
+        "item_n3FYe4": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "I have lost my doddl spoon/fork, can I buy a replacement?",
+            "content": "<p>If you have lost an item of the doddl baby cutlery set or the doddl children’s cutlery set, please contact team@doddl.com and one of our customer service team will be happy to help.</p>",
+            "page": ""
+          }
+        },
+        "item_Ub3cFi": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "What shall I do if I have a question about my doddl order?",
+            "content": "<p>If for any reason you have a question please contact team@doddl.com and one of our customer service team will be happy to help.</p>",
+            "page": ""
+          }
+        },
+        "item_RGfwxt": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "What countries do you deliver doddl to?",
+            "content": "<p>We deliver doddl from doddl.com to countries all over the world and you can select your country at the checkout. However, we also have partners that sell doddl ‘in country’ and these can be found in the <a href=\"/pages/international-retailers\" title=\"International Retailers\">‘International retailers’ </a>section of the website.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_HCMzQy",
+        "item_mxcQNx",
+        "item_a7PRBH",
+        "item_qHRRK9",
+        "item_n3FYe4",
+        "item_Ub3cFi",
+        "item_RGfwxt"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "FAQs",
+        "title": "My doddl order",
+        "content": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "accordion_content_N73tU9": {
+      "type": "accordion-content",
+      "blocks": {
+        "item_6FgTYD": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "How much does delivery cost?",
+            "content": "<p>Please note that <strong>free delivery </strong>for orders over £20 relates to Royal Mail 2nd Class delivery, UK residents only.</p><p>Delivery charges are specific to the country to which you would like your order delivered:</p><ul><li>UK – Next day delivery (note: this is next working day and must be ordered by 12:00) £5.95 / 1st class £3.95/ 2nd class £2.95</li><li>Europe – Royal Mail International Standard £8.95</li><li>Worldwide – Tracked Delivery – £10.95</li></ul><p>For US residents: Please note <strong>free delivery </strong>only applies to orders over $30 and is relevant for US residents only.</p><p>Usual postage costs are:</p><ul><li>1st Class – $3.95</li><li>Priority Mail – $8.95</li><li>Canada – $12.95</li><li>Worldwide – $14.95</li></ul>",
+            "page": ""
+          }
+        },
+        "item_xnbxYN": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "How long will it take for my doddl order to arrive?",
+            "content": "<p>It very much depends on where you are in the world, but as an approximate guide, if you have purchased from doddl.com:</p><p>UK is 1 to 5 days (depending on which postal service you selected at checkout), Europe is typically 1 to 2 weeks.</p><p>For customers who have purchased from our US doddl store delivery can take between 2-5 days</p><p>Rest of world from either of our stores is typically 2 to 4 weeks, but could be up to 6 weeks for certain countries.</p><p>Please contact team@doddl.com if you have any concerns about your doddl order.</p>",
+            "page": ""
+          }
+        },
+        "item_zFb4pr": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "What is the cut off for next day delivery?",
+            "content": "<p>You must order by 12:00 Monday to Friday to guarantee next day delivery. Unfortunately we can't guarantee next day delivery for orders placed on Saturday or Sunday. Please note next day delivery option is only available for residents in the UK.</p>",
+            "page": ""
+          }
+        },
+        "item_UXjkpB": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "For international deliveries, who is responsible for import duties and taxes?",
+            "content": "<p>You are responsible for covering the cost of any import duties and/or taxes that may apply to your specific country.</p>",
+            "page": ""
+          }
+        },
+        "item_znKzTU": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "There is a problem with my doddl order - what shall I do?",
+            "content": "<p>We are very proud of the high quality of our products, however in the unusual situation there is a fault or your product has a defect, please e-mail us at team@doddl.com to let us know and we will investigate further to make sure you get the best possible doddl experience.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_6FgTYD",
+        "item_xnbxYN",
+        "item_zFb4pr",
+        "item_UXjkpB",
+        "item_znKzTU"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "FAQs",
+        "title": "Delivery & returns",
+        "content": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "accordion_content_6VPEAn": {
+      "type": "accordion-content",
+      "blocks": {
+        "item_LJYjcL": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Do you offer any doddl discount codes?",
+            "content": "<p>Not frequently, but we occasionally issue promo codes, most commonly providing 10% off for new customers. Please follow our main social media accounts <a href=\"https://www.instagram.com/doddl\"><span style=\"text-decoration:underline\">(Instagram</span></a>, <a href=\"https://www.facebook.com/doddlkids/\"><span style=\"text-decoration:underline\">Facebook</span></a> and <a href=\"https://www.tiktok.com/@doddlkids\"><span style=\"text-decoration:underline\">TikTok</span></a>) or subscribe to our newsletter to be notified of any promotions..</p>",
+            "page": ""
+          }
+        },
+        "item_6HxLhj": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "How do I use a doddl discount code at checkout?",
+            "content": "<p>To redeem a code, simply:</p><ol><li>Add your items to the basket on doddl.com</li><li>Proceed to checkout</li><li>Enter your code in the “Promo code” or “Discount code” box</li><li>Click Apply, you’ll see confirmation of your savings or an error message if it's invalid.<a href=\"https://www.wethrift.com/doddl?utm_source=chatgpt.com\"> </a></li></ol>",
+            "page": ""
+          }
+        },
+        "item_fQpVPa": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Can I use more than one discount code on a single order?",
+            "content": "<p>No, doddl's checkout system currently only allows one discount or promo code per order. Always enter the single code that gives you the best available savings.<br/><br/></p>",
+            "page": ""
+          }
+        },
+        "item_r7zhzp": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Do you offer student or NHS discounts?",
+            "content": "<p>No specific student or NHS discounts are currently advertised or offered directly by doddl. No official program or code exists for students, NHS staff, or similar groups.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_LJYjcL",
+        "item_6HxLhj",
+        "item_fQpVPa",
+        "item_r7zhzp"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "FAQs",
+        "title": "Discounts & Promo Codes",
+        "content": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "featured_collection_C7tq4f": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "discover-gifting",
+        "products": [],
+        "full_width": true,
+        "stack_products": true,
+        "show_progress_bar": false,
+        "products_count": 6,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 3,
+        "subheading": "",
+        "title": "Explore Our Bundles + Gifts",
+        "content": "",
+        "link_url": "",
+        "link_text": "View all",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_8rEcBY",
+    "rich_text_DiFHjj",
+    "accordion_content_ykgJde",
+    "accordion_content_N73tU9",
+    "accordion_content_6VPEAn",
+    "featured_collection_C7tq4f"
+  ]
+}

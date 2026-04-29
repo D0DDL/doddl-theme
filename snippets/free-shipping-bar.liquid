@@ -1,0 +1,187 @@
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+FREE SHIPPING BAR
+----------------------------------------------------------------------------------------------------------------------
+
+Renders the free shipping bar component. It is used on cart page and cart drawer to render the remaining amount before
+being eligible for free shipping and other promotions.
+
+********************************************
+Supported variables
+********************************************
+
+* size: accept the value "sm"
+{%- endcomment -%}
+
+{%- liquid
+  assign calculated_total_price = 0
+
+  for line_item in cart.items
+    if line_item.requires_shipping
+      assign calculated_total_price = calculated_total_price | plus: line_item.final_line_price
+    endif
+  endfor
+
+  # We have to remove the cart level discount from the calculated amount
+  assign total_cart_discount = 0
+
+  for discount_application in cart.cart_level_discount_applications
+    assign total_cart_discount = total_cart_discount | plus: discount_application.total_allocated_amount
+  endfor
+
+  assign calculated_total_price = calculated_total_price | minus: total_cart_discount
+  
+  # Determine promotion messages
+  assign threshold_1 = settings.cart_promotion_1_threshold | times: 100.0
+  assign threshold_2 = settings.cart_promotion_2_threshold | times: 100.0
+  assign title_1 = settings.cart_promotion_1_title | default: 'Free shipping'
+  assign title_2 = settings.cart_promotion_2_title | default: 'Free gift'
+
+  # Create message variables with placeholders
+  assign remaining_amount_placeholder = '{{remaining_amount}}'
+  assign unreached_message_1 = 'cart.free_shipping_bar.tier_1_unreached_html' | t: title: title_1, remaining_amount: remaining_amount_placeholder
+  assign unreached_message_2 = 'cart.free_shipping_bar.tier_2_unreached_html' | t: title: title_2, remaining_amount: remaining_amount_placeholder
+  assign reached_message_1 = 'cart.free_shipping_bar.tier_1_reached_html' | t: title: title_1
+  assign reached_message_2 = 'cart.free_shipping_bar.tier_2_reached_html' | t: title_1: title_1, title_2: title_2
+-%}
+
+{%- if cart.requires_shipping and settings.cart_show_free_shipping_threshold -%}
+  {%- liquid
+    # Only set threshold_2 if it has a value
+    assign threshold_1 = settings.cart_promotion_1_threshold | times: 100.0
+    if settings.cart_promotion_2_threshold != blank and settings.cart_promotion_2_threshold != '0'
+      assign threshold_2 = settings.cart_promotion_2_threshold | times: 100.0
+    else 
+      assign threshold_2 = 0
+    endif
+  -%}
+
+  <free-shipping-bar class="free-shipping-bar" 
+    threshold="{{ threshold_1 }}" 
+    threshold-2="{{ threshold_2 }}" 
+    total-price="{{ calculated_total_price }}" 
+    reached-message="{{ reached_message_1 | escape }}" 
+    reached-message-2="{{ reached_message_2 | escape }}"
+    unreached-message="{{ unreached_message_1 | escape }}" 
+    unreached-message-2="{{ unreached_message_2 | escape }}">
+    
+    <span>&nbsp;</span>
+
+    <div class="free-shipping-bar__progress-container">
+      <progress-bar class="progress-bar" role="progressbar" aria-valuemin="0" style="--progress: 0"></progress-bar>
+
+      <div class="free-shipping-bar__thresholds">
+        <div class="free-shipping-bar__threshold" style="--threshold-position: {% if threshold_2 != 0 %}{{ threshold_1 | divided_by: threshold_2 | times: 100 }}{% else %}100{% endif %}%">
+          {%- if settings.cart_promotion_1_icon != blank -%}
+            <div class="free-shipping-bar__icon">
+              {%- render 'icon', icon: settings.cart_promotion_1_icon -%}
+            </div>
+          {%- endif -%}
+          <div class="free-shipping-bar__threshold-info">
+            <span class="free-shipping-bar__threshold-title">{{ title_1 }}</span>
+            <span class="free-shipping-bar__threshold-amount" data-threshold="1">{{ threshold_1 | money }}</span>
+          </div>
+        </div>
+
+        {%- if threshold_2 != 0 -%}
+          <div class="free-shipping-bar__threshold" style="--threshold-position: 100%">
+            {%- if settings.cart_promotion_2_icon != blank -%}
+              <div class="free-shipping-bar__icon">
+                {%- render 'icon', icon: settings.cart_promotion_2_icon -%}
+              </div>
+            {%- endif -%}
+            <div class="free-shipping-bar__threshold-info">
+              <span class="free-shipping-bar__threshold-title">{{ title_2 }}</span>
+              <span class="free-shipping-bar__threshold-amount" data-threshold="2">{{ threshold_2 | money }}</span>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </free-shipping-bar>
+
+  {% style %}
+    .free-shipping-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .free-shipping-bar__progress-container {
+      position: relative;
+      padding-top: 1rem;
+      padding-bottom: 4rem;
+    }
+
+    .free-shipping-bar__thresholds {
+      position: absolute;
+      top: .3rem;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .free-shipping-bar__threshold {
+      position: absolute;
+      top: 0;
+      left: var(--threshold-position);
+      transform: translateX(-50%);
+      display: flex;
+      gap: .25em;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .free-shipping-bar__threshold:only-child {
+
+        left: calc(var(--threshold-position) - .5rem);
+
+    }
+
+    .free-shipping-bar__threshold:last-of-type:not(:only-child) { 
+      align-items: flex-end;
+      text-align: right;
+
+      @media screen and (max-width: 768px) {
+        left: calc(var(--threshold-position) / 1.03);
+      }
+    }
+
+    .free-shipping-bar__icon {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: #C0B8D0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .free-shipping-bar__threshold-info {
+      display: flex;
+      flex-direction: column;
+      top: calc(100% + 1rem);
+      white-space: nowrap;
+    }
+
+    .free-shipping-bar__threshold-title {
+      font-size: 0.786rem;
+      font-weight: 500;
+    }
+
+    .free-shipping-bar__threshold-amount {
+      font-size: 0.786rem;
+      font-weight: 600;
+    }
+
+    /* Ensure progress bar has enough height to be visible */
+    .progress-bar {
+      height: 0.75rem;
+      border-radius: 999px;
+      overflow: hidden;
+      display:block;
+    }
+  {% endstyle %}
+{%- endif -%}

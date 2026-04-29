@@ -1,0 +1,762 @@
+{%- render 'section-spacing-collapsing' -%}
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+CSS
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} .collection-list {
+    {%- if section.settings.stack_collections -%}
+      --collection-list-grid: auto / repeat({{ section.settings.collections_per_row_mobile | times: 1 }}, minmax(0, 1fr));
+    {%- else -%}
+      --collection-list-grid: auto / auto-flow 73vw;
+    {%- endif -%}
+  }
+
+  @media screen and (min-width: 700px) {
+    #shopify-section-{{ section.id }} .collection-list {
+      --collection-list-grid: {% if section.settings.stack_collections %}auto / repeat(2, minmax(0, 1fr)){% else %}auto / auto-flow 36vw{% endif %};
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .collection-list {
+      --collection-list-grid: {% if section.settings.stack_collections %}auto / repeat({{ 3 | at_most: section.settings.collections_per_row }}, minmax(0, 1fr)){% else %}auto / auto-flow calc(var(--container-inner-width) / {{ section.settings.collections_per_row }} - (var(--grid-gutter) / 3 * 2)){% endif %};
+    }
+  }
+
+  @media screen and (min-width: 1400px) {
+    #shopify-section-{{ section.id }} .collection-list {
+      --collection-list-grid: {% if section.settings.stack_collections %}auto / repeat({{ section.settings.collections_per_row }}, minmax(0, 1fr)){% else %}auto / auto-flow calc(var(--container-inner-width) / {{ section.settings.collections_per_row }} - (var(--grid-gutter) / {{ section.settings.collections_per_row }} * {{ section.settings.collections_per_row | minus: 1 }})){% endif %};
+    }
+  }
+
+  /* Content alignment */
+  #shopify-section-{{ section.id }} .section-header {
+    {%- case section.settings.content_alignment -%}
+      {%- when 'left' -%}
+        text-align: left;
+      {%- when 'center' -%}
+        text-align: center;
+      {%- when 'right' -%}
+        text-align: right;
+    {%- endcase -%}
+  }
+
+  #shopify-section-{{ section.id }} .section-stack:has(.collection-group-tabs) {
+    gap: 1em;
+  }
+
+  /* Group tabs styling */
+  #shopify-section-{{ section.id }} .collection-group-tabs {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    overflow: hidden;
+    flex-wrap: wrap;
+    {%- case section.settings.content_alignment -%}
+      {%- when 'left' -%}
+        justify-content: flex-start;
+      {%- when 'center' -%}
+        justify-content: center;
+      {%- when 'right' -%}
+        justify-content: flex-end;
+    {%- endcase -%}
+  }
+
+  #shopify-section-{{ section.id }} .section-header {
+    {%- case section.settings.content_alignment -%}
+    {%- when 'left' -%}
+      justify-content: flex-start;
+      justify-items: flex-start;
+    {%- when 'center' -%}
+      justify-content: center;
+      justify-items: center;
+    {%- when 'right' -%}
+      justify-content: flex-end;
+      justify-items: flex-end;
+  {%- endcase -%}
+}
+
+  #shopify-section-{{ section.id }} .collection-group-tab {
+    border: none;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    font-weight: 600;
+    border: 1px solid var(--text-primary);
+    color: var(--text-primary);
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    transform: scale(1);
+    box-shadow: none;
+    font-size: 1rem;
+  }
+
+  #shopify-section-{{ section.id }} .collection-group-tab img {
+    height: 24px;
+    width: 24px;
+    object-fit: contain;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #shopify-section-{{ section.id }} .collection-group-tab:hover {
+    transform: scale(1.02);
+    background: #E6E6FA;
+  }
+
+  #shopify-section-{{ section.id }} .collection-group-tab:hover img {
+    transform: scale(1.05);
+  }
+
+  #shopify-section-{{ section.id }} .collection-group-tab.active {
+    background: #E6E6FA;
+    transform: scale(1.05);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    z-index: 1;
+  }
+
+  #shopify-section-{{ section.id }} .collection-group-tab:not(.active) {
+    border: 1px solid #dadada;
+  }
+
+  #shopify-section-{{ section.id }} .collection-group-tab.active img {
+    transform: scale(1);
+  }
+
+  #shopify-section-{{ section.id }} .collection-group-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .collection-group-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive adjustments */
+  @media screen and (max-width: 699px) {
+    #shopify-section-{{ section.id }} .collection-group-tabs {
+      justify-content: flex-start;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      padding-bottom: 0.5rem;
+    }
+    
+    #shopify-section-{{ section.id }} .collection-group-tab {
+      flex-shrink: 0;
+      padding: 0.75rem 1.25rem;
+      font-size: 0.9rem;
+    }
+    
+    #shopify-section-{{ section.id }} .collection-group-tab img {
+      height: 20px;
+      width: 20px;
+    }
+  }
+</style>
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+LIQUID
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<div {% render 'section-properties' %}>
+  <div class="section-stack">
+    {%- render 'section-header', subheading: section.settings.subheading, heading: section.settings.title, heading_color: section.settings.heading_color, heading_gradient: section.settings.heading_gradient, content: section.settings.content -%}
+
+    {%- comment -%} Check if we have any groups {%- endcomment -%}
+    {%- assign has_groups = false -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'group' -%}
+        {%- assign has_groups = true -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if has_groups -%}
+      {%- comment -%} Render group tabs {%- endcomment -%}
+      <div class="collection-group-tabs">
+        {%- assign first_group = true -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'group' -%}
+            <button 
+              type="button" 
+              class="collection-group-tab{% if first_group %} active{% endif %}" 
+              data-group="{{ block.settings.group_id }}"
+              {{ block.shopify_attributes }}
+            >
+              {%- if block.settings.group_icon != blank -%}
+                <img src="{{ block.settings.group_icon | image_url: width: 48 }}" alt="{{ block.settings.group_name | default: 'Group' | escape }}" width="24" height="24">
+              {%- endif -%}
+              {{ block.settings.group_name | default: 'Group' | escape }}
+            </button>
+            {%- assign first_group = false -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      {%- comment -%} Render group content {%- endcomment -%}
+      {%- assign first_group = true -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'group' -%}
+          <div class="collection-group-content{% if first_group %} active{% endif %}" data-group-content="{{ block.settings.group_id }}">
+            <div class="{% if section.settings.show_progress_bar %}scrollable-with-controls{% else %}floating-controls-container{% endif %}">
+              {%- assign scroll_area_id = 'scroll-area-' | append: section.id | append: '-' | append: block.settings.group_id -%}
+
+              {%- comment -%} Count collections for this group {%- endcomment -%}
+              {%- assign group_collection_count = 0 -%}
+              {%- for collection_block in section.blocks -%}
+                {%- if collection_block.type == 'collection' and collection_block.settings.group_id == block.settings.group_id -%}
+                  {%- assign group_collection_count = group_collection_count | plus: 1 -%}
+                {%- endif -%}
+              {%- endfor -%}
+
+              <scroll-carousel selector=".collection-card" id="{{ scroll_area_id }}" class="scroll-area bleed {% if group_collection_count > section.settings.collections_per_row %}is-scrollable{% endif %}">
+                <collection-list class="collection-list">
+                  {%- for collection_block in section.blocks -%}
+                    {%- if collection_block.type == 'collection' and collection_block.settings.group_id == block.settings.group_id -%}
+                      {%- assign collection = collection_block.settings.collection -%}
+                      {%- assign collection_url = collection_block.settings.url | default: collection.url -%}
+
+                      <a {% if collection_url != blank %}href="{{ collection_url }}"{% endif %} class="collection-card {% if collection_block.settings.text_position contains 'place-self-end' %}collection-card--reverse-transition{% endif %} shadow" reveal-js {{ collection_block.shopify_attributes }}>
+                        <div class="content-over-media group rounded-sm" style="--content-over-media-overlay: {{ collection_block.settings.overlay_color.rgb }} / {{ collection_block.settings.overlay_opacity | divided_by: 100.0 }}">
+                          {%- if collection != blank or collection_block.settings.image != blank -%}
+                            {%- assign image = collection_block.settings.image | default: collection.featured_image -%}
+
+                            {%- if image != blank -%}
+                              {%- capture sizes -%}(max-width: 699px) 73vw, {{ settings.page_width | divided_by: section.settings.collections_per_row }}px{%- endcapture -%}
+                              {{- image | image_url: width: image.width | image_tag: loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,800,1000,1200,1400,1600', class: 'zoom-image' -}}
+                            {%- endif -%}
+
+                            <div class="collection-card__content-wrapper text-custom {{ collection_block.settings.text_position }}" style="--text-color: {{ collection_block.settings.text_color.rgb }}">
+                              {%- if collection_block.settings.text_position contains 'place-self-end' -%}
+                                {%- render 'icon' with 'circle-button-right-clipped', width: 40, height: 40 -%}
+                              {%- endif -%}
+
+                              <div class="collection-card__content prose">
+                                {%- if collection_block.settings.subheading != blank -%}
+                                  <p class="subheading">{{ collection_block.settings.subheading | escape }}</p>
+                                {%- endif -%}
+
+                                <p class="{{ collection_block.settings.heading_tag }}">{{ collection_block.settings.title | default: collection.title | escape }}</p>
+                              </div>
+
+                              {%- unless collection_block.settings.text_position contains 'place-self-end' -%}
+                                {%- render 'icon' with 'circle-button-right-clipped', width: 40, height: 40 -%}
+                              {%- endunless -%}
+                            </div>
+                          {%- else -%}
+                            {%- capture collection_placeholder -%}{% cycle 'collection-1', 'collection-2', 'collection-3' %}{%- endcapture -%}
+                            {{- collection_placeholder | placeholder_svg_tag: 'placeholder zoom-image' -}}
+
+                            <div class="collection-card__content-wrapper text-custom {{ collection_block.settings.text_position }}" style="--text-color: {{ collection_block.settings.text_color.rgb }}">
+                              {%- if collection_block.settings.text_position contains 'place-self-end' -%}
+                                {%- render 'icon' with 'circle-button-right-clipped', width: 40, height: 40 -%}
+                              {%- endif -%}
+
+                              <div class="collection-card__content prose">
+                                <p class="{{ collection_block.settings.heading_tag }}">{{- 'general.on_boarding.collection_title' | t -}}</p>
+                              </div>
+
+                              {%- unless collection_block.settings.text_position contains 'place-self-end' -%}
+                                {%- render 'icon' with 'circle-button-right-clipped', width: 40, height: 40 -%}
+                              {%- endunless -%}
+                            </div>
+                          {%- endif -%}
+                        </div>
+                      </a>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </collection-list>
+              </scroll-carousel>
+
+              {%- if section.settings.stack_collections == false -%}
+                {%- if section.settings.show_progress_bar -%}
+                  {%- assign default_progress = section.settings.collections_per_row | times: 1.0 | divided_by: group_collection_count -%}
+                  {%- render 'scrollbar', observes: scroll_area_id, default_progress: default_progress, show_buttons: true -%}
+                {%- else -%}
+                  <button is="prev-button" class="circle-button circle-button--lg circle-button--fill border group" aria-controls="{{ scroll_area_id }}" disabled>
+                    <span class="sr-only">{{ 'general.accessibility.previous' | t }}</span>
+                    <span class="animated-arrow animated-arrow--reverse"></span>
+                  </button>
+
+                  <button is="next-button" class="circle-button circle-button--lg circle-button--fill border group" aria-controls="{{ scroll_area_id }}">
+                    <span class="sr-only">{{ 'general.accessibility.next' | t }}</span>
+                    <span class="animated-arrow"></span>
+                  </button>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+          </div>
+          {%- assign first_group = false -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- else -%}
+      {%- comment -%} Render collections normally if no groups {%- endcomment -%}
+      <div class="{% if section.settings.show_progress_bar %}scrollable-with-controls{% else %}floating-controls-container{% endif %}">
+        {%- assign scroll_area_id = 'scroll-area-' | append: section.id -%}
+
+        <scroll-carousel selector=".collection-card" id="{{ scroll_area_id }}" class="scroll-area bleed {% if section.blocks.size > section.settings.collections_per_row %}is-scrollable{% endif %}">
+          <collection-list class="collection-list">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'collection' -%}
+                {%- assign collection = block.settings.collection -%}
+                {%- assign collection_url = block.settings.url | default: collection.url -%}
+
+                <a {% if collection_url != blank %}href="{{ collection_url }}"{% endif %} class="collection-card {% if block.settings.text_position contains 'place-self-end' %}collection-card--reverse-transition{% endif %} shadow" reveal-js {{ block.shopify_attributes }}>
+                  <div class="content-over-media group rounded-sm" style="--content-over-media-overlay: {{ block.settings.overlay_color.rgb }} / {{ block.settings.overlay_opacity | divided_by: 100.0 }}">
+                    {%- if collection != blank or block.settings.image != blank -%}
+                      {%- assign image = block.settings.image | default: collection.featured_image -%}
+
+                      {%- if image != blank -%}
+                        {%- capture sizes -%}(max-width: 699px) 73vw, {{ settings.page_width | divided_by: section.settings.collections_per_row }}px{%- endcapture -%}
+                        {{- image | image_url: width: image.width | image_tag: loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,800,1000,1200,1400,1600', class: 'zoom-image' -}}
+                      {%- endif -%}
+
+                      <div class="collection-card__content-wrapper text-custom {{ block.settings.text_position }}" style="--text-color: {{ block.settings.text_color.rgb }}">
+                        {%- if block.settings.text_position contains 'place-self-end' -%}
+                          {%- render 'icon' with 'circle-button-right-clipped', width: 40, height: 40 -%}
+                        {%- endif -%}
+
+                        <div class="collection-card__content prose">
+                          {%- if block.settings.subheading != blank -%}
+                            <p class="subheading">{{ block.settings.subheading | escape }}</p>
+                          {%- endif -%}
+
+                          <p class="{{ block.settings.heading_tag }}">{{ block.settings.title | default: collection.title | escape }}</p>
+                        </div>
+
+                        {%- unless block.settings.text_position contains 'place-self-end' -%}
+                          {%- render 'icon' with 'circle-button-right-clipped', width: 40, height: 40 -%}
+                        {%- endunless -%}
+                      </div>
+                    {%- else -%}
+                      {%- capture collection_placeholder -%}{% cycle 'collection-1', 'collection-2', 'collection-3' %}{%- endcapture -%}
+                      {{- collection_placeholder | placeholder_svg_tag: 'placeholder zoom-image' -}}
+
+                      <div class="collection-card__content-wrapper text-custom {{ block.settings.text_position }}" style="--text-color: {{ block.settings.text_color.rgb }}">
+                        {%- if block.settings.text_position contains 'place-self-end' -%}
+                          {%- render 'icon' with 'circle-button-right-clipped', width: 40, height: 40 -%}
+                        {%- endif -%}
+
+                        <div class="collection-card__content prose">
+                          <p class="{{ block.settings.heading_tag }}">{{- 'general.on_boarding.collection_title' | t -}}</p>
+                        </div>
+
+                        {%- unless block.settings.text_position contains 'place-self-end' -%}
+                          {%- render 'icon' with 'circle-button-right-clipped', width: 40, height: 40 -%}
+                        {%- endunless -%}
+                      </div>
+                    {%- endif -%}
+                  </div>
+                </a>
+              {%- endif -%}
+            {%- endfor -%}
+          </collection-list>
+        </scroll-carousel>
+
+        {%- if section.settings.stack_collections == false -%}
+          {%- if section.settings.show_progress_bar -%}
+            {%- assign collection_count = 0 -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'collection' -%}
+                {%- assign collection_count = collection_count | plus: 1 -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- assign default_progress = section.settings.collections_per_row | times: 1.0 | divided_by: collection_count -%}
+            {%- render 'scrollbar', observes: scroll_area_id, default_progress: default_progress, show_buttons: true -%}
+          {%- else -%}
+            <button is="prev-button" class="circle-button circle-button--lg circle-button--fill border group" aria-controls="{{ scroll_area_id }}" disabled>
+              <span class="sr-only">{{ 'general.accessibility.previous' | t }}</span>
+              <span class="animated-arrow animated-arrow--reverse"></span>
+            </button>
+
+            <button is="next-button" class="circle-button circle-button--lg circle-button--fill border group" aria-controls="{{ scroll_area_id }}">
+              <span class="sr-only">{{ 'general.accessibility.next' | t }}</span>
+              <span class="animated-arrow"></span>
+            </button>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{%- comment -%} JavaScript for group switching {%- endcomment -%}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const sectionId = 'shopify-section-{{ section.id }}';
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    const tabs = section.querySelectorAll('.collection-group-tab');
+    const contents = section.querySelectorAll('.collection-group-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const groupId = this.dataset.group;
+        
+        // Remove active class from all tabs and contents
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        
+        // Add active class to clicked tab
+        this.classList.add('active');
+        
+        // Show corresponding content
+        const targetContent = section.querySelector(`[data-group-content="${groupId}"]`);
+        if (targetContent) {
+          targetContent.classList.add('active');
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Collection Group",
+  "class": "shopify-section--collection-list",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "stack_collections",
+      "label": "Stack collections",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "collections_per_row_mobile",
+      "label": "Collections per row (mobile)",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "range",
+      "id": "collections_per_row",
+      "min": 2,
+      "max": 5,
+      "label": "Collections per row (desktop)",
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "show_progress_bar",
+      "label": "Show carousel progress bar",
+      "default": false,
+      "visible_if": "{{ section.settings.stack_collections == false }}"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Collection list"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "info": "Alignment for title and tabs"
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": "Gradient replaces solid colors when set."
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color"
+    },
+    {
+      "type": "color_background",
+      "id": "heading_gradient",
+      "label": "Heading gradient"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "group",
+      "name": "Collection Group",
+      "settings": [
+        {
+          "type": "text",
+          "id": "group_id",
+          "label": "Group ID",
+          "info": "Use a simple ID like 'babies' or 'toddlers' to group collections"
+        },
+        {
+          "type": "image_picker",
+          "id": "group_icon",
+          "label": "Icon",
+          "info": "This will appear as the tab icon"
+        },
+        {
+          "type": "text",
+          "id": "group_name",
+          "label": "Group name",
+          "info": "This will appear as the tab text"
+        }
+      ]
+    },
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "text",
+          "id": "group_id",
+          "label": "Group ID",
+          "info": "Assign this collection to a group. Must match a Group block's ID exactly."
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1500 x 1800px .jpg recommended. Default to collection image."
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "info": "Default to collection title."
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link",
+          "info": "Default to collection URL."
+        },
+        {
+          "type": "select",
+          "id": "heading_tag",
+          "label": "Heading style",
+          "options": [
+            {
+              "value": "h1",
+              "label": "X-Large"
+            },
+            {
+              "value": "h2",
+              "label": "Large"
+            },
+            {
+              "value": "h3",
+              "label": "Medium"
+            },
+            {
+              "value": "h4",
+              "label": "Small"
+            },
+            {
+              "value": "h5",
+              "label": "X-Small"
+            },
+            {
+              "value": "h6",
+              "label": "XX-Small"
+            }
+          ],
+          "default": "h2"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "Content position",
+          "options": [
+            {
+              "value": "place-self-start text-start",
+              "label": "Top left"
+            },
+            {
+              "value": "place-self-start-center text-center",
+              "label": "Top center"
+            },
+            {
+              "value": "place-self-start-end text-end",
+              "label": "Top right"
+            },
+            {
+              "value": "place-self-center-start text-start",
+              "label": "Middle left"
+            },
+            {
+              "value": "place-self-center text-center",
+              "label": "Middle center"
+            },
+            {
+              "value": "place-self-center-end text-end",
+              "label": "Middle right"
+            },
+            {
+              "value": "place-self-end-start text-start",
+              "label": "Bottom left"
+            },
+            {
+              "value": "place-self-end-center text-center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "place-self-end text-end",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "place-self-center text-center"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 30
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Group",
+      "blocks": [
+        {
+          "type": "group",
+          "settings": {
+            "group_id": "babies",
+            "group_name": "For babies (6+ months)"
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "group_id": "babies"
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "group_id": "babies"
+          }
+        },
+        {
+          "type": "group",
+          "settings": {
+            "group_id": "toddlers", 
+            "group_name": "For toddlers (1-5 years)"
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "group_id": "toddlers"
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "group_id": "toddlers"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

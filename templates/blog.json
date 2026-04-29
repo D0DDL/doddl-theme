@@ -1,0 +1,116 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "allow_transparent_header": false,
+        "content": "<p>Get access to our latest news by signing up for our newsletter.</p>",
+        "show_newsletter_form": true,
+        "show_tags": true,
+        "banner_background": "",
+        "banner_text_color": "",
+        "button_background": "",
+        "button_text_color": "",
+        "articles_per_page": 6,
+        "feature_first_article": true,
+        "feature_article_background": "",
+        "feature_article_text_color": "",
+        "show_excerpt": true,
+        "show_date": true,
+        "show_author": false,
+        "show_comments_count": false,
+        "show_category": true
+      }
+    },
+    "image_with_text_overlay_MktBMW": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_J44Hjm": {
+          "type": "heading",
+          "settings": {
+            "text": "Money saving bundles",
+            "heading_tag": "h0"
+          }
+        },
+        "richtext_ybTMxg": {
+          "type": "richtext",
+          "settings": {
+            "content": ""
+          }
+        },
+        "button_r8bRdA": {
+          "type": "button",
+          "settings": {
+            "style": "fill",
+            "size": "lg",
+            "text": "Shop now",
+            "url": "shopify://collections/discover-gifting",
+            "background": "#ffffff",
+            "text_color": "#301562"
+          }
+        }
+      },
+      "block_order": [
+        "heading_J44Hjm",
+        "richtext_ybTMxg",
+        "button_r8bRdA"
+      ],
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "sm",
+        "image": "shopify://shop_images/46.png",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 20
+      }
+    },
+    "featured_collection_BgqmKz": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "shop-all",
+        "products": [
+          "baby-cutlery-set-travel-case",
+          "toddler-cutlery-case",
+          "toddler-spoon-fork-knife-set-and-case-bundle",
+          "doddl-toddler-feeding-set"
+        ],
+        "full_width": true,
+        "stack_products": false,
+        "show_progress_bar": false,
+        "products_count": 4,
+        "products_per_row_mobile": "1",
+        "products_per_row_desktop": 4,
+        "subheading": "",
+        "title": "We're perfect for on the go!",
+        "content": "",
+        "link_url": "",
+        "link_text": "View all",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_MktBMW",
+    "featured_collection_BgqmKz"
+  ]
+}

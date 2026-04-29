@@ -1,0 +1,94 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "collection-banner",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "collection_title_size": "h0",
+        "image_size": "sm",
+        "image": "{{ collection.metafields.doddl.banner_image_desktop.value }}",
+        "mobile_image": "{{ collection.metafields.doddl.banner_image_mobile.value }}",
+        "mobile_text_position": "place-self-end-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "featured_product": "doddl-feeding-set-for-toddlers",
+        "featured_product_heading": "Featured product",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 2
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "promotion_image_whC4jW": {
+          "type": "promotion_image",
+          "disabled": true,
+          "settings": {
+            "position": 3,
+            "column_span": "2",
+            "image": "shopify://shop_images/Effective_communication_techniques_for_parents_and_caregivers.jpg",
+            "title": "Start Our Quiz",
+            "content": "<p>Not sure what which product to choose?</p>",
+            "link_url": "",
+            "link_text": "Start here",
+            "heading_tag": "h1",
+            "text_position": "place-self-end-start text-start",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "promotional_card_tXBLVC": {
+          "type": "promotional_card",
+          "settings": {
+            "position": 9,
+            "column_span": "2",
+            "card_image": "shopify://shop_images/charlotte6-edited-1_jpg_0a60ed2d-b192-4a40-abf2-e978c4ec3299.webp",
+            "image_caption": "The Baby & Child Nutritionist",
+            "star_rating": 5,
+            "reviewer_name": "Charlotte Stirling-Reed",
+            "review_content": "<p>I've been absolutely loving using the doddl cutlery set with my family. It's really helped my daughter to hone her skills around self-feeding with a spoon and fork.</p>",
+            "button_url": "shopify://pages/what-the-experts-think",
+            "button_text": "Learn more about Charlotte's work here",
+            "text_color": "#2f1562",
+            "background_color": "#f8f8f8"
+          }
+        }
+      },
+      "block_order": [
+        "promotion_image_whC4jW",
+        "promotional_card_tXBLVC"
+      ],
+      "settings": {
+        "products_per_page": 24,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "filter_layout": "horizontal",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_filter_group_name": true,
+        "show_filter_values_count": true,
+        "open_first_filter_group": false,
+        "hide_add_to_cart_button": true
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "main"
+  ]
+}

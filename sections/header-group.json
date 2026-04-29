@@ -1,0 +1,173 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "message": {
+          "type": "message",
+          "settings": {
+            "text": "FREE UK Shipping on orders over £20",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "message"
+      ],
+      "settings": {
+        "enable_sticky": false,
+        "navigation_mode": "arrows",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "scrolling_speed": 10,
+        "text_size": "text-xs",
+        "background": "#2f1562",
+        "background_gradient": "",
+        "text_color": "#ffffff"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "mega_menu_jNW6Gg": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_item": "Our Products",
+            "layout": "horizontal",
+            "submenu_style": "bold_heading",
+            "image_heading_1": "",
+            "image_link_1": "",
+            "image_text_color_1": "#2f1562",
+            "image_heading_2": "Baby",
+            "image_link_2": "",
+            "image_text_color_2": "#2f1562",
+            "image_heading_3": "collection 3",
+            "image_link_3": "",
+            "image_text_color_3": "#ffffff",
+            "product": "",
+            "product_card_background": "",
+            "product_card_text_color": "",
+            "promo_content_layout": "grid",
+            "stretch_promo": false,
+            "drawer_link_image": "hide"
+          }
+        },
+        "mega_menu_rXdHKm": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_item": "Tips & Advice",
+            "layout": "horizontal",
+            "submenu_style": "bold_heading",
+            "image_heading_1": "Parent Reviews",
+            "image_link_1": "",
+            "image_text_color_1": "#ffffff",
+            "image_heading_2": "What the Experts Say",
+            "image_link_2": "",
+            "image_text_color_2": "#ffffff",
+            "image_heading_3": "",
+            "image_link_3": "",
+            "image_text_color_3": "#ffffff",
+            "product": "",
+            "product_card_background": "",
+            "product_card_text_color": "",
+            "promo_content_layout": "grid",
+            "stretch_promo": false,
+            "drawer_link_image": "hide"
+          }
+        },
+        "mega_menu_yb8RPd": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_item": "About, Tips & Advice",
+            "layout": "horizontal",
+            "submenu_style": "bold_heading",
+            "image_heading_1": "",
+            "image_link_1": "",
+            "image_text_color_1": "#ffffff",
+            "image_heading_2": "",
+            "image_link_2": "",
+            "image_text_color_2": "#ffffff",
+            "image_heading_3": "",
+            "image_link_3": "",
+            "image_text_color_3": "#ffffff",
+            "product": "",
+            "product_card_background": "",
+            "product_card_text_color": "",
+            "promo_content_layout": "grid",
+            "stretch_promo": false,
+            "drawer_link_image": "hide"
+          }
+        },
+        "mega_menu_6UHcNw": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_item": "",
+            "layout": "horizontal",
+            "submenu_style": "bold_heading",
+            "image_heading_1": "",
+            "image_link_1": "",
+            "image_text_color_1": "#ffffff",
+            "image_heading_2": "",
+            "image_link_2": "",
+            "image_text_color_2": "#ffffff",
+            "image_heading_3": "",
+            "image_link_3": "",
+            "image_text_color_3": "#ffffff",
+            "product": "",
+            "product_card_background": "",
+            "product_card_text_color": "",
+            "promo_content_layout": "grid",
+            "stretch_promo": false,
+            "drawer_link_image": "hide"
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_jNW6Gg",
+        "mega_menu_rXdHKm",
+        "mega_menu_yb8RPd",
+        "mega_menu_6UHcNw"
+      ],
+      "custom_css": [
+        "span.bold.text-sm {display: none;}"
+      ],
+      "settings": {
+        "enable_sticky": true,
+        "hide_on_scroll": false,
+        "logo": "{{shop.brand.logo}}",
+        "logo_max_width": 120,
+        "logo_mobile_max_width": 100,
+        "menu": "new-main-menu",
+        "sidebar_menu": "new-mobile-menu",
+        "secondary_menu": "",
+        "menu_open_trigger": "hover",
+        "opening_from": "bottom",
+        "layout": "logo_center_navigation_inline",
+        "show_social_media": true,
+        "show_locale_selector": true,
+        "show_country_selector": false,
+        "show_country_flag": true,
+        "show_country_name": false,
+        "transparent_header_text_color": "#2f1562",
+        "reduce_padding": true,
+        "background_opacity": 100,
+        "background_blur_radius": 0
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

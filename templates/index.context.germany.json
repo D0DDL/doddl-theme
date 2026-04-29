@@ -1,0 +1,24 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "germany"
+  },
+  "parent": "index.json",
+  "sections": {
+    "testimonials_aWX3YB": {
+      "settings": {
+        "title": "",
+        "content": "<h2>Real parents. Real mealtime wins. <br/>Over 25,000 5-star reviews.</h2>"
+      },
+      "blocks": {}
+    }
+  }
+}

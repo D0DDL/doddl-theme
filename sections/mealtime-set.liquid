@@ -1,0 +1,639 @@
+{% comment %} sections/mealtime-set.liquid {% endcomment %}
+{{ 'mealtime-set.css' | asset_url | stylesheet_tag }}
+
+<div class="mealtime-set-page">
+
+  {% comment %} 1. BANNER {% endcomment %}
+  {% if section.settings.banner_heading != blank %}
+  <div class="ms-banner" style="background: {{ section.settings.banner_bg_colour }};">
+    {% if section.settings.banner_image_left != blank %}
+      <div class="ms-banner-img">
+        {{ section.settings.banner_image_left | image_url: width: 600 | image_tag: loading: 'lazy', alt: section.settings.banner_heading }}
+      </div>
+    {% endif %}
+    <div class="ms-banner-content">
+      {% if section.settings.banner_eyebrow != blank %}
+        <p class="ms-banner-eyebrow">{{ section.settings.banner_eyebrow }}</p>
+      {% endif %}
+      <h1 class="ms-banner-heading">{{ section.settings.banner_heading }}</h1>
+      {% if section.settings.banner_body != blank %}
+        <p class="ms-banner-body">{{ section.settings.banner_body }}</p>
+      {% endif %}
+    </div>
+    {% if section.settings.banner_image_right != blank %}
+      <div class="ms-banner-img">
+        {{ section.settings.banner_image_right | image_url: width: 600 | image_tag: loading: 'lazy', alt: section.settings.banner_heading }}
+      </div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% comment %} 2. STAGE PROMPT &mdash; mobile only {% endcomment %}
+  <div class="ms-stage-prompt">
+    <p class="ms-prompt-text">{{ section.settings.prompt_text }}</p>
+    <div class="ms-prompt-pills">
+      <a href="#ms-stage-1" class="ms-prompt-pill ms-pill-teal">Stage 1 &middot; 6m+</a>
+      <a href="#ms-stage-2" class="ms-prompt-pill ms-pill-purple">Stage 2 &middot; 12m+</a>
+      <a href="#ms-stage-3" class="ms-prompt-pill ms-pill-indigo">Stage 3 &middot; 18m+</a>
+      <a href="#ms-stage-4" class="ms-prompt-pill ms-pill-deep">Stage 4 &middot; 3yr+</a>
+    </div>
+  </div>
+
+  {% comment %} 3. DEVELOPMENT JOURNEY {% endcomment %}
+  <div class="ms-section-label" style="font-size: {{ section.settings.journey_heading_size }}px; color: {{ section.settings.journey_heading_colour }}; font-weight: {{ section.settings.journey_heading_weight }};">{{ section.settings.journey_heading }}</div>
+
+  <div class="ms-journey-grid">
+    {% assign stage_index = 0 %}
+    {% for block in section.blocks %}
+      {% if block.type == 'stage' %}
+        {% assign stage_index = stage_index | plus: 1 %}
+        <div class="ms-stage-card" id="ms-stage-{{ stage_index }}" {{ block.shopify_attributes }}>
+          <div class="ms-stage-img">
+            {% if block.settings.image != blank %}
+              {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', alt: block.settings.stage_title }}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'ms-placeholder-img' }}
+            {% endif %}
+          </div>
+          <div class="ms-stage-bar ms-bar-{{ block.settings.bar_colour }}"></div>
+          <div class="ms-stage-content">
+            <div>
+              <p class="ms-stage-lbl">{{ block.settings.stage_title }}</p>
+              <p class="ms-stage-age">{{ block.settings.stage_age }}</p>
+            </div>
+            <ul class="ms-milestones">
+              {% assign milestones = block.settings.milestones | newline_to_br | split: '<br />' %}
+              {% for milestone in milestones %}
+                {% assign mt = milestone | strip %}
+                {% if mt != blank %}
+                  <li><span class="ms-dot ms-dot-{{ block.settings.bar_colour }}"></span>{{ mt }}</li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+            {% if block.settings.next_step != blank %}
+              <div class="ms-next-step ms-next-{{ block.settings.bar_colour }}">{{ block.settings.next_step }}</div>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  {% comment %} 4. VIDEO {% endcomment %}
+  {% if section.settings.video != blank %}
+  <div class="ms-video-section">
+    {% if section.settings.video_heading != blank %}
+      <p class="ms-section-label" style="font-size: {{ section.settings.video_heading_size }}px; color: {{ section.settings.video_heading_colour }}; font-weight: {{ section.settings.video_heading_weight }};">{{ section.settings.video_heading }}</p>
+    {% endif %}
+    <div class="ms-video-wrapper">
+      {{ section.settings.video | video_tag: autoplay: false, loop: false, controls: true, muted: false, class: 'ms-video-player' }}
+    </div>
+  </div>
+  {% endif %}
+
+  {% comment %} 5. PRODUCT CARDS {% endcomment %}
+  <div class="ms-section-label" style="font-size: {{ section.settings.products_heading_size }}px; color: {{ section.settings.products_heading_colour }}; font-weight: {{ section.settings.products_heading_weight }};">{{ section.settings.products_heading }}</div>
+
+  <div class="ms-product-grid">
+    {% for block in section.blocks %}
+      {% if block.type == 'product_card' %}
+        <div class="ms-pcard ms-pcard-{{ block.settings.card_colour }}" {{ block.shopify_attributes }}>
+          <div class="ms-pcard-header">
+            <div>
+              <p class="ms-pcard-name">{{ block.settings.product_name }}</p>
+              <p class="ms-pcard-sub">{{ block.settings.product_subtitle }}</p>
+            </div>
+            <span class="ms-age-pill ms-pill-{{ block.settings.card_colour }}">{{ block.settings.age_pill }}</span>
+          </div>
+          <hr class="ms-pcard-divider ms-divider-{{ block.settings.card_colour }}">
+          <ul class="ms-benefits">
+            {% if block.settings.benefit_1 != blank %}
+              <li><span class="ms-b-dot ms-bdot-{{ block.settings.card_colour }}"></span><div class="ms-benefit-text">{{ block.settings.benefit_1 }}</div></li>
+            {% endif %}
+            {% if block.settings.benefit_2 != blank %}
+              <li><span class="ms-b-dot ms-bdot-{{ block.settings.card_colour }}"></span><div class="ms-benefit-text">{{ block.settings.benefit_2 }}</div></li>
+            {% endif %}
+            {% if block.settings.benefit_3 != blank %}
+              <li><span class="ms-b-dot ms-bdot-{{ block.settings.card_colour }}"></span><div class="ms-benefit-text">{{ block.settings.benefit_3 }}</div></li>
+            {% endif %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  {% comment %} 6. COLOUR SWATCHES {% endcomment %}
+  {% assign swatch_blocks = section.blocks | where: 'type', 'colour_swatch' %}
+  {% if swatch_blocks.size > 0 %}
+  <div class="ms-swatches-section">
+    <p class="ms-swatches-heading">{{ section.settings.swatches_heading }}</p>
+    {% if section.settings.swatches_subtext != blank %}
+      <p class="ms-swatches-sub">{{ section.settings.swatches_subtext }}</p>
+    {% endif %}
+    <div class="ms-swatches-row">
+      {% for block in section.blocks %}
+        {% if block.type == 'colour_swatch' %}
+          <div class="ms-swatch-item" {{ block.shopify_attributes }}>
+            <div class="ms-swatch" style="background: {{ block.settings.swatch_colour }};"></div>
+            {% if block.settings.swatch_name != blank %}
+              <p class="ms-swatch-name">{{ block.settings.swatch_name }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% if section.settings.swatches_link != blank and section.settings.swatches_link_text != blank %}
+      <a href="{{ section.settings.swatches_link }}" class="ms-swatches-link">{{ section.settings.swatches_link_text }} &rarr;</a>
+    {% endif %}
+  </div>
+  {% endif %}
+
+</div>
+
+{% schema %}
+{
+  "name": "Mealtime Set",
+  "max_blocks": 16,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_left",
+      "label": "Banner image left"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_right",
+      "label": "Banner image right"
+    },
+    {
+      "type": "text",
+      "id": "banner_eyebrow",
+      "label": "Eyebrow text",
+      "default": "You've got everything you need"
+    },
+    {
+      "type": "text",
+      "id": "banner_heading",
+      "label": "Heading",
+      "default": "How to introduce your Baby to Toddler Mealtime Set"
+    },
+    {
+      "type": "textarea",
+      "id": "banner_body",
+      "label": "Body text",
+      "default": "Four ingeniously designed tools. A developmental journey from first tastes at 6 months to confident, independent eating at 5 years and beyond."
+    },
+    {
+      "type": "color",
+      "id": "banner_bg_colour",
+      "label": "Banner background colour",
+      "default": "#3D157D"
+    },
+    {
+      "type": "header",
+      "content": "Stage prompt (mobile only)"
+    },
+    {
+      "type": "text",
+      "id": "prompt_text",
+      "label": "Prompt message",
+      "default": "Most families start at Stage 1 -- but if your child is already further along, tap a stage to jump straight there."
+    },
+    {
+      "type": "header",
+      "content": "Development journey"
+    },
+    {
+      "type": "text",
+      "id": "journey_heading",
+      "label": "Section heading",
+      "default": "Your child's development journey"
+    },
+    {
+      "type": "range",
+      "id": "journey_heading_size",
+      "label": "Journey heading size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "color",
+      "id": "journey_heading_colour",
+      "label": "Journey heading colour",
+      "default": "#888888"
+    },
+    {
+      "type": "select",
+      "id": "journey_heading_weight",
+      "label": "Journey heading weight",
+      "default": "700",
+      "options": [
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "600",
+          "label": "Semi-bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "800",
+          "label": "Extra bold"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Video"
+    },
+    {
+      "type": "text",
+      "id": "video_heading",
+      "label": "Heading above video",
+      "default": "See everything that comes in your set"
+    },
+    {
+      "type": "range",
+      "id": "video_heading_size",
+      "label": "Video heading size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "color",
+      "id": "video_heading_colour",
+      "label": "Video heading colour",
+      "default": "#888888"
+    },
+    {
+      "type": "select",
+      "id": "video_heading_weight",
+      "label": "Video heading weight",
+      "default": "700",
+      "options": [
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "600",
+          "label": "Semi-bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "800",
+          "label": "Extra bold"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video file"
+    },
+    {
+      "type": "header",
+      "content": "Product cards"
+    },
+    {
+      "type": "text",
+      "id": "products_heading",
+      "label": "Section heading",
+      "default": "What's in your set"
+    },
+    {
+      "type": "range",
+      "id": "products_heading_size",
+      "label": "Products heading size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "color",
+      "id": "products_heading_colour",
+      "label": "Products heading colour",
+      "default": "#888888"
+    },
+    {
+      "type": "select",
+      "id": "products_heading_weight",
+      "label": "Products heading weight",
+      "default": "700",
+      "options": [
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "600",
+          "label": "Semi-bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "800",
+          "label": "Extra bold"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Colour swatches"
+    },
+    {
+      "type": "text",
+      "id": "swatches_heading",
+      "label": "Section heading",
+      "default": "Available in these colours"
+    },
+    {
+      "type": "text",
+      "id": "swatches_subtext",
+      "label": "Subtext",
+      "default": "Love it? Your set comes in a range of colours -- explore them on our site"
+    },
+    {
+      "type": "url",
+      "id": "swatches_link",
+      "label": "Shop link URL"
+    },
+    {
+      "type": "text",
+      "id": "swatches_link_text",
+      "label": "Shop link text",
+      "default": "Shop all colours"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stage",
+      "name": "Stage card",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Stage image"
+        },
+        {
+          "type": "text",
+          "id": "stage_title",
+          "label": "Stage title",
+          "default": "Stage 1 . Baby cutlery & bowl"
+        },
+        {
+          "type": "text",
+          "id": "stage_age",
+          "label": "Age range",
+          "default": "6 - 12 months"
+        },
+        {
+          "type": "textarea",
+          "id": "milestones",
+          "label": "Milestones (one per line)",
+          "default": "Grasps spoon in fist\nBrings food to mouth\nShows hand preference\nAttempts to scoop"
+        },
+        {
+          "type": "text",
+          "id": "next_step",
+          "label": "Ready for next stage text",
+          "default": "Ready for stage 2 when scooping reliably and eating more textured food"
+        },
+        {
+          "type": "select",
+          "id": "bar_colour",
+          "label": "Bar & dot colour",
+          "default": "teal",
+          "options": [
+            {
+              "value": "teal",
+              "label": "Green (Stage 1)"
+            },
+            {
+              "value": "purple",
+              "label": "Purple (Stage 2)"
+            },
+            {
+              "value": "indigo",
+              "label": "Indigo (Stage 3)"
+            },
+            {
+              "value": "deep",
+              "label": "Deep purple (Stage 4)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "product_card",
+      "name": "Product card",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product name",
+          "default": "Baby cutlery & travel case"
+        },
+        {
+          "type": "text",
+          "id": "product_subtitle",
+          "label": "Subtitle",
+          "default": "Spoon + fork + case"
+        },
+        {
+          "type": "text",
+          "id": "age_pill",
+          "label": "Age pill text",
+          "default": "From 6m"
+        },
+        {
+          "type": "richtext",
+          "id": "benefit_1",
+          "label": "Benefit 1",
+          "default": "<p>Grip development. Short handles fit the fist-grip perfectly, training fingers toward the pincer grip needed for pencils.</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "benefit_2",
+          "label": "Benefit 2",
+          "default": "<p>Brain stimulation. 2-piece set works both hands simultaneously, engaging both hemispheres equally.</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "benefit_3",
+          "label": "Benefit 3",
+          "default": "<p>Safe by design. Compact length removes gag risk -- no adjustments needed.</p>"
+        },
+        {
+          "type": "select",
+          "id": "card_colour",
+          "label": "Card colour",
+          "default": "green",
+          "options": [
+            {
+              "value": "green",
+              "label": "Green (6m products)"
+            },
+            {
+              "value": "purple",
+              "label": "Purple (12m products)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "colour_swatch",
+      "name": "Colour swatch",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "color",
+          "id": "swatch_colour",
+          "label": "Colour",
+          "default": "#3D157D"
+        },
+        {
+          "type": "text",
+          "id": "swatch_name",
+          "label": "Colour name",
+          "default": "Indigo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mealtime Set",
+      "blocks": [
+        {
+          "type": "stage",
+          "settings": {
+            "stage_title": "Stage 1 . Baby cutlery & bowl",
+            "stage_age": "6 - 12 months",
+            "milestones": "Grasps spoon in fist\nBrings food to mouth\nShows hand preference\nAttempts to scoop",
+            "next_step": "Ready for stage 2 when scooping reliably and eating more textured food",
+            "bar_colour": "teal"
+          }
+        },
+        {
+          "type": "stage",
+          "settings": {
+            "stage_title": "Stage 2 . Toddler cutlery",
+            "stage_age": "12 - 18 months",
+            "milestones": "Pincer grip developing\nStabs food with fork\nLess bowl-sweeping\nUsing both hands",
+            "next_step": "Ready for stage 3 when fork stabbing is consistent and grip is controlled",
+            "bar_colour": "purple"
+          }
+        },
+        {
+          "type": "stage",
+          "settings": {
+            "stage_title": "Stage 3 . Introducing the knife",
+            "stage_age": "18m - 3 years",
+            "milestones": "Confident fork use\nReady to cut soft foods\nBowl no longer swept\nGrowing independence",
+            "next_step": "Ready for stage 4 when cutting soft foods and eating without suction",
+            "bar_colour": "indigo"
+          }
+        },
+        {
+          "type": "stage",
+          "settings": {
+            "stage_title": "Stage 4 . Mastery & independence",
+            "stage_age": "3 - 5+ years",
+            "milestones": "Full knife & fork use\nCuts most foods\nPencil-ready grip\nEats independently",
+            "next_step": "School-ready -- transition to adult cutlery naturally between ages 4 and 5",
+            "bar_colour": "deep"
+          }
+        },
+        {
+          "type": "product_card",
+          "settings": {
+            "product_name": "Baby cutlery & travel case",
+            "product_subtitle": "Spoon + fork + case",
+            "age_pill": "From 6m",
+            "benefit_1": "<p>Grip development. Short handles fit the fist-grip perfectly, training fingers toward the pincer grip needed for pencils.</p>",
+            "benefit_2": "<p>Brain stimulation. 2-piece set works both hands simultaneously, engaging both hemispheres equally.</p>",
+            "benefit_3": "<p>Safe by design. Compact length removes gag risk -- no adjustments needed.</p>",
+            "card_colour": "green"
+          }
+        },
+        {
+          "type": "product_card",
+          "settings": {
+            "product_name": "2-in-1 suction bowl",
+            "product_subtitle": "Suction base removes when ready",
+            "age_pill": "From 6m",
+            "benefit_1": "<p>Food confidence. Low front lets babies see their food -- visual contact builds willingness to try new things.</p>",
+            "benefit_2": "<p>Scooping skill. Oval shape keeps the bowl edge clear so the scooping motion comes naturally.</p>",
+            "benefit_3": "<p>Grows with them. Suction base removes to reveal a non-slip bowl -- no new product needed at transition.</p>",
+            "card_colour": "green"
+          }
+        },
+        {
+          "type": "product_card",
+          "settings": {
+            "product_name": "Toddler cutlery & case",
+            "product_subtitle": "Spoon, fork + knife",
+            "age_pill": "From 12m",
+            "benefit_1": "<p>Correct grip, automatically. Handle shape guides fingers into the pincer grip -- no constant correction needed.</p>",
+            "benefit_2": "<p>Pencil-ready hands. The grip trained here is the same one needed for writing and scissors at school.</p>",
+            "benefit_3": "<p>Safe knife start. Handle teaches a downward push motion -- building strength and control safely from 18 months.</p>",
+            "card_colour": "purple"
+          }
+        },
+        {
+          "type": "product_card",
+          "settings": {
+            "product_name": "Toddler plate",
+            "product_subtitle": "Suction base removes when ready",
+            "age_pill": "From 12m",
+            "benefit_1": "<p>Cutlery precision. Central splat gives a clear scooping target -- builds accuracy with every meal.</p>",
+            "benefit_2": "<p>Food confidence. No divided sections -- mixed food on one plate mirrors adult eating and reduces anxiety around new foods.</p>",
+            "benefit_3": "<p>Less mess. Raised back edge helps push food onto utensils; front lip contains spills without looking babyish.</p>",
+            "card_colour": "purple"
+          }
+        },
+        {
+          "type": "colour_swatch",
+          "settings": {
+            "swatch_colour": "#3D157D",
+            "swatch_name": "Indigo"
+          }
+        },
+        {
+          "type": "colour_swatch",
+          "settings": {
+            "swatch_colour": "#1D9E75",
+            "swatch_name": "Teal"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

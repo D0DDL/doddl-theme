@@ -1,0 +1,650 @@
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+CSS
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+{%- render 'section-spacing-collapsing' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --text-color: {{ section.settings.text_color.rgb }};
+    --heading-color: {{ section.settings.heading_color.rgb }};
+  }
+</style>
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+LIQUID
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<script src="https://unpkg.com/embla-carousel@8.0.0-rc14/embla-carousel.umd.js" defer></script>
+<script src="https://unpkg.com/embla-carousel-autoplay@8.0.0-rc14/embla-carousel-autoplay.umd.js" defer></script>
+
+{%- assign carousel_id = 'expert-carousel-' | append: section.id -%}
+
+<div class="section section--padding">
+  <div class="section-stack">
+    {%- if section.settings.subheading != blank or section.settings.title != blank -%}
+      {%- render 'section-header', 
+          subheading: section.settings.subheading, 
+          heading: section.settings.title,
+          text_alignment: section.settings.text_alignment -%}
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="floating-controls-container">
+        <div 
+          id="{{ carousel_id }}" 
+          class="embla"
+          data-autoplay="{{ section.settings.autoplay }}"
+          data-autoplay-speed="{{ section.settings.autoplay_speed }}"
+          data-loop="{{ section.settings.loop }}"
+          data-align="{{ section.settings.align }}"
+          data-speed="{{ section.settings.speed }}"
+          data-slides-to-scroll="{{ section.settings.slides_to_scroll }}"
+          data-drag-free="{{ section.settings.drag_free }}"
+          data-skip-snaps="{{ section.settings.skip_snaps }}"
+          data-stop-on-interaction="{{ section.settings.stop_on_interaction }}"
+          data-stop-on-mouse-enter="{{ section.settings.stop_on_mouse_enter }}"
+          data-stop-on-focus="{{ section.settings.stop_on_focus }}"
+          role="region">
+          
+          <div class="embla__viewport">
+            <div class="embla__container">
+              {%- for block in section.blocks -%}
+                <div class="embla__slide" {{ block.shopify_attributes }}>
+                  <div class="expert-card">
+                    {%- if block.settings.image != blank -%}
+                      <div class="expert-card__image-wrapper">
+                        <img 
+                          src="{{ block.settings.image | image_url: width: 400 }}"
+                          alt="{{ block.settings.name | escape }}"
+                          width="275"
+                          height="275"
+                          loading="lazy"
+                          class="expert-card__image">
+                      </div>
+                    {%- endif -%}
+
+                    <div class="expert-card__content">
+                      {%- if block.settings.name != blank -%}
+                        <h2 class="expert-card__name h2">{{ block.settings.name | escape }}</h2>
+                      {%- endif -%}
+
+                      {%- if block.settings.title != blank -%}
+                        <p class="expert-card__title h5">{{ block.settings.title | escape }}</p>
+                      {%- endif -%}
+
+                      {%- if block.settings.content != blank -%}
+                        <div class="expert-card__text prose">
+                          {{ block.settings.content }}
+                        </div>
+                      {%- endif -%}
+
+                      {%- if block.settings.button_text != blank and block.settings.button_url != blank -%}
+                        <div class="expert-card__button">
+                          {%- render 'button', 
+                            content: block.settings.button_text,
+                            href: block.settings.button_url,
+                            size: block.settings.button_size,
+                            style: block.settings.button_style,
+                            secondary: block.settings.button_secondary
+                          -%}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+
+        {%- if section.blocks.size > 1 -%}
+          <div class="floating-controls">
+            <button class="embla__button embla__button--prev circle-button circle-button--lg circle-button--border" data-carousel="{{ carousel_id }}">
+              <span class="sr-only">{{ 'general.accessibility.previous' | t }}</span>
+              {%- render 'icon' with 'chevron-left' -%}
+            </button>
+            
+            <button class="embla__button embla__button--next circle-button circle-button--lg circle-button--border" data-carousel="{{ carousel_id }}">
+              <span class="sr-only">{{ 'general.accessibility.next' | t }}</span>
+              {%- render 'icon' with 'chevron-right' -%}
+            </button>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Expert Carousel",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "What the experts think"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment", 
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "Left"
+        },
+        {
+          "value": "center", 
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "header",
+      "content": "Carousel Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto-rotate slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 3,
+      "max": 15,
+      "step": 1,
+      "unit": "s",
+      "label": "Change slides every",
+      "default": 5,
+      "visible_if": "{{ section.settings.autoplay }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Infinite loop",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "align",
+      "label": "Slide alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "Start"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "End"
+        }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 5,
+      "max": 20,
+      "step": 1,
+      "label": "Transition speed",
+      "default": 8,
+      "info": "Lower values = faster transitions"
+    },
+    {
+      "type": "range",
+      "id": "slides_to_scroll",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "label": "Slides to scroll",
+      "default": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "drag_free",
+      "label": "Free drag",
+      "default": false,
+      "info": "Allow dragging to any position without snapping"
+    },
+    {
+      "type": "checkbox",
+      "id": "skip_snaps",
+      "label": "Skip snap positions",
+      "default": false,
+      "info": "Skip slides that are fully contained within viewport"
+    },
+    {
+      "type": "header",
+      "content": "Autoplay Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "stop_on_interaction",
+      "label": "Stop autoplay on interaction",
+      "default": false,
+      "visible_if": "{{ section.settings.autoplay }}",
+      "info": "Stop autoplay when user interacts with carousel"
+    },
+    {
+      "type": "checkbox",
+      "id": "stop_on_mouse_enter",
+      "label": "Pause on hover",
+      "default": true,
+      "visible_if": "{{ section.settings.autoplay }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "stop_on_focus",
+      "label": "Pause on focus",
+      "default": true,
+      "visible_if": "{{ section.settings.autoplay }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "expert",
+      "name": "Expert",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Expert Name"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Expert Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Share what this expert thinks about your product or service.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button URL"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Button style",
+          "options": [
+            {
+              "value": "outline",
+              "label": "Outline"
+            },
+            {
+              "value": "fill",
+              "label": "Solid"
+            }
+          ],
+          "default": "outline"
+        },
+        {
+          "type": "select",
+          "id": "button_size",
+          "label": "Button size",
+          "options": [
+            {
+              "value": "sm",
+              "label": "Small"
+            },
+            {
+              "value": "base",
+              "label": "Medium"
+            },
+            {
+              "value": "lg",
+              "label": "Large"
+            }
+          ],
+          "default": "base"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_secondary",
+          "label": "Use secondary button style",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Expert Carousel",
+      "blocks": [
+        {
+          "type": "expert",
+          "settings": {
+            "name": "Charlotte Stirling-Reed",
+            "title": "The Baby & Child Nutritionist",
+            "content": "<p>\"I've been absolutely loving using the doddl cutlery set with my family. It's really helped my daughter to hone her skills around self-feeding with a spoon and fork.\"</p>",
+            "button_text": "Learn more about Charlotte's work here",
+            "button_url": "#"
+          }
+        },
+        {
+          "type": "expert"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+.embla {
+  overflow: hidden;
+  position: relative;
+}
+
+.embla__viewport {
+  overflow: hidden;
+  padding: 2em 0 2em 2em;
+}
+
+.embla__container {
+  display: flex;
+  gap: 0; /* Remove gap on mobile to prevent peek */
+  padding-inline: var(--container-gutter);
+}
+
+.embla__slide {
+  flex: 0 0 100vw; /* Full width on mobile - no peek */
+  min-width: 0;
+}
+
+@media screen and (min-width: 700px) {
+  .embla__slide {
+    flex: 0 0 calc(75vw - var(--spacing-6));
+  }
+  
+  .embla__container {
+    gap: var(--spacing-8); /* Restore gap on larger screens */
+    padding-inline: calc(var(--container-gutter) + 2.5vw);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .embla__slide {
+    flex: 0 0 calc(65vw - var(--spacing-8));
+  }
+  
+  .embla__container {
+    padding-inline: calc(var(--container-gutter) + 7.5vw);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .embla__slide {
+    flex: 0 0 calc(55vw - var(--spacing-8));
+  }
+  
+  .embla__container {
+    padding-inline: calc(var(--container-gutter) + 12.5vw);
+  }
+}
+
+.expert-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-8);
+  background: rgb(var(--color-background));
+  padding: var(--spacing-8);
+  border-radius: var(--rounded-lg);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  width: 100%;
+  min-height: 20rem;
+  height: 100%;
+}
+
+@media screen and (max-width: 699px) {
+  .embla__viewport {
+    padding: unset;
+  }
+
+  .embla__slide {
+    flex: 0 0 100%;
+    margin: 0 1em 1em 0;
+  }
+  .expert-card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: var(--spacing-6);
+    padding: var(--spacing-6);
+    min-height: auto;
+  }
+}
+
+.expert-card__image-wrapper {
+  width: 17.25rem;
+  height: 17.25rem;
+  overflow: hidden;
+  flex: none;
+}
+
+@media screen and (max-width: 699px) {
+  .expert-card__image-wrapper {
+    width: 12rem;
+    height: 12rem;
+  }
+}
+
+.expert-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.expert-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-5);
+  flex: 1;
+  padding-top: var(--spacing-2);
+}
+
+.expert-card__name {
+  margin: 0;
+}
+
+.expert-card__title {
+  margin: 0;
+}
+
+.expert-card__text {
+  line-height: 1.6;
+}
+
+.expert-card__text p {
+  margin: 0 0 var(--spacing-4) 0;
+}
+
+.expert-card__text p:last-child {
+  margin-bottom: 0;
+}
+
+.expert-card__button {
+  margin-top: var(--spacing-4);
+}
+
+.floating-controls-container {
+  position: relative;
+}
+
+.floating-controls {
+  display: flex;
+  gap: var(--spacing-3);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: var(--spacing-6);
+  z-index: 1;
+}
+
+@media screen and (max-width: 999px) {
+  .floating-controls {
+    position: static;
+    transform: none;
+    justify-content: center;
+    margin-top: var(--spacing-8);
+  }
+}
+
+.floating-controls .circle-button {
+  background: rgb(var(--color-background));
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.embla__button:disabled {
+  opacity: 0.5;
+}
+{% endstylesheet %}
+
+{% javascript %}
+// Initialize Embla Carousels
+document.addEventListener('DOMContentLoaded', () => {
+  const initializeCarousels = () => {
+    if (!window.EmblaCarousel) {
+      setTimeout(initializeCarousels, 100);
+      return;
+    }
+
+    document.querySelectorAll('.embla').forEach(carouselElement => {
+      const viewport = carouselElement.querySelector('.embla__viewport');
+      if (!viewport) return;
+
+      // Get settings from data attributes
+      const autoplayEnabled = carouselElement.dataset.autoplay === 'true';
+      const autoplaySpeed = parseInt(carouselElement.dataset.autoplaySpeed) * 1000 || 5000;
+      const loop = carouselElement.dataset.loop !== 'false'; // Default true
+      const align = carouselElement.dataset.align || 'start';
+      const speed = parseInt(carouselElement.dataset.speed) || 8;
+      const slidesToScroll = parseInt(carouselElement.dataset.slidesToScroll) || 1;
+      const dragFree = carouselElement.dataset.dragFree === 'true';
+      const skipSnaps = carouselElement.dataset.skipSnaps === 'true';
+      
+      // Autoplay settings
+      const stopOnInteraction = carouselElement.dataset.stopOnInteraction === 'true';
+      const stopOnMouseEnter = carouselElement.dataset.stopOnMouseEnter !== 'false'; // Default true
+      const stopOnFocus = carouselElement.dataset.stopOnFocus !== 'false'; // Default true
+
+      const options = {
+        loop: loop,
+        align: window.innerWidth < 700 ? 'center' : align, // Force center on mobile
+        containScroll: skipSnaps ? false : 'trimSnaps',
+        slidesToScroll: slidesToScroll,
+        speed: speed,
+        dragFree: dragFree
+      };
+
+      const plugins = [];
+
+      if (autoplayEnabled && window.EmblaCarouselAutoplay) {
+        plugins.push(window.EmblaCarouselAutoplay({ 
+          delay: autoplaySpeed,
+          stopOnInteraction: stopOnInteraction,
+          stopOnMouseEnter: stopOnMouseEnter,
+          stopOnFocusIn: stopOnFocus
+        }));
+      }
+
+      const embla = window.EmblaCarousel(viewport, options, plugins);
+
+      // Setup navigation buttons
+      setupButtons(embla, carouselElement.id);
+
+      // Store embla instance for cleanup
+      carouselElement._embla = embla;
+    });
+  };
+
+  // Setup navigation buttons
+  function setupButtons(embla, carouselId) {
+    const prevButton = document.querySelector(`.embla__button--prev[data-carousel="${carouselId}"]`);
+    const nextButton = document.querySelector(`.embla__button--next[data-carousel="${carouselId}"]`);
+
+    if (prevButton && nextButton) {
+      prevButton.addEventListener('click', () => embla.scrollPrev());
+      nextButton.addEventListener('click', () => embla.scrollNext());
+
+      // Update button states
+      const updateButtons = () => {
+        prevButton.disabled = !embla.canScrollPrev();
+        nextButton.disabled = !embla.canScrollNext();
+      };
+
+      embla.on('select', updateButtons);
+      updateButtons();
+    }
+  }
+
+  // Start initialization
+  initializeCarousels();
+});
+
+// Cleanup when page unloads
+window.addEventListener('beforeunload', () => {
+  document.querySelectorAll('.embla').forEach(carouselElement => {
+    if (carouselElement._embla) {
+      carouselElement._embla.destroy();
+    }
+  });
+});
+{% endjavascript %}

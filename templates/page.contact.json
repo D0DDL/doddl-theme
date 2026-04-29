@@ -1,0 +1,124 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "contact": {
+      "type": "contact",
+      "settings": {
+        "full_width": true,
+        "subheading": "Contact Us",
+        "title": "Do you have any question?",
+        "content": "<p>If you have any questions, please get in touch using the form or email <a href=\"mailto:team@doddl.com\" title=\"mailto:team@doddl.com\">team@doddl.com</a>. You can connect with us on social <a href=\"https://www.instagram.com/doddl\" target=\"_blank\" title=\"https://www.instagram.com/doddl\">@doddl.</a></p><p>For <a href=\"/pages/trade\" target=\"_blank\" title=\"Trade opportunities\">Trade partners</a>, please complete the form and one of our sales team will reply directly to you.</p><p><strong>UK Address:</strong><br/>Doddl Ltd.<br/>Unit 42 Acorn House<br/>Nailsworth Mills Estate<br/>Nailsworth<br/>Gloucestershire<br/>GL6 0BS<br/>United Kingdom</p><p><strong>US Address:<br/></strong>Doddl Inc.<br/>251 Little Falls Drive<br/>Wilmington<br/>Delaware<br/>19808<br/>United States of America</p>",
+        "text_position": "start",
+        "contact_form_size": "large",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "contact_background": "",
+        "contact_text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "text_with_icons_VTPMXe": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_JaB9dw": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/doddl_2023_Free_Delivery_Icon_a6ab3060-ee13-4b7f-8514-f20357fa066e.png",
+            "mobile_icon_width": 56,
+            "icon_width": 56,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "#301562",
+            "title": "Free shipping",
+            "content": "<p>Free UK shipping on all orders over £25</p>"
+          }
+        },
+        "item_xpt9BC": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/doddl_2023_Approved_by_Experts_Icon_760f680c-fbd8-4b8c-b613-5e697118a4bd.png",
+            "mobile_icon_width": 56,
+            "icon_width": 56,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "#301562",
+            "title": "The doddl guarantee",
+            "content": "<p>All orders are protected by our money-back guarantee</p>"
+          }
+        },
+        "item_YhKK6h": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/doddl_2023_Secure_Payment_Icon_106dd836-3ce0-4dcc-b754-95298982d9a1.png",
+            "mobile_icon_width": 56,
+            "icon_width": 56,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "#301562",
+            "title": "Secure payment",
+            "content": "<p>All payments are processed securely</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_JaB9dw",
+        "item_xpt9BC",
+        "item_YhKK6h"
+      ],
+      "settings": {
+        "full_width": false,
+        "title": "",
+        "heading_tag": "custom-icon-title",
+        "text_alignment": "center",
+        "icon_spacing": "small",
+        "background": "#ffffff",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "image_with_text_overlay_icxAUj": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "md",
+        "image": "shopify://shop_images/parent_hub.png",
+        "mobile_image": "shopify://shop_images/contact-mobile-overlay.png",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact",
+    "text_with_icons_VTPMXe",
+    "image_with_text_overlay_icxAUj"
+  ]
+}

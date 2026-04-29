@@ -1,0 +1,190 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "image_with_text_overlay_WHMEpV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "subheading_QjpjWM": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_gqgQDg": {
+          "type": "heading",
+          "settings": {
+            "text": "Partnerships",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_DA6dDc": {
+          "type": "richtext",
+          "settings": {
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_QjpjWM",
+        "heading_gqgQDg",
+        "richtext_DA6dDc"
+      ],
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": true,
+        "image_size": "sm",
+        "image": "shopify://shop_images/doddl_unedited_LR4381_LR.jpg",
+        "mobile_image": "shopify://shop_images/doddl_unedited_LR4308n_lr.jpg",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#2f1562",
+        "overlay_opacity": 2
+      }
+    },
+    "media_with_text_qBByFB": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_PNXkbk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/UK_website_800x800_d90b0293-02c4-485c-84da-4de5a4938c4d.png",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-center-start text-start",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Our Commitment to Sustainability",
+            "title": "Forest Green Rovers partnership",
+            "content": "<p>Sustainability is at the core of <a href=\"https://www.fgr.co.uk/another-way\" target=\"_blank\" title=\"https://www.fgr.co.uk/another-way\">Forest Green Rovers.</a> Known for being the only vegan football club in the world, they are continually looking at new ways to push the boundaries of environmental consciousness in sport and that’s why FIFA described them as the greenest football club in the world. It's also why we have chosen to partner with FGR, to help guide and push us to make doddl as environmentally friendly as possible.</p>",
+            "link_text": "Find out more - FGR Another Way",
+            "link_url": "https://www.fgr.co.uk/another-way",
+            "background": "#fbfbfb",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_DpE9QX": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Corporate-to-classroom_png.webp",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-end text-end",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Our Commitment to Developing Independence",
+            "title": "2B Enterprising + doddl",
+            "content": "<p>The <a href=\"https://www.2benterprising.co.uk/the-books/the-bumbles-of-honeywood/\" target=\"_blank\" title=\"https://www.2benterprising.co.uk/the-books/the-bumbles-of-honeywood/\">Bumbles of Honeywood Programme </a>helps develop valuable enterprising skills of primary school children across the UK. Through our partnership, a local primary school is now benefitting from a suite of resources that are curriculum mapped and aimed at inspiring and educating 4–8-year-old children in readiness for their future. The resources are designed to help children develop the skills they need to be healthy, independent and confident adults.</p>",
+            "link_text": "Explore 2B Enterprising",
+            "link_url": "https://www.2benterprising.co.uk",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_YWaqaQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_3260.jpg",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-start text-start",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Our Commitment to Developing Independence",
+            "title": "The doddl entrepreneur programme",
+            "content": "<p>Our products are designed to help develop independence in babies and toddlers at mealtimes. But for us, our focus on developing independence runs deeper. </p><p>As a business we are committed to helping young children access opportunities that will support their developing independence and confidence. So we have established the doddl entrepreneur programme. </p><p>Working in partnership with local primary schools we create and deliver programmes developed to showcase the opportunities that becoming an entrepreneur offers. A career choice that truly embraces independence, demands resilience and self-belief, our job is to inspire the next generation of entrepreneurs. Watch our week with Thrupp Primary School Gloucestershire below, and for more information on our programme please contact  <a href=\"mailto:team@doddl.com\" target=\"_blank\">team@doddl.com</a>.</p>",
+            "link_text": "Watch now!",
+            "link_url": "https://youtu.be/OP6K9LZ3Nes",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_PNXkbk",
+        "image_DpE9QX",
+        "image_YWaqaQ"
+      ],
+      "settings": {
+        "full_width": false,
+        "alternate_media_position": false,
+        "spacing": "none"
+      }
+    },
+    "rich_text_TpkQdK": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_Mt43iX": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_666KPz": {
+          "type": "heading",
+          "settings": {
+            "text": "Interested to learn more?",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_B8BAth": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>If you have any questions about any of the activity above please feel free to contact us <a href=\"mailto:team@doddl.com\" target=\"_blank\">team@doddl.com</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_Mt43iX",
+        "heading_666KPz",
+        "richtext_B8BAth"
+      ],
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_WHMEpV",
+    "media_with_text_qBByFB",
+    "rich_text_TpkQdK"
+  ]
+}

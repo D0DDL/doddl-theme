@@ -1,0 +1,150 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "complete-baby-toddler-mealtime-set": {
+      "type": "mealtime-set",
+      "blocks": {
+        "stage-1": {
+          "type": "stage",
+          "settings": {
+            "stage_title": "Stage 1 . Baby cutlery & bowl",
+            "stage_age": "6 - 12 months",
+            "milestones": "Grasps spoon in fist\nBrings food to mouth\nShows hand preference\nAttempts to scoop",
+            "next_step": "Ready for stage 2 when scooping reliably and eating more textured food",
+            "bar_colour": "teal"
+          }
+        },
+        "stage-2": {
+          "type": "stage",
+          "settings": {
+            "stage_title": "Stage 2 . Toddler cutlery",
+            "stage_age": "12 - 18 months",
+            "milestones": "Pincer grip developing\nStabs food with fork\nLess bowl-sweeping\nUsing both hands",
+            "next_step": "Ready for stage 3 when fork stabbing is consistent and grip is controlled",
+            "bar_colour": "purple"
+          }
+        },
+        "stage-3": {
+          "type": "stage",
+          "settings": {
+            "stage_title": "Stage 3 . Introducing the knife",
+            "stage_age": "18m - 3 years",
+            "milestones": "Confident fork use\nReady to cut soft foods\nBowl no longer swept\nGrowing independence",
+            "next_step": "Ready for stage 4 when cutting soft foods and eating without suction",
+            "bar_colour": "indigo"
+          }
+        },
+        "stage-4": {
+          "type": "stage",
+          "settings": {
+            "stage_title": "Stage 4 . Mastery & independence",
+            "stage_age": "3 - 5+ years",
+            "milestones": "Full knife & fork use\nCuts most foods\nPencil-ready grip\nEats independently",
+            "next_step": "School-ready - transition to adult cutlery naturally between ages 4 and 5",
+            "bar_colour": "deep"
+          }
+        },
+        "product-1": {
+          "type": "product_card",
+          "settings": {
+            "product_name": "Baby cutlery & travel case",
+            "product_subtitle": "Spoon + fork + case",
+            "age_pill": "From 6m",
+            "benefit_1": "<p>Grip development. Short handles fit the fist-grip perfectly, training fingers toward the pincer grip needed for pencils.</p>",
+            "benefit_2": "<p>Brain stimulation. 2-piece set works both hands simultaneously, engaging both hemispheres equally.</p>",
+            "benefit_3": "<p>Safe by design. Compact length removes gag risk - no adjustments needed.</p>",
+            "card_colour": "green"
+          }
+        },
+        "product-2": {
+          "type": "product_card",
+          "settings": {
+            "product_name": "2-in-1 suction bowl",
+            "product_subtitle": "Suction base removes when ready",
+            "age_pill": "From 6m",
+            "benefit_1": "<p>Food confidence. Low front lets babies see their food - visual contact builds willingness to try new things.</p>",
+            "benefit_2": "<p>Scooping skill. Oval shape keeps the bowl edge clear so the scooping motion comes naturally.</p>",
+            "benefit_3": "<p>Grows with them. Suction base removes to reveal a non-slip bowl - no new product needed at transition.</p>",
+            "card_colour": "green"
+          }
+        },
+        "product-3": {
+          "type": "product_card",
+          "settings": {
+            "product_name": "Toddler cutlery & case",
+            "product_subtitle": "Spoon, fork + knife",
+            "age_pill": "From 12m",
+            "benefit_1": "<p>Correct grip, automatically. Handle shape guides fingers into the pincer grip - no constant correction needed.</p>",
+            "benefit_2": "<p>Pencil-ready hands. The grip trained here is the same one needed for writing and scissors at school.</p>",
+            "benefit_3": "<p>Safe knife start. Handle teaches a downward push motion - building strength and control safely from 18 months.</p>",
+            "card_colour": "purple"
+          }
+        },
+        "product-4": {
+          "type": "product_card",
+          "settings": {
+            "product_name": "Toddler plate",
+            "product_subtitle": "Suction base removes when ready",
+            "age_pill": "From 12m",
+            "benefit_1": "<p>Cutlery precision. Central splat gives a clear scooping target - builds accuracy with every meal.</p>",
+            "benefit_2": "<p>Food confidence. No divided sections - mixed food on one plate mirrors adult eating and reduces anxiety around new foods.</p>",
+            "benefit_3": "<p>Less mess. Raised back edge helps push food onto utensils; front lip contains spills without looking babyish.</p>",
+            "card_colour": "purple"
+          }
+        },
+        "swatch-1": {
+          "type": "colour_swatch",
+          "settings": {
+            "swatch_colour": "#3d157d",
+            "swatch_name": "Indigo"
+          }
+        },
+        "swatch-2": {
+          "type": "colour_swatch",
+          "settings": {
+            "swatch_colour": "#1d9e75",
+            "swatch_name": "Teal"
+          }
+        }
+      },
+      "block_order": [
+        "stage-1",
+        "stage-2",
+        "stage-3",
+        "stage-4",
+        "product-1",
+        "product-2",
+        "product-3",
+        "product-4",
+        "swatch-1",
+        "swatch-2"
+      ],
+      "settings": {
+        "banner_eyebrow": "You've got everything you need",
+        "banner_heading": "How to introduce your Baby to Toddler Mealtime Set",
+        "banner_body": "Four ingeniously designed tools. A developmental journey from first tastes at 6 months to confident, independent eating at 5 years and beyond.",
+        "banner_bg_colour": "#3d157d",
+        "prompt_text": "Most families start at Stage 1 -- but if your child is already further along, tap a stage to jump straight there.",
+        "journey_heading": "Your child's development journey",
+        "video_heading": "See everything that comes in your set",
+        "video": "shopify://files/videos/3 piece and plate.mp4",
+        "products_heading": "What's in your set",
+        "swatches_heading": "Available in these colours",
+        "swatches_subtext": "Love it? Your set comes in a range of colours -- explore them on our site",
+        "swatches_link": "",
+        "swatches_link_text": "Shop all colours"
+      }
+    }
+  },
+  "order": [
+    "complete-baby-toddler-mealtime-set"
+  ]
+}

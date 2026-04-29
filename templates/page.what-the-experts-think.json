@@ -1,0 +1,309 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "image_with_text_overlay_RxbdDp": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "subheading_RgRqKx": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_piT6gn": {
+          "type": "heading",
+          "settings": {
+            "text": "Hear it from the experts",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_AaLRVG": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Guided by experts from the very start</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_RgRqKx",
+        "heading_piT6gn",
+        "richtext_AaLRVG"
+      ],
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": true,
+        "image_size": "sm",
+        "image": "shopify://shop_images/Screenshot_2023-05-24_152641.png",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#2f1562",
+        "overlay_opacity": 20
+      }
+    },
+    "media_with_text_9XqLtE": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_AhtpLi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/charlotte6-edited-1_jpg.webp",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-start-end text-end",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "The Baby & Child Nutritionist",
+            "title": "Charlotte Stirling-Reed",
+            "content": "<p>“I’ve been absolutely loving using the doddl cutlery set with my family. It’s really helped my daughter to hone her skills around self-feeding with a spoon and fork. I love the fact that they are made for little hands and make the idea of self-feeding so much simpler. Ada really has come on leaps and bounds since using them and is now able to do the “scoop” action by herself. My son also loves using the knife and fork and is getting much better at his cutting skills. It’s great that they just need to push down and apply pressure to cut their foods and, again, that they are made with little hands in mind. Such a great way to help them to transition to adult cutlery!”</p>",
+            "link_text": "Learn more about Charlotte's work here!",
+            "link_url": "https://www.srnutrition.co.uk/about-charlotte/",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_VQi4p6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Ruth_Watts.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center-end text-end",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Health Visitor",
+            "title": "Ruth Watts",
+            "content": "<p>doddl is a product I used, and I rate so much. The cutlery was fantastic for weaning, and we still have it in the drawer now, it’s my daughter's favourite spoon for cereal and she’s nearly 6 years old. It was a great transition spoon from starting to wean and learning to use cutlery to moving onto cutlery designed for adults. I love shouting out products that I believe in. Parents are the most vulnerable consumer out there because they want what is best for their baby and that's because they care so much.  We’ve all been there. And I never want to be part of a market where I have anything to do with preying on the vulnerability of parents. That's why I don't recommend products unless I have used them and think they will add real value. doddl is definitely one of those.</p>",
+            "link_text": "Visit Ruth on Instagram",
+            "link_url": "",
+            "background": "#f2f2f2",
+            "background_gradient": "",
+            "text_color": "#1a1a1a",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_B9fdD8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SZ.jpg",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-start-end text-end",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Paediatric Feeding and Swallowing Specialist Speech Therapist",
+            "title": "Stacey Zimmels",
+            "content": "<p>“As a feeding specialist and a mother, I was so delighted to discover doddl cutlery after it was recommended by a friend. I was so fed up of buying cutlery that wasn’t working to support my baby with his self-feeding development. doddl cutlery was perfect for him and within days he had mastered the loaded spoon and was stabbing and eating with his fork. The perfectly designed handles are short and fat which makes them easy to grab and simple to bring to their mouth. My son loved eating at the family table with his doddl cutlery – he was participating in our family mealtimes before he was walking!”</p>",
+            "link_text": "Learn more about Stacey's work here!",
+            "link_url": "https://www.feedeatspeak.co.uk/about",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_CYBpy3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Lucy-Upton-1_jpg.webp",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-start text-start",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Specialist Paediatric Dietician",
+            "title": "Lucy Upton",
+            "content": "<p>“doddl cutlery is fantastic for supporting young children with independent eating, grasping those tricky cutlery skills and allowing little ones to get stuck in exploring the wonderful world of food”</p>",
+            "link_text": "Learn more about Lucy's work here!",
+            "link_url": "https://www.thechildrensdietitian.co.uk/about",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_UL7WPa": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Penelope_Henderson.png",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-start-end text-end",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Children's Nutritionist",
+            "title": "Penelope Henderson",
+            "content": "<p>\"I love the unique design of doddl cutlery. The short, moulded handles fit perfectly in little hands and have a soft middle for a comfortable grip. I also love how they support motor skill development like dexterity and coordination, making self-feeding easier. The toddler knife helps build cutting skills safely, giving parents peace of mind. With easy-to-use cutlery, little ones can explore a wide range of foods and gain early exposure to new tastes and textures. I’d definitely recommend these to parents.\"</p>",
+            "link_text": "Nutrition 2 Nourish Flourish",
+            "link_url": "https://nutrition2nourishflourish.com/",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#000000",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_x9LALy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Registered-Nutritionist_jpg.webp",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-start text-start",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Registered Nutritionist / Founder of I Love Greens / co-founder of ‘Happy Tums’",
+            "title": "Nicola Ragon-Paxton",
+            "content": "<p>“doddl cutlery is perfectly designed for a toddler’s hand and the short handle means it’s easier to control. But the best bit for me are the metal heads which make it easy for baby to scoop and fork food compared to chunky plastic heads which can be frustrating for young ones. One of my recommended weaning essentials!”</p>",
+            "link_text": "Learn more about Nicola's work here!",
+            "link_url": "https://www.linkedin.com/in/nicola-ragon-paxton/",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_F49P6n": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Katia_Balducci_BSc_MSc_RNutr_Registered_Nutritionist_in_Public_Health.jpg",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-start-end text-end",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "The Baby Nutritionist",
+            "title": "Katia Balducci",
+            "content": "<p>“The doddl baby feeding set has been such a lovely addition to our weaning journey.The 2-in-1 bowl is sturdy, well-designed, and sticks perfectly to the highchair tray.<br/><br/>The cutlery set fits beautifully in little hands, helping babies build independence and confidence with self-feeding. They are short and even though the handle is chunkier they are super light. I love how well it supports fine motor skill development and encourages proper grip from early on, key steps in learning to eat independently. <br/><br/>The carry case is another win for me: we take it everywhere! It keeps the cutlery clean, safe, and ready to use whether we’re out for a meal or travelling.<br/><br/>From a mum and a child nutritionist perspective, I really value products that make feeding fun, practical, and developmentally supportive and this set truly ticks all those boxes.”</p>",
+            "link_text": "The Baby Nutritionist",
+            "link_url": "https://www.thebabynutritionist.com",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_aKbMBj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Vanessa_Eisch_-_Occupational_Therapist.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-start-end text-end",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Occupational Therapist",
+            "title": "Vanessa Eisch",
+            "content": "<p>\"As a pediatric occupational therapist and feeding specialist, I am always looking at new and innovative feeding products. I came across the doddl utensil set and recently tried it out with my 18 month old son. It’s an incredible design! The handle is a perfect combination of chunky yet light and short which promoted a comfortable and functional grasp for his little toddler hands. The bowl of the spoon is wide and flat which allows him to “shovel” and successfully scoop his food! He’s been more successful with this spoon than any we have tried before! I’m definitely recommending doddl to families that I serve and keeping it in my OT toolkit. Thanks for making such a thoughtful, well designed product!\"</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_LNWEQA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/christine-pollack-300x300.jpg",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-start text-start",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Paediatric Occupational Therapist",
+            "title": "Christine Pollack",
+            "content": "<p>“I absolutely love doddl. It comes with a children’s fork, spoon & knife that are ergonomically designed to foster independent feeding while building motor skills. Each utensil has grip zones strategically placed making it easy for kids to maintain control and manoeuvre the utensils. The handles are designed to promote a mature grasp which helps with drawing and writing. This is the first cutlery set I’ve come across that includes a knife safely designed for introducing and practicing knife skills with kids allowing them to participate in making her own food.”</p>",
+            "link_text": "Follow Christine on Instagram!",
+            "link_url": "https://www.instagram.com/a.dose.of.ot/",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_GNCggk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Colleen_Sarrazin_M.S._CCC-SLP_Pediatric_Feeding_Therapist_and_Speech-Language_Pathologist_founder_of_BabbleBites_Blog.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-start text-start",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Pediatric Feeding Therapist and Speech-Language Pathologist",
+            "title": "Colleen Sarrazin",
+            "content": "<p>“As a pediatric feeding therapist, I frequently have parents ask me for recommendations on feeding tools like forks and spoons. I wanted to<br/>share with you an awesome set that’s made by female founded and award-winning brand. It’s the doddl toddler spoon, fork and knife utensils set, which are perfect for 12 months and up.</p><p>I love that the prongs on the fork are stainless steel so your baby has more success with poking their food, causing less frustration and more interest in using utensils. The handles are also ergonomically designed to encourage a proper grip. These are perfect for helping to develop independent feeding skills. I also really love the unique design of the spoon bowl that’s narrower at the front so it’s not too wide for little mouths, as well as a tapered bowl shape to hold purees and more liquidy soups while still encouraging easy lip closure on the spoon.</p><p>The little knife is also perfect for getting your little one involved in the kitchen and building early skills for cutting food. It’s effective, while still being safe for your toddler to use independently.</p><p>Not to mention these toddler utensils are dishwasher safe and BPA phthalate and microplastic free.”</p>",
+            "link_text": "BabbleBites",
+            "link_url": "https://www.babblebites.com/",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_AhtpLi",
+        "image_VQi4p6",
+        "image_B9fdD8",
+        "image_CYBpy3",
+        "image_UL7WPa",
+        "image_x9LALy",
+        "image_F49P6n",
+        "image_aKbMBj",
+        "image_LNWEQA",
+        "image_GNCggk"
+      ],
+      "settings": {
+        "full_width": false,
+        "alternate_media_position": false,
+        "spacing": "none"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_RxbdDp",
+    "media_with_text_9XqLtE"
+  ]
+}

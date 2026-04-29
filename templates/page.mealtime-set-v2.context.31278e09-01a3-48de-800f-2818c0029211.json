@@ -1,0 +1,67 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "31278e09-01a3-48de-800f-2818c0029211"
+  },
+  "parent": "page.mealtime-set-v2.json",
+  "sections": {
+    "mealtime_set_v2": {
+      "settings": {},
+      "blocks": {
+        "stage_guide": {
+          "settings": {
+            "stage_1_p1_img": "shopify://shop_images/1_9994c785-9516-46c4-8c6b-d5788e83d89e.png",
+            "stage_1_p1_b1": "Ergonomic handles are easy to grasp and designed to develop the palmer grasp to pincer grip",
+            "stage_1_p2_img": "shopify://shop_images/2_b3c84c53-7797-49c9-a34e-9615ca1f9c85.png",
+            "stage_1_p2_name": "2-in-1 Suction Bowl",
+            "stage_1_p3_img": "shopify://shop_images/3_3750cb73-fdaa-42bb-a1b2-608f46bfb6b2.png",
+            "stage_1_p3_name": "Step-by-step: Baby fork and spoon",
+            "stage_1_p3_b1": "Load the baby spoon or fork with yoghurt or similar and lay on the tray handle towards them. Encourage your baby to pick it up (adding plenty of enthusiasm when they do!)",
+            "stage_1_p3_b2": "Your baby is ready for stage 2 when they are around 11 months, eating more substantial foods and have developed some co-ordination.",
+            "stage_2_p1_img": "shopify://shop_images/5_a24ca40c-cbbe-4432-b4e1-3fdcebd711c5.png",
+            "stage_2_p2_img": "shopify://shop_images/4_68ef6944-a8cb-44e7-a75f-1584b38c7dfa.png",
+            "stage_2_p2_name": "2-in-1 Suction Plate",
+            "stage_2_p3_img": "shopify://shop_images/6_3c401e46-7b46-4a29-b332-59a280289ee8.png",
+            "stage_2_p3_name": "Step-by-step: Toddler fork and spoon",
+            "stage_2_p3_b1": "Pre-load the spoon and lay it on your toddlers tray, handle facing them.",
+            "stage_2_p3_b2": "Once your toddler feels confident scooping, pre-load the fork in the same way.",
+            "stage_3_p1_img": "shopify://shop_images/8_95446b71-57cb-4097-9bb6-aef4b4b94eba.png",
+            "stage_3_p1_name": "Plate and bowl (suction removed)",
+            "stage_3_p1_b1": "Suction is easy to remove and reattach (if needed) helping the transition between suction and non-suction.",
+            "stage_3_p1_b2": "Non-slip bases keep bolw and plate fro moving around allowing your toddler to focus.",
+            "stage_3_p2_img": "shopify://shop_images/7_3ade6bb2-0acd-44a5-8fa6-2133444332c0.png",
+            "stage_3_p3_img": "shopify://shop_images/9_f6a11d49-389b-4c90-8d14-ccc56f347d31.png",
+            "stage_3_p3_name": "Step-by-step: Toddler knife",
+            "stage_3_p3_b1": "Show your toddler how to use the knife by holding your hand over theirs and pushing down through soft foods (like banana) then let them practice.",
+            "stage_3_p3_b2": "Keep encouraging the use of the knife at every mealtime so they can practice. Your toddler can now get involved in food preparation and cooking too!"
+          }
+        },
+        "faq": {
+          "disabled": true,
+          "settings": {}
+        },
+        "banner": {
+          "settings": {
+            "body": "doddl products are expertly engineered for each stage of your child's development. Why? Because the right tool at the right stage changes everything."
+          }
+        }
+      },
+      "block_order": [
+        "banner",
+        "image_grid",
+        "stage_guide",
+        "faq",
+        "video",
+        "swatches"
+      ]
+    }
+  }
+}

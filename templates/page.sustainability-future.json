@@ -1,0 +1,331 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "image_with_text_overlay_hWnnnD": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "subheading_tNjQeV": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_hAEDX8": {
+          "type": "heading",
+          "settings": {
+            "text": "Our commitment to the future",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_jyg6D7": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>At doddl we care about the future of our children. It’s in our DNA. That means we take our responsibility to look after the future of the planet and the future of our children seriously.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_tNjQeV",
+        "heading_hAEDX8",
+        "richtext_jyg6D7"
+      ],
+      "name": "Image with text overlay",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/birds-flying-home-across-sky.jpg",
+        "mobile_image": "shopify://shop_images/MOBSKY.png",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#2f1562",
+        "overlay_opacity": 10
+      }
+    },
+    "media_with_text_eAmKUn": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_VfgxfK": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/doddl_unedited_LR283LR.jpg",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-start-end text-end",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Sustainability",
+            "title": "Re-homing doddl",
+            "content": "<p>Our technologically advanced baby cutlery, toddler cutlery and plates are engineered from long lasting, high-quality materials, meaning they can be used for years.</p><p>So, through our sustainability partners at Merry-go-round, when your child has outgrown their clothes, and their doddl, you can re-home them, helping to ensure no doddl product is wasted. Alternatively you can gift your set to Kids Stuff to be rehomed with a family they work with. Find out more about <a href=\"https://www.strouddistrictkidsstuff.org.uk/\" target=\"_blank\" title=\"https://www.strouddistrictkidsstuff.org.uk/\">Kids Stuff here.</a></p>",
+            "link_text": "Find out more about Merry-Go-Round here.",
+            "link_url": "https://merrygoroundpreloved.co.uk/sell-to-us-doddl/",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_kpKa3U": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DODDL_BUNDLES_1_C6183-3.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-start text-start",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Sustainability",
+            "title": "Biodegradable Materials",
+            "content": "<p>The doddl bowl and doddl plate contain a clever additive that reduces the time the plastic will spend in landfill if the products are disposed of, ensuring they are more environmentally friendly without impacting the quality of the experience.</p>",
+            "link_text": "Shop doddl",
+            "link_url": "shopify://products/the-doddl-2-in-1-suction-bowl",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_gwex8Y": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/post.jpg",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-start-end text-end",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Sustainability",
+            "title": "Recycling",
+            "content": "<p>Occasionally it’s not possible to pass doddl on. If that is the case, at this point our partners at<a href=\"https://www.strouddistrictkidsstuff.org.uk/\" target=\"_blank\" title=\"https://www.strouddistrictkidsstuff.org.uk/\"> Kids Stuff </a>will separate out the materials and recycle them into new products, meaning doddl fully avoids landfill and uses less of the planet’s resources. How to recycle doddl:<br/><br/><strong>Simply send your set back to doddl HQ marked as RECYCLE:</strong><br/><br/>doddl Ltd <br/>42 Acorn House<br/>Nailsworth Mills Estate<br/>Nailsworth<br/>Stroud<br/>GL6 0BS</p><p>Find out more about <a href=\"https://www.strouddistrictkidsstuff.org.uk/\" target=\"_blank\" title=\"https://www.strouddistrictkidsstuff.org.uk/\">Kids Stuff </a>here or for more information contact <a href=\"mailto:Team@doddl.com\" target=\"_blank\">team@doddl.com</a></p>",
+            "link_text": "Find out more about Kids Stuff here.",
+            "link_url": "https://www.strouddistrictkidsstuff.org.uk/",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_YB33yn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/10313307.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-start text-start",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Sustainability",
+            "title": "Reducing Plastic Packaging",
+            "content": "<p>Our most recent products, the doddl bowl, plate and children’s cutlery case all contain zero plastic in their packaging.</p><p>We use high quality cardboard boxes for despatching goods to doddl customers, which are 100% recyclable.</p><p>In 2020 we redesigned our baby cutlery and children’s cutlery packaging and removed 70% of the plastic within them. It’s a target we’re proud of, but we want to do more, and we will continue to review how to achieve 100% plastic free packaging, our ultimate aim.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_kWXU74": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/long-tree-trunks-stab-the-sky.jpg",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-start text-start",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Our Business",
+            "title": "doddl HQ",
+            "content": "<p><strong>Bike to work scheme: </strong>We support this initiative and offer this scheme as an option to all employees, supported by accessible bike racks.</p><p><strong>Recycling:</strong> We operate a recycling scheme for card, metals, and plastic. We re-use packaging and materials where possible in our day-to-day operations. This helps us to minimise our landfill waste.</p><p><strong>Supply chain management:</strong> We work with our partners to keep striving for improved sustainability. This includes a focus on using:</p><p>FSC certified paper</p><p>Chlorine-free paper in our packaging production</p><p>Soya-based inks for printing</p><p>Corn-based cable ties</p><p>Eco-friendly glue for packaging</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#000000",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_VtJkmM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/johny_dadf153f-6222-4232-a5c2-8b17d31ca43c.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center-start text-start",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Inclusive product range",
+            "title": "For all children",
+            "content": "<p>doddl is designed to benefit every child and to make learning to self-feed as easy as possible. This is where doddl really makes a difference especially for children who find cutlery particularly challenging and may be looking for adapted cutlery including children with <strong>Autism</strong>, <strong>Down Syndome</strong>, <strong>Dyspraxia</strong>, <strong>Cerebral Palsy</strong>, <strong>Arthritis</strong>, <strong>Developmental Co-ordination Disorder</strong> or <strong>children with Development and Motorskill delays</strong>. </p>",
+            "link_text": "Find out more",
+            "link_url": "https://doddl.com/pages/doddl-is-for-every-child",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_c7gWxt": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/IMG_3260.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-start text-start",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Our Commitment to Developing Independence",
+            "title": "The doddl entrepreneur programme",
+            "content": "<p>Our products are designed to help develop independence in babies and toddlers at mealtimes. But for us our commitment to developing independence runs deeper. </p><p>As a business we are committed to helping young children access opportunities that will support their developing independence and confidence. So we have established the doddl entrepreneur programme. Working in partnership with local primary schools we create and deliver programmes developed to showcase the opportunities that becoming an entrepreneur offers. A career choice that truly embraces independence, demands resilience and self-belief, our job is to inspire the next generation of entrepreneurs. Watch our week with Thrupp Primary School Gloucestershire below and for more information on our programme please contact  <a href=\"mailto:team@doddl.com\" target=\"_blank\">team@doddl.com</a>.</p>",
+            "link_text": "Watch now!",
+            "link_url": "https://youtu.be/OP6K9LZ3Nes",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_cqEt3d": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Corporate-to-classroom_png.webp",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-end text-end",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Our Commitment to Developing Independence",
+            "title": "2B Enterprising + doddl",
+            "content": "<p>The <a href=\"https://www.2benterprising.co.uk/the-books/the-bumbles-of-honeywood/\" target=\"_blank\" title=\"https://www.2benterprising.co.uk/the-books/the-bumbles-of-honeywood/\">Bumbles of Honeywood Programme </a>helps develop valuable enterprising skills of primary school children across the UK. Through our partnership, a local primary school can now benefit from a suite of resources that are curriculum mapped and aimed at inspiring and educating 4–8-year-old children in readiness for their future. The resources are designed to help children develop the skills they need to be healthy, independent and confident adults and are presented in a classroom ready \"off the shelf\" format that can be delivered by educators and enjoyed by children.</p>",
+            "link_text": "Explore 2B Enterprising",
+            "link_url": "https://www.2benterprising.co.uk",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_4t87bU": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/fgr_badge_375_002.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "Forest Green Rovers partnership",
+            "content": "<p>Sustainability is at the core of <a href=\"https://www.fgr.co.uk/another-way\" target=\"_blank\" title=\"https://www.fgr.co.uk/another-way\">Forest Green Rovers.</a> Known for being the only vegan football club in the world, they are continually looking at new ways to push the boundaries of environmental consciousness in sport and that’s why FIFA described them as the greenest football club in the world. It's also why we have chosen to partner with FGR, to help guide and push us to make doddl as environmentally friendly as possible.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#fbfbfb",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_VfgxfK",
+        "image_kpKa3U",
+        "image_gwex8Y",
+        "image_YB33yn",
+        "image_kWXU74",
+        "image_VtJkmM",
+        "image_c7gWxt",
+        "image_cqEt3d",
+        "image_4t87bU"
+      ],
+      "settings": {
+        "full_width": false,
+        "spacing": "none"
+      }
+    },
+    "rich_text_yLDTMw": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_6mEaGX": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_pTyRjK": {
+          "type": "heading",
+          "settings": {
+            "text": "Interested to learn more?",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_RwxNB7": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>If you have any questions about any of the activity above please feel free to contact us <a href=\"mailto:team@doddl.com\" target=\"_blank\">team@doddl.com</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_6mEaGX",
+        "heading_pTyRjK",
+        "richtext_RwxNB7"
+      ],
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_hWnnnD",
+    "media_with_text_eAmKUn",
+    "rich_text_yLDTMw"
+  ]
+}

@@ -1,0 +1,615 @@
+{% comment %} mealtime-set-v2.liquid {% endcomment %}
+{{ 'mealtime-set-v2.css' | asset_url | stylesheet_tag }}
+
+<div class="ms-page">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+
+    {%- when 'banner' -%}
+      <div class="ms-banner" style="height: {{ block.settings.banner_height }}px;" {{ block.shopify_attributes }}>
+        {%- if block.settings.bg_image != blank -%}
+          {%- assign img_url = block.settings.bg_image | image_url: width: 1600 -%}
+          <div class="ms-banner__bg" style="background-image: url('{{ img_url }}'); background-position: {{ block.settings.image_position }}; background-size: {{ block.settings.image_scale }}%;"></div>
+        {%- else -%}
+          <div class="ms-banner__bg ms-banner__bg--color" style="background-color: {{ block.settings.bg_color }};"></div>
+        {%- endif -%}
+        <div class="ms-banner__overlay" style="background: {{ block.settings.overlay_color }}; opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};"></div>
+        <div class="ms-banner__content">
+          {%- if block.settings.eyebrow != blank -%}
+            <p class="ms-banner__eyebrow" style="color: {{ block.settings.eyebrow_color }}; font-size: {{ block.settings.eyebrow_size }}px;">{{ block.settings.eyebrow }}</p>
+          {%- endif -%}
+          {%- if block.settings.heading != blank -%}
+            <h1 class="ms-banner__heading" style="font-size: {{ block.settings.heading_size }}px; color: {{ block.settings.heading_color }}; font-weight: {{ block.settings.heading_weight }};">{{ block.settings.heading }}</h1>
+          {%- endif -%}
+          {%- if block.settings.body != blank -%}
+            <p class="ms-banner__body" style="color: {{ block.settings.body_color }}; font-size: {{ block.settings.body_size }}px;">{{ block.settings.body }}</p>
+          {%- endif -%}
+        </div>
+      </div>
+
+    {%- when 'image_grid' -%}
+      <div class="ms-image-grid" {{ block.shopify_attributes }}>
+        {%- for i in (1..4) -%}
+          {%- assign img_key = 'image_' | append: i -%}
+          {%- assign label_key = 'label_' | append: i -%}
+          {%- assign position_key = 'label_position_' | append: i -%}
+          {%- assign size_key = 'label_size_' | append: i -%}
+          {%- assign weight_key = 'label_weight_' | append: i -%}
+          {%- assign color_key = 'label_color_' | append: i -%}
+          {%- assign img = block.settings[img_key] -%}
+          {%- assign label = block.settings[label_key] -%}
+          {%- if img != blank -%}
+            <div class="ms-image-grid__item">
+              {{ img | image_url: width: 800 | image_tag: loading: 'eager', class: 'ms-image-grid__img' }}
+              {%- if label != blank -%}
+                <span class="ms-image-grid__label ms-image-grid__label--{{ block.settings[position_key] }}" style="font-size: {{ block.settings[size_key] }}px; font-weight: {{ block.settings[weight_key] }}; color: {{ block.settings[color_key] }};">{{ label }}</span>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+    {%- when 'hotspots' -%}
+      <div class="ms-hotspots" {{ block.shopify_attributes }}>
+        {%- if block.settings.section_heading != blank -%}
+          <h2 class="ms-section-heading" style="font-size: {{ block.settings.heading_size }}px; color: {{ block.settings.heading_color }}; font-weight: {{ block.settings.heading_weight }};">{{ block.settings.section_heading }}</h2>
+        {%- endif -%}
+        {%- assign hs_img_url = block.settings.image | image_url: width: 1400 -%}
+        <div class="ms-hotspots__wrap" style="height: {{ block.settings.image_height }}px; {% if block.settings.image != blank %}background-image: url('{{ hs_img_url }}'); background-position: {{ block.settings.image_position }}; background-size: {{ block.settings.image_scale }}%;{% endif %}">
+          {%- if block.settings.image == blank -%}
+            <div class="ms-hotspots__placeholder"></div>
+          {%- endif -%}
+          {%- for i in (1..6) -%}
+            {%- assign hs_name = 'hs_name_' | append: i -%}
+            {%- assign hs_desc = 'hs_desc_' | append: i -%}
+            {%- assign hs_x = 'hs_x_' | append: i -%}
+            {%- assign hs_y = 'hs_y_' | append: i -%}
+            {%- if block.settings[hs_name] != blank -%}
+              <div class="ms-hotspot" style="left: {{ block.settings[hs_x] }}%; top: {{ block.settings[hs_y] }}%;" data-hotspot="{{ block.id }}-{{ i }}">
+                <button class="ms-hotspot__btn" aria-label="{{ block.settings[hs_name] }}">+</button>
+                <div class="ms-hotspot__popup">
+                  <p class="ms-hotspot__popup-name" style="font-size: {{ block.settings.popup_name_size }}px;">{{ block.settings[hs_name] }}</p>
+                  {%- if block.settings[hs_desc] != blank -%}
+                    <p class="ms-hotspot__popup-desc" style="font-size: {{ block.settings.popup_desc_size }}px;">{{ block.settings[hs_desc] }}</p>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+    {%- when 'stage_guide' -%}
+      <div class="ms-stages" {{ block.shopify_attributes }}>
+        {%- if block.settings.section_heading != blank -%}
+          <h2 class="ms-stages__main-heading" style="font-size: {{ block.settings.heading_size }}px; color: {{ block.settings.heading_color }}; font-weight: {{ block.settings.heading_weight }};">{{ block.settings.section_heading }}</h2>
+        {%- endif -%}
+        <div class="ms-stages__tabs">
+          {%- for i in (1..3) -%}
+            {%- assign tab_name_key = 'stage_' | append: i | append: '_name' -%}
+            {%- assign tab_age_key = 'stage_' | append: i | append: '_age' -%}
+            <button class="ms-stages__tab{% if forloop.first %} active{% endif %}" data-tab="{{ i }}">
+              <span class="ms-stages__tab-num">{{ i }}</span>
+              <span class="ms-stages__tab-text">
+                <span class="ms-stages__tab-name">{{ block.settings[tab_name_key] }}</span>
+                <span class="ms-stages__tab-age">{{ block.settings[tab_age_key] }}</span>
+              </span>
+            </button>
+          {%- endfor -%}
+        </div>
+        {%- for i in (1..3) -%}
+          {%- assign heading_key = 'stage_' | append: i | append: '_heading' -%}
+          {%- assign body_key = 'stage_' | append: i | append: '_body' -%}
+          {%- assign age_key = 'stage_' | append: i | append: '_age' -%}
+          {%- assign b1_key = 'stage_' | append: i | append: '_bullet_1' -%}
+          {%- assign b2_key = 'stage_' | append: i | append: '_bullet_2' -%}
+          {%- assign b3_key = 'stage_' | append: i | append: '_bullet_3' -%}
+          {%- assign b4_key = 'stage_' | append: i | append: '_bullet_4' -%}
+          <div class="ms-stages__panel{% if forloop.first %} active{% endif %}" data-panel="{{ i }}">
+            <div class="ms-stages__panel-inner">
+              <div class="ms-stages__left">
+                <span class="ms-stages__pill" style="font-size: {{ block.settings.pill_size }}px;">Stage {{ i }} &middot; {{ block.settings[age_key] }}</span>
+                <h3 class="ms-stages__heading" style="font-size: {{ block.settings.stage_heading_size }}px;">{{ block.settings[heading_key] }}</h3>
+                <p class="ms-stages__body" style="font-size: {{ block.settings.body_size }}px;">{{ block.settings[body_key] | newline_to_br }}</p>
+                <p class="ms-stages__signs-label" style="font-size: {{ block.settings.signs_label_size }}px;">Signs your child is ready:</p>
+                <ul class="ms-stages__bullets">
+                  {%- if block.settings[b1_key] != blank -%}<li style="font-size: {{ block.settings.bullet_size }}px;">{{ block.settings[b1_key] }}</li>{%- endif -%}
+                  {%- if block.settings[b2_key] != blank -%}<li style="font-size: {{ block.settings.bullet_size }}px;">{{ block.settings[b2_key] }}</li>{%- endif -%}
+                  {%- if block.settings[b3_key] != blank -%}<li style="font-size: {{ block.settings.bullet_size }}px;">{{ block.settings[b3_key] }}</li>{%- endif -%}
+                  {%- if block.settings[b4_key] != blank -%}<li style="font-size: {{ block.settings.bullet_size }}px;">{{ block.settings[b4_key] }}</li>{%- endif -%}
+                </ul>
+              </div>
+              <div class="ms-stages__right">
+                <p class="ms-stages__products-label" style="font-size: {{ block.settings.signs_label_size }}px;">Products for this stage</p>
+                <div class="ms-stages__products">
+                  {%- for p in (1..3) -%}
+                    {%- assign p_img_key = 'stage_' | append: i | append: '_p' | append: p | append: '_img' -%}
+                    {%- assign p_name_key = 'stage_' | append: i | append: '_p' | append: p | append: '_name' -%}
+                    {%- assign p_b1_key = 'stage_' | append: i | append: '_p' | append: p | append: '_b1' -%}
+                    {%- assign p_b2_key = 'stage_' | append: i | append: '_p' | append: p | append: '_b2' -%}
+                    {%- assign p_link_key = 'stage_' | append: i | append: '_p' | append: p | append: '_link' -%}
+                    {%- assign p_link = block.settings[p_link_key] -%}
+                    <div class="ms-stages__product-card">
+                      <div class="ms-stages__product-img">
+                        {%- if block.settings[p_img_key] != blank -%}
+                          {{ block.settings[p_img_key] | image_url: width: 400 | image_tag: loading: 'lazy' }}
+                        {%- else -%}
+                          <div class="ms-stages__product-placeholder"></div>
+                        {%- endif -%}
+                      </div>
+                      <div class="ms-stages__product-body">
+                        <p class="ms-stages__product-name" style="font-size: {{ block.settings.product_name_size }}px;">{{ block.settings[p_name_key] }}</p>
+                        <ul class="ms-stages__product-bullets">
+                          {%- if block.settings[p_b1_key] != blank -%}<li style="font-size: {{ block.settings.product_bullet_size }}px;">{{ block.settings[p_b1_key] }}</li>{%- endif -%}
+                          {%- if block.settings[p_b2_key] != blank -%}<li style="font-size: {{ block.settings.product_bullet_size }}px;">{{ block.settings[p_b2_key] }}</li>{%- endif -%}
+                        </ul>
+                        {%- if p_link != blank -%}
+                          <a href="{{ p_link }}" class="ms-stages__product-link" style="font-size: {{ block.settings.product_bullet_size }}px;">View product &rarr;</a>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  {%- endfor -%}
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+    {%- when 'intro_guide' -%}
+      <div class="ms-intro" {{ block.shopify_attributes }}>
+        {%- if block.settings.stage_pill != blank -%}
+          <span class="ms-intro__pill" style="font-size: {{ block.settings.pill_size }}px;">{{ block.settings.stage_pill }}</span>
+        {%- endif -%}
+        {%- if block.settings.heading != blank -%}
+          <h2 class="ms-intro__heading" style="font-size: {{ block.settings.heading_size }}px; color: {{ block.settings.heading_color }}; font-weight: {{ block.settings.heading_weight }};">{{ block.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if block.settings.tagline != blank -%}
+          <p class="ms-intro__tagline" style="font-size: {{ block.settings.tagline_size }}px;">{{ block.settings.tagline }}</p>
+        {%- endif -%}
+        {%- if block.settings.body != blank -%}
+          <div class="ms-intro__body" style="font-size: {{ block.settings.body_size }}px;">{{ block.settings.body }}</div>
+        {%- endif -%}
+        <div class="ms-milestones">
+          {%- for i in (1..4) -%}
+            {%- assign age_key = 'milestone_age_' | append: i -%}
+            {%- assign text_key = 'milestone_text_' | append: i -%}
+            {%- assign highlight_key = 'milestone_highlight_' | append: i -%}
+            {%- if block.settings[age_key] != blank -%}
+              <div class="ms-milestone{% if block.settings[highlight_key] %} ms-milestone--highlight{% endif %}">
+                <p class="ms-milestone__age" style="font-size: {{ block.settings.milestone_size }}px;">{{ block.settings[age_key] }}</p>
+                <p class="ms-milestone__text" style="font-size: {{ block.settings.milestone_size }}px;">{{ block.settings[text_key] }}</p>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+    {%- when 'faq' -%}
+      <div class="ms-faq" {{ block.shopify_attributes }}>
+        {%- if block.settings.heading != blank -%}
+          <h2 class="ms-faq__heading" style="font-size: {{ block.settings.heading_size }}px; color: {{ block.settings.heading_color }}; font-weight: {{ block.settings.heading_weight }};">{{ block.settings.heading }}</h2>
+        {%- endif -%}
+        <div class="ms-faq__grid">
+          {%- for i in (1..6) -%}
+            {%- assign q_key = 'q_' | append: i -%}
+            {%- assign a_key = 'a_' | append: i -%}
+            {%- if block.settings[q_key] != blank -%}
+              <div class="ms-faq__item">
+                <p class="ms-faq__q" style="font-size: {{ block.settings.question_size }}px;">{{ block.settings[q_key] }}</p>
+                <p class="ms-faq__a" style="font-size: {{ block.settings.answer_size }}px;">{{ block.settings[a_key] }}</p>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+    {%- when 'video' -%}
+      <div class="ms-video" {{ block.shopify_attributes }}>
+        {%- if block.settings.heading != blank -%}
+          <h2 class="ms-video__heading" style="font-size: {{ block.settings.heading_size }}px; color: {{ block.settings.heading_color }}; font-weight: {{ block.settings.heading_weight }};">{{ block.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if block.settings.video != blank -%}
+          <div class="ms-video__wrap">
+            {{ block.settings.video | video_tag: autoplay: false, loop: false, controls: true, class: 'ms-video__player' }}
+          </div>
+        {%- endif -%}
+      </div>
+
+    {%- when 'swatches' -%}
+      <div class="ms-swatches" {{ block.shopify_attributes }}>
+        {%- if block.settings.heading != blank -%}
+          <h2 class="ms-swatches__heading" style="font-size: {{ block.settings.heading_size }}px;">{{ block.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if block.settings.subtext != blank -%}
+          <p class="ms-swatches__sub" style="font-size: {{ block.settings.subtext_size }}px;">{{ block.settings.subtext }}</p>
+        {%- endif -%}
+        <div class="ms-swatches__row">
+          {%- for i in (1..8) -%}
+            {%- assign color_key = 'color_' | append: i -%}
+            {%- assign name_key = 'color_name_' | append: i -%}
+            {%- if block.settings[name_key] != blank -%}
+              <div class="ms-swatch">
+                <span class="ms-swatch__circle" style="background-color: {{ block.settings[color_key] }};"></span>
+                <span class="ms-swatch__name" style="font-size: {{ block.settings.swatch_name_size }}px;">{{ block.settings[name_key] }}</span>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if block.settings.shop_link != blank -%}
+            <a href="{{ block.settings.shop_link }}" class="ms-swatches__link">{{ block.settings.shop_link_text | default: 'Shop all colours' }} &rarr;</a>
+          {%- endif -%}
+        </div>
+      </div>
+
+    {%- endcase -%}
+  {%- endfor -%}
+</div>
+
+<script>
+(function() {
+  function initTabs() {
+    var groups = document.querySelectorAll('.ms-stages');
+    groups.forEach(function(group) {
+      if (group.dataset.tabInit) return;
+      group.dataset.tabInit = '1';
+      var tabs = group.querySelectorAll('.ms-stages__tab');
+      var panels = group.querySelectorAll('.ms-stages__panel');
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          var target = tab.dataset.tab;
+          tabs.forEach(function(t) { t.classList.remove('active'); });
+          panels.forEach(function(p) { p.classList.remove('active'); });
+          tab.classList.add('active');
+          group.querySelector('.ms-stages__panel[data-panel="' + target + '"]').classList.add('active');
+        });
+      });
+    });
+  }
+
+  function initHotspots() {
+    var btns = document.querySelectorAll('.ms-hotspot__btn');
+    btns.forEach(function(btn) {
+      if (btn.dataset.hsInit) return;
+      btn.dataset.hsInit = '1';
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var hotspot = btn.closest('.ms-hotspot');
+        var isOpen = hotspot.classList.contains('open');
+        document.querySelectorAll('.ms-hotspot').forEach(function(h) { h.classList.remove('open'); });
+        if (!isOpen) hotspot.classList.add('open');
+      });
+    });
+    document.addEventListener('click', function() {
+      document.querySelectorAll('.ms-hotspot').forEach(function(h) { h.classList.remove('open'); });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() { initTabs(); initHotspots(); });
+  window.addEventListener('load', function() { initTabs(); initHotspots(); });
+  document.addEventListener('shopify:section:load', function() { setTimeout(function() { initTabs(); initHotspots(); }, 100); });
+  document.addEventListener('shopify:block:select', function() { setTimeout(function() { initTabs(); initHotspots(); }, 100); });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Mealtime Set v2",
+  "max_blocks": 10,
+  "blocks": [
+    {
+      "type": "banner",
+      "name": "Banner",
+      "settings": [
+        { "type": "image_picker", "id": "bg_image", "label": "Background image" },
+        { "type": "select", "id": "image_position", "label": "Image focal point", "options": [{ "value": "center center", "label": "Centre" }, { "value": "top center", "label": "Top" }, { "value": "bottom center", "label": "Bottom" }, { "value": "center left", "label": "Left" }, { "value": "center right", "label": "Right" }], "default": "center center" },
+        { "type": "range", "id": "banner_height", "label": "Banner height", "min": 150, "max": 600, "step": 10, "default": 280, "unit": "px" },
+        { "type": "range", "id": "image_scale", "label": "Image size", "min": 20, "max": 200, "step": 5, "default": 100, "unit": "%" },
+        { "type": "color", "id": "bg_color", "label": "Background colour (fallback)", "default": "#f5f5f5" },
+        { "type": "color", "id": "overlay_color", "label": "Overlay colour", "default": "#000000" },
+        { "type": "range", "id": "overlay_opacity", "label": "Overlay opacity", "min": 0, "max": 80, "step": 5, "default": 0, "unit": "%" },
+        { "type": "header", "content": "Eyebrow" },
+        { "type": "text", "id": "eyebrow", "label": "Eyebrow text", "default": "Complete Baby to Toddler Mealtime Set" },
+        { "type": "color", "id": "eyebrow_color", "label": "Eyebrow colour", "default": "#3D157D" },
+        { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 8, "max": 20, "step": 1, "default": 11 },
+        { "type": "header", "content": "Heading" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Everything they need from first bites to family meals" },
+        { "type": "range", "id": "heading_size", "label": "Heading size", "min": 18, "max": 48, "step": 1, "default": 28 },
+        { "type": "color", "id": "heading_color", "label": "Heading colour", "default": "#3D157D" },
+        { "type": "select", "id": "heading_weight", "label": "Heading weight", "options": [{ "value": "600", "label": "Regular" }, { "value": "700", "label": "Bold" }, { "value": "800", "label": "Extra bold" }], "default": "800" },
+        { "type": "header", "content": "Body" },
+        { "type": "textarea", "id": "body", "label": "Body text", "default": "Designed to grow with your child from 6 months to 5 years." },
+        { "type": "color", "id": "body_color", "label": "Body text colour", "default": "#1a1a2e" },
+        { "type": "range", "id": "body_size", "label": "Body text size", "min": 10, "max": 24, "step": 1, "default": 15 }
+      ]
+    },
+    {
+      "type": "image_grid",
+      "name": "Image Grid",
+      "settings": [
+        { "type": "header", "content": "Image 1" },
+        { "type": "image_picker", "id": "image_1", "label": "Image 1" },
+        { "type": "text", "id": "label_1", "label": "Label 1", "default": "Baby Cutlery + Case" },
+        { "type": "select", "id": "label_position_1", "label": "Label position", "options": [{ "value": "top-left", "label": "Top left" }, { "value": "top-right", "label": "Top right" }, { "value": "bottom-left", "label": "Bottom left" }, { "value": "bottom-right", "label": "Bottom right" }], "default": "top-left" },
+        { "type": "range", "id": "label_size_1", "label": "Label size", "min": 10, "max": 28, "step": 1, "default": 14 },
+        { "type": "select", "id": "label_weight_1", "label": "Label weight", "options": [{ "value": "400", "label": "Regular" }, { "value": "600", "label": "Semi bold" }, { "value": "700", "label": "Bold" }, { "value": "800", "label": "Extra bold" }], "default": "700" },
+        { "type": "color", "id": "label_color_1", "label": "Label colour", "default": "#ffffff" },
+        { "type": "header", "content": "Image 2" },
+        { "type": "image_picker", "id": "image_2", "label": "Image 2" },
+        { "type": "text", "id": "label_2", "label": "Label 2", "default": "3 Piece Cutlery + Case" },
+        { "type": "select", "id": "label_position_2", "label": "Label position", "options": [{ "value": "top-left", "label": "Top left" }, { "value": "top-right", "label": "Top right" }, { "value": "bottom-left", "label": "Bottom left" }, { "value": "bottom-right", "label": "Bottom right" }], "default": "top-left" },
+        { "type": "range", "id": "label_size_2", "label": "Label size", "min": 10, "max": 28, "step": 1, "default": 14 },
+        { "type": "select", "id": "label_weight_2", "label": "Label weight", "options": [{ "value": "400", "label": "Regular" }, { "value": "600", "label": "Semi bold" }, { "value": "700", "label": "Bold" }, { "value": "800", "label": "Extra bold" }], "default": "700" },
+        { "type": "color", "id": "label_color_2", "label": "Label colour", "default": "#ffffff" },
+        { "type": "header", "content": "Image 3" },
+        { "type": "image_picker", "id": "image_3", "label": "Image 3" },
+        { "type": "text", "id": "label_3", "label": "Label 3", "default": "2-in-1 Bowl" },
+        { "type": "select", "id": "label_position_3", "label": "Label position", "options": [{ "value": "top-left", "label": "Top left" }, { "value": "top-right", "label": "Top right" }, { "value": "bottom-left", "label": "Bottom left" }, { "value": "bottom-right", "label": "Bottom right" }], "default": "top-left" },
+        { "type": "range", "id": "label_size_3", "label": "Label size", "min": 10, "max": 28, "step": 1, "default": 14 },
+        { "type": "select", "id": "label_weight_3", "label": "Label weight", "options": [{ "value": "400", "label": "Regular" }, { "value": "600", "label": "Semi bold" }, { "value": "700", "label": "Bold" }, { "value": "800", "label": "Extra bold" }], "default": "700" },
+        { "type": "color", "id": "label_color_3", "label": "Label colour", "default": "#ffffff" },
+        { "type": "header", "content": "Image 4" },
+        { "type": "image_picker", "id": "image_4", "label": "Image 4" },
+        { "type": "text", "id": "label_4", "label": "Label 4", "default": "2-in-1 Plate" },
+        { "type": "select", "id": "label_position_4", "label": "Label position", "options": [{ "value": "top-left", "label": "Top left" }, { "value": "top-right", "label": "Top right" }, { "value": "bottom-left", "label": "Bottom left" }, { "value": "bottom-right", "label": "Bottom right" }], "default": "top-left" },
+        { "type": "range", "id": "label_size_4", "label": "Label size", "min": 10, "max": 28, "step": 1, "default": 14 },
+        { "type": "select", "id": "label_weight_4", "label": "Label weight", "options": [{ "value": "400", "label": "Regular" }, { "value": "600", "label": "Semi bold" }, { "value": "700", "label": "Bold" }, { "value": "800", "label": "Extra bold" }], "default": "700" },
+        { "type": "color", "id": "label_color_4", "label": "Label colour", "default": "#ffffff" }
+      ]
+    },
+    {
+      "type": "hotspots",
+      "name": "Hotspots",
+      "settings": [
+        { "type": "text", "id": "section_heading", "label": "Section heading", "default": "What's in your set" },
+        { "type": "range", "id": "heading_size", "label": "Heading size", "min": 14, "max": 36, "step": 1, "default": 22 },
+        { "type": "color", "id": "heading_color", "label": "Heading colour", "default": "#3D157D" },
+        { "type": "select", "id": "heading_weight", "label": "Heading weight", "options": [{ "value": "600", "label": "Regular" }, { "value": "700", "label": "Bold" }, { "value": "800", "label": "Extra bold" }], "default": "800" },
+        { "type": "image_picker", "id": "image", "label": "Background image" },
+        { "type": "select", "id": "image_position", "label": "Image focal point", "options": [{ "value": "center center", "label": "Centre" }, { "value": "top center", "label": "Top" }, { "value": "bottom center", "label": "Bottom" }, { "value": "center left", "label": "Left" }, { "value": "center right", "label": "Right" }], "default": "center center" },
+        { "type": "range", "id": "image_height", "label": "Image height", "min": 200, "max": 800, "step": 10, "default": 500, "unit": "px" },
+        { "type": "range", "id": "image_scale", "label": "Image size", "min": 20, "max": 200, "step": 5, "default": 100, "unit": "%" },
+        { "type": "header", "content": "Popup text sizes" },
+        { "type": "range", "id": "popup_name_size", "label": "Popup name size", "min": 10, "max": 22, "step": 1, "default": 13 },
+        { "type": "range", "id": "popup_desc_size", "label": "Popup description size", "min": 10, "max": 20, "step": 1, "default": 12 },
+        { "type": "header", "content": "Hotspot 1" },
+        { "type": "text", "id": "hs_name_1", "label": "Product name", "default": "Baby Spoon and Fork" },
+        { "type": "textarea", "id": "hs_desc_1", "label": "Description", "default": "Ergonomic handle designed for tiny fists" },
+        { "type": "range", "id": "hs_x_1", "label": "Position left (%)", "min": 0, "max": 100, "step": 1, "default": 20 },
+        { "type": "range", "id": "hs_y_1", "label": "Position top (%)", "min": 0, "max": 100, "step": 1, "default": 40 },
+        { "type": "header", "content": "Hotspot 2" },
+        { "type": "text", "id": "hs_name_2", "label": "Product name", "default": "2-in-1 Suction Bowl" },
+        { "type": "textarea", "id": "hs_desc_2", "label": "Description", "default": "Suction base keeps it in place on the tray" },
+        { "type": "range", "id": "hs_x_2", "label": "Position left (%)", "min": 0, "max": 100, "step": 1, "default": 45 },
+        { "type": "range", "id": "hs_y_2", "label": "Position top (%)", "min": 0, "max": 100, "step": 1, "default": 60 },
+        { "type": "header", "content": "Hotspot 3" },
+        { "type": "text", "id": "hs_name_3", "label": "Product name", "default": "2-in-1 Plate" },
+        { "type": "textarea", "id": "hs_desc_3", "label": "Description", "default": "Raised back helps scoop food onto the spoon" },
+        { "type": "range", "id": "hs_x_3", "label": "Position left (%)", "min": 0, "max": 100, "step": 1, "default": 70 },
+        { "type": "range", "id": "hs_y_3", "label": "Position top (%)", "min": 0, "max": 100, "step": 1, "default": 30 },
+        { "type": "header", "content": "Hotspot 4" },
+        { "type": "text", "id": "hs_name_4", "label": "Product name" },
+        { "type": "textarea", "id": "hs_desc_4", "label": "Description" },
+        { "type": "range", "id": "hs_x_4", "label": "Position left (%)", "min": 0, "max": 100, "step": 1, "default": 30 },
+        { "type": "range", "id": "hs_y_4", "label": "Position top (%)", "min": 0, "max": 100, "step": 1, "default": 70 },
+        { "type": "header", "content": "Hotspot 5" },
+        { "type": "text", "id": "hs_name_5", "label": "Product name" },
+        { "type": "textarea", "id": "hs_desc_5", "label": "Description" },
+        { "type": "range", "id": "hs_x_5", "label": "Position left (%)", "min": 0, "max": 100, "step": 1, "default": 55 },
+        { "type": "range", "id": "hs_y_5", "label": "Position top (%)", "min": 0, "max": 100, "step": 1, "default": 20 },
+        { "type": "header", "content": "Hotspot 6" },
+        { "type": "text", "id": "hs_name_6", "label": "Product name" },
+        { "type": "textarea", "id": "hs_desc_6", "label": "Description" },
+        { "type": "range", "id": "hs_x_6", "label": "Position left (%)", "min": 0, "max": 100, "step": 1, "default": 80 },
+        { "type": "range", "id": "hs_y_6", "label": "Position top (%)", "min": 0, "max": 100, "step": 1, "default": 70 }
+      ]
+    },
+    {
+      "type": "stage_guide",
+      "name": "Stage Guide",
+      "settings": [
+        { "type": "text", "id": "section_heading", "label": "Section heading", "default": "Growing with your child" },
+        { "type": "range", "id": "heading_size", "label": "Section heading size", "min": 14, "max": 36, "step": 1, "default": 24 },
+        { "type": "color", "id": "heading_color", "label": "Section heading colour", "default": "#3D157D" },
+        { "type": "select", "id": "heading_weight", "label": "Section heading weight", "options": [{ "value": "600", "label": "Regular" }, { "value": "700", "label": "Bold" }, { "value": "800", "label": "Extra bold" }], "default": "800" },
+        { "type": "header", "content": "Text sizes" },
+        { "type": "range", "id": "pill_size", "label": "Stage pill size", "min": 8, "max": 16, "step": 1, "default": 11 },
+        { "type": "range", "id": "stage_heading_size", "label": "Stage heading size", "min": 14, "max": 36, "step": 1, "default": 22 },
+        { "type": "range", "id": "body_size", "label": "Body text size", "min": 10, "max": 20, "step": 1, "default": 14 },
+        { "type": "range", "id": "signs_label_size", "label": "Labels size", "min": 8, "max": 16, "step": 1, "default": 11 },
+        { "type": "range", "id": "bullet_size", "label": "Bullet text size", "min": 10, "max": 18, "step": 1, "default": 13 },
+        { "type": "range", "id": "product_name_size", "label": "Product name size", "min": 10, "max": 20, "step": 1, "default": 13 },
+        { "type": "range", "id": "product_bullet_size", "label": "Product bullet size", "min": 10, "max": 18, "step": 1, "default": 12 },
+        { "type": "header", "content": "Stage 1" },
+        { "type": "text", "id": "stage_1_name", "label": "Stage 1 name", "default": "First Foods" },
+        { "type": "text", "id": "stage_1_age", "label": "Stage 1 age range", "default": "6-12 months" },
+        { "type": "text", "id": "stage_1_heading", "label": "Stage 1 heading", "default": "First foods, first wins" },
+        { "type": "textarea", "id": "stage_1_body", "label": "Stage 1 body" },
+        { "type": "text", "id": "stage_1_bullet_1", "label": "Sign 1", "default": "Sitting in a high chair with support" },
+        { "type": "text", "id": "stage_1_bullet_2", "label": "Sign 2", "default": "Reaching and grasping objects reliably" },
+        { "type": "text", "id": "stage_1_bullet_3", "label": "Sign 3", "default": "Bringing hand to mouth confidently" },
+        { "type": "text", "id": "stage_1_bullet_4", "label": "Sign 4", "default": "Showing real interest in what you eat" },
+        { "type": "header", "content": "Stage 1 - Product 1" },
+        { "type": "image_picker", "id": "stage_1_p1_img", "label": "Product 1 image" },
+        { "type": "text", "id": "stage_1_p1_name", "label": "Product 1 name", "default": "Baby Spoon and Fork" },
+        { "type": "text", "id": "stage_1_p1_b1", "label": "Product 1 bullet 1", "default": "Ergonomic handle for tiny fists" },
+        { "type": "text", "id": "stage_1_p1_b2", "label": "Product 1 bullet 2", "default": "Soft tip, safe for gums" },
+        { "type": "url", "id": "stage_1_p1_link", "label": "Product 1 link" },
+        { "type": "header", "content": "Stage 1 - Product 2" },
+        { "type": "image_picker", "id": "stage_1_p2_img", "label": "Product 2 image" },
+        { "type": "text", "id": "stage_1_p2_name", "label": "Product 2 name", "default": "2-in-1 Suction Bowl" },
+        { "type": "text", "id": "stage_1_p2_b1", "label": "Product 2 bullet 1", "default": "Suction base keeps it in place" },
+        { "type": "text", "id": "stage_1_p2_b2", "label": "Product 2 bullet 2", "default": "Converts to non-slip when ready" },
+        { "type": "url", "id": "stage_1_p2_link", "label": "Product 2 link" },
+        { "type": "header", "content": "Stage 1 - Product 3" },
+        { "type": "image_picker", "id": "stage_1_p3_img", "label": "Product 3 image" },
+        { "type": "text", "id": "stage_1_p3_name", "label": "Product 3 name", "default": "2-in-1 Plate" },
+        { "type": "text", "id": "stage_1_p3_b1", "label": "Product 3 bullet 1", "default": "Raised back helps scoop food" },
+        { "type": "text", "id": "stage_1_p3_b2", "label": "Product 3 bullet 2", "default": "Suction base option available" },
+        { "type": "url", "id": "stage_1_p3_link", "label": "Product 3 link" },
+        { "type": "header", "content": "Stage 2" },
+        { "type": "text", "id": "stage_2_name", "label": "Stage 2 name", "default": "Building Control" },
+        { "type": "text", "id": "stage_2_age", "label": "Stage 2 age range", "default": "12-18 months" },
+        { "type": "text", "id": "stage_2_heading", "label": "Stage 2 heading", "default": "More confident, more independent" },
+        { "type": "textarea", "id": "stage_2_body", "label": "Stage 2 body" },
+        { "type": "text", "id": "stage_2_bullet_1", "label": "Sign 1", "default": "Getting food to mouth more reliably" },
+        { "type": "text", "id": "stage_2_bullet_2", "label": "Sign 2", "default": "Showing a clear hand preference" },
+        { "type": "text", "id": "stage_2_bullet_3", "label": "Sign 3", "default": "Attempting to scoop independently" },
+        { "type": "text", "id": "stage_2_bullet_4", "label": "Sign 4", "default": "Eating a wider range of textures" },
+        { "type": "header", "content": "Stage 2 - Product 1" },
+        { "type": "image_picker", "id": "stage_2_p1_img", "label": "Product 1 image" },
+        { "type": "text", "id": "stage_2_p1_name", "label": "Product 1 name", "default": "Toddler Spoon and Fork" },
+        { "type": "text", "id": "stage_2_p1_b1", "label": "Product 1 bullet 1", "default": "Wider handle for developing grip" },
+        { "type": "text", "id": "stage_2_p1_b2", "label": "Product 1 bullet 2", "default": "Encourages correct hold naturally" },
+        { "type": "url", "id": "stage_2_p1_link", "label": "Product 1 link" },
+        { "type": "header", "content": "Stage 2 - Product 2" },
+        { "type": "image_picker", "id": "stage_2_p2_img", "label": "Product 2 image" },
+        { "type": "text", "id": "stage_2_p2_name", "label": "Product 2 name", "default": "2-in-1 Suction Bowl" },
+        { "type": "text", "id": "stage_2_p2_b1", "label": "Product 2 bullet 1", "default": "Switch to non-slip base when ready" },
+        { "type": "text", "id": "stage_2_p2_b2", "label": "Product 2 bullet 2", "default": "Great for thicker foods and mashes" },
+        { "type": "url", "id": "stage_2_p2_link", "label": "Product 2 link" },
+        { "type": "header", "content": "Stage 2 - Product 3" },
+        { "type": "image_picker", "id": "stage_2_p3_img", "label": "Product 3 image" },
+        { "type": "text", "id": "stage_2_p3_name", "label": "Product 3 name", "default": "2-in-1 Plate" },
+        { "type": "text", "id": "stage_2_p3_b1", "label": "Product 3 bullet 1", "default": "Raised edges help load the fork" },
+        { "type": "text", "id": "stage_2_p3_b2", "label": "Product 3 bullet 2", "default": "Ideal for finger foods too" },
+        { "type": "url", "id": "stage_2_p3_link", "label": "Product 3 link" },
+        { "type": "header", "content": "Stage 3" },
+        { "type": "text", "id": "stage_3_name", "label": "Stage 3 name", "default": "Growing Skills" },
+        { "type": "text", "id": "stage_3_age", "label": "Stage 3 age range", "default": "18 months - 3 years" },
+        { "type": "text", "id": "stage_3_heading", "label": "Stage 3 heading", "default": "Ready for the full set" },
+        { "type": "textarea", "id": "stage_3_body", "label": "Stage 3 body" },
+        { "type": "text", "id": "stage_3_bullet_1", "label": "Sign 1", "default": "Using fork and spoon with confidence" },
+        { "type": "text", "id": "stage_3_bullet_2", "label": "Sign 2", "default": "Interested in cutting their own food" },
+        { "type": "text", "id": "stage_3_bullet_3", "label": "Sign 3", "default": "Eating most family meals" },
+        { "type": "text", "id": "stage_3_bullet_4", "label": "Sign 4", "default": "Sitting at the table independently" },
+        { "type": "header", "content": "Stage 3 - Product 1" },
+        { "type": "image_picker", "id": "stage_3_p1_img", "label": "Product 1 image" },
+        { "type": "text", "id": "stage_3_p1_name", "label": "Product 1 name", "default": "Toddler Knife" },
+        { "type": "text", "id": "stage_3_p1_b1", "label": "Product 1 bullet 1", "default": "Safe blade cuts soft food only" },
+        { "type": "text", "id": "stage_3_p1_b2", "label": "Product 1 bullet 2", "default": "Teaches downward push motion" },
+        { "type": "url", "id": "stage_3_p1_link", "label": "Product 1 link" },
+        { "type": "header", "content": "Stage 3 - Product 2" },
+        { "type": "image_picker", "id": "stage_3_p2_img", "label": "Product 2 image" },
+        { "type": "text", "id": "stage_3_p2_name", "label": "Product 2 name", "default": "Toddler Spoon and Fork" },
+        { "type": "text", "id": "stage_3_p2_b1", "label": "Product 2 bullet 1", "default": "Full grip control developing" },
+        { "type": "text", "id": "stage_3_p2_b2", "label": "Product 2 bullet 2", "default": "Works alongside the knife" },
+        { "type": "url", "id": "stage_3_p2_link", "label": "Product 2 link" },
+        { "type": "header", "content": "Stage 3 - Product 3" },
+        { "type": "image_picker", "id": "stage_3_p3_img", "label": "Product 3 image" },
+        { "type": "text", "id": "stage_3_p3_name", "label": "Product 3 name", "default": "2-in-1 Plate" },
+        { "type": "text", "id": "stage_3_p3_b1", "label": "Product 3 bullet 1", "default": "Stable surface for cutting practice" },
+        { "type": "text", "id": "stage_3_p3_b2", "label": "Product 3 bullet 2", "default": "Raised back guides food onto utensil" },
+        { "type": "url", "id": "stage_3_p3_link", "label": "Product 3 link" }
+      ]
+    },
+    {
+      "type": "intro_guide",
+      "name": "Introduction Guide",
+      "settings": [
+        { "type": "text", "id": "stage_pill", "label": "Stage pill text", "default": "Stage 1 - 6-12 months - Baby Cutlery and Bowl" },
+        { "type": "range", "id": "pill_size", "label": "Pill text size", "min": 8, "max": 16, "step": 1, "default": 11 },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "How to introduce your baby cutlery" },
+        { "type": "range", "id": "heading_size", "label": "Heading size", "min": 14, "max": 36, "step": 1, "default": 24 },
+        { "type": "color", "id": "heading_color", "label": "Heading colour", "default": "#3D157D" },
+        { "type": "select", "id": "heading_weight", "label": "Heading weight", "options": [{ "value": "600", "label": "Regular" }, { "value": "700", "label": "Bold" }, { "value": "800", "label": "Extra bold" }], "default": "800" },
+        { "type": "text", "id": "tagline", "label": "Tagline", "default": "First tastes, first holds, first steps to independence." },
+        { "type": "range", "id": "tagline_size", "label": "Tagline size", "min": 10, "max": 22, "step": 1, "default": 14 },
+        { "type": "richtext", "id": "body", "label": "Body content" },
+        { "type": "range", "id": "body_size", "label": "Body text size", "min": 10, "max": 20, "step": 1, "default": 14 },
+        { "type": "range", "id": "milestone_size", "label": "Milestone text size", "min": 10, "max": 18, "step": 1, "default": 12 },
+        { "type": "text", "id": "milestone_age_1", "label": "Milestone 1 age", "default": "6-7 months" },
+        { "type": "textarea", "id": "milestone_text_1", "label": "Milestone 1 text", "default": "Grasps spoon in a full fist. Brings to mouth with encouragement." },
+        { "type": "checkbox", "id": "milestone_highlight_1", "label": "Highlight milestone", "default": false },
+        { "type": "text", "id": "milestone_age_2", "label": "Milestone 2 age", "default": "8-9 months" },
+        { "type": "textarea", "id": "milestone_text_2", "label": "Milestone 2 text", "default": "Starts to show a hand preference and begins attempting to scoop." },
+        { "type": "checkbox", "id": "milestone_highlight_2", "label": "Highlight milestone", "default": false },
+        { "type": "text", "id": "milestone_age_3", "label": "Milestone 3 age", "default": "10-12 months" },
+        { "type": "textarea", "id": "milestone_text_3", "label": "Milestone 3 text", "default": "Getting food to mouth more accurately. Getting ready to progress to toddler cutlery." },
+        { "type": "checkbox", "id": "milestone_highlight_3", "label": "Highlight milestone", "default": false },
+        { "type": "text", "id": "milestone_age_4", "label": "Milestone 4 age", "default": "12+ months" },
+        { "type": "textarea", "id": "milestone_text_4", "label": "Milestone 4 text", "default": "Transitioning to the doddl toddler set when coordination is established and meals are more substantial." },
+        { "type": "checkbox", "id": "milestone_highlight_4", "label": "Highlight milestone", "default": true }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Your most-asked questions, answered" },
+        { "type": "range", "id": "heading_size", "label": "Heading size", "min": 14, "max": 36, "step": 1, "default": 24 },
+        { "type": "color", "id": "heading_color", "label": "Heading colour", "default": "#3D157D" },
+        { "type": "select", "id": "heading_weight", "label": "Heading weight", "options": [{ "value": "600", "label": "Regular" }, { "value": "700", "label": "Bold" }, { "value": "800", "label": "Extra bold" }], "default": "800" },
+        { "type": "range", "id": "question_size", "label": "Question text size", "min": 10, "max": 22, "step": 1, "default": 14 },
+        { "type": "range", "id": "answer_size", "label": "Answer text size", "min": 10, "max": 20, "step": 1, "default": 13 },
+        { "type": "text", "id": "q_1", "label": "Question 1", "default": "My baby keeps throwing the spoon. Is that normal?" },
+        { "type": "textarea", "id": "a_1", "label": "Answer 1", "default": "Completely normal, and actually a good sign - it means they are engaging with it. Keep placing it back down. Every throw-and-retrieve is a motor skills workout. Consistency is key." },
+        { "type": "text", "id": "q_2", "label": "Question 2", "default": "When should I move to the toddler cutlery?" },
+        { "type": "textarea", "id": "a_2", "label": "Answer 2", "default": "Around 12 months is a good guide, but follow your child's lead. When they are confidently picking up the baby cutlery and making attempts to feed themselves, they are ready to progress." },
+        { "type": "text", "id": "q_3", "label": "Question 3", "default": "Do I need to teach my child how to hold the handle?" },
+        { "type": "textarea", "id": "a_3", "label": "Answer 3", "default": "No - that is the whole point of the design. The ergonomic shape naturally encourages the correct grip. Trust the product. Over-correcting can reduce confidence and slow progress." },
+        { "type": "text", "id": "q_4", "label": "Question 4", "default": "When can I remove the suction from the bowl?" },
+        { "type": "textarea", "id": "a_4", "label": "Answer 4", "default": "When your toddler is not constantly sweeping the bowl off the tray, try the non-slip base. You can switch back any time. Some meals or environments still benefit from suction even at 2 years old." },
+        { "type": "text", "id": "q_5", "label": "Question 5", "default": "Is the toddler knife really safe?" },
+        { "type": "textarea", "id": "a_5", "label": "Answer 5", "default": "Yes. The doddl toddler knife has a specially designed blade that can cut soft foods but is safe for small hands. The handle teaches the downward push motion, not a sawing motion." },
+        { "type": "text", "id": "q_6", "label": "Question 6", "default": "My child is 3 and still struggling. Should I be worried?" },
+        { "type": "textarea", "id": "a_6", "label": "Answer 6", "default": "Every child develops at their own pace. The doddl set is used by occupational therapists with children who have developmental delays. If you have specific concerns, we always recommend speaking to your health visitor or GP." }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading" },
+        { "type": "range", "id": "heading_size", "label": "Heading size", "min": 14, "max": 36, "step": 1, "default": 22 },
+        { "type": "color", "id": "heading_color", "label": "Heading colour", "default": "#3D157D" },
+        { "type": "select", "id": "heading_weight", "label": "Heading weight", "options": [{ "value": "600", "label": "Regular" }, { "value": "700", "label": "Bold" }, { "value": "800", "label": "Extra bold" }], "default": "800" },
+        { "type": "video", "id": "video", "label": "Video (Shopify Files)" }
+      ]
+    },
+    {
+      "type": "swatches",
+      "name": "Colour Swatches",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Available in these colours" },
+        { "type": "range", "id": "heading_size", "label": "Heading size", "min": 12, "max": 30, "step": 1, "default": 16 },
+        { "type": "text", "id": "subtext", "label": "Subtext", "default": "Find your favourite in our full range" },
+        { "type": "range", "id": "subtext_size", "label": "Subtext size", "min": 10, "max": 20, "step": 1, "default": 13 },
+        { "type": "range", "id": "swatch_name_size", "label": "Swatch name size", "min": 8, "max": 16, "step": 1, "default": 10 },
+        { "type": "color", "id": "color_1", "label": "Colour 1", "default": "#1D9E75" },
+        { "type": "text", "id": "color_name_1", "label": "Colour 1 name", "default": "Fresh Green" },
+        { "type": "color", "id": "color_2", "label": "Colour 2", "default": "#D4537E" },
+        { "type": "text", "id": "color_name_2", "label": "Colour 2 name", "default": "Dusky Rose" },
+        { "type": "color", "id": "color_3", "label": "Colour 3", "default": "#534AB7" },
+        { "type": "text", "id": "color_name_3", "label": "Colour 3 name", "default": "Indigo" },
+        { "type": "color", "id": "color_4", "label": "Colour 4", "default": "#C96BBE" },
+        { "type": "text", "id": "color_name_4", "label": "Colour 4 name", "default": "Magenta" },
+        { "type": "color", "id": "color_5", "label": "Colour 5", "default": "#888780" },
+        { "type": "text", "id": "color_name_5", "label": "Colour 5 name", "default": "Grey" },
+        { "type": "color", "id": "color_6", "label": "Colour 6" },
+        { "type": "text", "id": "color_name_6", "label": "Colour 6 name" },
+        { "type": "color", "id": "color_7", "label": "Colour 7" },
+        { "type": "text", "id": "color_name_7", "label": "Colour 7 name" },
+        { "type": "color", "id": "color_8", "label": "Colour 8" },
+        { "type": "text", "id": "color_name_8", "label": "Colour 8 name" },
+        { "type": "url", "id": "shop_link", "label": "Shop link URL" },
+        { "type": "text", "id": "shop_link_text", "label": "Shop link text", "default": "Shop all colours" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mealtime Set v2",
+      "blocks": [
+        { "type": "banner" },
+        { "type": "image_grid" },
+        { "type": "hotspots" },
+        { "type": "stage_guide" },
+        { "type": "intro_guide" },
+        { "type": "faq" },
+        { "type": "video" },
+        { "type": "swatches" }
+      ]
+    }
+  ]
+}
+{% endschema %}

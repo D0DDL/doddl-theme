@@ -1,0 +1,649 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "media_with_text_whfUWn": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_QjCxN9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DSC03552.jpg",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-center-start text-start",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "International Retailers",
+            "title": "We deliver doddl all over the world!",
+            "content": "<p>We ship doddl to customers all around the world, but we realise sometimes you want to buy closer to home. So we have built trusted partnerships with distributors and retailers around the globe to give you the opportunity to buy doddl wherever you are. Please select your location below and if you have any questions please use our contact form and our team will be happy to help.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#212529",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_QjCxN9"
+      ],
+      "settings": {
+        "full_width": false,
+        "alternate_media_position": false,
+        "spacing": "none"
+      }
+    },
+    "accordion_content_d4PGqV": {
+      "type": "accordion-content",
+      "blocks": {
+        "item_8e8XUy": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Australia",
+            "content": "<p><a href=\"https://www.sleeptightbabies.com.au/collections/doddl\" target=\"_blank\" title=\"https://www.sleeptightbabies.com.au/collections/doddl\">Sleep Tight Babies</a></p><p><a href=\"https://astandco.com/products/doddl-toddler-cutlery-set-spoon-fork-and-knife-for-children\" target=\"_blank\" title=\"https://astandco.com/products/doddl-toddler-cutlery-set-spoon-fork-and-knife-for-children\">Ast & Co</a></p>",
+            "page": ""
+          }
+        },
+        "item_WzYBpA": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Indonesia",
+            "content": "<p><a href=\"https://www.tokopedia.com/search?st=&q=doddl&srp_component_id=02.01.00.00&srp_page_id=&srp_page_title=&navsource=\" target=\"_blank\" title=\"https://www.tokopedia.com/search?st=&q=doddl&srp_component_id=02.01.00.00&srp_page_id=&srp_page_title=&navsource=\">Tokopedia</a></p>",
+            "page": ""
+          }
+        },
+        "item_jC9Kct": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Japan",
+            "content": "<p><a href=\"https://piquale.net/\" target=\"_blank\" title=\"https://piquale.net/\">Piquale</a></p><p><a href=\"https://www.doddl.jp\" target=\"_blank\" title=\"https://www.doddl.jp\">The official doddl store - Japan</a></p>",
+            "page": ""
+          }
+        },
+        "item_46Ey3r": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Korea",
+            "content": "<p><a href=\"https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=doddl\" target=\"_blank\" title=\"https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=doddl\">Naver</a></p>",
+            "page": ""
+          }
+        },
+        "item_nqWtN4": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Malaysia",
+            "content": "<p><a href=\"https://doddl.my/\" target=\"_blank\" title=\"https://doddl.my/\">doddl Malaysia</a></p>",
+            "page": ""
+          }
+        },
+        "item_GEeVyT": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "New Zealand",
+            "content": "<p><a href=\"https://sleepytot.co.nz/search?q=doddl*\" title=\"https://sleepytot.co.nz/search?q=doddl*\">Sleepytot</a></p>",
+            "page": ""
+          }
+        },
+        "item_BxEDLp": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Philippines",
+            "content": "<p><a href=\"https://www.lazada.com.ph/catalog/?q=doddl&_keyori=ss&from=input&spm=a2o4l.10450891.search.go.2844f8adufBcVY\" target=\"_blank\" title=\"https://www.lazada.com.ph/catalog/?q=doddl&_keyori=ss&from=input&spm=a2o4l.10450891.search.go.2844f8adufBcVY\">Lazada</a></p>",
+            "page": ""
+          }
+        },
+        "item_x4jJFd": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Singapore",
+            "content": "<p><a href=\"https://www.blwwithease.com\" target=\"_blank\" title=\"https://www.blwwithease.com\">BLW with Ease</a></p>",
+            "page": ""
+          }
+        },
+        "item_pVCaXr": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Taiwan",
+            "content": "<p><a href=\"https://www.dawnbaby.com.tw/products?query=doddl\" target=\"_blank\" title=\"https://www.dawnbaby.com.tw/products?query=doddl\">Dawn Baby</a></p><p><a href=\"https://www.hohobuy.com.tw/products?query=doddl\" target=\"_blank\" title=\"https://www.hohobuy.com.tw/products?query=doddl\">HohoBaby</a></p><p><a href=\"https://mamilove.com.tw/groupbuy/search?query=doddl\" target=\"_blank\" title=\"https://mamilove.com.tw/groupbuy/search?query=doddl\">Mami Love</a></p><p><a href=\"https://shopee.tw/\" target=\"_blank\" title=\"https://shopee.tw/\">Shopee</a></p><p><a href=\"https://www.insectsbaby.com.tw/page/product/p02.aspx?kw=doddl\" target=\"_blank\" title=\"https://www.insectsbaby.com.tw/page/product/p02.aspx?kw=doddl\">蟲寶寶 – 嬰幼兒精品生活館</a></p><p><a href=\"https://zh-tw.facebook.com/littlepharmacistdrug/\" target=\"_blank\" title=\"https://zh-tw.facebook.com/littlepharmacistdrug/\">小藥師健保藥局</a></p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_8e8XUy",
+        "item_WzYBpA",
+        "item_jC9Kct",
+        "item_46Ey3r",
+        "item_nqWtN4",
+        "item_GEeVyT",
+        "item_BxEDLp",
+        "item_x4jJFd",
+        "item_pVCaXr"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Asia + Oceania",
+        "content": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "accordion_content_BgDEpD": {
+      "type": "accordion-content",
+      "blocks": {
+        "item_gBc9qC": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Austria",
+            "content": "<p><a href=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\" target=\"_blank\" title=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_nk8DaM": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Belgium",
+            "content": "<p><a href=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\" target=\"_blank\" title=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_kxqyYK": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Bulgaria",
+            "content": "<p><a href=\"https://egosbaby.com/brand/doddl/\" target=\"_blank\" title=\"https://egosbaby.com/brand/doddl/\">Egosbaby</a></p>",
+            "page": ""
+          }
+        },
+        "item_8kMJiD": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Croatia",
+            "content": "<p><a href=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children \" target=\"_blank\" title=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children \">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_JWghiE": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Cyprus",
+            "content": "<p><a href=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\" target=\"_blank\" title=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_Q8Lrhf": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Czech Republic",
+            "content": "<p><a href=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\" target=\"_blank\" title=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_qCEDpi": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Denmark",
+            "content": "<p><a href=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\" target=\"_blank\" title=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_fj4nFA": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Finland",
+            "content": "<p><a href=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\" target=\"_blank\" title=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_pDbkCh": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "France",
+            "content": "<p><a href=\"https://www.amazon.fr/s?k=doddl\" target=\"_blank\" title=\"https://www.amazon.fr/s?k=doddl\">Amazon</a></p><p><a href=\"http://www.maman-naturelle.com/doddl-m-309.html\" target=\"_blank\" title=\"http://www.maman-naturelle.com/doddl-m-309.html\">Maman Naturelle</a></p>",
+            "page": ""
+          }
+        },
+        "item_8HztTF": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Germany",
+            "content": "<p><a href=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\" target=\"_blank\" title=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_WDpbCq": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Greece",
+            "content": "<p><a href=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\" target=\"_blank\" title=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_wfK9Np": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Hungary",
+            "content": "<p><a href=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\" target=\"_blank\" title=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_MjTmnT": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Ireland",
+            "content": "<p><a href=\"https://www.amazon.co.uk/stores/Doddl/page/0C148A61-8541-4E5A-91B0-9367DECA966B?ref_=ast_bln\" target=\"_blank\" title=\"https://www.amazon.co.uk/stores/Doddl/page/0C148A61-8541-4E5A-91B0-9367DECA966B?ref_=ast_bln\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_KaLtMt": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Italy",
+            "content": "<p><a href=\"https://www.amazon.it/stores/DODDL/page/D1FAFBFA-6A96-403E-853D-DF314CD8DDE5?ref_=ast_bln\" target=\"_blank\" title=\"https://www.amazon.it/stores/DODDL/page/D1FAFBFA-6A96-403E-853D-DF314CD8DDE5?ref_=ast_bln\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_TbDmpj": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Lithuania",
+            "content": "<p><a href=\"https://gbr01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fleya.lt%2F&data=05%7C02%7CLaura%40doddl.com%7Cce4dbb1f0a8343fb382908ddefde73e2%7C927d1e2c7c8d406f8640678dfce86b7d%7C0%7C0%7C638930460906160016%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=aNhyJluRnIfb%2BTGZt6wY8o1jqN0oEI8xJYw6sX7Ak7w%3D&reserved=0\">https://leya.lt/</a></p>",
+            "page": ""
+          }
+        },
+        "item_YCdAiT": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Luxembourg",
+            "content": "<p><a href=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\" target=\"_blank\" title=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_D9KLLz": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Malta",
+            "content": "<p><a href=\"https://www.sweetpeaideas.com/\" title=\"https://www.sweetpeaideas.com/\">Sweet Pea Ideas</a></p>",
+            "page": ""
+          }
+        },
+        "item_i6jLt4": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Netherlands",
+            "content": "<p><a href=\"https://www.doddl.nl\" target=\"_blank\" title=\"https://www.doddl.nl\">doddl.nl</a></p>",
+            "page": ""
+          }
+        },
+        "item_qmxwmP": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Poland",
+            "content": "<p><a href=\"https://www.doddl.pl\" target=\"_blank\" title=\"https://www.doddl.pl\">doddl.pl</a></p>",
+            "page": ""
+          }
+        },
+        "item_aDg73y": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Portugal",
+            "content": "<p><a href=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\" target=\"_blank\" title=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_ybJHBj": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Romania",
+            "content": "<p><a href=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\" target=\"_blank\" title=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_pNzRdR": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Slovakia",
+            "content": "<p><a href=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\" target=\"_blank\" title=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_yqqYNy": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Slovenia",
+            "content": "<p><a href=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\" target=\"_blank\" title=\"https://www.amazon.de/s?k=doddl+cutlery+set+for+children\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_MGXDx7": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Spain",
+            "content": "<p><a href=\"https://www.amazon.es/stores/doddl/page/CAB2CF00-EC69-41EF-9179-2266C3DCE592?ref_=ast_bln\" target=\"_blank\" title=\"https://www.amazon.es/stores/doddl/page/CAB2CF00-EC69-41EF-9179-2266C3DCE592?ref_=ast_bln\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_7YfNr6": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Sweden",
+            "content": "<p><a href=\"https://www.amazon.se/s?k=doddl&ref=bl_dp_s_web_0\" target=\"_blank\" title=\"https://www.amazon.se/s?k=doddl&ref=bl_dp_s_web_0\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_nPmDkX": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Ukraine",
+            "content": "<p><a href=\"https://www.doddl.pl/\" title=\"https://www.doddl.pl/\">doddl.pl</a></p>",
+            "page": ""
+          }
+        },
+        "item_bbbJNq": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "United Kingdom",
+            "content": "<p><a href=\"https://www.amazon.co.uk/stores/page/4B9624C5-3A90-4000-B0BF-15F4700647DC/?_encoding=UTF8&store_ref=SB_A103601114EFIUSC2S3UB&pd_rd_plhdr=t&aaxitk=oIVBZLlhXUtqzvvRFsh.2Q&hsa_cr_id=9615271100702&lp_asins=B01FI1XXC2%2CB074DZKCZW%2CB074DZSKV6&lp_mat_key=doddl%20cutlery&lp_query=doddl%20cutlery&lp_slot=auto-sparkle-hsa-tetris&ref_=sbx_be_s_sparkle_lsi2d_cta&pd_rd_w=G7Gl4&pf_rd_p=0823ead2-6a0c-43c5-be6e-2c742bd31adc&pd_rd_wg=v2y7k&pf_rd_r=D3YBV9AP41PND4YSG73Y&pd_rd_r=9e5e6869-521a-4cf1-976b-d0926c35a8d6\" target=\"_blank\" title=\"https://www.amazon.co.uk/stores/page/4B9624C5-3A90-4000-B0BF-15F4700647DC/?_encoding=UTF8&store_ref=SB_A103601114EFIUSC2S3UB&pd_rd_plhdr=t&aaxitk=oIVBZLlhXUtqzvvRFsh.2Q&hsa_cr_id=9615271100702&lp_asins=B01FI1XXC2%2CB074DZKCZW%2CB074DZSKV6&lp_mat_key=doddl%20cutlery&lp_query=doddl%20cutlery&lp_slot=auto-sparkle-hsa-tetris&ref_=sbx_be_s_sparkle_lsi2d_cta&pd_rd_w=G7Gl4&pf_rd_p=0823ead2-6a0c-43c5-be6e-2c742bd31adc&pd_rd_wg=v2y7k&pf_rd_r=D3YBV9AP41PND4YSG73Y&pd_rd_r=9e5e6869-521a-4cf1-976b-d0926c35a8d6\">Amazon</a></p><p><a href=\"https://www.boots.com/SearchDisplay?sType=SimpleSearch&pageId=1603259&categoryId=&pageView=&showResultsPage=true&beginIndex=0&searchSource=Q&resultCatEntryType=2&pageSize=24&manufacturer=DODDL&storeId=11352&isA2ZBrand=Y\" target=\"_blank\" title=\"https://www.boots.com/SearchDisplay?sType=SimpleSearch&pageId=1603259&categoryId=&pageView=&showResultsPage=true&beginIndex=0&searchSource=Q&resultCatEntryType=2&pageSize=24&manufacturer=DODDL&storeId=11352&isA2ZBrand=Y\">Boots</a></p><p><a href=\"https://www.jojomamanbebe.co.uk/search?w=doddl\" target=\"_blank\" title=\"https://www.jojomamanbebe.co.uk/search?w=doddl\">JoJo Maman Bebe</a></p><p><a href=\"https://www.next.co.uk/shop/department-homeware-productaffiliation-kitchen/brand-doddl\" target=\"_blank\" title=\"https://www.next.co.uk/shop/department-homeware-productaffiliation-kitchen/brand-doddl\">Next</a></p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_gBc9qC",
+        "item_nk8DaM",
+        "item_kxqyYK",
+        "item_8kMJiD",
+        "item_JWghiE",
+        "item_Q8Lrhf",
+        "item_qCEDpi",
+        "item_fj4nFA",
+        "item_pDbkCh",
+        "item_8HztTF",
+        "item_WDpbCq",
+        "item_wfK9Np",
+        "item_MjTmnT",
+        "item_KaLtMt",
+        "item_TbDmpj",
+        "item_YCdAiT",
+        "item_D9KLLz",
+        "item_i6jLt4",
+        "item_qmxwmP",
+        "item_aDg73y",
+        "item_ybJHBj",
+        "item_pNzRdR",
+        "item_yqqYNy",
+        "item_MGXDx7",
+        "item_7YfNr6",
+        "item_nPmDkX",
+        "item_bbbJNq"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Europe",
+        "content": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "accordion_content_wiiynT": {
+      "type": "accordion-content",
+      "blocks": {
+        "item_4YNDmw": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "USA",
+            "content": "<p><a href=\"https://www.amazon.com/s?k=doddl&crid=26Z1NFSSC984D&sprefix=doddl%2Caps%2C163&ref=nb_sb_noss_1\" target=\"_blank\" title=\"Amazon US\">Amazon</a></p><p><a href=\"https://us.doddl.com/\" target=\"_blank\" title=\"https://us.doddl.com/\">doddl US</a></p>",
+            "page": ""
+          }
+        },
+        "item_hMJy4n": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Question 3",
+            "content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_4YNDmw",
+        "item_hMJy4n"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "The Americas",
+        "content": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "accordion_content_LmCErL": {
+      "type": "accordion-content",
+      "blocks": {
+        "item_9fWAcg": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Bahrain",
+            "content": "<p><a href=\"https://www.littledinobh.com/collections/doddl\" target=\"_blank\" title=\"https://www.littledinobh.com/collections/doddl\">Little Dino BH</a></p>",
+            "page": ""
+          }
+        },
+        "item_Lqewmt": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Kuwait",
+            "content": "<p><a href=\"https://www.mothercare.com.kw/en/#query=doddl\" target=\"_blank\" title=\"https://www.mothercare.com.kw/en/#query=doddl\">Mothercare</a></p>",
+            "page": ""
+          }
+        },
+        "item_VRCCfx": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Lebanon",
+            "content": "<p><a href=\"https://mamabearlb.com/product-category/bottles-feeding-sets/?filter_b-box=doddl\" target=\"_blank\" title=\"https://mamabearlb.com/product-category/bottles-feeding-sets/?filter_b-box=doddl\">Mama bear</a></p>",
+            "page": ""
+          }
+        },
+        "item_kqcNDz": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Saudi Arabia",
+            "content": "<p><a href=\"https://www.mothercare.com.sa/en/shop-sale/#query=doddl\" target=\"_blank\" title=\"https://www.mothercare.com.sa/en/shop-sale/#query=doddl\">Mothercare</a></p>",
+            "page": ""
+          }
+        },
+        "item_Hkxixb": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "UAE",
+            "content": "<p><a href=\"https://www.amazon.ae/s?k=doddl&crid=1OHMR6YBDGKNX&sprefix=doddl%2Caps%2C75&ref=nb_sb_noss_1\" target=\"_blank\" title=\"https://www.amazon.ae/s?k=doddl&crid=1OHMR6YBDGKNX&sprefix=doddl%2Caps%2C75&ref=nb_sb_noss_1\">Amazon</a></p>",
+            "page": ""
+          }
+        },
+        "item_bqPfd7": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Question 3",
+            "content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_9fWAcg",
+        "item_Lqewmt",
+        "item_VRCCfx",
+        "item_kqcNDz",
+        "item_Hkxixb",
+        "item_bqPfd7"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "The Middle East",
+        "content": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "media_with_text_whfUWn",
+    "accordion_content_d4PGqV",
+    "accordion_content_BgDEpD",
+    "accordion_content_wiiynT",
+    "accordion_content_LmCErL"
+  ]
+}

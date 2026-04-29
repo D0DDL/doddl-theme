@@ -1,0 +1,335 @@
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+PRICE POPUP INFO
+----------------------------------------------------------------------------------------------------------------------
+
+This snippet renders a popup trigger and modal content for displaying pricing information.
+It uses the theme's popover web component with shadow DOM.
+
+Variables:
+* product: the product object
+* block: the block containing popup settings* inline: boolean to control if displayed inline with price (default: false)
+{%- endcomment -%}
+
+{%- liquid
+  assign popup_id = 'price-popup-' | append: block.id
+  assign has_content = false
+  assign is_inline = inline | default: false
+  
+  if block.settings.popup_header != blank or block.settings.popup_content != blank
+    assign has_content = true
+  endif
+  
+  for i in (1..4)
+    assign icon_setting = 'popup_icon_' | append: i
+    assign text_setting = 'popup_icon_' | append: i | append: '_text'
+    if block.settings[icon_setting] != blank or block.settings[text_setting] != blank
+      assign has_content = true
+      break
+    endif
+  endfor
+-%}
+
+{%- if has_content -%}
+  <button type="button" class="price-popup-info{% unless is_inline %} price-popup-info--standalone{% endunless %}" aria-controls="{{ popup_id }}" aria-expanded="false">
+    {{ block.settings.popup_link_text | default: 'About our Pricing' }}
+  </button>
+
+  <x-popover id="{{ popup_id }}" class="popover price-popup-modal" template="popover-default-template">
+    <span slot="title" class="price-popup-header">
+      {{ block.settings.popup_header | default: 'Pricing Information' }}
+      <button type="button" class="price-popup-close" onclick="document.getElementById('{{ popup_id }}').hide()" aria-label="{{ 'general.accessibility.close' | t | escape }}">
+        {%- render 'icon' with 'close' -%}
+      </button>
+    </span>
+    
+    <div class="price-popup-content">
+      {%- if block.settings.popup_content != blank -%}
+        <div class="price-popup-description">
+          {{ block.settings.popup_content }}
+        </div>
+      {%- endif -%}
+
+      {%- liquid
+        assign has_icons = false
+        for i in (1..4)
+          assign icon_setting = 'popup_icon_' | append: i
+          assign text_setting = 'popup_icon_' | append: i | append: '_text'
+          if block.settings[icon_setting] != blank or block.settings[text_setting] != blank
+            assign has_icons = true
+            break
+          endif
+        endfor
+      -%}
+
+      {%- if has_icons -%}
+        <div class="price-popup-features">
+          {%- for i in (1..4) -%}
+            {%- liquid
+              assign icon_setting = 'popup_icon_' | append: i
+              assign text_setting = 'popup_icon_' | append: i | append: '_text'
+              assign icon = block.settings[icon_setting]
+              assign text = block.settings[text_setting]
+            -%}
+            
+            {%- if icon != blank or text != blank -%}
+              <div class="price-popup-feature">
+                {%- if icon != blank -%}
+                  <div class="price-popup-feature__icon">
+                    {{- icon | image_url: width: 60 | image_tag: loading: 'lazy', widths: '60, 120', sizes: '60px' -}}
+                  </div>
+                {%- endif -%}
+                
+                {%- if text != blank -%}
+                  <div class="price-popup-feature__text">
+                    {{ text }}
+                  </div>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </x-popover>
+
+  <script>
+    // Handle header z-index when popup opens/closes
+    document.addEventListener('DOMContentLoaded', function() {
+      const popup = document.getElementById('{{ popup_id }}');
+      const header = document.querySelector('.shopify-section--header');
+      
+      if (popup && header) {
+        // Store original z-index
+        const originalZIndex = window.getComputedStyle(header).zIndex || '10';
+        
+        // Create observer to watch for open attribute changes
+        const observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'open') {
+              if (popup.hasAttribute('open')) {
+                // Popup is opening - lower header z-index
+                header.style.zIndex = '1';
+              } else {
+                // Popup is closing - restore header z-index
+                header.style.zIndex = originalZIndex;
+              }
+            }
+          });
+        });
+        
+        // Start observing
+        observer.observe(popup, {
+          attributes: true,
+          attributeFilter: ['open']
+        });
+        
+        // Also handle the case where popup might already be open
+        if (popup.hasAttribute('open')) {
+          header.style.zIndex = '1';
+        }
+        
+        // Additional event listeners for manual close
+        popup.addEventListener('dialog:force-close', function() {
+          header.style.zIndex = originalZIndex;
+        });
+        
+        // Listen for hide method calls
+        const originalHide = popup.hide;
+        if (originalHide) {
+          popup.hide = function() {
+            header.style.zIndex = originalZIndex;
+            return originalHide.call(this);
+          };
+        }
+      }
+    });
+  </script>
+{%- endif -%}
+
+<style>
+/* Price Popup Info Component */
+.price-popup-info {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Inline with price - add left margin */
+.price-popup-info:not(.price-popup-info--standalone) {
+  margin-left: 1em;
+}
+
+/* Standalone block - no left margin, full width button */
+.price-popup-info--standalone {
+  margin-left: 0;
+  display: inline-block;
+}
+
+.price-popup-info:hover {
+  text-decoration-style: solid;
+}
+
+/* Price Popup Modal - Override popover styles for centered modal behavior */
+.price-popup-modal {
+  /* Force modal behavior on all screen sizes */
+  width: 100%;
+  height: 30%;
+  padding: var(--spacing-4);
+  position: fixed;
+  top: 20%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  @media screen and (max-width: 700px) {
+    height: 40%;
+  }
+}
+
+.price-popup-modal::part(overlay) {
+  /* Dark overlay background */
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  display: block;
+  min-height: 100vh;
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.price-popup-modal::part(content) {
+  /* Centered modal content */
+  position: relative;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  margin: auto;
+  background: rgb(var(--dialog-background));
+  color: rgb(var(--text-primary));
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgb(var(--border-color));
+  overflow: hidden;
+}
+
+.price-popup-modal::part(title) {
+  /* Keep title visible and styled */
+  display: block;
+  padding: 0;
+  border-bottom: 1px solid rgb(var(--border-color));
+  text-align: center;
+  background: rgb(var(--dialog-background));
+  position: relative;
+}
+
+.price-popup-modal::part(body) {
+  text-align: center;
+  overflow-y: auto;
+  max-height: 60vh;
+  padding: 0;
+}
+
+/* Header with close button */
+.price-popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-5);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  width: 100%;
+}
+
+.price-popup-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-2);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(var(--text-primary));
+  border: 1px solid rgb(var(--text-primary));
+  transition: transform 0.2s ease-in-out;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.price-popup-close:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.price-popup-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+.price-popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  padding: var(--spacing-4);
+}
+
+.price-popup-description {
+  text-align: left;
+  line-height: 1.5;
+}
+
+.price-popup-features {
+  display: grid;
+  gap: var(--spacing-4);
+  grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 700px) {
+  .price-popup-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.price-popup-feature {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  text-align: left;
+}
+
+.price-popup-feature__icon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.price-popup-feature__icon img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.price-popup-feature__text {
+  flex: 1;
+  font-size: var(--text-xs);
+  line-height: 1.4;
+}
+</style>

@@ -1,0 +1,44 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "product.json",
+  "context": {
+    "market": "31278e09-01a3-48de-800f-2818c0029211"
+  },
+  "sections": {
+    "main": {
+      "settings": {},
+      "blocks": {
+        "price_popup_info_tKWi6c": {
+          "settings": {
+            "popup_header": "About our pricing",
+            "popup_content": "At doddl, we know we’re not the cheapest option — but that’s for good reason.",
+            "popup_icon_1_text": "We use only premium non-toxic materials, creating products that are built to last",
+            "popup_icon_2_text": "We invest in research and development to make sure our products deliver results",
+            "popup_icon_3": "shopify://shop_images/doddl_2023_Certified_safe_Icon_4bc44911-0659-4dd1-bfba-04ba1fc49050.png",
+            "popup_icon_3_text": "We use complex engineering processes to create the perfect solution for your child",
+            "popup_icon_4": "shopify://shop_images/doddl_2023_Cutlery_-_TPE_and_Stainless_Steel_Icon_c93cd82f-daf7-464e-b3a9-a1ea871e64a0.png",
+            "popup_icon_4_text": "doddl is more than just tableware it's a tool to help your child develop everyday"
+          }
+        }
+      }
+    },
+    "expert_carousel_tCTKfF": {
+      "settings": {},
+      "blocks": {
+        "expert_8UHiCy": {
+          "settings": {
+            "button_text": "Learn more about Stacey's work here"
+          }
+        }
+      }
+    }
+  }
+}

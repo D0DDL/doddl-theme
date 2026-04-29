@@ -1,0 +1,48 @@
+{% comment %}
+  Renders a quantity selector for a product
+  Accepts:
+  - product: Product (required)
+  - product_form_id: String (required)
+  - show_label: Boolean (optional)
+{% endcomment %}
+
+{%- if product.available -%}
+    {%- assign variant = product.selected_or_first_available_variant -%}
+
+    <div class="product-info__quantity-selector">
+      <div class="form-control">
+        {%- if show_label -%}
+          <label for="{{ product_form_id }}-quantity" class="block-label text-subdued">{{- 'product.quantity.label' | t -}}:</label>
+        {%- endif -%}
+
+        <quantity-selector class="quantity-selector">
+          <button type="button" class="quantity-selector__button" aria-label="{{ 'product.quantity.decrease_quantity' | t }}">{% render 'icon' with 'minus', width: 10, height: 2 %}</button>
+          <input id="{{ product_form_id }}-quantity" type="number" is="quantity-input" inputmode="numeric" class="quantity-selector__input" name="quantity" form="{{ product_form_id }}" value="{{ variant.quantity_rule.min | default: 1 }}" step="{{ variant.quantity_rule.increment }}" min="{{ variant.quantity_rule.min }}" {% if variant.quantity_rule.max != nil %}max="{{ variant.quantity_rule.max }}"{% endif %} autocomplete="off">
+          <button type="button" class="quantity-selector__button" aria-label="{{ 'product.quantity.increase_quantity' | t }}">{% render 'icon' with 'plus', width: 10, height: 10 %}</button>
+        </quantity-selector>
+      </div>
+
+      {%- liquid 
+        assign quantity_rules = ''
+
+        if variant.quantity_rule.min > 1
+          assign rule = 'product.quantity.minimum_of' | t: min: variant.quantity_rule.min
+          assign quantity_rules = quantity_rules | append: ' / ' | append: rule
+        endif
+
+        if variant.quantity_rule.max != nil
+          assign rule = 'product.quantity.maximum_of' | t: max: variant.quantity_rule.max
+          assign quantity_rules = quantity_rules | append: ' / ' | append: rule
+        endif
+
+        if variant.quantity_rule.increment > 1
+          assign rule = 'product.quantity.increment_of' | t: step: variant.quantity_rule.increment
+          assign quantity_rules = quantity_rules | append: ' / ' | append: rule
+        endif
+      -%}
+
+      {%- if quantity_rules != blank -%}
+        <p class="text-subdued text-sm">{{ quantity_rules | remove_first: ' / ' | capitalize }}</p>
+      {%- endif -%}
+    </div>
+  {%- endif -%}

@@ -1,0 +1,831 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h2"
+          }
+        },
+        "opinew_reviews_product_stars_MNrNUH": {
+          "type": "shopify://apps/opinew-reviews/blocks/product-stars/e1d8e0dc-17ff-4e4a-8a8a-1e73c8ef8676",
+          "settings": {}
+        },
+        "badges": {
+          "type": "badges",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "price_popup_info_tKWi6c": {
+          "type": "price_popup_info",
+          "settings": {
+            "popup_link_text": "About our pricing",
+            "popup_header": "Finest Quality at the Best Price",
+            "popup_content": "At doddl, we know we’re not the cheapest option — but that’s for good reason.",
+            "popup_icon_1": "shopify://shop_images/Group_37042.png",
+            "popup_icon_1_text": "We use only premium non-toxic materials, creating products that are built to last",
+            "popup_icon_2": "shopify://shop_images/Group_37043.png",
+            "popup_icon_2_text": "We invest in research and development to make sure our products deliver results",
+            "popup_icon_3": "shopify://shop_images/doddl_2023_Certified_safe_Icon_4bc44911-0659-4dd1-bfba-04ba1fc49050.png",
+            "popup_icon_3_text": "We use complex engineering processes to create the perfect solution for your childLow waste",
+            "popup_icon_4": "shopify://shop_images/doddl_2023_Cutlery_-_TPE_and_Stainless_Steel_Icon_c93cd82f-daf7-464e-b3a9-a1ea871e64a0.png",
+            "popup_icon_4_text": "doddl is more than just tableware it's a tool to help your child develop everyday"
+          }
+        },
+        "inventory_kXT3Fr": {
+          "type": "inventory",
+          "settings": {
+            "low_inventory_threshold": 0
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "block",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "payment_terms": {
+          "type": "payment_terms",
+          "settings": {}
+        },
+        "price_popup_info_FFpheM": {
+          "type": "price_popup_info",
+          "settings": {
+            "popup_link_text": "Our Money-Back Promise",
+            "popup_header": "💰 Our Money-Back Promise",
+            "popup_content": "",
+            "popup_icon_1_text": "<strong>No questions asked:</strong> We’ll refund you in full — no forms, no fuss. Just email the team",
+            "popup_icon_2_text": "<strong>Simple returns:</strong> Send the product back (even if used) and we’ll handle the rest.",
+            "popup_icon_3_text": "<strong>Shop with confidence:</strong> Every order is backed by our 100 % satisfaction guarantee.",
+            "popup_icon_4_text": "<strong>Try it risk-free:</strong> If you’re not completely happy with your purchase, just let us know within 30 days."
+          }
+        },
+        "quantity_selector_DnX9mc": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {
+            "show_label": true
+          }
+        },
+        "offer_eAGTyj": {
+          "type": "offer",
+          "disabled": true,
+          "settings": {
+            "text_alignment": "start",
+            "icon_position": "aligned",
+            "icon": "picto-coupon",
+            "icon_width": 20,
+            "title": "Shipping",
+            "content": "<p>Short content about your shipping rates or discounts.</p>",
+            "background": "#eaf2ed",
+            "text_color": "#00a341"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": true,
+            "show_quantity_selector": true,
+            "show_price": true,
+            "atc_button_background": "#2f1562",
+            "atc_button_text_color": "#ffffff",
+            "payment_button_background": "#2f1562",
+            "payment_button_text_color": ""
+          }
+        },
+        "payment_icons_GdYQ7h": {
+          "type": "payment_icons",
+          "settings": {
+            "alignment": "center",
+            "label": "",
+            "payment_types": "apple_pay, google_pay, visa, master, maestro, paypal, shopify_pay",
+            "custom_icon_1": "shopify://shop_images/Klarna_Payment_Badge.svg"
+          }
+        },
+        "image_FKTWLd": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/payment_logos.png",
+            "alignment": "center",
+            "max_width": 360
+          }
+        },
+        "klarna_on_site_messaging_app_block_J4NzfR": {
+          "type": "shopify://apps/klarna-on-site-messaging/blocks/app-block/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "credit-promotion-auto-size",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "0",
+            "messagePrefix": ""
+          }
+        },
+        "marquee_item_xdw8RH": {
+          "type": "marquee_item",
+          "settings": {
+            "marquee_item_image": "shopify://shop_images/Expert_recommended_1.png",
+            "marquee_item": "<p>Multi-Award  <br/>Winning</p>",
+            "subdued_text": false
+          }
+        },
+        "marquee_item_Xrc8t6": {
+          "type": "marquee_item",
+          "settings": {
+            "marquee_item_image": "shopify://shop_images/Founded_by_mums.svg",
+            "marquee_item": "<p>Ergonomic  <br/>Design</p>",
+            "subdued_text": false
+          }
+        },
+        "marquee_item_DmD9z9": {
+          "type": "marquee_item",
+          "settings": {
+            "marquee_item_image": "shopify://shop_images/Group_37042.png",
+            "marquee_item": "<p>Helps Motor  <br/>Skills</p>",
+            "subdued_text": false
+          }
+        },
+        "marquee_item_PKQBfj": {
+          "type": "marquee_item",
+          "settings": {
+            "marquee_item_image": "shopify://shop_images/Group_37043.png",
+            "marquee_item": "<p>Loved by  <br/>Parents</p>",
+            "subdued_text": false
+          }
+        },
+        "associated_products_yegnXX": {
+          "type": "associated_products",
+          "settings": {
+            "title": "Buy it with",
+            "stack_products": false,
+            "products_count": 2,
+            "background": "",
+            "text_color": ""
+          }
+        },
+        "tolstoy_shoppable_video_quiz_stories_block_L6NnHp": {
+          "type": "shopify://apps/tolstoy-ads-image-video/blocks/stories-block/06fa8282-42ff-403e-b67c-1936776aed11",
+          "settings": {
+            "publishId": "ieie7jgx5703x"
+          }
+        },
+        "collapsible_text_y6iGBh": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Description",
+            "content": "{{ product.description }}",
+            "page": ""
+          }
+        },
+        "collapsible_text_FbeG7h": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "How it works",
+            "content": "{{ product.metafields.custom.how_it_works | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "collapsible_text_Akc7ze": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Development Benefits",
+            "content": "{{ product.metafields.custom.developmental_benefits | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "collapsible_text_b9xqg9": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Product FAQ's",
+            "content": "{{ product.metafields.custom.product_faq_s | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "collapsible_text_qYiLjn": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Materials, Sustainability and Safety",
+            "content": "{{ product.metafields.custom.materials_sustainability_safety | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "opinew_reviews_carousel_YLhWVd": {
+          "type": "shopify://apps/opinew-reviews/blocks/carousel/e1d8e0dc-17ff-4e4a-8a8a-1e73c8ef8676",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "opinew_reviews_product_stars_MNrNUH",
+        "badges",
+        "price",
+        "price_popup_info_tKWi6c",
+        "inventory_kXT3Fr",
+        "variant_picker",
+        "payment_terms",
+        "price_popup_info_FFpheM",
+        "quantity_selector_DnX9mc",
+        "offer_eAGTyj",
+        "buy_buttons",
+        "payment_icons_GdYQ7h",
+        "image_FKTWLd",
+        "klarna_on_site_messaging_app_block_J4NzfR",
+        "marquee_item_xdw8RH",
+        "marquee_item_Xrc8t6",
+        "marquee_item_DmD9z9",
+        "marquee_item_PKQBfj",
+        "associated_products_yegnXX",
+        "tolstoy_shoppable_video_quiz_stories_block_L6NnHp",
+        "collapsible_text_y6iGBh",
+        "collapsible_text_FbeG7h",
+        "collapsible_text_Akc7ze",
+        "collapsible_text_b9xqg9",
+        "collapsible_text_qYiLjn",
+        "opinew_reviews_carousel_YLhWVd"
+      ],
+      "settings": {
+        "full_width": true,
+        "show_fixed_add_to_cart": true,
+        "desktop_media_width": 55,
+        "desktop_media_layout": "carousel_thumbnails_bottom",
+        "mobile_media_size": "expanded",
+        "mobile_carousel_control": "thumbnails",
+        "enable_video_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
+      }
+    },
+    "rich_text_JaJkQP": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_XKD9eq": {
+          "type": "heading",
+          "settings": {
+            "text": "The {award winning} innovation in toddler and baby dining.",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_XKD9eq"
+      ],
+      "custom_css": [
+        ".section-full {padding: 0;}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "medium",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "section-2": {
+      "type": "image-link-blocks",
+      "blocks": {
+        "block-1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/KAE_logos_2023_Innovation_KAE-logo-circular-year-red_1.png",
+            "stretch_image": false,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "block-2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/logo-list2.png",
+            "stretch_image": false,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "block-3": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/SHORTLIST_LOGO_2022_green_border_-ai-modified_800x_2ad1cba1-a0fc-46a0-b143-ad9e084fe50e.webp",
+            "stretch_image": false,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "block-4": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/logo-list5png.png",
+            "stretch_image": false,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "block-5": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/logo-list6.png",
+            "stretch_image": false,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_ipT7zb": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/logo-list7.png",
+            "stretch_image": false,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_A4jQyH": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/2023_Baby_Awards_Doddl.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "block-1",
+        "block-2",
+        "block-3",
+        "block-4",
+        "block-5",
+        "item_ipT7zb",
+        "item_A4jQyH"
+      ],
+      "name": "Image link blocks",
+      "settings": {
+        "full_width": true,
+        "block_size": "small",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "#2f1562",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "17617514249875b7bd": {
+      "type": "apps",
+      "blocks": {
+        "tolstoy_shoppable_video_quiz_carousel_block_bDJE8P": {
+          "type": "shopify://apps/tolstoy-ads-image-video/blocks/carousel-block/06fa8282-42ff-403e-b67c-1936776aed11",
+          "settings": {
+            "publishId": "s13ticw8v1arw"
+          }
+        }
+      },
+      "block_order": [
+        "tolstoy_shoppable_video_quiz_carousel_block_bDJE8P"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "image_link_blocks_NFRjq3": {
+      "type": "image-link-blocks",
+      "blocks": {
+        "item_aViqLb": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Baby_1.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_H8nENK": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Baby_2.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_mjWQtx": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Baby_3.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_YEWXXh": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Toddler_2.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_RNq9dE": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Toddler_1.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_dUVkBC": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Toddler_3.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "item_aViqLb",
+        "item_H8nENK",
+        "item_mjWQtx",
+        "item_YEWXXh",
+        "item_RNq9dE",
+        "item_dUVkBC"
+      ],
+      "disabled": true,
+      "name": "Image link blocks",
+      "settings": {
+        "full_width": true,
+        "block_size": "medium",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "text_with_icons_gjqGmB": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_w8bizx": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/Expert_recommended_1.png",
+            "mobile_icon_width": 80,
+            "icon_width": 80,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "",
+            "content": "<h3>Endorsed<br/>by experts</h3>"
+          }
+        },
+        "item_KtXdHc": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/Founded_by_mums_1.png",
+            "mobile_icon_width": 80,
+            "icon_width": 80,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "",
+            "content": "<h3>Designed for <br/>babies & toddlers</h3>"
+          }
+        },
+        "item_KYd3pJ": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/Group_37042.png",
+            "mobile_icon_width": 80,
+            "icon_width": 80,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "",
+            "content": "<h3>Helps develop <br/>motor skills</h3>"
+          }
+        },
+        "item_dXTkRR": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/Group_37043.png",
+            "mobile_icon_width": 80,
+            "icon_width": 80,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "",
+            "content": "<h3>Loved by <br/>parents & kids</h3>"
+          }
+        },
+        "item_BYkY4k": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/Expert_recommended.svg",
+            "mobile_icon_width": 24,
+            "icon_width": 32,
+            "icon_background_type": "circle",
+            "icon_background": "#f2f2f2",
+            "icon_color": "",
+            "title": "Heading",
+            "content": "<p>Short content about your store</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_w8bizx",
+        "item_KtXdHc",
+        "item_KYd3pJ",
+        "item_dXTkRR",
+        "item_BYkY4k"
+      ],
+      "name": "Text with icons",
+      "settings": {
+        "full_width": false,
+        "stack_on_mobile": false,
+        "title": "Why doddl?",
+        "heading_tag": "h6",
+        "text_alignment": "center",
+        "icon_spacing": "small",
+        "background": "#fafafc",
+        "background_gradient": "",
+        "text_color": "#2f1562"
+      }
+    },
+    "expert_carousel_tCTKfF": {
+      "type": "expert-carousel",
+      "blocks": {
+        "expert_UXD7Lg": {
+          "type": "expert",
+          "settings": {
+            "image": "shopify://shop_images/Penelope_Henderson.png",
+            "name": "Penelope Henderson",
+            "title": "Children's Nutritionist",
+            "content": "<p>\"I love the unique design of doddl cutlery. The short, moulded handles fit perfectly in little hands and have a soft middle for a comfortable grip. I also love how they support motor skill development like dexterity and coordination, making self-feeding easier. The toddler knife helps build cutting skills safely, giving parents peace of mind. With easy-to-use cutlery, little ones can explore a wide range of foods and gain early exposure to new tastes and textures. I’d definitely recommend these to parents.\"<br/><br/></p>",
+            "button_text": "Learn more about Penelope's work here",
+            "button_url": "#https://nutrition2nourishflourish.com/",
+            "button_style": "outline",
+            "button_size": "base",
+            "button_secondary": false
+          }
+        },
+        "expert_LwyBRt": {
+          "type": "expert",
+          "settings": {
+            "image": "shopify://shop_images/Katia_Balducci_BSc_MSc_RNutr_Registered_Nutritionist_in_Public_Health.webp",
+            "name": "Katia Balducci",
+            "title": "Public Health Nutritionist (RNutr)",
+            "content": "<p>“The doddl baby feeding set has been such a lovely addition to our weaning journey. The 2-in-1 bowl is sturdy, well-designed, and sticks perfectly to the highchair tray. The cutlery set fits beautifully in little hands, helping babies build independence and confidence with self-feeding. They are short and even though the handle is chunkier they are super light. I love how well it supports fine motor skill development and encourages proper grip from early on, key steps in learning to eat independently. The carry case is another win for me: we take it everywhere! It keeps the cutlery clean, safe, and ready to use whether we’re out for a meal or travelling.<br/><br/>From a mum and a child nutritionist perspective, I really value products that make feeding fun, practical, and developmentally supportive and this set truly ticks all those boxes.”</p>",
+            "button_text": "Learn more about Katia's work here",
+            "button_url": "https://www.thebabynutritionist.com/",
+            "button_style": "outline",
+            "button_size": "base",
+            "button_secondary": false
+          }
+        },
+        "expert_qNkkjU": {
+          "type": "expert",
+          "settings": {
+            "image": "shopify://shop_images/charlotte6-edited-1_jpg_88492e29-14e4-4d33-9c45-77eef87daac3.webp",
+            "name": "Charlotte Stirling-Reed",
+            "title": "The Baby & Child Nutritionist",
+            "content": "<p>“I’ve been absolutely loving using the doddl cutlery set with my family. It’s really helped my daughter to hone her skills around self-feeding with a spoon and fork. I love the fact that they are made for little hands and make the idea of self-feeding so much simpler. Ada really has come on leaps and bounds since using them and is now able to do the “scoop” action by herself. My son also loves using the knife and fork and is getting much better at his cutting skills. It’s great that they just need to push down and apply pressure to cut their foods and, again, that they are made with little hands in mind. Such a great way to help them to transition to adult cutlery!”</p>",
+            "button_text": "Learn more about Charlotte's work here",
+            "button_url": "https://www.srnutrition.co.uk/about-charlotte/",
+            "button_style": "outline",
+            "button_size": "base",
+            "button_secondary": false
+          }
+        },
+        "expert_8UHiCy": {
+          "type": "expert",
+          "settings": {
+            "image": "shopify://shop_images/SZ.webp",
+            "name": "Stacey Zimmels",
+            "title": "Paediatric Feeding and Swallowing Specialist Speech Therapist",
+            "content": "<p>“As a feeding specialist and a mother, I was so delighted to discover doddl cutlery after it was recommended by a friend. I was so fed up of buying cutlery that wasn’t working to support my baby with his self-feeding development. doddl cutlery was perfect for him and within days he had mastered the loaded spoon and was stabbing and eating with his fork. The perfectly designed handles are short and fat which makes them easy to grab and simple to bring to their mouth. My son loved eating at the family table with his doddl cutlery – he was participating in our family mealtimes before he was walking!”</p>",
+            "button_text": "Learn more about Charlotte's work here",
+            "button_url": "https://www.feedeatspeak.co.uk/about",
+            "button_style": "outline",
+            "button_size": "base",
+            "button_secondary": false
+          }
+        },
+        "expert_czpxbz": {
+          "type": "expert",
+          "settings": {
+            "image": "shopify://shop_images/Colleen_Sarrazin_M.S._CCC-SLP_Pediatric_Feeding_Therapist_and_Speech-Language_Pathologist_founder_of_BabbleBites_Blog.jpg",
+            "name": "Colleen Sarrazin",
+            "title": "Pediatric Feeding Therapist and Speech-Language Pathologist",
+            "content": "<p>Colleen is a Pediatric Feeding Therapist and Speech-Language Pathologist, with over a decade of experience. She owns a private practice where she provides in-home pediatric feeding and speech-language therapy, and runs the <a href=\"https://www.babblebites.com/\" title=\"https://www.babblebites.com/\">BabbleBites.com</a> blog, with tips on how to support your baby’s speech-language & feeding development.<br/><br/></p>",
+            "button_text": "BabbleBites",
+            "button_url": "https://www.instagram.com/babblebites/",
+            "button_style": "outline",
+            "button_size": "base",
+            "button_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "expert_UXD7Lg",
+        "expert_LwyBRt",
+        "expert_qNkkjU",
+        "expert_8UHiCy",
+        "expert_czpxbz"
+      ],
+      "name": "Expert Carousel",
+      "settings": {
+        "subheading": "",
+        "title": "What the experts think",
+        "text_alignment": "center",
+        "text_color": "rgba(0,0,0,0)",
+        "heading_color": "rgba(0,0,0,0)",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "loop": true,
+        "align": "start",
+        "speed": 8,
+        "slides_to_scroll": 1,
+        "drag_free": false,
+        "skip_snaps": false,
+        "stop_on_interaction": false,
+        "stop_on_mouse_enter": false,
+        "stop_on_focus": false
+      }
+    },
+    "17544868766e6d8714": {
+      "type": "apps",
+      "blocks": {
+        "opinew_reviews_product_widget_Gm3Qta": {
+          "type": "shopify://apps/opinew-reviews/blocks/product-widget/e1d8e0dc-17ff-4e4a-8a8a-1e73c8ef8676",
+          "settings": {}
+        },
+        "opinew_reviews_all_reviews_aKLDbb": {
+          "type": "shopify://apps/opinew-reviews/blocks/all-reviews/e1d8e0dc-17ff-4e4a-8a8a-1e73c8ef8676",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "opinew_reviews_product_widget_Gm3Qta",
+        "opinew_reviews_all_reviews_aKLDbb"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "recommendations_count": 4,
+        "products": [],
+        "full_width": true,
+        "stack_products": true,
+        "show_progress_bar": false,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "subheading": "",
+        "title": "You may also like",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_JaJkQP",
+    "section-2",
+    "17617514249875b7bd",
+    "image_link_blocks_NFRjq3",
+    "text_with_icons_gjqGmB",
+    "expert_carousel_tCTKfF",
+    "17544868766e6d8714",
+    "related-products"
+  ]
+}
