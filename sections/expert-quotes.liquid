@@ -1,0 +1,305 @@
+{%- render 'section-spacing-collapsing' -%}
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+CSS
+
+Expert quotes — homepage trust block. Per build-brief Section D.2 step 4.
+3 pull-quote cards (block type "quote") in a row, with logo strip below
+("Trusted & recommended by" + up to 8 partner logos, block type "logo").
+
+Static — no carousel, no JS. Distinct from sections/expert-carousel.liquid which is
+the deeper expert testimonial slider currently live on the product page.
+
+Impact v6.9.1 conventions:
+- Section-scoped CSS variables under #shopify-section-{{ section.id }}
+- Custom element wrapper <expert-quotes>; no JS class registered
+- Logos: Impact image_tag with widths array, lazy loading, configurable alt text
+- Grayscale logos with colour-on-hover (conventional logo strip treatment)
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --eq-bg: {{ section.settings.section_bg.rgb }};
+    --eq-heading-color: {{ section.settings.heading_color.rgb }};
+    --eq-heading-size: {{ section.settings.heading_size_mobile }}px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} {
+      --eq-heading-size: {{ section.settings.heading_size_desktop }}px;
+    }
+  }
+
+  /* Wrapper */
+  #shopify-section-{{ section.id }} .expert-quotes {
+    display: block;
+    background-color: rgb(var(--eq-bg));
+    padding: var(--spacing-12) var(--container-gutter);
+  }
+
+  /* Header */
+  #shopify-section-{{ section.id }} .expert-quotes__header {
+    text-align: center;
+    margin: 0 auto var(--spacing-10);
+    max-width: 720px;
+  }
+
+  #shopify-section-{{ section.id }} .expert-quotes__heading {
+    margin: 0 0 var(--spacing-3);
+    font-family: var(--heading-font-family);
+    font-weight: var(--heading-font-weight);
+    font-size: var(--eq-heading-size);
+    line-height: 1.2;
+    color: rgb(var(--eq-heading-color));
+  }
+
+  #shopify-section-{{ section.id }} .expert-quotes__subheading {
+    margin: 0;
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: rgb(var(--text-primary) / 0.75);
+  }
+
+  /* Quote grid */
+  #shopify-section-{{ section.id }} .expert-quotes__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--spacing-6);
+    margin-bottom: var(--spacing-12);
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .expert-quotes__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--spacing-8);
+    }
+  }
+
+  /* Quote card */
+  #shopify-section-{{ section.id }} .expert-quotes__card {
+    padding: var(--spacing-6);
+    border-left: 4px solid rgb(var(--doddl-color-accent));
+    background: rgb(var(--doddl-color-bg));
+    border-radius: 0 var(--rounded) var(--rounded) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+  }
+
+  #shopify-section-{{ section.id }} .expert-quotes__quote {
+    margin: 0;
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: rgb(var(--text-primary));
+    font-style: italic;
+  }
+
+  #shopify-section-{{ section.id }} .expert-quotes__quote p {
+    margin: 0 0 var(--spacing-3);
+  }
+
+  #shopify-section-{{ section.id }} .expert-quotes__quote p:last-child {
+    margin-bottom: 0;
+  }
+
+  #shopify-section-{{ section.id }} .expert-quotes__attribution {
+    padding-top: var(--spacing-3);
+    border-top: 1px solid rgb(var(--text-primary) / 0.1);
+  }
+
+  #shopify-section-{{ section.id }} .expert-quotes__name {
+    display: block;
+    font-weight: 700;
+    color: rgb(var(--doddl-color-primary));
+  }
+
+  #shopify-section-{{ section.id }} .expert-quotes__role {
+    display: block;
+    font-size: var(--text-sm);
+    color: rgb(var(--text-primary) / 0.7);
+    margin-top: 2px;
+  }
+
+  /* Logo strip */
+  #shopify-section-{{ section.id }} .expert-quotes__logos {
+    text-align: center;
+    border-top: 1px solid rgb(var(--text-primary) / 0.1);
+    padding-top: var(--spacing-8);
+  }
+
+  #shopify-section-{{ section.id }} .expert-quotes__logo-label {
+    margin: 0 0 var(--spacing-5);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(var(--text-primary) / 0.6);
+  }
+
+  #shopify-section-{{ section.id }} .expert-quotes__logo-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-6) var(--spacing-8);
+  }
+
+  #shopify-section-{{ section.id }} .expert-quotes__logo-list > li {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  #shopify-section-{{ section.id }} .expert-quotes__logo {
+    max-height: 60px;
+    max-width: 140px;
+    height: auto;
+    width: auto;
+    opacity: 0.7;
+    filter: grayscale(100%);
+    transition: opacity 200ms ease, filter 200ms ease;
+  }
+
+  #shopify-section-{{ section.id }} .expert-quotes__logo:hover,
+  #shopify-section-{{ section.id }} .expert-quotes__logo:focus-visible {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+</style>
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+LIQUID
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+{%- assign quote_blocks = section.blocks | where: 'type', 'quote' -%}
+{%- assign logo_blocks = section.blocks | where: 'type', 'logo' -%}
+
+<div {% render 'section-properties' %}>
+  <expert-quotes class="expert-quotes">
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+      <div class="expert-quotes__header" reveal-on-scroll="true">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="expert-quotes__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="expert-quotes__subheading">{{ section.settings.subheading | escape | newline_to_br }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if quote_blocks.size > 0 -%}
+      <div class="expert-quotes__grid" reveal-on-scroll="true">
+        {%- for block in quote_blocks -%}
+          <article class="expert-quotes__card" {{ block.shopify_attributes }}>
+            {%- if block.settings.quote != blank -%}
+              <div class="expert-quotes__quote">{{ block.settings.quote }}</div>
+            {%- endif -%}
+            {%- if block.settings.name != blank or block.settings.role != blank -%}
+              <div class="expert-quotes__attribution">
+                {%- if block.settings.name != blank -%}
+                  <span class="expert-quotes__name">{{ block.settings.name | escape }}</span>
+                {%- endif -%}
+                {%- if block.settings.role != blank -%}
+                  <span class="expert-quotes__role">{{ block.settings.role | escape }}</span>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if logo_blocks.size > 0 -%}
+      <div class="expert-quotes__logos" reveal-on-scroll="true">
+        {%- if section.settings.logo_strip_label != blank -%}
+          <p class="expert-quotes__logo-label">{{ section.settings.logo_strip_label | escape }}</p>
+        {%- endif -%}
+        <ul class="expert-quotes__logo-list" role="list">
+          {%- for block in logo_blocks -%}
+            <li {{ block.shopify_attributes }}>
+              {%- if block.settings.image != blank -%}
+                {{- block.settings.image
+                    | image_url: width: 400
+                    | image_tag:
+                        loading: 'lazy',
+                        sizes: '140px',
+                        widths: '100,140,200,280,400',
+                        alt: block.settings.alt,
+                        class: 'expert-quotes__logo' -}}
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+  </expert-quotes>
+</div>
+
+{% schema %}
+{
+  "name": "Expert quotes",
+  "class": "shopify-section--expert-quotes",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "max_blocks": 11,
+  "settings": [
+    { "type": "header", "content": "Heading" },
+    { "type": "richtext", "id": "heading", "label": "Heading (H2)", "default": "<p>What the experts think</p>" },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size — desktop", "min": 22, "max": 44, "step": 2, "unit": "px", "default": 32 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size — mobile", "min": 18, "max": 34, "step": 2, "unit": "px", "default": 26 },
+    { "type": "color", "id": "heading_color", "label": "Heading colour", "default": "#3D157D" },
+    { "type": "textarea", "id": "subheading", "label": "Sub-heading (optional)" },
+
+    { "type": "header", "content": "Logo strip" },
+    { "type": "text", "id": "logo_strip_label", "label": "Logo strip label", "default": "Trusted & recommended by" },
+
+    { "type": "header", "content": "Section" },
+    { "type": "color", "id": "section_bg", "label": "Background colour", "default": "#FFFFFF" }
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Expert quote",
+      "limit": 3,
+      "settings": [
+        { "type": "richtext", "id": "quote", "label": "Pull-quote", "info": "Use bold/italic for emphasis on key phrases.", "default": "<p>Working with doddl has been transformative for the families I work with.</p>" },
+        { "type": "text", "id": "name", "label": "Expert name", "default": "Expert Name" },
+        { "type": "text", "id": "role", "label": "Role / credentials", "default": "Paediatric OT" }
+      ]
+    },
+    {
+      "type": "logo",
+      "name": "Partner logo",
+      "limit": 8,
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Logo image", "info": "SVG or PNG. Recommended 200×80px or larger; rendered at max 60px tall, 140px wide." },
+        { "type": "text", "id": "alt", "label": "Alt text", "info": "Describe the partner organisation for screen readers.", "default": "Partner logo" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Expert quotes",
+      "blocks": [
+        { "type": "quote" },
+        { "type": "quote" },
+        { "type": "quote" },
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" }
+      ]
+    }
+  ]
+}
+{% endschema %}
