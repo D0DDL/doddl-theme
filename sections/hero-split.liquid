@@ -1,0 +1,511 @@
+{%- render 'section-spacing-collapsing' -%}
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+CSS
+
+Hero split — homepage hero. Per build-brief Section 3.1.
+Left content column: eyebrow / H1 (line 2 in accent colour) / body / two CTAs / trust pills.
+Right column: lifestyle image (4:3, configurable border radius).
+
+Impact v6.9.1 conventions:
+- Section-scoped CSS variables under #shopify-section-{{ section.id }}
+- All rules nested under that ID — no global pollution
+- Custom element wrapper <hero-split>; no JS class registered (no interactivity required for v1)
+- Buttons use Impact's existing .button / .button--xl / .button--outline classes
+- Image uses fetchpriority="high" loading="eager" (homepage LCP per build-brief D.8)
+- Colour defaults inherit from doddl Design Tokens (settings.color_primary, settings.color_accent)
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --hero-split-bg: {{ section.settings.section_bg.rgb }};
+    --hero-split-min-height: 0px;
+    --hero-split-image-height: {{ section.settings.image_height_mobile }}px;
+    --hero-split-image-radius: {{ section.settings.image_radius }}px;
+    --hero-split-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --hero-split-heading-color: {{ section.settings.heading_color.rgb }};
+    --hero-split-accent-color: {{ section.settings.accent_color.rgb }};
+    --hero-split-body-size: {{ section.settings.body_size }}px;
+    --hero-split-body-color: {{ section.settings.body_color.rgb }};
+    --hero-split-cta1-color: {{ section.settings.cta1_color.rgb }};
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} {
+      --hero-split-min-height: {{ section.settings.section_height }}px;
+      --hero-split-heading-size: {{ section.settings.heading_size_desktop }}px;
+    }
+  }
+
+  /* Layout */
+  #shopify-section-{{ section.id }} .hero-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    background-color: rgb(var(--hero-split-bg));
+    color: rgb(var(--hero-split-heading-color));
+    min-height: var(--hero-split-min-height);
+    overflow: hidden;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .hero-split {
+      grid-template-columns: minmax(0, {{ 100 | minus: section.settings.image_width }}fr) minmax(0, {{ section.settings.image_width }}fr);
+    }
+  }
+
+  #shopify-section-{{ section.id }} .hero-split__content {
+    padding: var(--spacing-8) var(--container-gutter);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-5);
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .hero-split__content {
+      padding: var(--spacing-12);
+    }
+  }
+
+  /* Eyebrow */
+  #shopify-section-{{ section.id }} .hero-split__eyebrow {
+    margin: 0;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(var(--hero-split-accent-color));
+  }
+
+  /* Heading */
+  #shopify-section-{{ section.id }} .hero-split__heading {
+    margin: 0;
+    font-family: var(--heading-font-family);
+    font-weight: var(--heading-font-weight);
+    font-size: var(--hero-split-heading-size);
+    line-height: 1.1;
+    letter-spacing: var(--heading-letter-spacing);
+    color: rgb(var(--hero-split-heading-color));
+  }
+
+  #shopify-section-{{ section.id }} .hero-split__heading-line {
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .hero-split__heading-line--accent {
+    color: rgb(var(--hero-split-accent-color));
+  }
+
+  /* Body */
+  #shopify-section-{{ section.id }} .hero-split__body {
+    margin: 0;
+    font-size: var(--hero-split-body-size);
+    line-height: 1.6;
+    color: rgb(var(--hero-split-body-color) / 0.85);
+    max-width: 56ch;
+  }
+
+  /* CTAs */
+  #shopify-section-{{ section.id }} .hero-split__ctas {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    margin-top: var(--spacing-2);
+  }
+
+  @media screen and (min-width: 700px) {
+    #shopify-section-{{ section.id }} .hero-split__ctas {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .hero-split__cta--primary {
+    --button-background: var(--hero-split-cta1-color);
+    --button-text-color: 255 255 255;
+  }
+
+  #shopify-section-{{ section.id }} .hero-split__cta--secondary {
+    --button-outline-color: var(--hero-split-heading-color);
+    color: rgb(var(--hero-split-heading-color));
+  }
+
+  /* Trust pills */
+  #shopify-section-{{ section.id }} .hero-split__trust {
+    list-style: none;
+    margin: var(--spacing-4) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-2);
+  }
+
+  @media screen and (min-width: 700px) {
+    #shopify-section-{{ section.id }} .hero-split__trust {
+      grid-template-columns: repeat(4, minmax(0, max-content));
+      justify-content: start;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .hero-split__trust-pill {
+    background: rgb(var(--hero-split-heading-color) / 0.1);
+    color: rgb(var(--hero-split-heading-color));
+    border-radius: var(--rounded-full);
+    padding: var(--spacing-2) var(--spacing-3);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  /* Media */
+  #shopify-section-{{ section.id }} .hero-split__media {
+    overflow: hidden;
+    border-radius: var(--hero-split-image-radius);
+    height: var(--hero-split-image-height);
+    margin: 0 var(--container-gutter) var(--spacing-6);
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .hero-split__media {
+      height: auto;
+      aspect-ratio: 4 / 3;
+      margin: var(--spacing-12);
+    }
+  }
+
+  #shopify-section-{{ section.id }} .hero-split__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+</style>
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+LIQUID
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<div {% render 'section-properties' %}>
+  <hero-split class="hero-split">
+    <div class="hero-split__content" reveal-on-scroll="true">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="hero-split__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading_1 != blank or section.settings.heading_2 != blank -%}
+        <h1 class="hero-split__heading">
+          {%- if section.settings.heading_1 != blank -%}
+            <span class="hero-split__heading-line">{{ section.settings.heading_1 | escape }}</span>
+          {%- endif -%}
+          {%- if section.settings.heading_2 != blank -%}
+            <span class="hero-split__heading-line hero-split__heading-line--accent">{{ section.settings.heading_2 | escape }}</span>
+          {%- endif -%}
+        </h1>
+      {%- endif -%}
+
+      {%- if section.settings.body_text != blank -%}
+        <p class="hero-split__body">{{ section.settings.body_text | escape | newline_to_br }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.cta1_label != blank or section.settings.cta2_label != blank -%}
+        <div class="hero-split__ctas">
+          {%- if section.settings.cta1_label != blank -%}
+            <a
+              href="{{ section.settings.cta1_url | default: '#' }}"
+              class="button button--xl hero-split__cta hero-split__cta--primary"
+            >
+              {{- section.settings.cta1_label | escape -}}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.cta2_label != blank -%}
+            <a
+              href="{{ section.settings.cta2_url | default: '#' }}"
+              class="button button--xl button--outline hero-split__cta hero-split__cta--secondary"
+            >
+              {{- section.settings.cta2_label | escape -}}
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.show_trust -%}
+        {%- assign has_pill = false -%}
+        {%- for i in (1..4) -%}
+          {%- assign trust_key = 'trust_' | append: i -%}
+          {%- if section.settings[trust_key] != blank -%}
+            {%- assign has_pill = true -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if has_pill -%}
+          <ul class="hero-split__trust" role="list">
+            {%- for i in (1..4) -%}
+              {%- assign trust_key = 'trust_' | append: i -%}
+              {%- assign trust_value = section.settings[trust_key] -%}
+              {%- if trust_value != blank -%}
+                <li class="hero-split__trust-pill">{{ trust_value | escape }}</li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+
+    <div class="hero-split__media" reveal-on-scroll="true">
+      {%- if section.settings.hero_image != blank -%}
+        {%- capture hero_sizes -%}(max-width: 999px) 100vw, {{ section.settings.image_width }}vw{%- endcapture -%}
+        {{- section.settings.hero_image
+            | image_url: width: section.settings.hero_image.width
+            | image_tag:
+                loading: 'eager',
+                fetchpriority: 'high',
+                sizes: hero_sizes,
+                widths: '400,600,800,1000,1200,1400,1600,1800,2000',
+                class: 'hero-split__image' -}}
+      {%- else -%}
+        {{- 'lifestyle-1' | placeholder_svg_tag: 'hero-split__image hero-split__image--placeholder' -}}
+      {%- endif -%}
+    </div>
+  </hero-split>
+</div>
+
+{% schema %}
+{
+  "name": "Hero split",
+  "class": "shopify-section--hero-split",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Developmental dining tools"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading_1",
+      "label": "Headline — line 1",
+      "default": "The right tool."
+    },
+    {
+      "type": "text",
+      "id": "heading_2",
+      "label": "Headline — line 2 (accent colour)",
+      "default": "At every stage."
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "label": "Heading size — desktop",
+      "min": 28,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "default": 42
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size — mobile",
+      "min": 22,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading colour",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent colour (line 2)",
+      "info": "Line 2 of the headline and the eyebrow tag render in this colour. Defaults to doddl aqua.",
+      "default": "#30BEAA"
+    },
+    {
+      "type": "header",
+      "content": "Body copy"
+    },
+    {
+      "type": "textarea",
+      "id": "body_text",
+      "label": "Body copy",
+      "default": "Cutlery designed to grow with your child — from first weaning to family meals."
+    },
+    {
+      "type": "range",
+      "id": "body_size",
+      "label": "Body size",
+      "min": 13,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "body_color",
+      "label": "Body text colour",
+      "info": "Rendered at 85% opacity over the section background.",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Primary CTA"
+    },
+    {
+      "type": "text",
+      "id": "cta1_label",
+      "label": "Label",
+      "default": "Explore the stages"
+    },
+    {
+      "type": "url",
+      "id": "cta1_url",
+      "label": "URL",
+      "info": "Use #stage-tabs to scroll to the homepage stage navigator."
+    },
+    {
+      "type": "color",
+      "id": "cta1_color",
+      "label": "Button colour",
+      "default": "#30BEAA"
+    },
+    {
+      "type": "header",
+      "content": "Secondary CTA"
+    },
+    {
+      "type": "text",
+      "id": "cta2_label",
+      "label": "Label",
+      "default": "Shop bundles"
+    },
+    {
+      "type": "url",
+      "id": "cta2_url",
+      "label": "URL"
+    },
+    {
+      "type": "header",
+      "content": "Hero image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Image",
+      "info": "Lifestyle photograph (parent + child + product). 4:3 aspect on desktop. 1500 x 1125px .jpg recommended."
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Image width — desktop",
+      "min": 30,
+      "max": 60,
+      "step": 5,
+      "unit": "%",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "image_height_mobile",
+      "label": "Image height — mobile",
+      "min": 180,
+      "max": 420,
+      "step": 20,
+      "unit": "px",
+      "default": 280
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image border radius",
+      "min": 0,
+      "max": 32,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section background",
+      "default": "#3D157D"
+    },
+    {
+      "type": "range",
+      "id": "section_height",
+      "label": "Minimum height — desktop",
+      "min": 360,
+      "max": 680,
+      "step": 20,
+      "unit": "px",
+      "default": 480
+    },
+    {
+      "type": "header",
+      "content": "Trust pills"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust",
+      "label": "Show trust pills",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "trust_1",
+      "label": "Pill 1",
+      "info": "Use emoji + text inline (e.g. ⭐ 25,000+ reviews).",
+      "default": "⭐ 25,000+ reviews"
+    },
+    {
+      "type": "text",
+      "id": "trust_2",
+      "label": "Pill 2",
+      "default": "🏥 OT recommended"
+    },
+    {
+      "type": "text",
+      "id": "trust_3",
+      "label": "Pill 3",
+      "default": "🏫 500+ nurseries"
+    },
+    {
+      "type": "text",
+      "id": "trust_4",
+      "label": "Pill 4",
+      "default": "🏆 Award winning"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero split"
+    }
+  ]
+}
+{% endschema %}

@@ -195,6 +195,13 @@ note that this may have impact on different places.
     --footer-background: {{ settings.footer_background.rgb }};
     --footer-text: {{ settings.footer_text_color.rgb }};
 
+    /* doddl Design Tokens — see settings_schema.json group "doddl Design Tokens" */
+    --doddl-color-primary: {{ settings.color_primary.rgb }};
+    --doddl-color-accent: {{ settings.color_accent.rgb }};
+    --doddl-color-dark: {{ settings.color_dark.rgb }};
+    --doddl-color-body: {{ settings.color_body.rgb }};
+    --doddl-color-bg: {{ settings.color_bg.rgb }};
+
     /* Rounded variables (used for border radius) */
     --rounded-xs: {{ settings.block_border_radius | at_most: 4 | divided_by: 16.0 }}rem;
     --rounded-sm: {{ settings.block_border_radius | divided_by: 16.0 | divided_by: 4.0 }}rem;
