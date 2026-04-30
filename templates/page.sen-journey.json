@@ -1,0 +1,153 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ *
+ * SEN Feeding Journey page template — wires sen-hero +
+ * 4 sen-stage-panel instances (one per ability-based stage).
+ *
+ * Page handle: sen-feeding-journey  (per CLAUDE.md locked URLs)
+ * Template suffix: sen-journey       → templates/page.sen-journey.json
+ * URL: /pages/sen-feeding-journey
+ *
+ * CRITICAL DESIGN RULE (CLAUDE.md + build-brief 5.0):
+ * NO age labels anywhere on this page. Progress is celebrated,
+ * not measured against timelines. All stage identity is
+ * ability-based (just-starting-out, finding-grip,
+ * building-confidence, eating-independently).
+ *
+ * Anchor wiring: each panel's stage_id matches the corresponding
+ * pill anchor in the SEN hero so in-page navigation scrolls to
+ * the right panel.
+ *
+ * Collections referenced (do not yet exist in Shopify; placeholders
+ * will render until they are created):
+ *   - sen-starting-out
+ *   - sen-finding-grip
+ *   - sen-building-confidence
+ *   - sen-eating-independently
+ * Collection handles are not yet locked in CLAUDE.md and may be
+ * adjusted by the merchant before launch.
+ *
+ * Content TBD: stages 2–4 body, signs, celebration line, family
+ * and OT quotes are placeholders pending the SEN content brief.
+ * Stage 1 (just-starting-out) is pre-populated with brief 5.2 defaults.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "sen-hero",
+      "settings": {}
+    },
+    "panel_starting_out": {
+      "type": "sen-stage-panel",
+      "settings": {
+        "stage_id": "just-starting-out",
+        "heading": "Just starting out",
+        "sub_heading": "Every journey begins somewhere",
+        "body": "Your child is starting to show interest in mealtimes — watching, reaching, exploring. There's no rush, and no single right path. We meet your child where they are.",
+        "signs_label": "Signs your child might be here:",
+        "sign_1": "Starting to watch you eat and showing curiosity",
+        "sign_2": "Attempting to reach toward food or utensils",
+        "sign_3": "Some hand-to-mouth movement, even if unsteady",
+        "sign_4": "Sitting with support during mealtimes",
+        "celebration": "Every single one of these is worth celebrating — and every one of them is progress.",
+        "cta_label": "Find the right tools →",
+        "collection": "sen-starting-out",
+        "trust_1": "OT UK",
+        "trust_2": "RCSLT",
+        "next_label": "When the time is right",
+        "next_heading": "Finding their grip",
+        "next_body": "When your child starts holding utensils for short stretches and bringing them to their mouth — even messily — they may be ready for the next stage.",
+        "next_cta": "Look ahead →",
+        "next_url": "#finding-grip",
+        "panel_bg": "#FFFFFF"
+      }
+    },
+    "panel_finding_grip": {
+      "type": "sen-stage-panel",
+      "settings": {
+        "stage_id": "finding-grip",
+        "heading": "Finding their grip",
+        "sub_heading": "Holding on, reaching out",
+        "body": "[TBD — see SEN content brief: 2–3 sentences, empathetic, no age refs.]",
+        "signs_label": "Signs your child might be here:",
+        "sign_1": "[TBD — sign 1]",
+        "sign_2": "[TBD — sign 2]",
+        "sign_3": "[TBD — sign 3]",
+        "sign_4": "[TBD — sign 4]",
+        "celebration": "[TBD — celebration line]",
+        "cta_label": "Find the right tools →",
+        "collection": "sen-finding-grip",
+        "trust_1": "OT UK",
+        "trust_2": "RCSLT",
+        "next_label": "When the time is right",
+        "next_heading": "Building confidence",
+        "next_body": "[TBD — gentle, non-prescriptive teaser for the next stage.]",
+        "next_cta": "Look ahead →",
+        "next_url": "#building-confidence",
+        "panel_bg": "#F4F3F8"
+      }
+    },
+    "panel_building_confidence": {
+      "type": "sen-stage-panel",
+      "settings": {
+        "stage_id": "building-confidence",
+        "heading": "Building confidence",
+        "sub_heading": "Steadier hands, bigger wins",
+        "body": "[TBD — see SEN content brief: 2–3 sentences, empathetic, no age refs.]",
+        "signs_label": "Signs your child might be here:",
+        "sign_1": "[TBD — sign 1]",
+        "sign_2": "[TBD — sign 2]",
+        "sign_3": "[TBD — sign 3]",
+        "sign_4": "[TBD — sign 4]",
+        "celebration": "[TBD — celebration line]",
+        "cta_label": "Find the right tools →",
+        "collection": "sen-building-confidence",
+        "trust_1": "OT UK",
+        "trust_2": "RCSLT",
+        "next_label": "When the time is right",
+        "next_heading": "Eating independently",
+        "next_body": "[TBD — gentle, non-prescriptive teaser for the next stage.]",
+        "next_cta": "Look ahead →",
+        "next_url": "#eating-independently",
+        "panel_bg": "#FFFFFF"
+      }
+    },
+    "panel_eating_independently": {
+      "type": "sen-stage-panel",
+      "settings": {
+        "stage_id": "eating-independently",
+        "heading": "Eating independently",
+        "sub_heading": "Family meals, on their terms",
+        "body": "[TBD — see SEN content brief: 2–3 sentences, empathetic, no age refs.]",
+        "signs_label": "Signs your child might be here:",
+        "sign_1": "[TBD — sign 1]",
+        "sign_2": "[TBD — sign 2]",
+        "sign_3": "[TBD — sign 3]",
+        "sign_4": "[TBD — sign 4]",
+        "celebration": "[TBD — celebration line]",
+        "cta_label": "Find the right tools →",
+        "collection": "sen-eating-independently",
+        "trust_1": "OT UK",
+        "trust_2": "RCSLT",
+        "next_heading": "",
+        "next_body": "",
+        "next_cta": "",
+        "next_url": "",
+        "panel_bg": "#F4F3F8"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "panel_starting_out",
+    "panel_finding_grip",
+    "panel_building_confidence",
+    "panel_eating_independently"
+  ]
+}

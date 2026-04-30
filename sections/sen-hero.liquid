@@ -1,0 +1,283 @@
+{%- render 'section-spacing-collapsing' -%}
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+CSS
+
+SEN Feeding Journey — hero. Top of /pages/sen-feeding-journey. Per build-brief Section 5.1.
+Full-width indigo hero, distinct from main shop-by-stage journey. Empathetic tone.
+
+CRITICAL DESIGN RULE (CLAUDE.md + brief 5.0):
+NO age labels on any pill or anywhere in the SEN journey. Progress is celebrated,
+not measured against timelines. Pill text is ability-based ("Just starting out",
+"Finding their grip", etc.) — never age ranges.
+
+Layout:
+- Centred headline + body
+- 4 stage navigation pills in a row (desktop) / 2×2 grid (mobile)
+- Each pill is a same-page anchor link to the matching sen-stage-panel
+
+Anchor contract: pills emit href="#{anchor}" where anchor matches each
+sen-stage-panel instance's stage_id (just-starting-out, finding-grip,
+building-confidence, eating-independently).
+
+Impact v6.9.1 conventions:
+- Section-scoped CSS variables under #shopify-section-{{ section.id }}
+- Custom element wrapper <sen-hero> with explicit display:flex
+- No reveal-on-scroll attributes (Impact's global opacity:0 rule hides untracked elements)
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --sen-hero-bg: {{ section.settings.bg_color.rgb }};
+    --sen-hero-heading-color: {{ section.settings.heading_color.rgb }};
+    --sen-hero-heading-size: {{ section.settings.heading_size_m }}px;
+    --sen-hero-body-size: {{ section.settings.body_size }}px;
+    --sen-hero-min-height: {{ section.settings.min_height }}px;
+    --sen-hero-pill-bg: {{ section.settings.pill_bg.rgb }};
+    --sen-hero-pill-bg-alpha: {{ section.settings.pill_bg_alpha | divided_by: 100.0 }};
+    --sen-hero-pill-size: {{ section.settings.pill_size }}px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} {
+      --sen-hero-heading-size: {{ section.settings.heading_size_d }}px;
+    }
+  }
+
+  /* Wrapper */
+  #shopify-section-{{ section.id }} .sen-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(var(--sen-hero-bg));
+    color: rgb(var(--sen-hero-heading-color));
+    min-height: var(--sen-hero-min-height);
+    overflow: hidden;
+    padding: var(--spacing-10) var(--spacing-6);
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .sen-hero {
+      padding: var(--spacing-16) var(--spacing-12);
+    }
+  }
+
+  /* Decorative concentric circle SVG — top right, hidden on mobile */
+  #shopify-section-{{ section.id }} .sen-hero__decoration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 240px;
+    height: 240px;
+    pointer-events: none;
+    transform: translate(25%, -25%);
+    display: none;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .sen-hero__decoration {
+      display: block;
+    }
+  }
+
+  @media screen and (min-width: 1400px) {
+    #shopify-section-{{ section.id }} .sen-hero__decoration {
+      width: 320px;
+      height: 320px;
+    }
+  }
+
+  /* Content stack */
+  #shopify-section-{{ section.id }} .sen-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 880px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-5);
+    width: 100%;
+  }
+
+  /* Heading */
+  #shopify-section-{{ section.id }} .sen-hero__heading {
+    margin: 0;
+    font-family: var(--heading-font-family);
+    font-weight: var(--heading-font-weight);
+    font-size: var(--sen-hero-heading-size);
+    line-height: 1.15;
+    letter-spacing: var(--heading-letter-spacing);
+    color: rgb(var(--sen-hero-heading-color));
+  }
+
+  #shopify-section-{{ section.id }} .sen-hero__heading em {
+    font-style: italic;
+    color: rgb(var(--doddl-color-accent));
+  }
+
+  /* Body */
+  #shopify-section-{{ section.id }} .sen-hero__body {
+    margin: 0 auto;
+    max-width: 60ch;
+    font-size: var(--sen-hero-body-size);
+    line-height: 1.5;
+    color: rgb(var(--sen-hero-heading-color) / 0.9);
+  }
+
+  /* Pill nav — 2×2 grid on mobile, row on desktop */
+  #shopify-section-{{ section.id }} .sen-hero__pills {
+    list-style: none;
+    margin: var(--spacing-4) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-3);
+    width: 100%;
+    max-width: 720px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .sen-hero__pills {
+      grid-template-columns: repeat(4, auto);
+      justify-content: center;
+      gap: var(--spacing-3);
+      max-width: none;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .sen-hero__pill {
+    display: block;
+    padding: var(--spacing-3) var(--spacing-5);
+    background: rgb(var(--sen-hero-pill-bg) / var(--sen-hero-pill-bg-alpha));
+    color: rgb(var(--sen-hero-heading-color));
+    font-size: var(--sen-hero-pill-size);
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--rounded-full);
+    transition: background-color 200ms ease, transform 200ms ease;
+  }
+
+  #shopify-section-{{ section.id }} .sen-hero__pill:hover,
+  #shopify-section-{{ section.id }} .sen-hero__pill:focus-visible {
+    background: rgb(var(--sen-hero-heading-color) / 0.22);
+    transform: translateY(-1px);
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .sen-hero__pill {
+      padding: var(--spacing-2-5) var(--spacing-5);
+    }
+  }
+</style>
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+LIQUID
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<div {% render 'section-properties' %}>
+  <sen-hero class="sen-hero">
+    {%- if section.settings.show_decoration -%}
+      <svg class="sen-hero__decoration" viewBox="0 0 200 200" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="92" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="2" />
+        <circle cx="100" cy="100" r="68" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2" />
+        <circle cx="100" cy="100" r="36" fill="rgba(48,190,170,0.55)" />
+      </svg>
+    {%- endif -%}
+
+    <div class="sen-hero__content">
+      {%- if section.settings.heading != blank -%}
+        {%- assign heading_html = section.settings.heading | replace: '<p>', '' | replace: '</p>', '' -%}
+        <h1 class="sen-hero__heading">{{ heading_html }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.body != blank -%}
+        <p class="sen-hero__body">{{ section.settings.body | escape | newline_to_br }}</p>
+      {%- endif -%}
+
+      {%- comment -%} Stage pills — ability-based, NO age labels {%- endcomment -%}
+      {%- assign has_pill = false -%}
+      {%- for n in (1..4) -%}
+        {%- assign label_key = 'pill_' | append: n -%}
+        {%- if section.settings[label_key] != blank -%}{%- assign has_pill = true -%}{%- endif -%}
+      {%- endfor -%}
+
+      {%- if has_pill -%}
+        <ul class="sen-hero__pills" role="list">
+          {%- for n in (1..4) -%}
+            {%- assign label_key = 'pill_' | append: n -%}
+            {%- assign anchor_key = 'pill_' | append: n | append: '_anchor' -%}
+            {%- assign pill_label = section.settings[label_key] -%}
+            {%- assign pill_anchor = section.settings[anchor_key] -%}
+            {%- if pill_label != blank -%}
+              <li>
+                {%- if pill_anchor != blank -%}
+                  <a class="sen-hero__pill" href="#{{ pill_anchor | escape }}">{{ pill_label | escape }}</a>
+                {%- else -%}
+                  <span class="sen-hero__pill">{{ pill_label | escape }}</span>
+                {%- endif -%}
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+  </sen-hero>
+</div>
+
+{% schema %}
+{
+  "name": "SEN journey — hero",
+  "class": "shopify-section--sen-hero",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    { "type": "paragraph", "content": "Critical rule: NO age labels on any SEN pill, headline, or body. Progress is celebrated, not measured against timelines." },
+
+    { "type": "header", "content": "Heading" },
+    { "type": "richtext", "id": "heading", "label": "Headline (H1)", "info": "Use <em>emphasised</em> to highlight a phrase in the doddl aqua accent.", "default": "<p>Every child is on a journey</p>" },
+    { "type": "range", "id": "heading_size_d", "label": "Heading size — desktop", "min": 28, "max": 60, "step": 2, "unit": "px", "default": 44 },
+    { "type": "range", "id": "heading_size_m", "label": "Heading size — mobile", "min": 22, "max": 44, "step": 2, "unit": "px", "default": 30 },
+    { "type": "color", "id": "heading_color", "label": "Heading colour", "default": "#FFFFFF" },
+
+    { "type": "header", "content": "Body" },
+    { "type": "textarea", "id": "body", "label": "Body copy", "default": "There is no typical. There is no timeline. Every child progresses at their own pace, and every step forward is worth celebrating." },
+    { "type": "range", "id": "body_size", "label": "Body size", "min": 14, "max": 22, "step": 1, "unit": "px", "default": 17 },
+
+    { "type": "header", "content": "Stage navigation pills" },
+    { "type": "paragraph", "content": "Each pill is an in-page anchor to the matching SEN stage panel below. Anchor values match each sen-stage-panel's Stage ID setting." },
+    { "type": "text", "id": "pill_1", "label": "Pill 1 — label", "default": "Just starting out" },
+    { "type": "text", "id": "pill_1_anchor", "label": "Pill 1 — anchor", "info": "The stage panel below this hero with the matching Stage ID setting will be the scroll target.", "default": "just-starting-out" },
+    { "type": "text", "id": "pill_2", "label": "Pill 2 — label", "default": "Finding their grip" },
+    { "type": "text", "id": "pill_2_anchor", "label": "Pill 2 — anchor", "default": "finding-grip" },
+    { "type": "text", "id": "pill_3", "label": "Pill 3 — label", "default": "Building confidence" },
+    { "type": "text", "id": "pill_3_anchor", "label": "Pill 3 — anchor", "default": "building-confidence" },
+    { "type": "text", "id": "pill_4", "label": "Pill 4 — label", "default": "Eating independently" },
+    { "type": "text", "id": "pill_4_anchor", "label": "Pill 4 — anchor", "default": "eating-independently" },
+    { "type": "range", "id": "pill_size", "label": "Pill font size", "min": 11, "max": 18, "step": 1, "unit": "px", "default": 14 },
+    { "type": "color", "id": "pill_bg", "label": "Pill background colour", "info": "Combined with the opacity below to render the pill fill — keep white for the default semi-transparent look.", "default": "#FFFFFF" },
+    { "type": "range", "id": "pill_bg_alpha", "label": "Pill background opacity", "min": 0, "max": 100, "step": 2, "unit": "%", "default": 12 },
+
+    { "type": "header", "content": "Section" },
+    { "type": "color", "id": "bg_color", "label": "Background colour", "default": "#3D157D" },
+    { "type": "checkbox", "id": "show_decoration", "label": "Show decorative circle (top-right)", "info": "Hidden on mobile.", "default": true },
+    { "type": "range", "id": "min_height", "label": "Minimum height — desktop", "min": 260, "max": 520, "step": 20, "unit": "px", "default": 380 }
+  ],
+  "presets": [
+    {
+      "name": "SEN journey — hero"
+    }
+  ]
+}
+{% endschema %}
