@@ -1,0 +1,591 @@
+{%- render 'section-spacing-collapsing' -%}
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+CSS
+
+Mealtime Development Box — stage panel. Per build-brief Section 6.4 ("Inside the box"),
+restructured per the page-template architecture in CLAUDE.md (Bundle Box →
+/pages/mealtime-development-box) and standing decision #8 (alternating panels).
+
+ONE section file, expected to be added 4 times to /pages/mealtime-development-box
+(one per stage 1–4). Each panel shows what's in the box for that developmental stage,
+with WHY-driven product copy.
+
+Layout per panel:
+- Stage pill (e.g. "Stage 1 · 6–12 months")
+- H2 heading + body
+- "Signs your child is ready" — 4 bullets (2×2)
+- 3 product cards, each with: image, name, RRP, 2-bullet WHY description
+- "View this stage's full guide →" CTA → /pages/mealtime-development-box-stage-N-...
+- Optional next-stage teaser
+
+Anchor contract: emits id="{stage_id}" on the <mdb-stage-panel> custom element.
+Default IDs match the build flow: stage-1 / stage-2 / stage-3 / stage-4.
+
+Standing decisions applied:
+- Per-card product copy (not from a collection) so the WHY description per stage
+  can differ for the same product across stages — matches handoff doc structure
+- Defer add-to-bag — product cards link to PDP only via per-card url field
+- Alternating panel backgrounds
+- No reveal-on-scroll attributes (Impact's global opacity:0 trap)
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --mdb-panel-bg: {{ section.settings.panel_bg.rgb }};
+    --mdb-panel-padding-d: {{ section.settings.padding_d }}px;
+    --mdb-panel-padding-m: {{ section.settings.padding_m }}px;
+    --mdb-panel-pill-color: {{ section.settings.pill_color.rgb }};
+    --mdb-panel-heading-color: {{ section.settings.heading_color.rgb }};
+    --mdb-panel-heading-size: {{ section.settings.heading_size_m }}px;
+    --mdb-panel-body-size: {{ section.settings.body_size }}px;
+    --mdb-panel-sign-size: {{ section.settings.sign_size }}px;
+    --mdb-panel-img-size-m: {{ section.settings.img_size_m }}px;
+    --mdb-panel-img-size-d: {{ section.settings.img_size_d }}px;
+    --mdb-panel-name-size: {{ section.settings.name_size }}px;
+    --mdb-panel-desc-size: {{ section.settings.desc_size }}px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} {
+      --mdb-panel-heading-size: {{ section.settings.heading_size_d }}px;
+    }
+  }
+
+  /* Wrapper */
+  #shopify-section-{{ section.id }} .mdb-panel {
+    display: block;
+    background-color: rgb(var(--mdb-panel-bg));
+    padding: var(--mdb-panel-padding-m) var(--container-gutter);
+    scroll-margin-top: var(--header-height, 0);
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .mdb-panel {
+      padding: var(--mdb-panel-padding-d) var(--container-gutter);
+    }
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__inner {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+  }
+
+  /* Stage pill */
+  #shopify-section-{{ section.id }} .mdb-panel__pill {
+    display: inline-block;
+    padding: var(--spacing-1-5) var(--spacing-3);
+    background: rgb(var(--mdb-panel-pill-color));
+    color: white;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: var(--rounded-full);
+    margin-bottom: var(--spacing-4);
+  }
+
+  /* Heading */
+  #shopify-section-{{ section.id }} .mdb-panel__heading {
+    margin: 0 0 var(--spacing-3);
+    font-family: var(--heading-font-family);
+    font-weight: var(--heading-font-weight);
+    font-size: var(--mdb-panel-heading-size);
+    line-height: 1.2;
+    color: rgb(var(--mdb-panel-heading-color));
+  }
+
+  /* Body */
+  #shopify-section-{{ section.id }} .mdb-panel__body {
+    margin: 0 0 var(--spacing-8);
+    font-size: var(--mdb-panel-body-size);
+    line-height: 1.6;
+    color: rgb(var(--text-primary) / 0.85);
+    max-width: 65ch;
+  }
+
+  /* Signs block */
+  #shopify-section-{{ section.id }} .mdb-panel__signs-label {
+    margin: 0 0 var(--spacing-3);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgb(var(--mdb-panel-heading-color));
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__signs {
+    list-style: none;
+    margin: 0 0 var(--spacing-10);
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-3);
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__sign {
+    padding: var(--spacing-4);
+    background: rgb(var(--doddl-color-bg));
+    border-left: 3px solid rgb(var(--mdb-panel-pill-color));
+    border-radius: 0 var(--rounded) var(--rounded) 0;
+    font-size: var(--mdb-panel-sign-size);
+    line-height: 1.4;
+  }
+
+  /* Inside-the-box label */
+  #shopify-section-{{ section.id }} .mdb-panel__inside-label {
+    margin: 0 0 var(--spacing-5);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgb(var(--mdb-panel-heading-color));
+  }
+
+  /* Product card grid */
+  #shopify-section-{{ section.id }} .mdb-panel__products {
+    list-style: none;
+    margin: 0 0 var(--spacing-8);
+    padding: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--spacing-4);
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .mdb-panel__products {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--spacing-6);
+    }
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__product {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-4);
+    padding: var(--spacing-4);
+    background: rgb(var(--background-primary));
+    border-radius: var(--rounded);
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .mdb-panel__product {
+      flex-direction: column;
+      gap: var(--spacing-3);
+    }
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__product-image {
+    flex-shrink: 0;
+    width: var(--mdb-panel-img-size-m);
+    height: var(--mdb-panel-img-size-m);
+    overflow: hidden;
+    background: rgb(var(--doddl-color-bg));
+    border-radius: var(--rounded-sm);
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .mdb-panel__product-image {
+      width: 100%;
+      height: var(--mdb-panel-img-size-d);
+    }
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__product-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(var(--text-primary) / 0.4);
+    font-size: 10px;
+    text-align: center;
+    padding: var(--spacing-2);
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__product-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__product-meta {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__product-name {
+    margin: 0;
+    font-size: var(--mdb-panel-name-size);
+    font-weight: 700;
+    line-height: 1.3;
+    color: rgb(var(--mdb-panel-heading-color));
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__product-name a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__product-name a:hover,
+  #shopify-section-{{ section.id }} .mdb-panel__product-name a:focus-visible {
+    text-decoration: underline;
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__product-rrp {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: rgb(var(--text-primary) / 0.6);
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__product-bullets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__product-bullet {
+    position: relative;
+    padding-left: var(--spacing-4);
+    font-size: var(--mdb-panel-desc-size);
+    line-height: 1.5;
+    color: rgb(var(--text-primary) / 0.8);
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__product-bullet::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: rgb(var(--mdb-panel-pill-color));
+    font-weight: 700;
+  }
+
+  /* CTA */
+  #shopify-section-{{ section.id }} .mdb-panel__cta-row {
+    margin: 0 0 var(--spacing-8);
+  }
+
+  @media screen and (max-width: 999px) {
+    #shopify-section-{{ section.id }} .mdb-panel__cta-row .button {
+      width: 100%;
+    }
+  }
+
+  /* Next-stage teaser */
+  #shopify-section-{{ section.id }} .mdb-panel__next {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    padding: var(--spacing-5);
+    background: rgb(var(--doddl-color-bg));
+    border-radius: var(--rounded);
+    flex-wrap: wrap;
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__next-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(var(--mdb-panel-pill-color));
+    color: white;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__next-content {
+    flex: 1 1 200px;
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__next-label {
+    margin: 0;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgb(var(--text-primary) / 0.55);
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__next-heading {
+    margin: 2px 0 var(--spacing-1);
+    font-weight: 700;
+    color: rgb(var(--mdb-panel-heading-color));
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__next-body {
+    margin: 0;
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    color: rgb(var(--text-primary) / 0.7);
+  }
+
+  #shopify-section-{{ section.id }} .mdb-panel__next-cta {
+    flex: 0 0 auto;
+  }
+</style>
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+LIQUID
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+{%- assign stage_id = section.settings.stage_id | default: 'mdb-stage' | handle -%}
+
+<div {% render 'section-properties' %}>
+  <mdb-stage-panel class="mdb-panel" id="{{ stage_id }}">
+    <div class="mdb-panel__inner">
+      {%- if section.settings.pill_text != blank -%}
+        <span class="mdb-panel__pill">{{ section.settings.pill_text | escape }}</span>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="mdb-panel__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.body != blank -%}
+        <p class="mdb-panel__body">{{ section.settings.body | escape | newline_to_br }}</p>
+      {%- endif -%}
+
+      {%- comment -%} Signs (4 bullets) {%- endcomment -%}
+      {%- assign has_sign = false -%}
+      {%- for n in (1..4) -%}
+        {%- assign s_key = 'sign_' | append: n -%}
+        {%- if section.settings[s_key] != blank -%}{%- assign has_sign = true -%}{%- endif -%}
+      {%- endfor -%}
+
+      {%- if has_sign -%}
+        {%- if section.settings.signs_label != blank -%}
+          <p class="mdb-panel__signs-label">{{ section.settings.signs_label | escape }}</p>
+        {%- endif -%}
+        <ul class="mdb-panel__signs" role="list">
+          {%- for n in (1..4) -%}
+            {%- assign s_key = 'sign_' | append: n -%}
+            {%- assign s_value = section.settings[s_key] -%}
+            {%- if s_value != blank -%}
+              <li class="mdb-panel__sign">{{ s_value | escape }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {%- comment -%} 3 product cards (image · name · RRP · 2 bullet WHYs) {%- endcomment -%}
+      {%- assign has_product = false -%}
+      {%- for n in (1..3) -%}
+        {%- assign name_key = 'p' | append: n | append: '_name' -%}
+        {%- if section.settings[name_key] != blank -%}{%- assign has_product = true -%}{%- endif -%}
+      {%- endfor -%}
+
+      {%- if has_product -%}
+        {%- if section.settings.inside_label != blank -%}
+          <p class="mdb-panel__inside-label">{{ section.settings.inside_label | escape }}</p>
+        {%- endif -%}
+        <ul class="mdb-panel__products" role="list">
+          {%- for n in (1..3) -%}
+            {%- assign image_key = 'p' | append: n | append: '_image' -%}
+            {%- assign name_key = 'p' | append: n | append: '_name' -%}
+            {%- assign rrp_key = 'p' | append: n | append: '_rrp' -%}
+            {%- assign url_key = 'p' | append: n | append: '_url' -%}
+            {%- assign b1_key = 'p' | append: n | append: '_b1' -%}
+            {%- assign b2_key = 'p' | append: n | append: '_b2' -%}
+            {%- assign p_image = section.settings[image_key] -%}
+            {%- assign p_name = section.settings[name_key] -%}
+            {%- assign p_rrp = section.settings[rrp_key] -%}
+            {%- assign p_url = section.settings[url_key] -%}
+            {%- assign p_b1 = section.settings[b1_key] -%}
+            {%- assign p_b2 = section.settings[b2_key] -%}
+            {%- if p_name != blank -%}
+              <li class="mdb-panel__product">
+                <div class="mdb-panel__product-image">
+                  {%- if p_image != blank -%}
+                    {{- p_image
+                        | image_url: width: p_image.width
+                        | image_tag:
+                            loading: 'lazy',
+                            sizes: '(max-width: 999px) 80px, 200px',
+                            widths: '160,200,300,400,500',
+                            alt: p_name,
+                            class: 'mdb-panel__product-img' -}}
+                  {%- else -%}
+                    <div class="mdb-panel__product-image-placeholder">{{ p_name | escape }}</div>
+                  {%- endif -%}
+                </div>
+                <div class="mdb-panel__product-content">
+                  <div class="mdb-panel__product-meta">
+                    <h3 class="mdb-panel__product-name">
+                      {%- if p_url != blank -%}
+                        <a href="{{ p_url }}">{{ p_name | escape }}</a>
+                      {%- else -%}
+                        {{- p_name | escape -}}
+                      {%- endif -%}
+                    </h3>
+                    {%- if p_rrp != blank -%}
+                      <span class="mdb-panel__product-rrp">{{ p_rrp | escape }}</span>
+                    {%- endif -%}
+                  </div>
+                  {%- if p_b1 != blank or p_b2 != blank -%}
+                    <ul class="mdb-panel__product-bullets" role="list">
+                      {%- if p_b1 != blank -%}
+                        <li class="mdb-panel__product-bullet">{{ p_b1 | escape }}</li>
+                      {%- endif -%}
+                      {%- if p_b2 != blank -%}
+                        <li class="mdb-panel__product-bullet">{{ p_b2 | escape }}</li>
+                      {%- endif -%}
+                    </ul>
+                  {%- endif -%}
+                </div>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {%- if section.settings.cta_label != blank -%}
+        <div class="mdb-panel__cta-row">
+          {%- if section.settings.cta_url != blank -%}
+            <a href="{{ section.settings.cta_url }}" class="button button--xl">
+              {{- section.settings.cta_label | escape -}}
+            </a>
+          {%- else -%}
+            <span class="button button--xl" aria-disabled="true">
+              {{- section.settings.cta_label | escape -}}
+            </span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.next_heading != blank or section.settings.next_body != blank -%}
+        <div class="mdb-panel__next">
+          {%- if section.settings.next_icon != blank -%}
+            <span class="mdb-panel__next-icon" aria-hidden="true">{{ section.settings.next_icon | escape }}</span>
+          {%- endif -%}
+          <div class="mdb-panel__next-content">
+            {%- if section.settings.next_label != blank -%}
+              <p class="mdb-panel__next-label">{{ section.settings.next_label | escape }}</p>
+            {%- endif -%}
+            {%- if section.settings.next_heading != blank -%}
+              <p class="mdb-panel__next-heading">{{ section.settings.next_heading | escape }}</p>
+            {%- endif -%}
+            {%- if section.settings.next_body != blank -%}
+              <p class="mdb-panel__next-body">{{ section.settings.next_body | escape | newline_to_br }}</p>
+            {%- endif -%}
+          </div>
+          {%- if section.settings.next_cta != blank and section.settings.next_url != blank -%}
+            <a href="{{ section.settings.next_url }}" class="button button--lg mdb-panel__next-cta">
+              {{- section.settings.next_cta | escape -}}
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </mdb-stage-panel>
+</div>
+
+{% schema %}
+{
+  "name": "MDB landing — stage panel",
+  "class": "shopify-section--mdb-stage-panel",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    { "type": "header", "content": "Stage identity" },
+    { "type": "text", "id": "stage_id", "label": "Stage anchor ID",
+      "info": "Used as the HTML anchor on this panel (#{value}). Defaults match the build flow stage-1, stage-2, etc.",
+      "default": "stage-1"
+    },
+    { "type": "text", "id": "pill_text", "label": "Stage pill text", "default": "Stage 1 · 6–12 months" },
+    { "type": "color", "id": "pill_color", "label": "Pill colour", "info": "Also tints sign accents, product bullet check marks, and the next-stage teaser icon. Defaults to doddl aqua.", "default": "#30BEAA" },
+
+    { "type": "header", "content": "Heading and body" },
+    { "type": "text", "id": "heading", "label": "Headline (H2)", "default": "First foods, first wins" },
+    { "type": "range", "id": "heading_size_d", "label": "Heading size — desktop", "min": 22, "max": 44, "step": 2, "unit": "px", "default": 32 },
+    { "type": "range", "id": "heading_size_m", "label": "Heading size — mobile", "min": 18, "max": 38, "step": 2, "unit": "px", "default": 24 },
+    { "type": "color", "id": "heading_color", "label": "Heading colour", "default": "#3D157D" },
+    { "type": "textarea", "id": "body", "label": "Body copy", "info": "2–3 sentences." },
+    { "type": "range", "id": "body_size", "label": "Body size", "min": 13, "max": 20, "step": 1, "unit": "px", "default": 16 },
+
+    { "type": "header", "content": "Signs your child is ready (4 bullets, 2×2)" },
+    { "type": "text", "id": "signs_label", "label": "Signs label", "default": "Signs your child is ready:" },
+    { "type": "text", "id": "sign_1", "label": "Sign 1" },
+    { "type": "text", "id": "sign_2", "label": "Sign 2" },
+    { "type": "text", "id": "sign_3", "label": "Sign 3" },
+    { "type": "text", "id": "sign_4", "label": "Sign 4" },
+    { "type": "range", "id": "sign_size", "label": "Sign text size", "min": 11, "max": 16, "step": 1, "unit": "px", "default": 13 },
+
+    { "type": "header", "content": "Inside the box (3 products)" },
+    { "type": "text", "id": "inside_label", "label": "Inside-the-box label", "default": "Inside the box, for this stage" },
+    { "type": "range", "id": "img_size_d", "label": "Product image size — desktop", "min": 100, "max": 240, "step": 20, "unit": "px", "default": 160 },
+    { "type": "range", "id": "img_size_m", "label": "Product image size — mobile", "min": 60, "max": 120, "step": 10, "unit": "px", "default": 80 },
+    { "type": "range", "id": "name_size", "label": "Product name size", "min": 12, "max": 19, "step": 1, "unit": "px", "default": 15 },
+    { "type": "range", "id": "desc_size", "label": "Description size", "min": 11, "max": 16, "step": 1, "unit": "px", "default": 13 },
+
+    { "type": "header", "content": "Product 1" },
+    { "type": "text", "id": "p1_name", "label": "Name" },
+    { "type": "text", "id": "p1_rrp", "label": "RRP" },
+    { "type": "url", "id": "p1_url", "label": "Product page URL" },
+    { "type": "image_picker", "id": "p1_image", "label": "Image" },
+    { "type": "text", "id": "p1_b1", "label": "Why bullet 1" },
+    { "type": "text", "id": "p1_b2", "label": "Why bullet 2" },
+
+    { "type": "header", "content": "Product 2" },
+    { "type": "text", "id": "p2_name", "label": "Name" },
+    { "type": "text", "id": "p2_rrp", "label": "RRP" },
+    { "type": "url", "id": "p2_url", "label": "Product page URL" },
+    { "type": "image_picker", "id": "p2_image", "label": "Image" },
+    { "type": "text", "id": "p2_b1", "label": "Why bullet 1" },
+    { "type": "text", "id": "p2_b2", "label": "Why bullet 2" },
+
+    { "type": "header", "content": "Product 3" },
+    { "type": "text", "id": "p3_name", "label": "Name" },
+    { "type": "text", "id": "p3_rrp", "label": "RRP" },
+    { "type": "url", "id": "p3_url", "label": "Product page URL" },
+    { "type": "image_picker", "id": "p3_image", "label": "Image" },
+    { "type": "text", "id": "p3_b1", "label": "Why bullet 1" },
+    { "type": "text", "id": "p3_b2", "label": "Why bullet 2" },
+
+    { "type": "header", "content": "Stage CTA" },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "View this stage's full guide →" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL", "info": "Points to the matching deep-dive page, e.g. /pages/mealtime-development-box-stage-1-6-12-months." },
+
+    { "type": "header", "content": "Next-stage teaser" },
+    { "type": "paragraph", "content": "Leave Next heading and Next body blank to hide the teaser (use this on Stage 4)." },
+    { "type": "text", "id": "next_icon", "label": "Icon (emoji or short text)", "default": "→" },
+    { "type": "text", "id": "next_label", "label": "Eyebrow label", "default": "Coming up" },
+    { "type": "text", "id": "next_heading", "label": "Next heading" },
+    { "type": "textarea", "id": "next_body", "label": "Next body" },
+    { "type": "text", "id": "next_cta", "label": "Next CTA label", "default": "Preview the next stage →" },
+    { "type": "url", "id": "next_url", "label": "Next CTA URL", "info": "e.g. #stage-2 to scroll to the next panel." },
+
+    { "type": "header", "content": "Section appearance" },
+    { "type": "color", "id": "panel_bg", "label": "Background colour", "default": "#FFFFFF" },
+    { "type": "range", "id": "padding_d", "label": "Padding — desktop", "min": 32, "max": 120, "step": 8, "unit": "px", "default": 72 },
+    { "type": "range", "id": "padding_m", "label": "Padding — mobile", "min": 24, "max": 80, "step": 8, "unit": "px", "default": 48 }
+  ],
+  "presets": [
+    {
+      "name": "MDB landing — stage panel"
+    }
+  ]
+}
+{% endschema %}

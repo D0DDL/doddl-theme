@@ -1,0 +1,407 @@
+{%- render 'section-spacing-collapsing' -%}
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+CSS
+
+Mealtime Development Box — landing hero. Top of /pages/mealtime-development-box.
+Per build-brief Section 6.1 (formerly "Bundle Box hero"), adapted to the page-template
+architecture in CLAUDE.md (Bundle Box → /pages/mealtime-development-box).
+
+Layout (split hero):
+- Desktop: left col 55% headline + body + CTA + trust labels; right col 45% lifestyle image
+- Mobile: image full-width on top, content below
+
+Standing decisions applied:
+- Trust labels are text-only (no image_picker)
+- Sticky ATC deferred to polish list — primary CTA is a configurable URL that the merchant
+  points at the underlying bundle product (or /cart/add.js path) when ready
+- Decorative inline SVG locked to brand
+- No reveal-on-scroll attributes (Impact's global opacity:0 trap)
+
+Impact v6.9.1 conventions:
+- Section-scoped CSS variables under #shopify-section-{{ section.id }}
+- Custom element wrapper <mdb-hero> with explicit display:block
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --mdb-hero-bg: {{ section.settings.bg_color.rgb }};
+    --mdb-hero-heading-color: {{ section.settings.heading_color.rgb }};
+    --mdb-hero-accent-color: {{ section.settings.accent_color.rgb }};
+    --mdb-hero-heading-size: {{ section.settings.heading_size_m }}px;
+    --mdb-hero-body-size: {{ section.settings.body_size }}px;
+    --mdb-hero-trust-size: {{ section.settings.trust_size }}px;
+    --mdb-hero-image-width: {{ section.settings.image_width }}%;
+    --mdb-hero-image-height-m: {{ section.settings.image_height_m }}px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} {
+      --mdb-hero-heading-size: {{ section.settings.heading_size_d }}px;
+    }
+  }
+
+  /* Wrapper */
+  #shopify-section-{{ section.id }} .mdb-hero {
+    display: block;
+    background-color: rgb(var(--mdb-hero-bg));
+    color: rgb(var(--mdb-hero-heading-color));
+    padding: 0;
+  }
+
+  #shopify-section-{{ section.id }} .mdb-hero__inner {
+    display: flex;
+    flex-direction: column;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .mdb-hero__inner {
+      flex-direction: row;
+      align-items: stretch;
+      gap: var(--spacing-10);
+      padding: var(--spacing-12) var(--container-gutter);
+    }
+  }
+
+  /* Image — top on mobile, right on desktop */
+  #shopify-section-{{ section.id }} .mdb-hero__media {
+    order: -1;
+    width: 100%;
+    height: var(--mdb-hero-image-height-m);
+    overflow: hidden;
+    background: rgb(var(--doddl-color-bg));
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .mdb-hero__media {
+      order: 1;
+      width: var(--mdb-hero-image-width);
+      height: auto;
+      min-height: 480px;
+      border-radius: var(--rounded-lg);
+      flex-shrink: 0;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .mdb-hero__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .mdb-hero__media-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: rgb(var(--text-primary) / 0.4);
+    font-size: var(--text-sm);
+    text-align: center;
+    padding: var(--spacing-6);
+  }
+
+  /* Content column */
+  #shopify-section-{{ section.id }} .mdb-hero__content {
+    flex: 1;
+    padding: var(--spacing-10) var(--spacing-6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-5);
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .mdb-hero__content {
+      padding: 0;
+      max-width: 560px;
+    }
+  }
+
+  /* 4-line stacked headline */
+  #shopify-section-{{ section.id }} .mdb-hero__heading {
+    margin: 0;
+    font-family: var(--heading-font-family);
+    font-weight: var(--heading-font-weight);
+    font-size: var(--mdb-hero-heading-size);
+    line-height: 1.1;
+    letter-spacing: var(--heading-letter-spacing);
+    color: rgb(var(--mdb-hero-heading-color));
+  }
+
+  #shopify-section-{{ section.id }} .mdb-hero__heading-line {
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .mdb-hero__heading-line--accent {
+    color: rgb(var(--mdb-hero-accent-color));
+  }
+
+  /* Body */
+  #shopify-section-{{ section.id }} .mdb-hero__body {
+    margin: 0;
+    max-width: 56ch;
+    font-size: var(--mdb-hero-body-size);
+    line-height: 1.55;
+    color: rgb(var(--mdb-hero-heading-color) / 0.85);
+  }
+
+  /* Price line */
+  #shopify-section-{{ section.id }} .mdb-hero__price-row {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--spacing-3);
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .mdb-hero__price {
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    color: rgb(var(--mdb-hero-accent-color));
+  }
+
+  #shopify-section-{{ section.id }} .mdb-hero__price-compare {
+    font-size: var(--text-sm);
+    color: rgb(var(--mdb-hero-heading-color) / 0.6);
+    text-decoration: line-through;
+  }
+
+  /* CTA row */
+  #shopify-section-{{ section.id }} .mdb-hero__ctas {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    margin-top: var(--spacing-2);
+  }
+
+  @media screen and (min-width: 600px) {
+    #shopify-section-{{ section.id }} .mdb-hero__ctas {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .mdb-hero__sub-cta {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    color: rgb(var(--mdb-hero-heading-color) / 0.8);
+    border-bottom: 1px solid rgb(var(--mdb-hero-heading-color) / 0.2);
+    padding-bottom: 2px;
+  }
+
+  #shopify-section-{{ section.id }} .mdb-hero__sub-cta:hover,
+  #shopify-section-{{ section.id }} .mdb-hero__sub-cta:focus-visible {
+    color: rgb(var(--mdb-hero-heading-color));
+    border-bottom-color: rgb(var(--mdb-hero-heading-color));
+  }
+
+  /* Trust label row */
+  #shopify-section-{{ section.id }} .mdb-hero__trust {
+    list-style: none;
+    margin: var(--spacing-4) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-2) var(--spacing-4);
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .mdb-hero__trust {
+      grid-template-columns: repeat(5, auto);
+      gap: var(--spacing-5);
+    }
+  }
+
+  #shopify-section-{{ section.id }} .mdb-hero__trust-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    font-size: var(--mdb-hero-trust-size);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: rgb(var(--mdb-hero-heading-color) / 0.85);
+  }
+
+  #shopify-section-{{ section.id }} .mdb-hero__trust-dot {
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgb(var(--mdb-hero-accent-color));
+  }
+</style>
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+LIQUID
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<div {% render 'section-properties' %}>
+  <mdb-hero class="mdb-hero">
+    <div class="mdb-hero__inner">
+      <div class="mdb-hero__media">
+        {%- if section.settings.hero_image != blank -%}
+          {{- section.settings.hero_image
+              | image_url: width: section.settings.hero_image.width
+              | image_tag:
+                  loading: 'eager',
+                  fetchpriority: 'high',
+                  sizes: '(max-width: 999px) 100vw, 45vw',
+                  widths: '400,600,800,1000,1400,1800',
+                  alt: section.settings.hero_image_alt | default: 'Mealtime Development Box',
+                  class: 'mdb-hero__img' -}}
+        {%- else -%}
+          <div class="mdb-hero__media-placeholder">
+            Lifestyle photo (parent · child · box) — set in the section settings.
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="mdb-hero__content">
+        <h1 class="mdb-hero__heading">
+          {%- if section.settings.h1 != blank -%}
+            <span class="mdb-hero__heading-line">{{ section.settings.h1 | escape }}</span>
+          {%- endif -%}
+          {%- if section.settings.h2 != blank -%}
+            <span class="mdb-hero__heading-line">{{ section.settings.h2 | escape }}</span>
+          {%- endif -%}
+          {%- if section.settings.h3 != blank -%}
+            <span class="mdb-hero__heading-line">{{ section.settings.h3 | escape }}</span>
+          {%- endif -%}
+          {%- if section.settings.h4 != blank -%}
+            <span class="mdb-hero__heading-line mdb-hero__heading-line--accent">{{ section.settings.h4 | escape }}</span>
+          {%- endif -%}
+        </h1>
+
+        {%- if section.settings.body != blank -%}
+          <p class="mdb-hero__body">{{ section.settings.body | escape | newline_to_br }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.price != blank or section.settings.price_compare != blank -%}
+          <p class="mdb-hero__price-row">
+            {%- if section.settings.price != blank -%}
+              <span class="mdb-hero__price">{{ section.settings.price | escape }}</span>
+            {%- endif -%}
+            {%- if section.settings.price_compare != blank -%}
+              <span class="mdb-hero__price-compare">{{ section.settings.price_compare | escape }}</span>
+            {%- endif -%}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.cta_label != blank or section.settings.sub_cta != blank -%}
+          <div class="mdb-hero__ctas">
+            {%- if section.settings.cta_label != blank -%}
+              {%- if section.settings.cta_url != blank -%}
+                <a href="{{ section.settings.cta_url }}" class="button button--xl button--primary">
+                  {{- section.settings.cta_label | escape -}}
+                </a>
+              {%- else -%}
+                <span class="button button--xl button--primary" aria-disabled="true">
+                  {{- section.settings.cta_label | escape -}}
+                </span>
+              {%- endif -%}
+            {%- endif -%}
+
+            {%- if section.settings.sub_cta != blank -%}
+              {%- if section.settings.sub_cta_url != blank -%}
+                <a class="mdb-hero__sub-cta" href="{{ section.settings.sub_cta_url }}">{{ section.settings.sub_cta | escape }}</a>
+              {%- else -%}
+                <span class="mdb-hero__sub-cta">{{ section.settings.sub_cta | escape }}</span>
+              {%- endif -%}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- assign has_trust = false -%}
+        {%- for n in (1..5) -%}
+          {%- assign t_key = 'trust_' | append: n -%}
+          {%- if section.settings[t_key] != blank -%}{%- assign has_trust = true -%}{%- endif -%}
+        {%- endfor -%}
+
+        {%- if has_trust -%}
+          <ul class="mdb-hero__trust" role="list">
+            {%- for n in (1..5) -%}
+              {%- assign t_key = 'trust_' | append: n -%}
+              {%- assign t_value = section.settings[t_key] -%}
+              {%- if t_value != blank -%}
+                <li class="mdb-hero__trust-item">
+                  <span class="mdb-hero__trust-dot" aria-hidden="true"></span>
+                  <span>{{ t_value | escape }}</span>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+    </div>
+  </mdb-hero>
+</div>
+
+{% schema %}
+{
+  "name": "MDB landing — hero",
+  "class": "shopify-section--mdb-hero",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    { "type": "header", "content": "Stacked 4-line headline" },
+    { "type": "paragraph", "content": "Each line renders as a separate display line. Line 4 renders in the accent colour. Leave any line blank to omit it." },
+    { "type": "text", "id": "h1", "label": "Headline line 1", "default": "Your child will outgrow" },
+    { "type": "text", "id": "h2", "label": "Headline line 2", "default": "every tool you buy them." },
+    { "type": "text", "id": "h3", "label": "Headline line 3", "default": "We put all of them" },
+    { "type": "text", "id": "h4", "label": "Headline line 4 (accent colour)", "default": "in one box." },
+    { "type": "range", "id": "heading_size_d", "label": "Headline size — desktop", "min": 32, "max": 64, "step": 2, "unit": "px", "default": 44 },
+    { "type": "range", "id": "heading_size_m", "label": "Headline size — mobile", "min": 22, "max": 44, "step": 2, "unit": "px", "default": 30 },
+    { "type": "color", "id": "heading_color", "label": "Headline colour", "default": "#1A1630" },
+    { "type": "color", "id": "accent_color", "label": "Accent colour (line 4)", "default": "#3D157D" },
+
+    { "type": "header", "content": "Body" },
+    { "type": "textarea", "id": "body", "label": "Body copy", "default": "Six developmental products, four stages of feeding, one box. Designed by paediatric occupational therapists, ready when your child is ready." },
+    { "type": "range", "id": "body_size", "label": "Body size", "min": 13, "max": 22, "step": 1, "unit": "px", "default": 17 },
+
+    { "type": "header", "content": "Price" },
+    { "type": "text", "id": "price", "label": "Bundle price", "default": "£80" },
+    { "type": "text", "id": "price_compare", "label": "Compare-at price", "info": "Strikethrough. e.g. \"£109.94 if bought separately\"", "default": "£109.94 if bought separately" },
+
+    { "type": "header", "content": "CTAs" },
+    { "type": "text", "id": "cta_label", "label": "Primary CTA label", "default": "Get the Bundle Box →" },
+    { "type": "url", "id": "cta_url", "label": "Primary CTA URL", "info": "Point this at the underlying bundle product page (or your /cart/add.js path) once it exists." },
+    { "type": "text", "id": "sub_cta", "label": "Sub-CTA text", "default": "↓ See what's inside, by stage" },
+    { "type": "text", "id": "sub_cta_url", "label": "Sub-CTA anchor", "info": "Anchor to a panel below — e.g. #stage-1 — wired at the page-template level (Shopify schema defaults reject anchor-only URLs).", "default": "" },
+
+    { "type": "header", "content": "Hero image" },
+    { "type": "image_picker", "id": "hero_image", "label": "Lifestyle image", "info": "Recommended: parent + child + box." },
+    { "type": "text", "id": "hero_image_alt", "label": "Image alt text", "default": "Parent and child using the doddl Mealtime Development Box" },
+    { "type": "range", "id": "image_width", "label": "Image width — desktop", "min": 35, "max": 55, "step": 5, "unit": "%", "default": 45 },
+    { "type": "range", "id": "image_height_m", "label": "Image height — mobile", "min": 200, "max": 480, "step": 20, "unit": "px", "default": 320 },
+
+    { "type": "header", "content": "Trust labels (text only)" },
+    { "type": "text", "id": "trust_1", "label": "Trust label 1", "default": "Free UK shipping" },
+    { "type": "text", "id": "trust_2", "label": "Trust label 2", "default": "30-day guarantee" },
+    { "type": "text", "id": "trust_3", "label": "Trust label 3", "default": "Gift-ready packaging" },
+    { "type": "text", "id": "trust_4", "label": "Trust label 4", "default": "OT recommended" },
+    { "type": "text", "id": "trust_5", "label": "Trust label 5", "default": "King's Award" },
+    { "type": "range", "id": "trust_size", "label": "Trust label size", "min": 9, "max": 14, "step": 1, "unit": "px", "default": 11 },
+
+    { "type": "header", "content": "Section" },
+    { "type": "color", "id": "bg_color", "label": "Background colour", "default": "#FFFFFF" }
+  ],
+  "presets": [
+    {
+      "name": "MDB landing — hero"
+    }
+  ]
+}
+{% endschema %}

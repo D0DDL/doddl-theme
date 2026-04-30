@@ -54,6 +54,12 @@ All new sections (hero-split, trust-bar, stage-journey-tabs, sbs-hero, stage-sel
 /collections/toddler-cutlery-stage-4-3-5-years
 /collections/bibs
 
+### SEN Collections (ability-based — no age labels)
+/collections/sen-starting-out
+/collections/sen-finding-grip
+/collections/sen-building-confidence
+/collections/sen-eating-independently
+
 ### Renamed Collections (handle changes)
 /collections/baby-cutlery (was discover-baby-cutlery)
 /collections/toddler-cutlery (was discover-toddler-cutlery)
