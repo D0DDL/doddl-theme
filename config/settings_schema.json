@@ -987,5 +987,75 @@
         "info": "180 x 180px .png recommended"
       }
     ]
+  },
+  {
+    "name": "doddl Design Tokens",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "doddl brand tokens from the v2 build brief (Section 1.1). Used by all new doddl sections (hero-split, stage-journey-tabs, sen-*, bb-*, etc.). Fonts and base font size are NOT duplicated here — sections use Impact's existing heading_font, text_font, text_font_size_mobile, and text_font_size_desktop settings."
+      },
+      {
+        "type": "header",
+        "content": "Colours"
+      },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary colour (Indigo)",
+        "info": "Headers, key UI.",
+        "default": "#3D157D"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent colour (Aqua)",
+        "info": "CTAs, active states.",
+        "default": "#30BEAA"
+      },
+      {
+        "type": "color",
+        "id": "color_dark",
+        "label": "Dark colour",
+        "info": "Top bar, footer.",
+        "default": "#1a1630"
+      },
+      {
+        "type": "color",
+        "id": "color_body",
+        "label": "Body text colour",
+        "info": "All body copy.",
+        "default": "#1a1630"
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Background colour",
+        "info": "Page backgrounds.",
+        "default": "#F4F3F8"
+      },
+      {
+        "type": "header",
+        "content": "Announcement bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "announcement_enabled",
+        "label": "Show announcement bar",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "announcement_text",
+        "label": "Announcement bar text",
+        "default": "FREE UK Shipping over £20"
+      },
+      {
+        "type": "url",
+        "id": "announcement_url",
+        "label": "Announcement bar URL",
+        "info": "Optional link."
+      }
+    ]
   }
 ]

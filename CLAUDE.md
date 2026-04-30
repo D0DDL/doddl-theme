@@ -14,7 +14,7 @@ NEVER modify the live theme. All work happens in the dev theme only.
 - templates/index.json — homepage section layout
 
 ## Stack & Apps
-- Theme base: client-doddl/main (custom, Dawn-derived)
+- Theme base: Maestrooo Impact v6.9.1 (client-doddl/main, customised)
 - Translations: Translate & Adapt app — never hardcode language strings
 - Reviews: Opinew
 - Email capture: Klaviyo
@@ -23,6 +23,21 @@ NEVER modify the live theme. All work happens in the dev theme only.
 - Upsell: Essential Upsell
 - Payments messaging: Klarna On-Site Messaging
 - Sections: Section Store (audit required before editing affected pages)
+
+## Impact Theme Conventions — Apply to ALL New Sections
+All new sections (hero-split, trust-bar, stage-journey-tabs, sbs-hero, stage-selector, stage-panel, sen-hero, sen-stage-panel, bb-*, category-panel, etc.) MUST follow Impact's established patterns. Do not write plain Dawn-style Liquid.
+
+- Section groups: header/footer/overlay rendered via `{%- sections 'header-group' -%}` etc. — never inline. Market-context variants live in `sections/[group].context.[market].json`.
+- Custom elements: Impact uses Web Components (e.g. `<cart-notification-drawer>`, `<predictive-search>`). Reuse where applicable; new interactive sections should follow the same pattern, not standalone vanilla JS.
+- JS architecture: ES modules via importmap (`vendor`, `theme`, `photoswipe`). New JS goes in `assets/theme.js` or as section-scoped modules — no inline `<script>` blocks, no jQuery, no `document.write()`.
+- CSS: use existing CSS custom properties via `snippets/css-variables.liquid`. Do not add inline styles. Spacing uses `section_vertical_spacing` / `section_boxed_horizontal_spacing` from theme settings.
+- Text positioning: Impact uses `place-self-*` and `text-*` utility grammar (e.g. `place-self-center text-center`, `sm:place-self-start sm:text-start`). Match this — do not invent new positioning conventions.
+- Colour settings: reuse Impact's existing IDs (`header_background`, `primary_button_background`, `text_color`, `product_primary_badge_background`) where they map to brand tokens. Only add new IDs (`color_primary`, `color_accent`) if no Impact equivalent exists.
+- Font settings: reuse `heading_font` and `text_font` (both `font_picker`). Nunito is selected via theme editor in `settings_data.json`, not hardcoded in schema.
+- Snippet conventions: `snippets/social-meta-tags.liquid`, `snippets/microdata-schema.liquid`, `snippets/css-variables.liquid`, `snippets/js-variables.liquid` are already wired into `layout/theme.liquid`. Extend them rather than adding parallel head includes.
+- Schema field types: follow brief's schema-types cheatsheet, but Impact accepts the standard Shopify set — no custom types.
+- File naming: `sections/[name].liquid` (kebab-case), `templates/[type].[name].liquid|json`, `snippets/[name].liquid`, `snippets/schema-[type].liquid` for JSON-LD.
+- Documentation reference: `assets/documentation.txt` contains Impact's full technical doc (events, dependencies, hooks). Read it before extending core JS.
 
 ## Market Architecture
 - UK: doddl.com (primary, en-GB)
