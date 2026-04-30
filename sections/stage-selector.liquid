@@ -228,7 +228,7 @@ LIQUID
 {%- assign default_active = section.settings.default_active_stage | times: 1 -%}
 
 <div {% render 'section-properties' %}>
-  <stage-selector class="stage-selector">
+  <stage-selector class="stage-selector" id="stage-selector">
     <ul class="stage-selector__list" role="list">
       {%- for i in (0..4) -%}
         {%- assign s = 's' | append: i -%}

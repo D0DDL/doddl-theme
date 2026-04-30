@@ -1,0 +1,163 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ *
+ * Shop by Stage page template — wires sbs-hero + stage-selector +
+ * 5 stage-panel instances (one per stage 0–4) into the page at
+ * /pages/shop-by-stage.
+ *
+ * MERCHANT FOLLOW-UP: this file alone does not create the page.
+ * After pushing the theme, the merchant must:
+ *   1. Online Store → Pages → Add page
+ *   2. Title: "Shop by Stage" (or similar)
+ *   3. Template: select "page.shop-by-stage" from the dropdown
+ *   4. Save → page becomes available at /pages/shop-by-stage
+ *
+ * Collections referenced (per locked URL architecture in CLAUDE.md):
+ *   - weaning-stage-0-6-months
+ *   - baby-cutlery-stage-1-6-12-months
+ *   - toddler-cutlery-stage-2-12-18-months
+ *   - toddler-cutlery-stage-3-18-months-3-years
+ *   - toddler-cutlery-stage-4-3-5-years
+ * Collections do not yet exist in Shopify; empty-collection placeholders
+ * will render until they are created.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "sbs-hero",
+      "settings": {}
+    },
+    "selector": {
+      "type": "stage-selector",
+      "settings": {}
+    },
+    "panel_0": {
+      "type": "stage-panel",
+      "settings": {
+        "stage_number": "0",
+        "pill_text": "Stage 0 · 0–6 months",
+        "heading": "Your journey starts now",
+        "body": "Before the first spoon comes out, your baby is preparing in countless small ways. This is the watching stage — the curiosity stage. We'll be here when they're ready.",
+        "m1": "Head and neck control developing",
+        "m2": "Watching you eat with interest",
+        "m3": "Reaching and grasping objects",
+        "m4": "Sitting upright with support beginning",
+        "cta_label": "Shop weaning prep →",
+        "collection": "weaning-stage-0-6-months",
+        "expert_quote": "Understanding the developmental stages helps parents feel confident — and that confidence is contagious to the child.",
+        "expert_role": "Paediatric OT, doddl partner",
+        "trust_1": "OT UK",
+        "trust_2": "NCT",
+        "next_label": "Coming up",
+        "next_heading": "Stage 1 — First Foods (6–12 months)",
+        "next_body": "Your baby will be ready for their first spoon and bowl when they can sit with support and bring objects to their mouth.",
+        "next_cta": "Preview Stage 1 →",
+        "next_url": "#stage-panel-1",
+        "panel_bg": "#FFFFFF"
+      }
+    },
+    "panel_1": {
+      "type": "stage-panel",
+      "settings": {
+        "stage_number": "1",
+        "pill_text": "Stage 1 · 6–12 months",
+        "heading": "First foods, first wins",
+        "m1": "Sitting in a high chair with support",
+        "m2": "Reaching and grasping objects reliably",
+        "m3": "Bringing hand to mouth confidently",
+        "m4": "Showing real interest in what you eat",
+        "cta_label": "Shop Stage 1 →",
+        "collection": "baby-cutlery-stage-1-6-12-months",
+        "trust_1": "OT UK",
+        "trust_2": "NCT",
+        "next_label": "Coming up",
+        "next_heading": "Stage 2 — Building Control (12–18 months)",
+        "next_body": "When your child is consistently getting food to their mouth and showing a hand preference, they're ready for the toddler set.",
+        "next_cta": "Preview Stage 2 →",
+        "next_url": "#stage-panel-2",
+        "panel_bg": "#F4F3F8"
+      }
+    },
+    "panel_2": {
+      "type": "stage-panel",
+      "settings": {
+        "stage_number": "2",
+        "pill_text": "Stage 2 · 12–18 months",
+        "heading": "More confident, more independent",
+        "m1": "Getting food to mouth more reliably",
+        "m2": "Showing a clear hand preference",
+        "m3": "Attempting to scoop independently",
+        "m4": "Eating a wider range of textures",
+        "cta_label": "Shop Stage 2 →",
+        "collection": "toddler-cutlery-stage-2-12-18-months",
+        "trust_1": "OT UK",
+        "trust_2": "NCT",
+        "next_label": "Coming up",
+        "next_heading": "Stage 3 — Growing Skills (18 months – 3 years)",
+        "next_body": "When your toddler is using fork and spoon with confidence, they're ready for the full set including the doddl knife.",
+        "next_cta": "Preview Stage 3 →",
+        "next_url": "#stage-panel-3",
+        "panel_bg": "#FFFFFF"
+      }
+    },
+    "panel_3": {
+      "type": "stage-panel",
+      "settings": {
+        "stage_number": "3",
+        "pill_text": "Stage 3 · 18 months – 3 years",
+        "heading": "Ready for the full set",
+        "m1": "Using fork and spoon with confidence",
+        "m2": "Interested in cutting their own food",
+        "m3": "Eating most family meals",
+        "m4": "Sitting at the table independently",
+        "cta_label": "Shop Stage 3 →",
+        "collection": "toddler-cutlery-stage-3-18-months-3-years",
+        "trust_1": "OT UK",
+        "trust_2": "NCT",
+        "next_label": "Coming up",
+        "next_heading": "Stage 4 — Eating Independently (3–5 years)",
+        "next_body": "[TBD — see doddl-content-handoff.md §3 — Stage 4 transition copy needs writing]",
+        "next_cta": "Preview Stage 4 →",
+        "next_url": "#stage-panel-4",
+        "panel_bg": "#F4F3F8"
+      }
+    },
+    "panel_4": {
+      "type": "stage-panel",
+      "settings": {
+        "stage_number": "4",
+        "pill_text": "Stage 4 · 3–5 years",
+        "heading": "[TBD — see content handoff]",
+        "body": "[TBD — Stage 4 body copy per doddl-content-handoff.md §3]",
+        "m1": "[TBD]",
+        "m2": "[TBD]",
+        "m3": "[TBD]",
+        "m4": "[TBD]",
+        "cta_label": "Shop Stage 4 →",
+        "collection": "toddler-cutlery-stage-4-3-5-years",
+        "trust_1": "OT UK",
+        "trust_2": "NCT",
+        "next_heading": "",
+        "next_body": "",
+        "next_cta": "",
+        "next_url": "",
+        "panel_bg": "#FFFFFF"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "selector",
+    "panel_0",
+    "panel_1",
+    "panel_2",
+    "panel_3",
+    "panel_4"
+  ]
+}
