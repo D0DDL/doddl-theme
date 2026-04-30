@@ -31,7 +31,9 @@
   "sections": {
     "hero": {
       "type": "sbs-hero",
-      "settings": {}
+      "settings": {
+        "sub_cta_url": "#stage-selector"
+      }
     },
     "selector": {
       "type": "stage-selector",

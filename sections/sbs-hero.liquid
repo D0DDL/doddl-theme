@@ -192,7 +192,7 @@ LIQUID
     { "type": "textarea", "id": "body", "label": "Body copy", "default": "doddl products are engineered for each stage of your child's development. Find what's right for them right now." },
     { "type": "range", "id": "body_size", "label": "Body size", "min": 14, "max": 22, "step": 1, "unit": "px", "default": 17 },
     { "type": "text", "id": "sub_cta", "label": "Sub-CTA text", "info": "Small label below the body. Becomes a link if a URL is set below.", "default": "↓ Select your child's stage below" },
-    { "type": "url", "id": "sub_cta_url", "label": "Sub-CTA URL", "info": "Defaults to #stage-selector — anchors to the stage selector section that follows on the Shop by Stage page. Leave blank to render as plain text.", "default": "#stage-selector" },
+    { "type": "url", "id": "sub_cta_url", "label": "Sub-CTA URL", "info": "When used on /pages/shop-by-stage, set to #stage-selector to scroll to the selector below. Leave blank to render the sub-CTA as plain text. (Anchor URLs cannot be set as schema defaults; the page template wires this for SBS.)" },
 
     { "type": "header", "content": "Section" },
     { "type": "color", "id": "bg_color", "label": "Background colour", "default": "#3D157D" },
