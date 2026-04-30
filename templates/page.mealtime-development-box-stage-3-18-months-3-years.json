@@ -1,0 +1,53 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * MDB sub-page — Stage 3 deep-dive.
+ * URL: /pages/mealtime-development-box-stage-3-18-months-3-years
+ * Template: page.mealtime-development-box-stage-3-18-months-3-years.json
+ *
+ * Single mdb-stage-panel section pre-populated from
+ * doddl-content-handoff.md §2 (signs + product names + WHY bullets).
+ * Body copy [TBD] per handoff §4.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "panel": {
+      "type": "mdb-stage-panel",
+      "settings": {
+        "stage_id": "stage-3",
+        "pill_text": "Stage 3 · 18 months – 3 years",
+        "heading": "Ready for the full set",
+        "body": "[TBD — see content handoff §4: 2–3 sentence body copy needed for Stage 3.]",
+        "signs_label": "Signs your child is ready:",
+        "sign_1": "Using fork and spoon with confidence",
+        "sign_2": "Interested in cutting their own food",
+        "sign_3": "Eating most family meals",
+        "sign_4": "Sitting at the table independently",
+        "inside_label": "Inside the box, for this stage",
+        "p1_name": "Toddler Knife",
+        "p1_rrp": "RRP £12.99",
+        "p1_b1": "Safe blade cuts soft food only",
+        "p1_b2": "Teaches downward push motion",
+        "p2_name": "Toddler Spoon and Fork",
+        "p2_rrp": "RRP £16.99",
+        "p2_b1": "Full grip control developing",
+        "p2_b2": "Works alongside the knife",
+        "p3_name": "2-in-1 Plate",
+        "p3_rrp": "RRP £21.99",
+        "p3_b1": "Stable surface for cutting practice",
+        "p3_b2": "Raised back guides food onto utensil",
+        "cta_label": "Get the Bundle Box →",
+        "cta_url": "/pages/mealtime-development-box",
+        "next_label": "Coming up",
+        "next_heading": "Stage 4 — Eating Independently (3–5 years)",
+        "next_body": "[TBD — see content handoff §3: Stage 4 transition copy needs writing.]",
+        "next_cta": "Preview Stage 4 →",
+        "next_url": "/pages/mealtime-development-box-stage-4-3-5-years",
+        "panel_bg": "#FFFFFF"
+      }
+    }
+  },
+  "order": ["panel"]
+}

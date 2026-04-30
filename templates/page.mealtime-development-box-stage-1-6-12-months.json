@@ -1,0 +1,57 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * MDB sub-page — Stage 1 deep-dive.
+ * URL: /pages/mealtime-development-box-stage-1-6-12-months
+ * Template: page.mealtime-development-box-stage-1-6-12-months.json
+ *
+ * Single mdb-stage-panel section pre-populated from
+ * doddl-content-handoff.md §2 (signs + product names + WHY bullets).
+ * Body copy [TBD] per handoff §4.
+ *
+ * CTA points to the MDB landing page (/pages/mealtime-development-box)
+ * as the buy hub until the underlying bundle product URL is wired.
+ * Next teaser points forward to the Stage 2 sub-page.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "panel": {
+      "type": "mdb-stage-panel",
+      "settings": {
+        "stage_id": "stage-1",
+        "pill_text": "Stage 1 · 6–12 months",
+        "heading": "First foods, first wins",
+        "body": "[TBD — see content handoff §4: 2–3 sentence body copy needed for Stage 1.]",
+        "signs_label": "Signs your child is ready:",
+        "sign_1": "Sitting in a high chair with support",
+        "sign_2": "Reaching and grasping objects reliably",
+        "sign_3": "Bringing hand to mouth confidently",
+        "sign_4": "Showing real interest in what you eat",
+        "inside_label": "Inside the box, for this stage",
+        "p1_name": "Baby Spoon and Fork",
+        "p1_rrp": "RRP £14.99",
+        "p1_b1": "Ergonomic handle for tiny fists",
+        "p1_b2": "Soft tip, safe for gums",
+        "p2_name": "2-in-1 Suction Bowl",
+        "p2_rrp": "RRP £19.99",
+        "p2_b1": "Suction base keeps it in place",
+        "p2_b2": "Converts to non-slip when ready",
+        "p3_name": "2-in-1 Plate",
+        "p3_rrp": "RRP £21.99",
+        "p3_b1": "Raised back helps scoop food",
+        "p3_b2": "Suction base option available",
+        "cta_label": "Get the Bundle Box →",
+        "cta_url": "/pages/mealtime-development-box",
+        "next_label": "Coming up",
+        "next_heading": "Stage 2 — Building Control (12–18 months)",
+        "next_body": "When your child is consistently getting food to their mouth and showing a hand preference, they're ready for the toddler set.",
+        "next_cta": "Preview Stage 2 →",
+        "next_url": "/pages/mealtime-development-box-stage-2-12-18-months",
+        "panel_bg": "#FFFFFF"
+      }
+    }
+  },
+  "order": ["panel"]
+}

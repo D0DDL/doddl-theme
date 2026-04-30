@@ -1,0 +1,56 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * MDB sub-page — Stage 4 deep-dive.
+ * URL: /pages/mealtime-development-box-stage-4-3-5-years
+ * Template: page.mealtime-development-box-stage-4-3-5-years.json
+ *
+ * Single mdb-stage-panel section. ALL content [TBD] —
+ * Stage 4 does not exist in the source content per
+ * doddl-content-handoff.md §3. Writer must produce
+ * heading, body, signs, products, RRPs, and bullets
+ * before launch.
+ *
+ * Next-stage teaser is intentionally hidden (this is the final stage).
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "panel": {
+      "type": "mdb-stage-panel",
+      "settings": {
+        "stage_id": "stage-4",
+        "pill_text": "Stage 4 · 3–5 years",
+        "heading": "[TBD — see content handoff §3]",
+        "body": "[TBD — see content handoff §3: Stage 4 body copy needs writing.]",
+        "signs_label": "Signs your child is ready:",
+        "sign_1": "[TBD — Stage 4 sign 1]",
+        "sign_2": "[TBD — Stage 4 sign 2]",
+        "sign_3": "[TBD — Stage 4 sign 3]",
+        "sign_4": "[TBD — Stage 4 sign 4]",
+        "inside_label": "Inside the box, for this stage",
+        "p1_name": "[TBD — Product 1]",
+        "p1_rrp": "",
+        "p1_b1": "[TBD — bullet 1]",
+        "p1_b2": "[TBD — bullet 2]",
+        "p2_name": "[TBD — Product 2]",
+        "p2_rrp": "",
+        "p2_b1": "[TBD — bullet 1]",
+        "p2_b2": "[TBD — bullet 2]",
+        "p3_name": "[TBD — Product 3]",
+        "p3_rrp": "",
+        "p3_b1": "[TBD — bullet 1]",
+        "p3_b2": "[TBD — bullet 2]",
+        "cta_label": "Get the Bundle Box →",
+        "cta_url": "/pages/mealtime-development-box",
+        "next_heading": "",
+        "next_body": "",
+        "next_cta": "",
+        "next_url": "",
+        "panel_bg": "#FFFFFF"
+      }
+    }
+  },
+  "order": ["panel"]
+}
