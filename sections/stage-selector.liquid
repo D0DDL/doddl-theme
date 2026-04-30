@@ -1,0 +1,347 @@
+{%- render 'section-spacing-collapsing' -%}
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+CSS
+
+Shop by Stage — selector. Per build-brief Section 4.2.
+5 stage cards (0–4) in a row. Each card: character illustration · stage number circle ·
+uppercase stage name · age range. Stage 0 has optional NEW badge (top-right of icon).
+
+Anchor contract: each card links to "#stage-panel-N" (N = 0..4). The forthcoming
+sections/stage-panel.liquid (build-brief 4.3) MUST emit id="stage-panel-{N}" on each
+instance to receive the smooth-scroll target.
+
+Active state: settings-driven only for v1 (default_active_stage). Adds `.is-active` to
+the chosen card → coloured number circle (aqua) + underline (desktop) + dot (mobile).
+A scrollspy that updates active state during scroll is deferred to v2.
+
+Impact v6.9.1 conventions:
+- Section-scoped CSS variables under #shopify-section-{{ section.id }}
+- Custom element wrapper <stage-selector> with explicit display:block
+- No reveal-on-scroll attributes
+- Native <a> anchors with smooth scroll (no JS needed for v1)
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --selector-icon-size: {{ section.settings.icon_size_m }}px;
+    --selector-name-size: {{ section.settings.name_size }}px;
+    --selector-age-size: {{ section.settings.age_size }}px;
+    --selector-active-color: {{ section.settings.active_color.rgb }};
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} {
+      --selector-icon-size: {{ section.settings.icon_size_d }}px;
+    }
+  }
+
+  /* Wrapper */
+  #shopify-section-{{ section.id }} .stage-selector {
+    display: block;
+    padding: var(--spacing-8) 0;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .stage-selector {
+      padding: var(--spacing-10) var(--container-gutter);
+    }
+  }
+
+  /* List — mobile horizontal scroll, desktop equal-spaced row */
+  #shopify-section-{{ section.id }} .stage-selector__list {
+    list-style: none;
+    margin: 0;
+    padding: 0 var(--container-gutter);
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 40vw;
+    gap: var(--spacing-4);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  #shopify-section-{{ section.id }} .stage-selector__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .stage-selector__list {
+      grid-auto-flow: row;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-auto-columns: auto;
+      gap: var(--spacing-6);
+      overflow: visible;
+      padding: 0;
+      max-width: var(--container-narrow-max-width);
+      margin: 0 auto;
+    }
+  }
+
+  /* List item */
+  #shopify-section-{{ section.id }} .stage-selector__item {
+    scroll-snap-align: start;
+  }
+
+  /* Card (anchor) */
+  #shopify-section-{{ section.id }} .stage-selector__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-3);
+    text-decoration: none;
+    color: rgb(var(--text-primary));
+    border-radius: var(--rounded);
+    transition: background-color 200ms ease;
+  }
+
+  #shopify-section-{{ section.id }} .stage-selector__card:hover,
+  #shopify-section-{{ section.id }} .stage-selector__card:focus-visible {
+    background: rgb(var(--text-primary) / 0.04);
+  }
+
+  /* Image wrapper (positions number badge + NEW badge over the image) */
+  #shopify-section-{{ section.id }} .stage-selector__image-wrap {
+    position: relative;
+    width: var(--selector-icon-size);
+    height: var(--selector-icon-size);
+    flex-shrink: 0;
+    margin-bottom: var(--spacing-3);
+  }
+
+  /* Image — circle crop */
+  #shopify-section-{{ section.id }} .stage-selector__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    background: rgb(var(--doddl-color-bg));
+    display: block;
+  }
+
+  /* Stage number badge — bottom-centre of image */
+  #shopify-section-{{ section.id }} .stage-selector__number {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid rgb(var(--doddl-color-bg));
+    color: rgb(var(--doddl-color-primary));
+    font-family: var(--heading-font-family);
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  #shopify-section-{{ section.id }} .stage-selector__card.is-active .stage-selector__number {
+    background: rgb(var(--selector-active-color));
+    color: white;
+    border-color: rgb(var(--selector-active-color));
+  }
+
+  /* NEW badge — Stage 0 corner */
+  #shopify-section-{{ section.id }} .stage-selector__badge {
+    position: absolute;
+    top: -4px;
+    right: -8px;
+    padding: 2px 8px;
+    background: rgb(var(--selector-active-color));
+    color: white;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: var(--rounded-full);
+    z-index: 3;
+  }
+
+  /* Name (uppercase per brief) */
+  #shopify-section-{{ section.id }} .stage-selector__name {
+    position: relative;
+    font-size: var(--selector-name-size);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgb(var(--doddl-color-primary));
+    line-height: 1.2;
+  }
+
+  /* Active underline — desktop only per brief */
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .stage-selector__card.is-active .stage-selector__name::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -6px;
+      transform: translateX(-50%);
+      width: 28px;
+      height: 3px;
+      background: rgb(var(--selector-active-color));
+      border-radius: 2px;
+    }
+  }
+
+  /* Age range */
+  #shopify-section-{{ section.id }} .stage-selector__age {
+    font-size: var(--selector-age-size);
+    color: rgb(var(--text-primary) / 0.6);
+    line-height: 1.3;
+  }
+
+  /* Active dot — mobile only per brief */
+  #shopify-section-{{ section.id }} .stage-selector__dot {
+    display: none;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgb(var(--selector-active-color));
+    margin-top: var(--spacing-1);
+  }
+
+  @media screen and (max-width: 999px) {
+    #shopify-section-{{ section.id }} .stage-selector__card.is-active .stage-selector__dot {
+      display: block;
+    }
+  }
+</style>
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+LIQUID
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+{%- assign default_active = section.settings.default_active_stage | times: 1 -%}
+
+<div {% render 'section-properties' %}>
+  <stage-selector class="stage-selector">
+    <ul class="stage-selector__list" role="list">
+      {%- for i in (0..4) -%}
+        {%- assign s = 's' | append: i -%}
+        {%- assign image_key = s | append: '_image' -%}
+        {%- assign name_key = s | append: '_name' -%}
+        {%- assign age_key = s | append: '_age' -%}
+        {%- assign image = section.settings[image_key] -%}
+        {%- assign name = section.settings[name_key] -%}
+        {%- assign age = section.settings[age_key] -%}
+        {%- assign is_active = false -%}
+        {%- if forloop.index0 == default_active -%}{%- assign is_active = true -%}{%- endif -%}
+
+        <li class="stage-selector__item">
+          <a
+            class="stage-selector__card{% if is_active %} is-active{% endif %}"
+            href="#stage-panel-{{ i }}"
+            aria-current="{% if is_active %}true{% else %}false{% endif %}"
+          >
+            <div class="stage-selector__image-wrap">
+              {%- if image != blank -%}
+                {{- image
+                    | image_url: width: 320
+                    | image_tag:
+                        loading: 'lazy',
+                        sizes: '(max-width: 999px) 80px, 120px',
+                        widths: '80,120,160,240,320',
+                        alt: name,
+                        class: 'stage-selector__image' -}}
+              {%- else -%}
+                {{- 'lifestyle-1' | placeholder_svg_tag: 'stage-selector__image stage-selector__image--placeholder' -}}
+              {%- endif -%}
+
+              <span class="stage-selector__number" aria-hidden="true">{{ i }}</span>
+
+              {%- if i == 0 and section.settings.s0_show_badge and section.settings.badge_text != blank -%}
+                <span class="stage-selector__badge">{{ section.settings.badge_text | escape }}</span>
+              {%- endif -%}
+            </div>
+
+            {%- if name != blank -%}
+              <span class="stage-selector__name">{{ name | escape }}</span>
+            {%- endif -%}
+
+            {%- if age != blank -%}
+              <span class="stage-selector__age">{{ age | escape }}</span>
+            {%- endif -%}
+
+            <span class="stage-selector__dot" aria-hidden="true"></span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </stage-selector>
+</div>
+
+{% schema %}
+{
+  "name": "Shop by stage — selector",
+  "class": "shopify-section--stage-selector",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    { "type": "header", "content": "Section behaviour" },
+    { "type": "select", "id": "default_active_stage", "label": "Default active stage on page load",
+      "options": [
+        { "value": "0", "label": "Stage 0" },
+        { "value": "1", "label": "Stage 1" },
+        { "value": "2", "label": "Stage 2" },
+        { "value": "3", "label": "Stage 3" },
+        { "value": "4", "label": "Stage 4" }
+      ],
+      "default": "0"
+    },
+    { "type": "range", "id": "icon_size_d", "label": "Icon size — desktop", "min": 56, "max": 120, "step": 8, "unit": "px", "default": 80 },
+    { "type": "range", "id": "icon_size_m", "label": "Icon size — mobile", "min": 48, "max": 96, "step": 8, "unit": "px", "default": 64 },
+    { "type": "range", "id": "name_size", "label": "Stage name size", "min": 9, "max": 14, "step": 1, "unit": "px", "default": 11 },
+    { "type": "range", "id": "age_size", "label": "Age range size", "min": 9, "max": 13, "step": 1, "unit": "px", "default": 11 },
+    { "type": "color", "id": "active_color", "label": "Active stage colour", "info": "Number circle, underline (desktop), dot (mobile). Defaults to doddl aqua.", "default": "#30BEAA" },
+    { "type": "text", "id": "badge_text", "label": "Stage 0 corner badge text", "info": "Set blank to hide even when 'Show NEW badge' is enabled.", "default": "NEW" },
+
+    { "type": "header", "content": "Stage 0 — Preparing (0–6 months)" },
+    { "type": "image_picker", "id": "s0_image", "label": "Stage 0 image", "info": "Character illustration. PNG or SVG. 240×240px recommended (square)." },
+    { "type": "text", "id": "s0_name", "label": "Stage name", "default": "Preparing" },
+    { "type": "text", "id": "s0_age", "label": "Age range", "default": "0–6 months" },
+    { "type": "checkbox", "id": "s0_show_badge", "label": "Show NEW badge on Stage 0", "default": true },
+
+    { "type": "header", "content": "Stage 1 — First Foods (6–12 months)" },
+    { "type": "image_picker", "id": "s1_image", "label": "Stage 1 image" },
+    { "type": "text", "id": "s1_name", "label": "Stage name", "default": "First Foods" },
+    { "type": "text", "id": "s1_age", "label": "Age range", "default": "6–12 months" },
+
+    { "type": "header", "content": "Stage 2 — Building Control (12–18 months)" },
+    { "type": "image_picker", "id": "s2_image", "label": "Stage 2 image" },
+    { "type": "text", "id": "s2_name", "label": "Stage name", "default": "Building Control" },
+    { "type": "text", "id": "s2_age", "label": "Age range", "default": "12–18 months" },
+
+    { "type": "header", "content": "Stage 3 — Growing Skills (18 months – 3 years)" },
+    { "type": "image_picker", "id": "s3_image", "label": "Stage 3 image" },
+    { "type": "text", "id": "s3_name", "label": "Stage name", "default": "Growing Skills" },
+    { "type": "text", "id": "s3_age", "label": "Age range", "default": "18 months – 3 years" },
+
+    { "type": "header", "content": "Stage 4 — Eating Independently (3–5 years)" },
+    { "type": "image_picker", "id": "s4_image", "label": "Stage 4 image" },
+    { "type": "text", "id": "s4_name", "label": "Stage name", "default": "Eating Independently" },
+    { "type": "text", "id": "s4_age", "label": "Age range", "default": "3–5 years" }
+  ],
+  "presets": [
+    {
+      "name": "Shop by stage — selector"
+    }
+  ]
+}
+{% endschema %}
