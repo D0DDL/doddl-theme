@@ -1,0 +1,140 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * Shop by Category page template — wires 5 category-panel
+ * instances (Baby Cutlery, Toddler Cutlery, Plates & Bowls,
+ * Bibs, Bundles & Kits).
+ *
+ * Page handle: shop-by-category
+ * Template suffix: shop-by-category
+ *   → templates/page.shop-by-category.json
+ * URL: /pages/shop-by-category
+ *
+ * Anchors per panel match CLAUDE.md locked URL architecture:
+ *   #baby-cutlery, #toddler-cutlery, #plates-and-bowls, #bibs, #bundles-and-kits
+ * Each panel's cross-sell teaser links to the next anchor on this page.
+ *
+ * Pre-populated content: Baby Cutlery is fully populated from build-brief
+ * Section 7.1 defaults. Toddler Cutlery, Plates & Bowls, Bibs, and Bundles
+ * & Kits have headline + label + features pre-filled where reasonable;
+ * body copy and expert quotes are [TBD] pending the writer.
+ *
+ * Best-value: tag one product per collection with 'best-value' to surface
+ * it with an aqua border + badge (server-side, no JS).
+ *
+ * Bibs collection: per build-brief notes, the bibs collection needs
+ * creating in Shopify admin before that panel renders products.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "panel_baby": {
+      "type": "category-panel",
+      "settings": {
+        "anchor_id": "baby-cutlery",
+        "category_label": "Baby Cutlery · Stage 1",
+        "heading": "First tools, first wins",
+        "body": "Designed for tiny fists and brand-new motor skills. The shape, weight, and tip of every piece is engineered for the grip your baby actually has right now.",
+        "f1": "Short handle — correct length for 0–12 month hand span",
+        "f2": "Soft ergonomic tip — safe for new teeth",
+        "f3": "Weighted for the grip your baby actually has right now",
+        "f4": "Dishwasher safe — practical at every meal",
+        "collection": "baby-cutlery",
+        "view_all_label": "View full Baby Cutlery range →",
+        "view_all_url": "/collections/baby-cutlery",
+        "crosssell_text": "When the pincer grip arrives and your baby is consistently getting food to mouth, it's time for the toddler set.",
+        "crosssell_label": "Toddler Cutlery →",
+        "crosssell_url": "#toddler-cutlery",
+        "bg_color": "#FFFFFF"
+      }
+    },
+    "panel_toddler": {
+      "type": "category-panel",
+      "settings": {
+        "anchor_id": "toddler-cutlery",
+        "category_label": "Toddler Cutlery · Stage 2–3",
+        "heading": "[TBD — toddler cutlery headline]",
+        "body": "[TBD — see content brief: 2–3 sentences, benefit-led, for the toddler cutlery range.]",
+        "f1": "[TBD — feature 1]",
+        "f2": "[TBD — feature 2]",
+        "f3": "[TBD — feature 3]",
+        "f4": "[TBD — feature 4]",
+        "collection": "toddler-cutlery",
+        "view_all_label": "View full Toddler Cutlery range →",
+        "view_all_url": "/collections/toddler-cutlery",
+        "crosssell_text": "Plates and bowls that work with the cutlery — designed for scooping, stacking, and confident self-feeding.",
+        "crosssell_label": "Plates & Bowls →",
+        "crosssell_url": "#plates-and-bowls",
+        "bg_color": "#F4F3F8"
+      }
+    },
+    "panel_plates": {
+      "type": "category-panel",
+      "settings": {
+        "anchor_id": "plates-and-bowls",
+        "category_label": "Plates & Bowls",
+        "heading": "[TBD — plates & bowls headline]",
+        "body": "[TBD — see content brief: 2–3 sentences, benefit-led, for plates & bowls.]",
+        "f1": "[TBD — feature 1]",
+        "f2": "[TBD — feature 2]",
+        "f3": "[TBD — feature 3]",
+        "f4": "[TBD — feature 4]",
+        "collection": "plates-and-bowls",
+        "view_all_label": "View full Plates & Bowls range →",
+        "view_all_url": "/collections/plates-and-bowls",
+        "crosssell_text": "Catch the spills before they land — bibs that match the plates and the rest of the doddl set.",
+        "crosssell_label": "Bibs →",
+        "crosssell_url": "#bibs",
+        "bg_color": "#FFFFFF"
+      }
+    },
+    "panel_bibs": {
+      "type": "category-panel",
+      "settings": {
+        "anchor_id": "bibs",
+        "category_label": "Bibs",
+        "heading": "[TBD — bibs headline]",
+        "body": "[TBD — see content brief: 2–3 sentences, benefit-led, for bibs.] Note: the /collections/bibs collection needs creating in Shopify admin before products render here.",
+        "f1": "[TBD — feature 1]",
+        "f2": "[TBD — feature 2]",
+        "f3": "[TBD — feature 3]",
+        "f4": "[TBD — feature 4]",
+        "collection": "bibs",
+        "view_all_label": "View full Bibs range →",
+        "view_all_url": "/collections/bibs",
+        "crosssell_text": "Build the full kit — gift-ready bundles bring the whole doddl set together at a saving.",
+        "crosssell_label": "Bundles & Kits →",
+        "crosssell_url": "#bundles-and-kits",
+        "bg_color": "#F4F3F8"
+      }
+    },
+    "panel_bundles": {
+      "type": "category-panel",
+      "settings": {
+        "anchor_id": "bundles-and-kits",
+        "category_label": "Bundles & Kits",
+        "heading": "[TBD — bundles & kits headline]",
+        "body": "[TBD — see content brief: 2–3 sentences, benefit-led, for bundles & kits.]",
+        "f1": "[TBD — feature 1]",
+        "f2": "[TBD — feature 2]",
+        "f3": "[TBD — feature 3]",
+        "f4": "[TBD — feature 4]",
+        "collection": "bundles-and-kits",
+        "view_all_label": "View full Bundles & Kits range →",
+        "view_all_url": "/collections/bundles-and-kits",
+        "crosssell_text": "Not sure where to start? The Mealtime Development Box covers all four developmental stages in a single purchase.",
+        "crosssell_label": "Mealtime Development Box →",
+        "crosssell_url": "/pages/mealtime-development-box",
+        "bg_color": "#FFFFFF"
+      }
+    }
+  },
+  "order": [
+    "panel_baby",
+    "panel_toddler",
+    "panel_plates",
+    "panel_bibs",
+    "panel_bundles"
+  ]
+}
