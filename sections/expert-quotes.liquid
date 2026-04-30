@@ -184,7 +184,7 @@ LIQUID
 <div {% render 'section-properties' %}>
   <expert-quotes class="expert-quotes">
     {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
-      <div class="expert-quotes__header" reveal-on-scroll="true">
+      <div class="expert-quotes__header">
         {%- if section.settings.heading != blank -%}
           <h2 class="expert-quotes__heading">{{ section.settings.heading }}</h2>
         {%- endif -%}
@@ -195,7 +195,7 @@ LIQUID
     {%- endif -%}
 
     {%- if quote_blocks.size > 0 -%}
-      <div class="expert-quotes__grid" reveal-on-scroll="true">
+      <div class="expert-quotes__grid">
         {%- for block in quote_blocks -%}
           <article class="expert-quotes__card" {{ block.shopify_attributes }}>
             {%- if block.settings.quote != blank -%}
@@ -217,7 +217,7 @@ LIQUID
     {%- endif -%}
 
     {%- if logo_blocks.size > 0 -%}
-      <div class="expert-quotes__logos" reveal-on-scroll="true">
+      <div class="expert-quotes__logos">
         {%- if section.settings.logo_strip_label != blank -%}
           <p class="expert-quotes__logo-label">{{ section.settings.logo_strip_label | escape }}</p>
         {%- endif -%}

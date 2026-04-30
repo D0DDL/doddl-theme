@@ -441,7 +441,7 @@ LIQUID
   <stage-journey-tabs class="stage-tabs" id="{{ anchor | escape }}">
 
     {%- comment -%} Intro block {%- endcomment -%}
-    <div class="stage-tabs__intro" reveal-on-scroll="true">
+    <div class="stage-tabs__intro">
       {%- if section.settings.intro_tag != blank -%}
         <p class="stage-tabs__eyebrow">{{ section.settings.intro_tag | escape }}</p>
       {%- endif -%}
@@ -622,12 +622,17 @@ LIQUID
             {%- assign placeholder_name_key = s | append: '_name' -%}
             {%- assign placeholder_stage_name = section.settings[placeholder_name_key] | default: 'this stage' -%}
             <div class="stage-tabs__placeholder">
-              <p>
-                Products for {{ placeholder_stage_name | escape }}
-                will appear here once the
-                <code>{{ collection_handle | default: '(collection unset)' | escape }}</code>
-                collection is created in Shopify.
-              </p>
+              {%- if collection_handle != blank -%}
+                <p>
+                  Products for {{ placeholder_stage_name | escape }} will appear here once the
+                  <code>{{ collection_handle | escape }}</code>
+                  collection is created in Shopify.
+                </p>
+              {%- else -%}
+                <p>
+                  Products for {{ placeholder_stage_name | escape }} will appear here once a collection is selected in the section settings.
+                </p>
+              {%- endif -%}
             </div>
           {%- endif -%}
         {%- endif -%}

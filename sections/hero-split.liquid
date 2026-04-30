@@ -191,7 +191,7 @@ LIQUID
 
 <div {% render 'section-properties' %}>
   <hero-split class="hero-split">
-    <div class="hero-split__content" reveal-on-scroll="true">
+    <div class="hero-split__content">
       {%- if section.settings.eyebrow != blank -%}
         <p class="hero-split__eyebrow">{{ section.settings.eyebrow | escape }}</p>
       {%- endif -%}
@@ -255,7 +255,7 @@ LIQUID
       {%- endif -%}
     </div>
 
-    <div class="hero-split__media" reveal-on-scroll="true">
+    <div class="hero-split__media">
       {%- if section.settings.hero_image != blank -%}
         {%- capture hero_sizes -%}(max-width: 999px) 100vw, {{ section.settings.image_width }}vw{%- endcapture -%}
         {{- section.settings.hero_image

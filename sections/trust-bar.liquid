@@ -15,7 +15,6 @@ content. Section automatically adapts grid columns to actual block count (1–4)
 Impact v6.9.1 conventions:
 - Section-scoped CSS variables under #shopify-section-{{ section.id }}
 - Custom element wrapper <trust-bar>; no JS class registered (purely presentational)
-- reveal-on-scroll on the inner list
 - Colour defaults align with doddl Design Tokens but stored as literal hex per setting for editor UX
 ------------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
@@ -32,6 +31,7 @@ Impact v6.9.1 conventions:
 
   /* Section bar */
   #shopify-section-{{ section.id }} .trust-bar {
+    display: block;
     background-color: rgb(var(--trust-bar-bg));
     border-bottom: 1px solid rgb(var(--trust-bar-divider-color));
   }
@@ -103,7 +103,7 @@ LIQUID
 <div {% render 'section-properties' %}>
   <trust-bar class="trust-bar">
     {%- if section.blocks.size > 0 -%}
-      <ul class="trust-bar__list" role="list" reveal-on-scroll="true">
+      <ul class="trust-bar__list" role="list">
         {%- for block in section.blocks -%}
           {%- if block.type == 'trust_metric' -%}
             <li class="trust-bar__metric" {{ block.shopify_attributes }}>
