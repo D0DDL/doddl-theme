@@ -1,0 +1,259 @@
+{%- render 'section-spacing-collapsing' -%}
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+CSS
+
+Trust bar — homepage trust strip. Per build-brief Section 3.2.
+4 metric columns on desktop with vertical dividers between, 1px bottom border.
+2×2 grid on mobile with gap spacing only (no dividers).
+Each block: icon (emoji/text) · stat (big number) · label (small caption), stacked vertically.
+
+Block-based section (max 4). Section-level settings control shared styling; per-block settings supply
+content. Section automatically adapts grid columns to actual block count (1–4).
+
+Impact v6.9.1 conventions:
+- Section-scoped CSS variables under #shopify-section-{{ section.id }}
+- Custom element wrapper <trust-bar>; no JS class registered (purely presentational)
+- reveal-on-scroll on the inner list
+- Colour defaults align with doddl Design Tokens but stored as literal hex per setting for editor UX
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --trust-bar-bg: {{ section.settings.bg_color.rgb }};
+    --trust-bar-stat-size: {{ section.settings.number_size }}px;
+    --trust-bar-stat-color: {{ section.settings.number_color.rgb }};
+    --trust-bar-label-size: {{ section.settings.label_size }}px;
+    --trust-bar-label-color: {{ section.settings.label_color.rgb }};
+    --trust-bar-divider-color: {{ section.settings.divider_color.rgb }};
+  }
+
+  /* Section bar */
+  #shopify-section-{{ section.id }} .trust-bar {
+    background-color: rgb(var(--trust-bar-bg));
+    border-bottom: 1px solid rgb(var(--trust-bar-divider-color));
+  }
+
+  /* List grid */
+  #shopify-section-{{ section.id }} .trust-bar__list {
+    list-style: none;
+    margin: 0;
+    padding: var(--spacing-6) var(--container-gutter);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-6) var(--spacing-4);
+  }
+
+  @media screen and (min-width: 700px) {
+    #shopify-section-{{ section.id }} .trust-bar__list {
+      grid-template-columns: repeat({{ section.blocks.size | at_least: 1 }}, minmax(0, 1fr));
+      gap: 0;
+      padding: var(--spacing-8) var(--container-gutter);
+    }
+  }
+
+  /* Metric column */
+  #shopify-section-{{ section.id }} .trust-bar__metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-1);
+    padding: 0 var(--spacing-4);
+  }
+
+  /* Vertical dividers between columns — desktop only */
+  @media screen and (min-width: 700px) {
+    #shopify-section-{{ section.id }} .trust-bar__metric:not(:last-child) {
+      border-right: 1px solid rgb(var(--trust-bar-divider-color));
+    }
+  }
+
+  /* Icon */
+  #shopify-section-{{ section.id }} .trust-bar__icon {
+    font-size: calc(var(--trust-bar-stat-size) * 1.4);
+    line-height: 1;
+  }
+
+  /* Stat */
+  #shopify-section-{{ section.id }} .trust-bar__stat {
+    font-family: var(--heading-font-family);
+    font-weight: 800;
+    font-size: var(--trust-bar-stat-size);
+    line-height: 1.1;
+    color: rgb(var(--trust-bar-stat-color));
+  }
+
+  /* Label */
+  #shopify-section-{{ section.id }} .trust-bar__label {
+    font-size: var(--trust-bar-label-size);
+    line-height: 1.3;
+    color: rgb(var(--trust-bar-label-color));
+  }
+</style>
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+LIQUID
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<div {% render 'section-properties' %}>
+  <trust-bar class="trust-bar">
+    {%- if section.blocks.size > 0 -%}
+      <ul class="trust-bar__list" role="list" reveal-on-scroll="true">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'trust_metric' -%}
+            <li class="trust-bar__metric" {{ block.shopify_attributes }}>
+              {%- if block.settings.icon != blank -%}
+                <span class="trust-bar__icon" aria-hidden="true">{{ block.settings.icon | escape }}</span>
+              {%- endif -%}
+              {%- if block.settings.stat != blank -%}
+                <span class="trust-bar__stat">{{ block.settings.stat | escape }}</span>
+              {%- endif -%}
+              {%- if block.settings.label != blank -%}
+                <span class="trust-bar__label">{{ block.settings.label | escape }}</span>
+              {%- endif -%}
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </trust-bar>
+</div>
+
+{% schema %}
+{
+  "name": "Trust bar",
+  "class": "shopify-section--trust-bar",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background colour",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider colour",
+      "info": "Used for the vertical column dividers (desktop) and the section's bottom border.",
+      "default": "#EAEAEA"
+    },
+    {
+      "type": "header",
+      "content": "Stat (big number)"
+    },
+    {
+      "type": "range",
+      "id": "number_size",
+      "label": "Stat size",
+      "min": 16,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "number_color",
+      "label": "Stat colour",
+      "default": "#3D157D"
+    },
+    {
+      "type": "header",
+      "content": "Label (small caption)"
+    },
+    {
+      "type": "range",
+      "id": "label_size",
+      "label": "Label size",
+      "min": 9,
+      "max": 14,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label colour",
+      "default": "#888888"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust_metric",
+      "name": "Trust metric",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji or text)",
+          "info": "Single emoji or short text — e.g. ⭐ 🏆 🏥 🏫",
+          "default": "⭐"
+        },
+        {
+          "type": "text",
+          "id": "stat",
+          "label": "Stat (big number or short phrase)",
+          "default": "25,000+"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label (small caption)",
+          "default": "5-star reviews"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust bar",
+      "blocks": [
+        {
+          "type": "trust_metric",
+          "settings": {
+            "icon": "🏫",
+            "stat": "500+",
+            "label": "UK nurseries"
+          }
+        },
+        {
+          "type": "trust_metric",
+          "settings": {
+            "icon": "🏆",
+            "stat": "King's Award",
+            "label": "2026"
+          }
+        },
+        {
+          "type": "trust_metric",
+          "settings": {
+            "icon": "🏥",
+            "stat": "OT",
+            "label": "Recommended"
+          }
+        },
+        {
+          "type": "trust_metric",
+          "settings": {
+            "icon": "⭐",
+            "stat": "25,000+",
+            "label": "5-star reviews"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

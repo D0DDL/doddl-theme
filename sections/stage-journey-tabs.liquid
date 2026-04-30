@@ -1,0 +1,834 @@
+{%- render 'section-spacing-collapsing' -%}
+
+{{ 'doddl-stage-journey-tabs.js' | asset_url | script_tag }}
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+CSS
+
+Stage journey tabs — homepage core interactive section. Per build-brief Section 3.3.
+5 stages (0–4). Stage 0 = email capture (Klaviyo or native fallback). Stages 1–4 = product grids.
+Per-stage settings flat per brief (s0_*, s1_*, …). 124 schema settings total. Web Component
+<stage-journey-tabs> registered in assets/doddl-stage-journey-tabs.js handles tab switching,
+?stage=N deep-link, and best-value tag highlighting.
+
+Anchor ID configurable, default "stage-tabs" so the hero-split CTA can scroll here.
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --tabs-bg: rgb(var(--doddl-color-bg));
+    --tabs-tab-bg: {{ section.settings.tab_bg.rgb }};
+    --tabs-active-color: {{ section.settings.tab_active_color.rgb }};
+    --tabs-tab-font-size: {{ section.settings.tab_font_size }}px;
+    --tabs-tab-age-size: {{ section.settings.tab_age_size }}px;
+    --tabs-intro-heading-size: {{ section.settings.intro_heading_size }}px;
+    --tabs-intro-heading-color: {{ section.settings.intro_heading_color.rgb }};
+    --tabs-intro-body-size: {{ section.settings.intro_body_size }}px;
+    --tabs-sub-heading-size: {{ section.settings.sub_heading_size }}px;
+    --tabs-product-img-size: {{ section.settings.product_img_size }}px;
+    --tabs-product-name-size: {{ section.settings.product_name_size }}px;
+    --tabs-product-price-size: {{ section.settings.product_price_size }}px;
+  }
+
+  /* Wrapper */
+  #shopify-section-{{ section.id }} .stage-tabs {
+    display: block;
+    background-color: rgb(var(--background-primary));
+  }
+
+  /* Intro */
+  #shopify-section-{{ section.id }} .stage-tabs__intro {
+    text-align: center;
+    padding: var(--spacing-10) var(--container-gutter) var(--spacing-6);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__eyebrow {
+    margin: 0 0 var(--spacing-3);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(var(--tabs-active-color));
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__heading {
+    margin: 0 0 var(--spacing-3);
+    font-family: var(--heading-font-family);
+    font-weight: var(--heading-font-weight);
+    font-size: var(--tabs-intro-heading-size);
+    line-height: 1.2;
+    color: rgb(var(--tabs-intro-heading-color));
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__intro-body {
+    margin: 0 0 var(--spacing-4);
+    font-size: var(--tabs-intro-body-size);
+    line-height: 1.6;
+    color: rgb(var(--text-primary) / 0.8);
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__sub-heading {
+    margin: var(--spacing-4) 0 var(--spacing-1);
+    font-weight: 700;
+    font-size: var(--tabs-sub-heading-size);
+    color: rgb(var(--tabs-intro-heading-color));
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__instruction {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: rgb(var(--text-primary) / 0.6);
+  }
+
+  /* Tab strip */
+  #shopify-section-{{ section.id }} .stage-tabs__tabstrip {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    background-color: rgb(var(--tabs-tab-bg));
+    border-bottom: 1px solid rgb(var(--text-primary) / 0.08);
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tabstrip::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .stage-tabs__tabstrip {
+      overflow-x: visible;
+      justify-content: center;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab {
+    flex: 0 0 40%;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-1);
+    padding: var(--spacing-4) var(--spacing-5);
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-family: inherit;
+    color: rgb(var(--text-primary));
+    transition: border-color 120ms ease;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .stage-tabs__tab {
+      flex: 0 0 auto;
+      min-width: 140px;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab.is-active {
+    border-bottom-color: rgb(var(--tabs-active-color));
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab-icon {
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab-name {
+    font-size: var(--tabs-tab-font-size);
+    font-weight: 700;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab-age {
+    font-size: var(--tabs-tab-age-size);
+    color: rgb(var(--text-primary) / 0.6);
+  }
+
+  /* Panels */
+  #shopify-section-{{ section.id }} .stage-tabs__panel {
+    display: none;
+    padding: var(--spacing-10) var(--container-gutter);
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__panel.is-active {
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__pill {
+    display: inline-block;
+    padding: var(--spacing-1-5) var(--spacing-3);
+    border-radius: var(--rounded-full);
+    background: rgb(var(--tabs-active-color));
+    color: white;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__panel-heading {
+    margin: var(--spacing-4) 0 var(--spacing-3);
+    font-family: var(--heading-font-family);
+    font-weight: var(--heading-font-weight);
+    font-size: var(--tabs-intro-heading-size);
+    line-height: 1.2;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__panel-body {
+    margin: 0 0 var(--spacing-6);
+    font-size: var(--tabs-intro-body-size);
+    line-height: 1.6;
+    color: rgb(var(--text-primary) / 0.8);
+    max-width: 60ch;
+  }
+
+  /* Milestones 2x2 */
+  #shopify-section-{{ section.id }} .stage-tabs__milestones {
+    list-style: none;
+    margin: 0 0 var(--spacing-8);
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-3);
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__milestone {
+    padding: var(--spacing-4);
+    border-left: 3px solid rgb(var(--tabs-active-color));
+    background: rgb(var(--doddl-color-bg));
+    border-radius: 0 var(--rounded) var(--rounded) 0;
+    font-size: var(--text-sm);
+    line-height: 1.4;
+  }
+
+  /* Stage 0 — email capture */
+  #shopify-section-{{ section.id }} .stage-tabs__email {
+    background: rgb(var(--doddl-color-bg));
+    padding: var(--spacing-8);
+    border-radius: var(--rounded-lg);
+    margin-bottom: var(--spacing-8);
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__email-heading {
+    margin: 0 0 var(--spacing-2);
+    font-weight: 700;
+    font-size: var(--text-lg);
+    color: rgb(var(--doddl-color-primary));
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__email-body {
+    margin: 0 0 var(--spacing-4);
+    color: rgb(var(--text-primary) / 0.8);
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__email-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+  }
+
+  @media screen and (min-width: 700px) {
+    #shopify-section-{{ section.id }} .stage-tabs__email-form {
+      flex-direction: row;
+      align-items: stretch;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__email-input {
+    flex: 1 1 auto;
+    height: var(--input-height);
+    padding: 0 var(--input-padding-inline);
+    border: 1px solid rgb(var(--text-primary) / 0.2);
+    border-radius: var(--rounded-input);
+    background: white;
+    font-size: var(--text-base);
+    font-family: inherit;
+  }
+
+  /* Stages 1–4 — products */
+  #shopify-section-{{ section.id }} .stage-tabs__shop-cta-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: var(--spacing-5);
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__products {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 60vw;
+    gap: var(--spacing-4);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: var(--spacing-2);
+    margin-bottom: var(--spacing-8);
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__products::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .stage-tabs__products {
+      grid-auto-flow: row;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-auto-columns: auto;
+      overflow: visible;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__product {
+    position: relative;
+    scroll-snap-align: start;
+    border: 2px solid transparent;
+    border-radius: var(--rounded);
+    padding: var(--spacing-3);
+    background: rgb(var(--background-primary));
+    transition: border-color 120ms ease;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__product.is-best-value {
+    border-color: rgb(var(--tabs-active-color));
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__best-value-badge {
+    display: none;
+    position: absolute;
+    top: var(--spacing-2);
+    right: var(--spacing-2);
+    padding: 2px 8px;
+    background: rgb(var(--tabs-active-color));
+    color: white;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: var(--rounded-full);
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__product.is-best-value .stage-tabs__best-value-badge {
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__product-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__product-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: rgb(var(--doddl-color-bg));
+    border-radius: var(--rounded-sm);
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__product-name {
+    margin: var(--spacing-2) 0 var(--spacing-1);
+    font-size: var(--tabs-product-name-size);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__product-price {
+    margin: 0;
+    font-size: var(--tabs-product-price-size);
+    font-weight: 700;
+    color: rgb(var(--doddl-color-primary));
+  }
+
+  /* Empty collection placeholder */
+  #shopify-section-{{ section.id }} .stage-tabs__placeholder {
+    padding: var(--spacing-10) var(--spacing-6);
+    border: 2px dashed rgb(var(--text-primary) / 0.18);
+    border-radius: var(--rounded);
+    text-align: center;
+    color: rgb(var(--text-primary) / 0.55);
+    font-size: var(--text-sm);
+    margin-bottom: var(--spacing-8);
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__placeholder code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.9em;
+    background: rgb(var(--text-primary) / 0.06);
+    padding: 1px 6px;
+    border-radius: var(--rounded-xs);
+  }
+
+  /* Expert quote */
+  #shopify-section-{{ section.id }} .stage-tabs__expert {
+    margin: var(--spacing-6) 0;
+    padding: var(--spacing-6);
+    border-left: 4px solid rgb(var(--tabs-active-color));
+    background: rgb(var(--doddl-color-bg));
+    border-radius: 0 var(--rounded) var(--rounded) 0;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__expert-quote {
+    margin: 0 0 var(--spacing-2);
+    font-size: var(--text-base);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__expert-attr {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    font-style: normal;
+    color: rgb(var(--text-primary) / 0.7);
+  }
+
+  /* Next stage teaser */
+  #shopify-section-{{ section.id }} .stage-tabs__next {
+    margin-top: var(--spacing-8);
+    padding-top: var(--spacing-5);
+    border-top: 1px solid rgb(var(--text-primary) / 0.1);
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__next-heading {
+    margin: 0 0 var(--spacing-2);
+    font-weight: 700;
+    color: rgb(var(--doddl-color-primary));
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__next-body {
+    margin: 0;
+    color: rgb(var(--text-primary) / 0.7);
+    font-size: var(--text-sm);
+    line-height: 1.5;
+  }
+
+  .visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+LIQUID
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+{%- assign default_active = section.settings.default_active_stage | times: 1 -%}
+{%- assign anchor = section.settings.anchor_id | default: 'stage-tabs' -%}
+
+<div {% render 'section-properties' %}>
+  <stage-journey-tabs class="stage-tabs" id="{{ anchor | escape }}">
+
+    {%- comment -%} Intro block {%- endcomment -%}
+    <div class="stage-tabs__intro" reveal-on-scroll="true">
+      {%- if section.settings.intro_tag != blank -%}
+        <p class="stage-tabs__eyebrow">{{ section.settings.intro_tag | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.intro_heading != blank -%}
+        <h2 class="stage-tabs__heading">{{ section.settings.intro_heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.intro_body != blank -%}
+        <p class="stage-tabs__intro-body">{{ section.settings.intro_body | escape | newline_to_br }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.sub_heading != blank -%}
+        <p class="stage-tabs__sub-heading">{{ section.settings.sub_heading | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.instruction != blank -%}
+        <p class="stage-tabs__instruction">{{ section.settings.instruction | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Tab strip {%- endcomment -%}
+    <div class="stage-tabs__tabstrip" role="tablist">
+      {%- for i in (0..4) -%}
+        {%- assign s = 's' | append: i -%}
+        {%- assign is_active = forloop.index0 == default_active -%}
+        <button
+          type="button"
+          role="tab"
+          class="stage-tabs__tab{% if is_active %} is-active{% endif %}"
+          data-stage-tab="{{ i }}"
+          aria-selected="{% if is_active %}true{% else %}false{% endif %}"
+          aria-controls="stage-panel-{{ section.id }}-{{ i }}"
+        >
+          {%- assign icon_key = s | append: '_icon' -%}
+          {%- assign name_key = s | append: '_name' -%}
+          {%- assign age_key = s | append: '_age' -%}
+          {%- if section.settings[icon_key] != blank -%}
+            <span class="stage-tabs__tab-icon" aria-hidden="true">{{ section.settings[icon_key] | escape }}</span>
+          {%- endif -%}
+          <span class="stage-tabs__tab-name">{{ section.settings[name_key] | escape }}</span>
+          {%- if section.settings[age_key] != blank -%}
+            <span class="stage-tabs__tab-age">{{ section.settings[age_key] | escape }}</span>
+          {%- endif -%}
+        </button>
+      {%- endfor -%}
+    </div>
+
+    {%- comment -%} Panels {%- endcomment -%}
+    {%- for i in (0..4) -%}
+      {%- assign s = 's' | append: i -%}
+      {%- assign is_active = forloop.index0 == default_active -%}
+      {%- assign pill_key = s | append: '_pill' -%}
+      {%- assign heading_key = s | append: '_heading' -%}
+      {%- assign body_key = s | append: '_body' -%}
+
+      <div
+        class="stage-tabs__panel{% if is_active %} is-active{% endif %}"
+        data-stage-panel="{{ i }}"
+        id="stage-panel-{{ section.id }}-{{ i }}"
+        role="tabpanel"
+        aria-hidden="{% if is_active %}false{% else %}true{% endif %}"
+      >
+        {%- if section.settings[pill_key] != blank -%}
+          <span class="stage-tabs__pill">{{ section.settings[pill_key] | escape }}</span>
+        {%- endif -%}
+
+        {%- if section.settings[heading_key] != blank -%}
+          <h3 class="stage-tabs__panel-heading">{{ section.settings[heading_key] | escape }}</h3>
+        {%- endif -%}
+
+        {%- if section.settings[body_key] != blank -%}
+          <p class="stage-tabs__panel-body">{{ section.settings[body_key] | escape | newline_to_br }}</p>
+        {%- endif -%}
+
+        {%- comment -%} Milestones 2x2 {%- endcomment -%}
+        {%- assign has_milestone = false -%}
+        {%- for m in (1..4) -%}
+          {%- assign m_key = s | append: '_m' | append: m -%}
+          {%- if section.settings[m_key] != blank -%}{%- assign has_milestone = true -%}{%- endif -%}
+        {%- endfor -%}
+
+        {%- if has_milestone -%}
+          <ul class="stage-tabs__milestones" role="list">
+            {%- for m in (1..4) -%}
+              {%- assign m_key = s | append: '_m' | append: m -%}
+              {%- if section.settings[m_key] != blank -%}
+                <li class="stage-tabs__milestone">{{ section.settings[m_key] | escape }}</li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if i == 0 -%}
+          {%- comment -%} Stage 0: email capture {%- endcomment -%}
+          <div class="stage-tabs__email">
+            {%- if section.settings.s0_email_heading != blank -%}
+              <p class="stage-tabs__email-heading">{{ section.settings.s0_email_heading | escape }}</p>
+            {%- endif -%}
+            {%- if section.settings.s0_email_body != blank -%}
+              <p class="stage-tabs__email-body">{{ section.settings.s0_email_body | escape | newline_to_br }}</p>
+            {%- endif -%}
+
+            {%- if section.settings.s0_klaviyo_id != blank -%}
+              <div class="klaviyo-form-{{ section.settings.s0_klaviyo_id | escape }}"></div>
+            {%- else -%}
+              <form action="/contact#contact_form" method="post" class="stage-tabs__email-form">
+                <input type="hidden" name="form_type" value="contact">
+                <input type="hidden" name="utf8" value="✓">
+                <input type="hidden" name="contact[tags]" value="stage-0-reminder">
+                <label for="stage-0-email-{{ section.id }}" class="visually-hidden">Email address</label>
+                <input
+                  type="email"
+                  id="stage-0-email-{{ section.id }}"
+                  name="contact[email]"
+                  required
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  class="stage-tabs__email-input"
+                >
+                <button type="submit" class="button button--xl">
+                  {{- section.settings.s0_email_btn | default: 'Send me a reminder' | escape -}}
+                </button>
+              </form>
+            {%- endif -%}
+          </div>
+        {%- else -%}
+          {%- comment -%} Stages 1–4: products {%- endcomment -%}
+          {%- assign collection_key = s | append: '_collection' -%}
+          {%- assign cta_label_key = s | append: '_cta_label' -%}
+          {%- assign cta_url_key = s | append: '_cta_url' -%}
+          {%- assign collection_handle = section.settings[collection_key] -%}
+          {%- assign stage_collection = collections[collection_handle] -%}
+
+          {%- if section.settings[cta_label_key] != blank -%}
+            <div class="stage-tabs__shop-cta-row">
+              <a
+                href="{{ section.settings[cta_url_key] | default: stage_collection.url | default: '#' }}"
+                class="button button--xl"
+              >
+                {{- section.settings[cta_label_key] | escape -}}
+              </a>
+            </div>
+          {%- endif -%}
+
+          {%- if stage_collection != blank and stage_collection.products.size > 0 -%}
+            <div class="stage-tabs__products" role="list">
+              {%- for product in stage_collection.products limit: 5 -%}
+                <div
+                  class="stage-tabs__product"
+                  role="listitem"
+                  data-product-tags="{{ product.tags | join: ',' | escape }}"
+                >
+                  <span class="stage-tabs__best-value-badge" aria-hidden="true">Best value</span>
+                  <a href="{{ product.url }}" class="stage-tabs__product-link">
+                    <div class="stage-tabs__product-image">
+                      {%- if product.featured_image != blank -%}
+                        {{- product.featured_image
+                            | image_url: width: product.featured_image.width
+                            | image_tag:
+                                loading: 'lazy',
+                                sizes: '(max-width: 999px) 60vw, 20vw',
+                                widths: '200,300,400,500,600,800',
+                                class: 'stage-tabs__product-img' -}}
+                      {%- else -%}
+                        {{- 'product-1' | placeholder_svg_tag: 'stage-tabs__product-img' -}}
+                      {%- endif -%}
+                    </div>
+                    <p class="stage-tabs__product-name">{{ product.title | escape }}</p>
+                    <p class="stage-tabs__product-price">{{ product.price | money }}</p>
+                  </a>
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- else -%}
+            <div class="stage-tabs__placeholder">
+              <p>
+                Products for {{ section.settings[s | append: '_name'] | escape | default: 'this stage' }}
+                will appear here once the
+                <code>{{ collection_handle | default: '(collection unset)' | escape }}</code>
+                collection is created in Shopify.
+              </p>
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- comment -%} Expert quote {%- endcomment -%}
+        {%- assign expert_quote_key = s | append: '_expert_quote' -%}
+        {%- assign expert_attr_key = s | append: '_expert_attr' -%}
+        {%- if section.settings[expert_quote_key] != blank -%}
+          <blockquote class="stage-tabs__expert">
+            <p class="stage-tabs__expert-quote">{{ section.settings[expert_quote_key] | escape | newline_to_br }}</p>
+            {%- if section.settings[expert_attr_key] != blank -%}
+              <cite class="stage-tabs__expert-attr">{{ section.settings[expert_attr_key] | escape }}</cite>
+            {%- endif -%}
+          </blockquote>
+        {%- endif -%}
+
+        {%- comment -%} Next stage teaser {%- endcomment -%}
+        {%- assign next_heading_key = s | append: '_next_heading' -%}
+        {%- assign next_body_key = s | append: '_next_body' -%}
+        {%- if section.settings[next_heading_key] != blank or section.settings[next_body_key] != blank -%}
+          <div class="stage-tabs__next">
+            {%- if section.settings[next_heading_key] != blank -%}
+              <p class="stage-tabs__next-heading">{{ section.settings[next_heading_key] | escape }}</p>
+            {%- endif -%}
+            {%- if section.settings[next_body_key] != blank -%}
+              <p class="stage-tabs__next-body">{{ section.settings[next_body_key] | escape | newline_to_br }}</p>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+
+  </stage-journey-tabs>
+</div>
+
+{% schema %}
+{
+  "name": "Stage journey tabs",
+  "class": "shopify-section--stage-journey-tabs",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    { "type": "header", "content": "Section behaviour" },
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID", "info": "Used as the section's HTML id. Hero CTAs can scroll here via #anchor.", "default": "stage-tabs" },
+    { "type": "select", "id": "default_active_stage", "label": "Default active stage on page load",
+      "options": [
+        { "value": "0", "label": "Stage 0" },
+        { "value": "1", "label": "Stage 1" },
+        { "value": "2", "label": "Stage 2" },
+        { "value": "3", "label": "Stage 3" },
+        { "value": "4", "label": "Stage 4" }
+      ],
+      "default": "1"
+    },
+
+    { "type": "header", "content": "Intro block" },
+    { "type": "text", "id": "intro_tag", "label": "Eyebrow tag", "default": "The doddl journey" },
+    { "type": "richtext", "id": "intro_heading", "label": "Heading (H2)", "default": "<p>The right tool at the right stage.</p>" },
+    { "type": "range", "id": "intro_heading_size", "label": "Heading size", "min": 22, "max": 44, "step": 2, "unit": "px", "default": 32 },
+    { "type": "color", "id": "intro_heading_color", "label": "Heading colour", "default": "#3D157D" },
+    { "type": "textarea", "id": "intro_body", "label": "Body copy", "default": "Every child develops differently. Find the right doddl tools for where they are right now." },
+    { "type": "range", "id": "intro_body_size", "label": "Body size", "min": 13, "max": 20, "step": 1, "unit": "px", "default": 16 },
+    { "type": "text", "id": "sub_heading", "label": "Sub-heading", "default": "Explore each stage" },
+    { "type": "range", "id": "sub_heading_size", "label": "Sub-heading size", "min": 14, "max": 24, "step": 1, "unit": "px", "default": 18 },
+    { "type": "text", "id": "instruction", "label": "Instruction text", "default": "Click a stage below to see milestones and the right products." },
+
+    { "type": "header", "content": "Tab strip" },
+    { "type": "color", "id": "tab_bg", "label": "Tab strip background", "default": "#FFFFFF" },
+    { "type": "color", "id": "tab_active_color", "label": "Active tab indicator colour", "info": "Bottom border on the active tab. Also used for milestones, expert-quote accents, and the best-value badge.", "default": "#30BEAA" },
+    { "type": "range", "id": "tab_font_size", "label": "Tab name size", "min": 11, "max": 16, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "tab_age_size", "label": "Tab age range size", "min": 9, "max": 13, "step": 1, "unit": "px", "default": 11 },
+
+    { "type": "header", "content": "Stage 0 — basics" },
+    { "type": "text", "id": "s0_name", "label": "Tab name", "default": "Stage 0" },
+    { "type": "text", "id": "s0_age", "label": "Age range", "default": "0–6 months" },
+    { "type": "text", "id": "s0_icon", "label": "Tab icon (emoji)", "default": "🌱" },
+    { "type": "text", "id": "s0_pill", "label": "Stage pill", "default": "Stage 0 · 0–6 months" },
+    { "type": "text", "id": "s0_heading", "label": "Panel headline", "default": "Your journey starts now" },
+    { "type": "range", "id": "s0_heading_size", "label": "Panel heading size", "min": 20, "max": 40, "step": 2, "unit": "px", "default": 28 },
+    { "type": "color", "id": "s0_heading_color", "label": "Panel heading colour", "default": "#3D157D" },
+    { "type": "textarea", "id": "s0_body", "label": "Body copy", "default": "Before the first spoon comes out, your baby is preparing in countless small ways. This is the watching stage — the curiosity stage. We'll be here when they're ready." },
+    { "type": "range", "id": "s0_body_size", "label": "Body size", "min": 13, "max": 19, "step": 1, "unit": "px", "default": 15 },
+    { "type": "text", "id": "s0_m1", "label": "Milestone 1", "default": "Head and neck control developing" },
+    { "type": "text", "id": "s0_m2", "label": "Milestone 2", "default": "Watching you eat with interest" },
+    { "type": "text", "id": "s0_m3", "label": "Milestone 3", "default": "Reaching and grasping objects" },
+    { "type": "text", "id": "s0_m4", "label": "Milestone 4", "default": "Sitting upright with support beginning" },
+    { "type": "range", "id": "s0_milestone_size", "label": "Milestone text size", "min": 10, "max": 15, "step": 1, "unit": "px", "default": 12 },
+
+    { "type": "header", "content": "Stage 0 — email capture (no products)" },
+    { "type": "text", "id": "s0_email_heading", "label": "Email capture heading", "default": "Weaning starts at 6 months" },
+    { "type": "textarea", "id": "s0_email_body", "label": "Email capture body", "default": "We'll remind you at the right moment with a gentle nudge and a guide to your first doddl tools." },
+    { "type": "text", "id": "s0_email_btn", "label": "Submit button label", "default": "Send me a reminder →" },
+    { "type": "text", "id": "s0_klaviyo_id", "label": "Klaviyo form ID", "info": "Optional. Paste the Klaviyo embed form ID. If left blank, a native form posts to /contact with tag 'stage-0-reminder'." },
+
+    { "type": "header", "content": "Stage 0 — expert quote and next teaser" },
+    { "type": "textarea", "id": "s0_expert_quote", "label": "Expert quote", "default": "Understanding the developmental stages helps parents feel confident — and that confidence is contagious to the child." },
+    { "type": "text", "id": "s0_expert_attr", "label": "Expert attribution", "default": "— Paediatric OT, doddl partner" },
+    { "type": "text", "id": "s0_next_heading", "label": "Next stage heading", "default": "Stage 1 — First Foods (6–12 months)" },
+    { "type": "textarea", "id": "s0_next_body", "label": "Next stage body", "default": "Your baby will be ready for their first spoon and bowl when they can sit with support and bring objects to their mouth." },
+
+    { "type": "header", "content": "Stage 1 — First Foods (6–12 months)" },
+    { "type": "text", "id": "s1_name", "label": "Tab name", "default": "Stage 1" },
+    { "type": "text", "id": "s1_age", "label": "Age range", "default": "6–12 months" },
+    { "type": "text", "id": "s1_icon", "label": "Tab icon (emoji)", "default": "🥄" },
+    { "type": "text", "id": "s1_pill", "label": "Stage pill", "default": "Stage 1 · 6–12 months" },
+    { "type": "text", "id": "s1_heading", "label": "Panel headline", "default": "First foods, first wins" },
+    { "type": "range", "id": "s1_heading_size", "label": "Panel heading size", "min": 20, "max": 40, "step": 2, "unit": "px", "default": 28 },
+    { "type": "color", "id": "s1_heading_color", "label": "Panel heading colour", "default": "#3D157D" },
+    { "type": "textarea", "id": "s1_body", "label": "Body copy" },
+    { "type": "range", "id": "s1_body_size", "label": "Body size", "min": 13, "max": 19, "step": 1, "unit": "px", "default": 15 },
+    { "type": "text", "id": "s1_m1", "label": "Milestone 1", "default": "Sitting in a high chair with support" },
+    { "type": "text", "id": "s1_m2", "label": "Milestone 2", "default": "Reaching and grasping objects reliably" },
+    { "type": "text", "id": "s1_m3", "label": "Milestone 3", "default": "Bringing hand to mouth confidently" },
+    { "type": "text", "id": "s1_m4", "label": "Milestone 4", "default": "Showing real interest in what you eat" },
+    { "type": "range", "id": "s1_milestone_size", "label": "Milestone text size", "min": 10, "max": 15, "step": 1, "unit": "px", "default": 12 },
+    { "type": "collection", "id": "s1_collection", "label": "Product collection", "info": "Defaults to the locked URL handle. Collection may not exist yet — empty placeholder will render." },
+    { "type": "text", "id": "s1_cta_label", "label": "Shop CTA label", "default": "Shop Stage 1 →" },
+    { "type": "url", "id": "s1_cta_url", "label": "Shop CTA URL", "info": "Leave blank to default to the collection URL." },
+    { "type": "textarea", "id": "s1_expert_quote", "label": "Expert quote" },
+    { "type": "text", "id": "s1_expert_attr", "label": "Expert attribution" },
+    { "type": "text", "id": "s1_next_heading", "label": "Next stage heading", "default": "Stage 2 — Building Control (12–18 months)" },
+    { "type": "textarea", "id": "s1_next_body", "label": "Next stage body", "default": "When your child is consistently getting food to their mouth and showing a hand preference, they're ready for the toddler set." },
+
+    { "type": "header", "content": "Stage 2 — Building Control (12–18 months)" },
+    { "type": "text", "id": "s2_name", "label": "Tab name", "default": "Stage 2" },
+    { "type": "text", "id": "s2_age", "label": "Age range", "default": "12–18 months" },
+    { "type": "text", "id": "s2_icon", "label": "Tab icon (emoji)", "default": "🍴" },
+    { "type": "text", "id": "s2_pill", "label": "Stage pill", "default": "Stage 2 · 12–18 months" },
+    { "type": "text", "id": "s2_heading", "label": "Panel headline", "default": "More confident, more independent" },
+    { "type": "range", "id": "s2_heading_size", "label": "Panel heading size", "min": 20, "max": 40, "step": 2, "unit": "px", "default": 28 },
+    { "type": "color", "id": "s2_heading_color", "label": "Panel heading colour", "default": "#3D157D" },
+    { "type": "textarea", "id": "s2_body", "label": "Body copy" },
+    { "type": "range", "id": "s2_body_size", "label": "Body size", "min": 13, "max": 19, "step": 1, "unit": "px", "default": 15 },
+    { "type": "text", "id": "s2_m1", "label": "Milestone 1", "default": "Getting food to mouth more reliably" },
+    { "type": "text", "id": "s2_m2", "label": "Milestone 2", "default": "Showing a clear hand preference" },
+    { "type": "text", "id": "s2_m3", "label": "Milestone 3", "default": "Attempting to scoop independently" },
+    { "type": "text", "id": "s2_m4", "label": "Milestone 4", "default": "Eating a wider range of textures" },
+    { "type": "range", "id": "s2_milestone_size", "label": "Milestone text size", "min": 10, "max": 15, "step": 1, "unit": "px", "default": 12 },
+    { "type": "collection", "id": "s2_collection", "label": "Product collection" },
+    { "type": "text", "id": "s2_cta_label", "label": "Shop CTA label", "default": "Shop Stage 2 →" },
+    { "type": "url", "id": "s2_cta_url", "label": "Shop CTA URL" },
+    { "type": "textarea", "id": "s2_expert_quote", "label": "Expert quote" },
+    { "type": "text", "id": "s2_expert_attr", "label": "Expert attribution" },
+    { "type": "text", "id": "s2_next_heading", "label": "Next stage heading", "default": "Stage 3 — Growing Skills (18 months – 3 years)" },
+    { "type": "textarea", "id": "s2_next_body", "label": "Next stage body", "default": "When your toddler is using fork and spoon with confidence, they're ready for the full set including the doddl knife." },
+
+    { "type": "header", "content": "Stage 3 — Growing Skills (18 months – 3 years)" },
+    { "type": "text", "id": "s3_name", "label": "Tab name", "default": "Stage 3" },
+    { "type": "text", "id": "s3_age", "label": "Age range", "default": "18 months – 3 years" },
+    { "type": "text", "id": "s3_icon", "label": "Tab icon (emoji)", "default": "🥄" },
+    { "type": "text", "id": "s3_pill", "label": "Stage pill", "default": "Stage 3 · 18 months – 3 years" },
+    { "type": "text", "id": "s3_heading", "label": "Panel headline", "default": "Ready for the full set" },
+    { "type": "range", "id": "s3_heading_size", "label": "Panel heading size", "min": 20, "max": 40, "step": 2, "unit": "px", "default": 28 },
+    { "type": "color", "id": "s3_heading_color", "label": "Panel heading colour", "default": "#3D157D" },
+    { "type": "textarea", "id": "s3_body", "label": "Body copy" },
+    { "type": "range", "id": "s3_body_size", "label": "Body size", "min": 13, "max": 19, "step": 1, "unit": "px", "default": 15 },
+    { "type": "text", "id": "s3_m1", "label": "Milestone 1", "default": "Using fork and spoon with confidence" },
+    { "type": "text", "id": "s3_m2", "label": "Milestone 2", "default": "Interested in cutting their own food" },
+    { "type": "text", "id": "s3_m3", "label": "Milestone 3", "default": "Eating most family meals" },
+    { "type": "text", "id": "s3_m4", "label": "Milestone 4", "default": "Sitting at the table independently" },
+    { "type": "range", "id": "s3_milestone_size", "label": "Milestone text size", "min": 10, "max": 15, "step": 1, "unit": "px", "default": 12 },
+    { "type": "collection", "id": "s3_collection", "label": "Product collection" },
+    { "type": "text", "id": "s3_cta_label", "label": "Shop CTA label", "default": "Shop Stage 3 →" },
+    { "type": "url", "id": "s3_cta_url", "label": "Shop CTA URL" },
+    { "type": "textarea", "id": "s3_expert_quote", "label": "Expert quote" },
+    { "type": "text", "id": "s3_expert_attr", "label": "Expert attribution" },
+    { "type": "text", "id": "s3_next_heading", "label": "Next stage heading", "default": "Stage 4 — Eating Independently (3–5 years)" },
+    { "type": "textarea", "id": "s3_next_body", "label": "Next stage body" },
+
+    { "type": "header", "content": "Stage 4 — TBD (3–5 years)" },
+    { "type": "paragraph", "content": "Stage 4 content needs writing — see doddl-content-handoff.md §3. Defaults below are placeholders that must be overridden before go-live." },
+    { "type": "text", "id": "s4_name", "label": "Tab name", "default": "Stage 4" },
+    { "type": "text", "id": "s4_age", "label": "Age range", "default": "3–5 years" },
+    { "type": "text", "id": "s4_icon", "label": "Tab icon (emoji)", "default": "🍽️" },
+    { "type": "text", "id": "s4_pill", "label": "Stage pill", "default": "Stage 4 · 3–5 years" },
+    { "type": "text", "id": "s4_heading", "label": "Panel headline", "default": "[TBD — see content handoff]" },
+    { "type": "range", "id": "s4_heading_size", "label": "Panel heading size", "min": 20, "max": 40, "step": 2, "unit": "px", "default": 28 },
+    { "type": "color", "id": "s4_heading_color", "label": "Panel heading colour", "default": "#3D157D" },
+    { "type": "textarea", "id": "s4_body", "label": "Body copy" },
+    { "type": "range", "id": "s4_body_size", "label": "Body size", "min": 13, "max": 19, "step": 1, "unit": "px", "default": 15 },
+    { "type": "text", "id": "s4_m1", "label": "Milestone 1", "default": "[TBD]" },
+    { "type": "text", "id": "s4_m2", "label": "Milestone 2", "default": "[TBD]" },
+    { "type": "text", "id": "s4_m3", "label": "Milestone 3", "default": "[TBD]" },
+    { "type": "text", "id": "s4_m4", "label": "Milestone 4", "default": "[TBD]" },
+    { "type": "range", "id": "s4_milestone_size", "label": "Milestone text size", "min": 10, "max": 15, "step": 1, "unit": "px", "default": 12 },
+    { "type": "collection", "id": "s4_collection", "label": "Product collection" },
+    { "type": "text", "id": "s4_cta_label", "label": "Shop CTA label", "default": "Shop Stage 4 →" },
+    { "type": "url", "id": "s4_cta_url", "label": "Shop CTA URL" },
+    { "type": "textarea", "id": "s4_expert_quote", "label": "Expert quote" },
+    { "type": "text", "id": "s4_expert_attr", "label": "Expert attribution" },
+    { "type": "text", "id": "s4_next_heading", "label": "Next stage heading" },
+    { "type": "textarea", "id": "s4_next_body", "label": "Next stage body" },
+
+    { "type": "header", "content": "Product card sizing (applies to all stage panels)" },
+    { "type": "range", "id": "product_img_size", "label": "Product image size", "min": 140, "max": 300, "step": 20, "unit": "px", "default": 200 },
+    { "type": "range", "id": "product_name_size", "label": "Product name size", "min": 11, "max": 16, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "product_price_size", "label": "Product price size", "min": 12, "max": 18, "step": 1, "unit": "px", "default": 14 }
+  ],
+  "presets": [
+    {
+      "name": "Stage journey tabs"
+    }
+  ]
+}
+{% endschema %}
