@@ -8,28 +8,7 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "section-1": {
-      "settings": {},
-      "blocks": {
-        "block-1": {
-          "settings": {
-            "mobile_image": "shopify://shop_images/website_header_mobile_3.png"
-          }
-        }
-      }
-    },
-    "media_with_text_dhjUyM": {
-      "settings": {},
-      "blocks": {
-        "image_AwtzKF": {
-          "settings": {
-            "content": "<p>doddl products are expertly designed to <strong>maximise the development opportunities</strong> that mealtimes offer your child, all whilst <strong>making mealtimes easier</strong> for the whole family.</p><p>Engineered specifically for tiny hands, we have spent <strong>years researching</strong>, <strong> testing</strong> <strong>and developing </strong>our products alongside child development experts to ensure <strong>doddl genuinely works</strong>.<br/><br/>doddl will help your child<strong> master independent eating</strong>, developing their motor skills, building confidence and developing the skills they'll need to start school succcessfully.</p><p>Recommended by child development specialists, feeding & nutrition experts and occupational therapists, used in nurseries, and made to last, <strong>doddl helps your child succeed every single day.</strong></p>"
-          }
-        }
-      }
-    }
-  },
+  "sections": {},
   "context": {
     "market": "row"
   },

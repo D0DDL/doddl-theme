@@ -467,7 +467,8 @@ LIQUID
     <div class="stage-tabs__tabstrip" role="tablist">
       {%- for i in (0..4) -%}
         {%- assign s = 's' | append: i -%}
-        {%- assign is_active = forloop.index0 == default_active -%}
+        {%- assign is_active = false -%}
+        {%- if forloop.index0 == default_active -%}{%- assign is_active = true -%}{%- endif -%}
         <button
           type="button"
           role="tab"
@@ -493,7 +494,8 @@ LIQUID
     {%- comment -%} Panels {%- endcomment -%}
     {%- for i in (0..4) -%}
       {%- assign s = 's' | append: i -%}
-      {%- assign is_active = forloop.index0 == default_active -%}
+      {%- assign is_active = false -%}
+      {%- if forloop.index0 == default_active -%}{%- assign is_active = true -%}{%- endif -%}
       {%- assign pill_key = s | append: '_pill' -%}
       {%- assign heading_key = s | append: '_heading' -%}
       {%- assign body_key = s | append: '_body' -%}
@@ -617,9 +619,11 @@ LIQUID
               {%- endfor -%}
             </div>
           {%- else -%}
+            {%- assign placeholder_name_key = s | append: '_name' -%}
+            {%- assign placeholder_stage_name = section.settings[placeholder_name_key] | default: 'this stage' -%}
             <div class="stage-tabs__placeholder">
               <p>
-                Products for {{ section.settings[s | append: '_name'] | escape | default: 'this stage' }}
+                Products for {{ placeholder_stage_name | escape }}
                 will appear here once the
                 <code>{{ collection_handle | default: '(collection unset)' | escape }}</code>
                 collection is created in Shopify.

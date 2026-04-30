@@ -12,13 +12,5 @@
     "market": "germany"
   },
   "parent": "index.json",
-  "sections": {
-    "testimonials_aWX3YB": {
-      "settings": {
-        "title": "",
-        "content": "<h2>Real parents. Real mealtime wins. <br/>Over 25,000 5-star reviews.</h2>"
-      },
-      "blocks": {}
-    }
-  }
+  "sections": {}
 }
