@@ -1,0 +1,208 @@
+{%- render 'section-spacing-collapsing' -%}
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+CSS
+
+Shop by Stage — hero. Top of /pages/shop-by-stage. Per build-brief Section 4.1.
+Centred indigo hero with large H1, body copy, sub-CTA arrow text, and a decorative
+concentric-circle SVG top-right (hidden on mobile).
+
+Impact v6.9.1 conventions:
+- Section-scoped CSS variables under #shopify-section-{{ section.id }}
+- Custom element wrapper <sbs-hero> with explicit display:flex (column, centred)
+- No reveal-on-scroll attributes (Impact's global opacity:0 rule hides untracked elements)
+- Decorative circle is inline SVG locked to brand: aqua centre with two faint white rings
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --sbs-hero-bg: {{ section.settings.bg_color.rgb }};
+    --sbs-hero-heading-color: {{ section.settings.heading_color.rgb }};
+    --sbs-hero-heading-size: {{ section.settings.heading_size_m }}px;
+    --sbs-hero-body-size: {{ section.settings.body_size }}px;
+    --sbs-hero-min-height: {{ section.settings.min_height }}px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} {
+      --sbs-hero-heading-size: {{ section.settings.heading_size_d }}px;
+    }
+  }
+
+  /* Wrapper */
+  #shopify-section-{{ section.id }} .sbs-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(var(--sbs-hero-bg));
+    color: rgb(var(--sbs-hero-heading-color));
+    min-height: var(--sbs-hero-min-height);
+    overflow: hidden;
+    padding: var(--spacing-10) var(--spacing-8);
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .sbs-hero {
+      padding: var(--spacing-16) var(--spacing-12);
+    }
+  }
+
+  /* Decorative circle SVG — top right, hidden on mobile */
+  #shopify-section-{{ section.id }} .sbs-hero__decoration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 240px;
+    height: 240px;
+    pointer-events: none;
+    transform: translate(25%, -25%);
+    display: none;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .sbs-hero__decoration {
+      display: block;
+    }
+  }
+
+  @media screen and (min-width: 1400px) {
+    #shopify-section-{{ section.id }} .sbs-hero__decoration {
+      width: 320px;
+      height: 320px;
+    }
+  }
+
+  /* Content stack */
+  #shopify-section-{{ section.id }} .sbs-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 880px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-5);
+  }
+
+  /* Heading */
+  #shopify-section-{{ section.id }} .sbs-hero__heading {
+    margin: 0;
+    font-family: var(--heading-font-family);
+    font-weight: var(--heading-font-weight);
+    font-size: var(--sbs-hero-heading-size);
+    line-height: 1.15;
+    letter-spacing: var(--heading-letter-spacing);
+    color: rgb(var(--sbs-hero-heading-color));
+  }
+
+  #shopify-section-{{ section.id }} .sbs-hero__heading em {
+    font-style: italic;
+    color: rgb(var(--doddl-color-accent));
+  }
+
+  /* Body */
+  #shopify-section-{{ section.id }} .sbs-hero__body {
+    margin: 0 auto;
+    max-width: 60ch;
+    font-size: var(--sbs-hero-body-size);
+    line-height: 1.5;
+    color: rgb(var(--sbs-hero-heading-color) / 0.85);
+  }
+
+  /* Sub-CTA */
+  #shopify-section-{{ section.id }} .sbs-hero__sub-cta {
+    display: inline-block;
+    margin-top: var(--spacing-4);
+    padding: var(--spacing-2) var(--spacing-4);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: rgb(var(--sbs-hero-heading-color) / 0.9);
+    text-decoration: none;
+    background: rgb(var(--sbs-hero-heading-color) / 0.08);
+    border-radius: var(--rounded-full);
+    transition: background-color 200ms ease, transform 200ms ease;
+  }
+
+  #shopify-section-{{ section.id }} a.sbs-hero__sub-cta:hover,
+  #shopify-section-{{ section.id }} a.sbs-hero__sub-cta:focus-visible {
+    background: rgb(var(--sbs-hero-heading-color) / 0.16);
+    transform: translateY(2px);
+  }
+</style>
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+LIQUID
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<div {% render 'section-properties' %}>
+  <sbs-hero class="sbs-hero">
+    {%- if section.settings.show_decoration -%}
+      <svg class="sbs-hero__decoration" viewBox="0 0 200 200" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="92" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="2" />
+        <circle cx="100" cy="100" r="68" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2" />
+        <circle cx="100" cy="100" r="36" fill="rgba(48,190,170,0.55)" />
+      </svg>
+    {%- endif -%}
+
+    <div class="sbs-hero__content">
+      {%- if section.settings.heading != blank -%}
+        {%- assign heading_html = section.settings.heading | replace: '<p>', '' | replace: '</p>', '' -%}
+        <h1 class="sbs-hero__heading">{{ heading_html }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.body != blank -%}
+        <p class="sbs-hero__body">{{ section.settings.body | escape | newline_to_br }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.sub_cta != blank -%}
+        {%- if section.settings.sub_cta_url != blank -%}
+          <a class="sbs-hero__sub-cta" href="{{ section.settings.sub_cta_url }}">{{ section.settings.sub_cta | escape }}</a>
+        {%- else -%}
+          <span class="sbs-hero__sub-cta">{{ section.settings.sub_cta | escape }}</span>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  </sbs-hero>
+</div>
+
+{% schema %}
+{
+  "name": "Shop by stage — hero",
+  "class": "shopify-section--sbs-hero",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    { "type": "header", "content": "Heading" },
+    { "type": "richtext", "id": "heading", "label": "Headline (H1)", "info": "Use <em>emphasised</em> to highlight a phrase in the doddl aqua accent.", "default": "<p>The right tool at the right stage changes everything</p>" },
+    { "type": "range", "id": "heading_size_d", "label": "Heading size — desktop", "min": 32, "max": 68, "step": 2, "unit": "px", "default": 48 },
+    { "type": "range", "id": "heading_size_m", "label": "Heading size — mobile", "min": 24, "max": 48, "step": 2, "unit": "px", "default": 32 },
+    { "type": "color", "id": "heading_color", "label": "Heading colour", "default": "#FFFFFF" },
+
+    { "type": "header", "content": "Body and sub-CTA" },
+    { "type": "textarea", "id": "body", "label": "Body copy", "default": "doddl products are engineered for each stage of your child's development. Find what's right for them right now." },
+    { "type": "range", "id": "body_size", "label": "Body size", "min": 14, "max": 22, "step": 1, "unit": "px", "default": 17 },
+    { "type": "text", "id": "sub_cta", "label": "Sub-CTA text", "info": "Small label below the body. Becomes a link if a URL is set below.", "default": "↓ Select your child's stage below" },
+    { "type": "url", "id": "sub_cta_url", "label": "Sub-CTA URL", "info": "Defaults to #stage-selector — anchors to the stage selector section that follows on the Shop by Stage page. Leave blank to render as plain text.", "default": "#stage-selector" },
+
+    { "type": "header", "content": "Section" },
+    { "type": "color", "id": "bg_color", "label": "Background colour", "default": "#3D157D" },
+    { "type": "checkbox", "id": "show_decoration", "label": "Show decorative circle (top-right)", "info": "Hidden on mobile.", "default": true },
+    { "type": "range", "id": "min_height", "label": "Minimum height — desktop", "min": 280, "max": 560, "step": 20, "unit": "px", "default": 400 }
+  ],
+  "presets": [
+    {
+      "name": "Shop by stage — hero"
+    }
+  ]
+}
+{% endschema %}
