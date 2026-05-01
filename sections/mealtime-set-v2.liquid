@@ -54,11 +54,13 @@
         {%- if block.settings.section_heading != blank -%}
           <h2 class="ms-section-heading" style="font-size: {{ block.settings.heading_size }}px; color: {{ block.settings.heading_color }}; font-weight: {{ block.settings.heading_weight }};">{{ block.settings.section_heading }}</h2>
         {%- endif -%}
-        {%- assign hs_img_url = block.settings.image | image_url: width: 1400 -%}
-        <div class="ms-hotspots__wrap" style="height: {{ block.settings.image_height }}px; {% if block.settings.image != blank %}background-image: url('{{ hs_img_url }}'); background-position: {{ block.settings.image_position }}; background-size: {{ block.settings.image_scale }}%;{% endif %}">
-          {%- if block.settings.image == blank -%}
+        {%- if block.settings.image != blank -%}
+          {%- assign hs_img_url = block.settings.image | image_url: width: 1400 -%}
+          <div class="ms-hotspots__wrap" style="height: {{ block.settings.image_height }}px; background-image: url('{{ hs_img_url }}'); background-position: {{ block.settings.image_position }}; background-size: {{ block.settings.image_scale }}%;">
+        {%- else -%}
+          <div class="ms-hotspots__wrap" style="height: {{ block.settings.image_height }}px;">
             <div class="ms-hotspots__placeholder"></div>
-          {%- endif -%}
+        {%- endif -%}
           {%- for i in (1..6) -%}
             {%- assign hs_name = 'hs_name_' | append: i -%}
             {%- assign hs_desc = 'hs_desc_' | append: i -%}
@@ -210,8 +212,33 @@
           <h2 class="ms-video__heading" style="font-size: {{ block.settings.heading_size }}px; color: {{ block.settings.heading_color }}; font-weight: {{ block.settings.heading_weight }};">{{ block.settings.heading }}</h2>
         {%- endif -%}
         {%- if block.settings.video != blank -%}
-          <div class="ms-video__wrap">
-            {{ block.settings.video | video_tag: autoplay: false, loop: false, controls: true, class: 'ms-video__player' }}
+          {%- assign poster_url = '' -%}
+          {%- if block.settings.poster != blank -%}
+            {%- assign poster_url = block.settings.poster | image_url: width: 1400 -%}
+          {%- endif -%}
+          <div class="ms-video__desktop" style="max-width: {{ block.settings.video_width }}%; margin: 0 auto;">
+            <div class="ms-video__wrap">
+              <video class="ms-video__player" controls playsinline {% if poster_url != blank %}poster="{{ poster_url }}"{% endif %}>
+                {%- for source in block.settings.video.sources -%}
+                  <source src="{{ source.url }}" type="{{ source.mime_type }}">
+                {%- endfor -%}
+              </video>
+            </div>
+          </div>
+        {%- endif -%}
+        {%- if block.settings.video_mobile != blank -%}
+          {%- assign poster_mobile_url = '' -%}
+          {%- if block.settings.poster_mobile != blank -%}
+            {%- assign poster_mobile_url = block.settings.poster_mobile | image_url: width: 800 -%}
+          {%- endif -%}
+          <div class="ms-video__mobile">
+            <div class="ms-video__wrap">
+              <video class="ms-video__player" controls playsinline {% if poster_mobile_url != blank %}poster="{{ poster_mobile_url }}"{% endif %}>
+                {%- for source in block.settings.video_mobile.sources -%}
+                  <source src="{{ source.url }}" type="{{ source.mime_type }}">
+                {%- endfor -%}
+              </video>
+            </div>
           </div>
         {%- endif -%}
       </div>
@@ -563,7 +590,13 @@
         { "type": "range", "id": "heading_size", "label": "Heading size", "min": 14, "max": 36, "step": 1, "default": 22 },
         { "type": "color", "id": "heading_color", "label": "Heading colour", "default": "#3D157D" },
         { "type": "select", "id": "heading_weight", "label": "Heading weight", "options": [{ "value": "600", "label": "Regular" }, { "value": "700", "label": "Bold" }, { "value": "800", "label": "Extra bold" }], "default": "800" },
-        { "type": "video", "id": "video", "label": "Video (Shopify Files)" }
+        { "type": "header", "content": "Desktop video" },
+        { "type": "video", "id": "video", "label": "Desktop video" },
+        { "type": "image_picker", "id": "poster", "label": "Desktop cover image" },
+        { "type": "range", "id": "video_width", "label": "Desktop video width", "min": 20, "max": 100, "step": 5, "default": 100, "unit": "%" },
+        { "type": "header", "content": "Mobile video" },
+        { "type": "video", "id": "video_mobile", "label": "Mobile video (optional - uses desktop if empty)" },
+        { "type": "image_picker", "id": "poster_mobile", "label": "Mobile cover image" }
       ]
     },
     {
