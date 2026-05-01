@@ -1,0 +1,52 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * SEN Feeding Journey sub-page — Building Confidence deep-dive.
+ * URL: /pages/sen-feeding-journey-building-confidence
+ * Template: page.sen-feeding-journey-building-confidence.json
+ *
+ * Single sen-stage-panel section. Body copy, signs, celebration,
+ * family quote, OT quote, and UGC images [TBD] per SEN content brief.
+ *
+ * CRITICAL DESIGN RULE: NO age labels anywhere on this page.
+ * Stage identity is ability-based. Progress is celebrated,
+ * not measured against timelines.
+ *
+ * CTA defaults to /collections/sen-building-confidence via the
+ * collection field fallback.
+ * Next teaser points forward to the Eating Independently sub-page.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "panel": {
+      "type": "sen-stage-panel",
+      "settings": {
+        "stage_id": "building-confidence",
+        "heading": "Building confidence",
+        "sub_heading": "Steadier hands, bigger wins",
+        "body": "[TBD — see SEN content brief: 2–3 sentences, empathetic, no age refs.]",
+        "signs_label": "Signs your child might be here:",
+        "sign_1": "[TBD — sign 1]",
+        "sign_2": "[TBD — sign 2]",
+        "sign_3": "[TBD — sign 3]",
+        "sign_4": "[TBD — sign 4]",
+        "celebration": "[TBD — celebration line]",
+        "cta_label": "Find the right tools →",
+        "collection": "sen-building-confidence",
+        "products_label": "Recommended for this stage",
+        "trust_1": "OT UK",
+        "trust_2": "RCSLT",
+        "next_icon": "→",
+        "next_label": "When the time is right",
+        "next_heading": "Eating independently",
+        "next_body": "[TBD — gentle, non-prescriptive teaser for the Eating Independently stage.]",
+        "next_cta": "Look ahead →",
+        "next_url": "/pages/sen-feeding-journey-eating-independently",
+        "panel_bg": "#FFFFFF"
+      }
+    }
+  },
+  "order": ["panel"]
+}

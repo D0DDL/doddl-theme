@@ -1,0 +1,54 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * SEN Feeding Journey sub-page — Just Starting Out deep-dive.
+ * URL: /pages/sen-feeding-journey-just-starting-out
+ * Template: page.sen-feeding-journey-just-starting-out.json
+ *
+ * Single sen-stage-panel section. Stage 1 (just-starting-out)
+ * is pre-populated from brief §5.2.
+ * Body copy, signs, celebration, quotes, UGC images [TBD] per
+ * SEN content brief.
+ *
+ * CRITICAL DESIGN RULE: NO age labels anywhere on this page.
+ * Stage identity is ability-based. Progress is celebrated,
+ * not measured against timelines.
+ *
+ * CTA defaults to /collections/sen-starting-out via the
+ * collection field fallback.
+ * Next teaser points forward to the Finding Their Grip sub-page.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "panel": {
+      "type": "sen-stage-panel",
+      "settings": {
+        "stage_id": "just-starting-out",
+        "heading": "Just starting out",
+        "sub_heading": "Every journey begins somewhere",
+        "body": "Your child is starting to show interest in mealtimes — watching, reaching, exploring. There's no rush, and no single right path. We meet your child where they are.",
+        "signs_label": "Signs your child might be here:",
+        "sign_1": "Starting to watch you eat and showing curiosity",
+        "sign_2": "Attempting to reach toward food or utensils",
+        "sign_3": "Some hand-to-mouth movement, even if unsteady",
+        "sign_4": "Sitting with support during mealtimes",
+        "celebration": "Every single one of these is worth celebrating — and every one of them is progress.",
+        "cta_label": "Find the right tools →",
+        "collection": "sen-starting-out",
+        "products_label": "Recommended for this stage",
+        "trust_1": "OT UK",
+        "trust_2": "RCSLT",
+        "next_icon": "→",
+        "next_label": "When the time is right",
+        "next_heading": "Finding their grip",
+        "next_body": "When your child starts holding utensils for short stretches and bringing them to their mouth — even messily — they may be ready for the next stage.",
+        "next_cta": "Look ahead →",
+        "next_url": "/pages/sen-feeding-journey-finding-their-grip",
+        "panel_bg": "#FFFFFF"
+      }
+    }
+  },
+  "order": ["panel"]
+}

@@ -1,0 +1,50 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * SEN Feeding Journey sub-page — Eating Independently deep-dive.
+ * URL: /pages/sen-feeding-journey-eating-independently
+ * Template: page.sen-feeding-journey-eating-independently.json
+ *
+ * Single sen-stage-panel section. Body copy, signs, celebration,
+ * family quote, OT quote, and UGC images [TBD] per SEN content brief.
+ *
+ * CRITICAL DESIGN RULE: NO age labels anywhere on this page.
+ * Stage identity is ability-based. Progress is celebrated,
+ * not measured against timelines.
+ *
+ * CTA defaults to /collections/sen-eating-independently via the
+ * collection field fallback.
+ * No next-stage teaser — this is the final stage.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "panel": {
+      "type": "sen-stage-panel",
+      "settings": {
+        "stage_id": "eating-independently",
+        "heading": "Eating independently",
+        "sub_heading": "Family meals, on their terms",
+        "body": "[TBD — see SEN content brief: 2–3 sentences, empathetic, no age refs.]",
+        "signs_label": "Signs your child might be here:",
+        "sign_1": "[TBD — sign 1]",
+        "sign_2": "[TBD — sign 2]",
+        "sign_3": "[TBD — sign 3]",
+        "sign_4": "[TBD — sign 4]",
+        "celebration": "[TBD — celebration line]",
+        "cta_label": "Find the right tools →",
+        "collection": "sen-eating-independently",
+        "products_label": "Recommended for this stage",
+        "trust_1": "OT UK",
+        "trust_2": "RCSLT",
+        "next_heading": "",
+        "next_body": "",
+        "next_cta": "",
+        "next_url": "",
+        "panel_bg": "#FFFFFF"
+      }
+    }
+  },
+  "order": ["panel"]
+}
