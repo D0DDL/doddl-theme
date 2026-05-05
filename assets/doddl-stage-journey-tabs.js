@@ -84,3 +84,9 @@
     }
   });
 })();
+
+// Shopify theme editor: re-init when editor selects this section
+document.addEventListener('shopify:section:select', (e) => {
+  const comp = e.target.querySelector('stage-journey-tabs');
+  if (comp && typeof comp.connectedCallback === 'function') comp.connectedCallback();
+});
