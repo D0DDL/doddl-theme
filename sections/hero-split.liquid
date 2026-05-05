@@ -20,8 +20,6 @@ Impact v6.9.1 conventions:
 
 <style>
   #shopify-section-{{ section.id }} {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
     --hero-split-bg: {{ section.settings.section_bg.rgb }};
     --hero-split-min-height: 0px;
     --hero-split-image-height: {{ section.settings.image_height_mobile }}px;
@@ -32,6 +30,11 @@ Impact v6.9.1 conventions:
     --hero-split-body-size: {{ section.settings.body_size }}px;
     --hero-split-body-color: {{ section.settings.body_color.rgb }};
     --hero-split-cta1-color: {{ section.settings.cta1_color.rgb }};
+  }
+
+  #shopify-section-{{ section.id }} .section {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   @media screen and (min-width: 1000px) {
