@@ -27,6 +27,8 @@ Impact v6.9.1 conventions:
     --trust-bar-label-size: {{ section.settings.label_size }}px;
     --trust-bar-label-color: {{ section.settings.label_color.rgb }};
     --trust-bar-divider-color: {{ section.settings.divider_color.rgb }};
+    --trust-bar-number-weight: {% if section.settings.number_bold %}800{% else %}400{% endif %};
+    --trust-bar-label-weight: {% if section.settings.label_bold %}700{% else %}400{% endif %};
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
@@ -82,7 +84,7 @@ Impact v6.9.1 conventions:
   /* Stat */
   #shopify-section-{{ section.id }} .trust-bar__stat {
     font-family: var(--heading-font-family);
-    font-weight: 800;
+    font-weight: var(--trust-bar-number-weight);
     font-size: var(--trust-bar-stat-size);
     line-height: 1.1;
     color: rgb(var(--trust-bar-stat-color));
@@ -93,6 +95,12 @@ Impact v6.9.1 conventions:
     font-size: var(--trust-bar-label-size);
     line-height: 1.3;
     color: rgb(var(--trust-bar-label-color));
+    font-weight: var(--trust-bar-label-weight);
+  }
+
+  #shopify-section-{{ section.id }} .trust-bar__stat-suffix {
+    color: #ffffff;
+    font-weight: inherit;
   }
 </style>
 
@@ -113,7 +121,7 @@ LIQUID
                 <span class="trust-bar__icon" aria-hidden="true">{{ block.settings.icon | escape }}</span>
               {%- endif -%}
               {%- if block.settings.stat != blank -%}
-                <span class="trust-bar__stat">{{ block.settings.stat | escape }}</span>
+                <span class="trust-bar__stat">{{ block.settings.stat | escape }}{%- if block.settings.stat_suffix != blank -%}<span class="trust-bar__stat-suffix">{{ block.settings.stat_suffix | escape }}</span>{%- endif -%}</span>
               {%- endif -%}
               {%- if block.settings.label != blank -%}
                 <span class="trust-bar__label">{{ block.settings.label | escape }}</span>
@@ -165,6 +173,12 @@ LIQUID
       "default": 20
     },
     {
+      "type": "checkbox",
+      "id": "number_bold",
+      "label": "Bold stat numbers",
+      "default": true
+    },
+    {
       "type": "color",
       "id": "number_color",
       "label": "Stat colour",
@@ -183,6 +197,12 @@ LIQUID
       "step": 1,
       "unit": "px",
       "default": 11
+    },
+    {
+      "type": "checkbox",
+      "id": "label_bold",
+      "label": "Bold labels",
+      "default": false
     },
     {
       "type": "color",
@@ -208,6 +228,12 @@ LIQUID
           "id": "stat",
           "label": "Stat (big number or short phrase)",
           "default": "25,000+"
+        },
+        {
+          "type": "text",
+          "id": "stat_suffix",
+          "label": "Stat suffix (displays in white)",
+          "info": "e.g. + or ✓ — renders white while the main stat stays in the stat colour"
         },
         {
           "type": "text",

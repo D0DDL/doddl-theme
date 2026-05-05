@@ -37,19 +37,19 @@
       "blocks": {
         "metric_1": {
           "type": "trust_metric",
-          "settings": { "icon": "", "stat": "25,000+", "label": "Verified reviews" }
+          "settings": { "icon": "", "stat": "25,000", "stat_suffix": "+", "label": "Verified reviews" }
         },
         "metric_2": {
           "type": "trust_metric",
-          "settings": { "icon": "", "stat": "5", "label": "Developmental stages covered" }
+          "settings": { "icon": "", "stat": "5", "stat_suffix": "", "label": "Developmental stages covered" }
         },
         "metric_3": {
           "type": "trust_metric",
-          "settings": { "icon": "", "stat": "500+", "label": "Parents trust doddl across the UK" }
+          "settings": { "icon": "", "stat": "500", "stat_suffix": "+", "label": "Parents trust doddl across the UK" }
         },
         "metric_4": {
           "type": "trust_metric",
-          "settings": { "icon": "", "stat": "OT✓", "label": "Occupational therapist recommended" }
+          "settings": { "icon": "", "stat": "OT", "stat_suffix": "✓", "label": "Occupational therapist recommended" }
         }
       },
       "block_order": ["metric_1", "metric_2", "metric_3", "metric_4"]
