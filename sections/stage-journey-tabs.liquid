@@ -615,6 +615,20 @@ Anchor ID configurable, default "stage-tabs" so the hero-split CTA can scroll he
     display: none;
   }
 
+
+  /* Stage pill — match each stage badge colour */
+  #shopify-section-{{ section.id }} [id$="-0"] .stage-tabs__pill { background-color: {{ section.settings.s0_badge_color | default: "#C8901A" }}; }
+  #shopify-section-{{ section.id }} [id$="-1"] .stage-tabs__pill { background-color: {{ section.settings.s1_badge_color | default: "#C4717A" }}; }
+  #shopify-section-{{ section.id }} [id$="-2"] .stage-tabs__pill { background-color: {{ section.settings.s2_badge_color | default: "#8B7BAF" }}; }
+  #shopify-section-{{ section.id }} [id$="-3"] .stage-tabs__pill { background-color: {{ section.settings.s3_badge_color | default: "#3A8A7D" }}; }
+  #shopify-section-{{ section.id }} [id$="-4"] .stage-tabs__pill { background-color: {{ section.settings.s4_badge_color | default: "#6B7280" }}; }
+
+  /* Hide stage 4 tab and panel when disabled */
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="4"],
+  #shopify-section-{{ section.id }} [id$="-4"].stage-tabs__panel {
+    {% unless section.settings.show_stage_4 %}display: none !important;{% endunless %}
+  }
+
 </style>
 
 {%- comment -%}
@@ -924,6 +938,7 @@ LIQUID
     { "type": "color", "id": "s2_badge_color", "label": "Stage 2 badge colour", "default": "#A78BFA" },
     { "type": "color", "id": "s3_badge_color", "label": "Stage 3 badge colour", "default": "#60A5FA" },
     { "type": "color", "id": "s4_badge_color", "label": "Stage 4 badge colour", "default": "#9CA3AF" },
+    { "type": "checkbox", "id": "show_stage_4", "label": "Show Stage 4 tab", "default": false },
     { "type": "color", "id": "s0_panel_bg", "label": "Stage 0 panel background", "default": "#FDF6EE" },
     { "type": "color", "id": "s1_panel_bg", "label": "Stage 1 panel background", "default": "#FDF5F5" },
     { "type": "color", "id": "s2_panel_bg", "label": "Stage 2 panel background", "default": "#F5F4F8" },

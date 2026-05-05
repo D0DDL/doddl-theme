@@ -80,6 +80,7 @@
         "s2_badge_color": "#8B7BAF",
         "s3_badge_color": "#3A8A7D",
         "s4_badge_color": "#6B7280",
+        "show_stage_4": false,
         "s0_heading": "Your journey starts soon",
         "s0_body": "At doddl we've spent over 10 years studying how children's fine motor-skills develop so when you think your baby is ready to start eating, explore Stage 1. In the meantime, you can help your baby get ready to self-feed right now.",
         "s0_m1": "Offer different objects to grasp",
