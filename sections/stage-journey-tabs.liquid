@@ -64,6 +64,16 @@ Anchor ID configurable, default "stage-tabs" so the hero-split CTA can scroll he
     color: rgb(var(--tabs-intro-heading-color));
   }
 
+  #shopify-section-{{ section.id }} .stage-tabs__heading-main {
+    display: block;
+    color: rgb(var(--tabs-intro-heading-color));
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__heading-accent {
+    display: block;
+    color: rgb(var(--tabs-active-color));
+  }
+
   #shopify-section-{{ section.id }} .stage-tabs__intro-body {
     margin: 0 0 var(--spacing-4);
     font-size: var(--tabs-intro-body-size);
@@ -446,12 +456,17 @@ LIQUID
         <p class="stage-tabs__eyebrow">{{ section.settings.intro_tag | escape }}</p>
       {%- endif -%}
 
-      {%- if section.settings.intro_heading != blank -%}
-        <h2 class="stage-tabs__heading">{{ section.settings.intro_heading }}</h2>
-      {%- endif -%}
+      <h2 class="stage-tabs__heading">
+        {%- if section.settings.intro_heading_1 != blank -%}
+          <span class="stage-tabs__heading-main">{{ section.settings.intro_heading_1 | escape }}</span>
+        {%- endif -%}
+        {%- if section.settings.intro_heading_2 != blank -%}
+          <span class="stage-tabs__heading-accent">{{ section.settings.intro_heading_2 | escape }}</span>
+        {%- endif -%}
+      </h2>
 
-      {%- if section.settings.intro_body != blank -%}
-        <p class="stage-tabs__intro-body">{{ section.settings.intro_body | escape | newline_to_br }}</p>
+      {%- if section.settings.intro_body_text != blank -%}
+        <p class="stage-tabs__intro-body">{{ section.settings.intro_body_text | escape | newline_to_br }}</p>
       {%- endif -%}
 
       {%- if section.settings.sub_heading != blank -%}
@@ -693,10 +708,11 @@ LIQUID
 
     { "type": "header", "content": "Intro block" },
     { "type": "text", "id": "intro_tag", "label": "Eyebrow tag", "default": "The doddl journey" },
-    { "type": "richtext", "id": "intro_heading", "label": "Heading (H2)", "default": "<p>The right tool at the right stage.</p>" },
+    { "type": "text", "id": "intro_heading_1", "label": "Heading line 1 (main colour)", "default": "The right tool at the" },
+    { "type": "text", "id": "intro_heading_2", "label": "Heading line 2 (accent colour)", "default": "right stage" },
     { "type": "range", "id": "intro_heading_size", "label": "Heading size", "min": 22, "max": 44, "step": 2, "unit": "px", "default": 32 },
     { "type": "color", "id": "intro_heading_color", "label": "Heading colour", "default": "#3D157D" },
-    { "type": "textarea", "id": "intro_body", "label": "Body copy", "default": "Every child develops differently. Find the right doddl tools for where they are right now." },
+    { "type": "textarea", "id": "intro_body_text", "label": "Intro body text", "default": "Every child develops at their own pace — but the developmental window for each stage is real, and the right tool makes a measurable difference. doddl is engineered for exactly where your child is right now." },
     { "type": "range", "id": "intro_body_size", "label": "Body size", "min": 13, "max": 20, "step": 1, "unit": "px", "default": 16 },
     { "type": "text", "id": "sub_heading", "label": "Sub-heading", "default": "Explore each stage" },
     { "type": "range", "id": "sub_heading_size", "label": "Sub-heading size", "min": 14, "max": 24, "step": 1, "unit": "px", "default": 18 },
