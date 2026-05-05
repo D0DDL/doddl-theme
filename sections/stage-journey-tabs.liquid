@@ -83,10 +83,11 @@ Anchor ID configurable, default "stage-tabs" so the hero-split CTA can scroll he
   }
 
   #shopify-section-{{ section.id }} .stage-tabs__sub-heading {
-    margin: var(--spacing-4) 0 var(--spacing-1);
-    font-weight: 700;
-    font-size: var(--tabs-sub-heading-size);
-    color: rgb(var(--tabs-intro-heading-color));
+    text-align: left;
+    font-size: 32px;
+    font-weight: 800;
+    color: rgb(var(--text-primary));
+    margin: 0 0 var(--spacing-4);
   }
 
   #shopify-section-{{ section.id }} .stage-tabs__instruction {
@@ -511,6 +512,25 @@ Anchor ID configurable, default "stage-tabs" so the hero-split CTA can scroll he
     padding-top: 0 !important;
   }
 
+  /* Per-stage badge colours */
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="0"] .stage-tabs__tab-badge { background: {{ section.settings.s0_badge_color | default: "#E8A020" }}; color: #fff; }
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="1"] .stage-tabs__tab-badge { background: {{ section.settings.s1_badge_color | default: "#2DD4BF" }}; color: #fff; }
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="2"] .stage-tabs__tab-badge { background: {{ section.settings.s2_badge_color | default: "#A78BFA" }}; color: #fff; }
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="3"] .stage-tabs__tab-badge { background: {{ section.settings.s3_badge_color | default: "#60A5FA" }}; color: #fff; }
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="4"] .stage-tabs__tab-badge { background: {{ section.settings.s4_badge_color | default: "#9CA3AF" }}; color: #fff; }
+
+  /* Active tab: border and name colour match stage badge colour */
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="0"].is-active { border-bottom-color: {{ section.settings.s0_badge_color | default: "#E8A020" }}; }
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="1"].is-active { border-bottom-color: {{ section.settings.s1_badge_color | default: "#2DD4BF" }}; }
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="2"].is-active { border-bottom-color: {{ section.settings.s2_badge_color | default: "#A78BFA" }}; }
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="3"].is-active { border-bottom-color: {{ section.settings.s3_badge_color | default: "#60A5FA" }}; }
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="4"].is-active { border-bottom-color: {{ section.settings.s4_badge_color | default: "#9CA3AF" }}; }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="0"].is-active .stage-tabs__tab-name { color: {{ section.settings.s0_badge_color | default: "#E8A020" }}; }
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="1"].is-active .stage-tabs__tab-name { color: {{ section.settings.s1_badge_color | default: "#2DD4BF" }}; }
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="2"].is-active .stage-tabs__tab-name { color: {{ section.settings.s2_badge_color | default: "#A78BFA" }}; }
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="3"].is-active .stage-tabs__tab-name { color: {{ section.settings.s3_badge_color | default: "#60A5FA" }}; }
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="4"].is-active .stage-tabs__tab-name { color: {{ section.settings.s4_badge_color | default: "#9CA3AF" }}; }
 
 </style>
 
@@ -812,6 +832,11 @@ LIQUID
     { "type": "color", "id": "tab_badge_color", "label": "Stage number badge colour", "default": "#2f1562" },
     { "type": "color", "id": "tab_badge_active_color", "label": "Active stage badge colour", "default": "#2dd4bf" },
     { "type": "range", "id": "tab_image_size", "label": "Tab image size", "min": 56, "max": 120, "step": 4, "default": 88, "unit": "px" },
+    { "type": "color", "id": "s0_badge_color", "label": "Stage 0 badge colour", "default": "#E8A020" },
+    { "type": "color", "id": "s1_badge_color", "label": "Stage 1 badge colour", "default": "#2DD4BF" },
+    { "type": "color", "id": "s2_badge_color", "label": "Stage 2 badge colour", "default": "#A78BFA" },
+    { "type": "color", "id": "s3_badge_color", "label": "Stage 3 badge colour", "default": "#60A5FA" },
+    { "type": "color", "id": "s4_badge_color", "label": "Stage 4 badge colour", "default": "#9CA3AF" },
 
     { "type": "header", "content": "Stage 0 — basics" },
     { "type": "text", "id": "s0_name", "label": "Tab name", "default": "Stage 0" },

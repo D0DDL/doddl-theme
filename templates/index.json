@@ -68,7 +68,12 @@
         "s1_name": "First Foods",
         "s2_name": "Building Control",
         "s3_name": "Growing Skills",
-        "s4_name": "Little Adult"
+        "s4_name": "Little Adult",
+        "s0_badge_color": "#E8A020",
+        "s1_badge_color": "#2DD4BF",
+        "s2_badge_color": "#A78BFA",
+        "s3_badge_color": "#60A5FA",
+        "s4_badge_color": "#9CA3AF"
       }
     }
   },
