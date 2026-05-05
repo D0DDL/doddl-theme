@@ -239,7 +239,7 @@ Anchor ID configurable, default "stage-tabs" so the hero-split CTA can scroll he
   }
 
   #shopify-section-{{ section.id }} .stage-tabs__panel.is-active {
-    display: block;
+    display: grid;
   }
 
   #shopify-section-{{ section.id }} .stage-tabs__pill {
@@ -530,6 +530,91 @@ Anchor ID configurable, default "stage-tabs" so the hero-split CTA can scroll he
   #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="3"].is-active { border-bottom-color: {{ section.settings.s3_badge_color | default: "#60A5FA" }}; }
   #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="4"].is-active { border-bottom-color: {{ section.settings.s4_badge_color | default: "#9CA3AF" }}; }
 
+
+  /* Per-stage panel backgrounds */
+  #shopify-section-{{ section.id }} [id$="-0"].stage-tabs__panel { background-color: {{ section.settings.s0_panel_bg | default: "#FDF6EE" }}; }
+  #shopify-section-{{ section.id }} [id$="-1"].stage-tabs__panel { background-color: {{ section.settings.s1_panel_bg | default: "#FDF5F5" }}; }
+  #shopify-section-{{ section.id }} [id$="-2"].stage-tabs__panel { background-color: {{ section.settings.s2_panel_bg | default: "#F5F4F8" }}; }
+  #shopify-section-{{ section.id }} [id$="-3"].stage-tabs__panel { background-color: {{ section.settings.s3_panel_bg | default: "#EFF7F5" }}; }
+  #shopify-section-{{ section.id }} [id$="-4"].stage-tabs__panel { background-color: {{ section.settings.s4_panel_bg | default: "#F5F5F6" }}; }
+
+  /* Two-column panel layout */
+  #shopify-section-{{ section.id }} .stage-tabs__panel {
+    grid-template-columns: 2fr 3fr;
+    gap: var(--spacing-8);
+    padding: var(--spacing-10) var(--container-gutter);
+    align-items: start;
+  }
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .stage-tabs__panel {
+      grid-template-columns: 1fr;
+      padding: var(--spacing-6) var(--container-gutter);
+    }
+  }
+
+  /* Left column groups */
+  #shopify-section-{{ section.id }} .stage-tabs__panel-left {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+  }
+
+  /* Right column groups */
+  #shopify-section-{{ section.id }} .stage-tabs__panel-right {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+  }
+
+  /* Milestone bullets — colored dots */
+  #shopify-section-{{ section.id }} .stage-tabs__milestones {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+  }
+  #shopify-section-{{ section.id }} .stage-tabs__milestone {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-2);
+    font-size: 14px;
+    color: rgb(var(--text-primary));
+    padding: 0;
+    border: none;
+    background: none;
+  }
+  #shopify-section-{{ section.id }} .stage-tabs__milestone::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  #shopify-section-{{ section.id }} [id$="-0"] .stage-tabs__milestone::before { background: {{ section.settings.s0_badge_color | default: "#C8901A" }}; }
+  #shopify-section-{{ section.id }} [id$="-1"] .stage-tabs__milestone::before { background: {{ section.settings.s1_badge_color | default: "#C4717A" }}; }
+  #shopify-section-{{ section.id }} [id$="-2"] .stage-tabs__milestone::before { background: {{ section.settings.s2_badge_color | default: "#8B7BAF" }}; }
+  #shopify-section-{{ section.id }} [id$="-3"] .stage-tabs__milestone::before { background: {{ section.settings.s3_badge_color | default: "#3A8A7D" }}; }
+  #shopify-section-{{ section.id }} [id$="-4"] .stage-tabs__milestone::before { background: {{ section.settings.s4_badge_color | default: "#6B7280" }}; }
+
+  /* Products label */
+  #shopify-section-{{ section.id }} .stage-tabs__products-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgb(var(--text-primary) / 0.5);
+    margin-bottom: var(--spacing-2);
+  }
+
+  /* Expert and next stage move to bottom of left col on desktop */
+  #shopify-section-{{ section.id }} .stage-tabs__expert,
+  #shopify-section-{{ section.id }} .stage-tabs__next {
+    display: none;
+  }
+
 </style>
 
 {%- comment -%}
@@ -625,6 +710,7 @@ LIQUID
         role="tabpanel"
         aria-hidden="{% if is_active %}false{% else %}true{% endif %}"
       >
+        <div class="stage-tabs__panel-left">
         {%- if section.settings[pill_key] != blank -%}
           <span class="stage-tabs__pill">{{ section.settings[pill_key] | escape }}</span>
         {%- endif -%}
@@ -654,7 +740,9 @@ LIQUID
             {%- endfor -%}
           </ul>
         {%- endif -%}
+        </div><!-- end panel-left -->
 
+        <div class="stage-tabs__panel-right">
         {%- if i == 0 -%}
           {%- comment -%} Stage 0: email capture {%- endcomment -%}
           <div class="stage-tabs__email">
@@ -754,6 +842,7 @@ LIQUID
             </div>
           {%- endif -%}
         {%- endif -%}
+        </div><!-- end panel-right -->
 
         {%- comment -%} Expert quote {%- endcomment -%}
         {%- assign expert_quote_key = s | append: '_expert_quote' -%}
@@ -835,6 +924,11 @@ LIQUID
     { "type": "color", "id": "s2_badge_color", "label": "Stage 2 badge colour", "default": "#A78BFA" },
     { "type": "color", "id": "s3_badge_color", "label": "Stage 3 badge colour", "default": "#60A5FA" },
     { "type": "color", "id": "s4_badge_color", "label": "Stage 4 badge colour", "default": "#9CA3AF" },
+    { "type": "color", "id": "s0_panel_bg", "label": "Stage 0 panel background", "default": "#FDF6EE" },
+    { "type": "color", "id": "s1_panel_bg", "label": "Stage 1 panel background", "default": "#FDF5F5" },
+    { "type": "color", "id": "s2_panel_bg", "label": "Stage 2 panel background", "default": "#F5F4F8" },
+    { "type": "color", "id": "s3_panel_bg", "label": "Stage 3 panel background", "default": "#EFF7F5" },
+    { "type": "color", "id": "s4_panel_bg", "label": "Stage 4 panel background", "default": "#F5F5F6" },
 
     { "type": "header", "content": "Stage 0 — basics" },
     { "type": "text", "id": "s0_name", "label": "Tab name", "default": "Stage 0" },
