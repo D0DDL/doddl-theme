@@ -16,11 +16,13 @@
     }
 
     connectedCallback() {
+      requestAnimationFrame(() => this._init());
+    }
+
+    _init() {
       this._tabs = Array.from(this.querySelectorAll('[data-stage-tab]'));
       this._panels = Array.from(this.querySelectorAll('[data-stage-panel]'));
-
       this._tabs.forEach((tab) => tab.addEventListener('click', this._onTabClick));
-
       this._highlightBestValue();
       this._activateFromUrl();
     }
@@ -80,7 +82,7 @@
   document.addEventListener('shopify:section:load', function (event) {
     const root = event.target.querySelector('stage-journey-tabs');
     if (root && typeof root.connectedCallback === 'function') {
-      root.connectedCallback();
+      root._init ? root._init() : root.connectedCallback();
     }
   });
 })();
@@ -88,5 +90,5 @@
 // Shopify theme editor: re-init when editor selects this section
 document.addEventListener('shopify:section:select', (e) => {
   const comp = e.target.querySelector('stage-journey-tabs');
-  if (comp && typeof comp.connectedCallback === 'function') comp.connectedCallback();
+  if (comp && typeof comp.connectedCallback === 'function') comp._init ? comp._init() : comp.connectedCallback();
 });
