@@ -16,7 +16,7 @@
     }
 
     connectedCallback() {
-      requestAnimationFrame(() => this._init());
+      setTimeout(() => this._init(), 0);
     }
 
     _init() {
