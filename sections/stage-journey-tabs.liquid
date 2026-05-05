@@ -452,21 +452,23 @@ LIQUID
 
     {%- comment -%} Intro block {%- endcomment -%}
     <div class="stage-tabs__intro">
-      {%- if section.settings.intro_tag != blank -%}
-        <p class="stage-tabs__eyebrow">{{ section.settings.intro_tag | escape }}</p>
-      {%- endif -%}
-
-      <h2 class="stage-tabs__heading">
-        {%- if section.settings.intro_heading_1 != blank -%}
-          <span class="stage-tabs__heading-main">{{ section.settings.intro_heading_1 | escape }}</span>
+      {%- if section.settings.show_intro -%}
+        {%- if section.settings.intro_tag != blank -%}
+          <p class="stage-tabs__eyebrow">{{ section.settings.intro_tag | escape }}</p>
         {%- endif -%}
-        {%- if section.settings.intro_heading_2 != blank -%}
-          <span class="stage-tabs__heading-accent">{{ section.settings.intro_heading_2 | escape }}</span>
-        {%- endif -%}
-      </h2>
 
-      {%- if section.settings.intro_body_text != blank -%}
-        <p class="stage-tabs__intro-body">{{ section.settings.intro_body_text | escape | newline_to_br }}</p>
+        <h2 class="stage-tabs__heading">
+          {%- if section.settings.intro_heading_1 != blank -%}
+            <span class="stage-tabs__heading-main">{{ section.settings.intro_heading_1 | escape }}</span>
+          {%- endif -%}
+          {%- if section.settings.intro_heading_2 != blank -%}
+            <span class="stage-tabs__heading-accent">{{ section.settings.intro_heading_2 | escape }}</span>
+          {%- endif -%}
+        </h2>
+
+        {%- if section.settings.intro_body_text != blank -%}
+          <p class="stage-tabs__intro-body">{{ section.settings.intro_body_text | escape | newline_to_br }}</p>
+        {%- endif -%}
       {%- endif -%}
 
       {%- if section.settings.sub_heading != blank -%}
@@ -707,6 +709,7 @@ LIQUID
     },
 
     { "type": "header", "content": "Intro block" },
+    { "type": "checkbox", "id": "show_intro", "label": "Show built-in intro (disable if using Stage Intro section above)", "default": false },
     { "type": "text", "id": "intro_tag", "label": "Eyebrow tag", "default": "The doddl journey" },
     { "type": "text", "id": "intro_heading_1", "label": "Heading line 1 (main colour)", "default": "The right tool at the" },
     { "type": "text", "id": "intro_heading_2", "label": "Heading line 2 (accent colour)", "default": "right stage" },

@@ -54,6 +54,10 @@
       },
       "block_order": ["metric_1", "metric_2", "metric_3", "metric_4"]
     },
+    "stage_intro": {
+      "type": "stage-intro",
+      "settings": {}
+    },
     "stage_journey_tabs": {
       "type": "stage-journey-tabs",
       "settings": {
@@ -66,6 +70,7 @@
   "order": [
     "hero_split",
     "trust_bar",
+    "stage_intro",
     "stage_journey_tabs"
   ]
 }
