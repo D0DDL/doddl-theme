@@ -63,7 +63,12 @@
       "settings": {
         "intro_heading_1": "The right tool at the",
         "intro_heading_2": "right stage",
-        "intro_body_text": "Every child develops at their own pace — but the developmental window for each stage is real, and the right tool makes a measurable difference. doddl is engineered for exactly where your child is right now."
+        "intro_body_text": "Every child develops at their own pace — but the developmental window for each stage is real, and the right tool makes a measurable difference. doddl is engineered for exactly where your child is right now.",
+        "s0_name": "Preparing",
+        "s1_name": "First Foods",
+        "s2_name": "Building Control",
+        "s3_name": "Growing Skills",
+        "s4_name": "Little Adult"
       }
     }
   },

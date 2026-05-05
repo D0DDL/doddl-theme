@@ -577,12 +577,12 @@ LIQUID
           {%- assign tab_img = section.settings[img_key] -%}
           {%- if tab_img != blank -%}
             <span class="stage-tabs__tab-image-wrap">
-              <img src="{{ tab_img | image_url: width: 200 }}" alt="{{ section.settings[name_key] | escape }}" width="88" height="88" loading="lazy" class="stage-tabs__tab-img">
+              <img src="{{ tab_img | image_url: width: 200 }}" alt="{{ section.settings[name_key] | escape }}" width="88" height="88" loading="eager" class="stage-tabs__tab-img">
             </span>
-            <span class="stage-tabs__tab-badge" aria-hidden="true">{{ i }}</span>
           {%- elsif section.settings[icon_key] != blank -%}
             <span class="stage-tabs__tab-icon--emoji" aria-hidden="true">{{ section.settings[icon_key] | escape }}</span>
           {%- endif -%}
+          <span class="stage-tabs__tab-badge" aria-hidden="true">{{ i }}</span>
           <span class="stage-tabs__tab-name">{{ section.settings[name_key] | escape }}</span>
           {%- if section.settings[age_key] != blank -%}
             <span class="stage-tabs__tab-age">{{ section.settings[age_key] | escape }}</span>
