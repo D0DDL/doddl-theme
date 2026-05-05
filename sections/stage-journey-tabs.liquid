@@ -30,7 +30,7 @@ Anchor ID configurable, default "stage-tabs" so the hero-split CTA can scroll he
     --tabs-product-img-size: {{ section.settings.product_img_size }}px;
     --tabs-product-name-size: {{ section.settings.product_name_size }}px;
     --tabs-product-price-size: {{ section.settings.product_price_size }}px;
-    --tabs-image-size: {{ section.settings.tab_image_size | default: 72 }}px;
+    --tabs-image-size: {{ section.settings.tab_image_size | default: 88 }}px;
   }
 
   /* Wrapper */
@@ -98,66 +98,135 @@ Anchor ID configurable, default "stage-tabs" so the hero-split CTA can scroll he
   /* Tab strip */
   #shopify-section-{{ section.id }} .stage-tabs__tabstrip {
     display: flex;
+    justify-content: center;
+    gap: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    background-color: rgb(var(--tabs-tab-bg));
-    border-bottom: 1px solid rgb(var(--text-primary) / 0.08);
   }
-
-  #shopify-section-{{ section.id }} .stage-tabs__tabstrip::-webkit-scrollbar {
-    display: none;
-  }
-
-  @media screen and (min-width: 1000px) {
-    #shopify-section-{{ section.id }} .stage-tabs__tabstrip {
-      overflow-x: visible;
-      justify-content: center;
-    }
-  }
+  #shopify-section-{{ section.id }} .stage-tabs__tabstrip::-webkit-scrollbar { display: none; }
 
   #shopify-section-{{ section.id }} .stage-tabs__tab {
-    flex: 0 0 40%;
-    scroll-snap-align: start;
+    flex: 1;
+    min-width: 120px;
+    max-width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-1);
-    padding: var(--spacing-4) var(--spacing-5);
-    background: transparent;
-    border: 0;
-    border-bottom: 2px solid transparent;
+    gap: 0;
+    padding: var(--spacing-6) var(--spacing-3) var(--spacing-4);
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
     cursor: pointer;
+    position: relative;
+    transition: border-color 0.2s;
     font-family: inherit;
-    color: rgb(var(--text-primary));
-    transition: border-color 120ms ease;
-  }
-
-  @media screen and (min-width: 1000px) {
-    #shopify-section-{{ section.id }} .stage-tabs__tab {
-      flex: 0 0 auto;
-      min-width: 140px;
-    }
   }
 
   #shopify-section-{{ section.id }} .stage-tabs__tab.is-active {
     border-bottom-color: rgb(var(--tabs-active-color));
   }
 
-  #shopify-section-{{ section.id }} .stage-tabs__tab-icon {
-    font-size: 24px;
+  #shopify-section-{{ section.id }} .stage-tabs__tab-image-wrap {
+    position: relative;
+    width: {{ section.settings.tab_image_size | default: 88 }}px;
+    height: {{ section.settings.tab_image_size | default: 88 }}px;
+    margin-bottom: var(--spacing-3);
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid transparent;
+    transition: border-color 0.2s;
+    background: #f0ecff;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab.is-active .stage-tabs__tab-img {
+    border-color: rgb(var(--tabs-active-color));
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #e8e2f7;
+    color: #2f1562;
+    font-size: 16px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     line-height: 1;
+    margin-bottom: var(--spacing-2);
+    transition: background 0.2s, color 0.2s;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab.is-active .stage-tabs__tab-badge {
+    background: rgb(var(--tabs-active-color));
+    color: #ffffff;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab-icon--emoji {
+    width: {{ section.settings.tab_image_size | default: 88 }}px;
+    height: {{ section.settings.tab_image_size | default: 88 }}px;
+    border-radius: 50%;
+    background: #f0ecff;
+    border: 3px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    margin-bottom: var(--spacing-3);
+    transition: border-color 0.2s;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab.is-active .stage-tabs__tab-icon--emoji {
+    border-color: rgb(var(--tabs-active-color));
   }
 
   #shopify-section-{{ section.id }} .stage-tabs__tab-name {
-    font-size: var(--tabs-tab-font-size);
-    font-weight: 700;
+    font-size: {{ section.settings.tab_font_size | default: 12 }}px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #2f1562;
+    margin-bottom: 2px;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab.is-active .stage-tabs__tab-name {
+    color: rgb(var(--tabs-active-color));
   }
 
   #shopify-section-{{ section.id }} .stage-tabs__tab-age {
-    font-size: var(--tabs-tab-age-size);
-    color: rgb(var(--text-primary) / 0.6);
+    font-size: {{ section.settings.tab_age_size | default: 11 }}px;
+    color: rgb(var(--text-primary) / 0.5);
+    text-align: center;
+  }
+
+  @media screen and (max-width: 699px) {
+    #shopify-section-{{ section.id }} .stage-tabs__tab {
+      min-width: 80px;
+      padding: var(--spacing-4) var(--spacing-2) var(--spacing-3);
+    }
+    #shopify-section-{{ section.id }} .stage-tabs__tab-image-wrap,
+    #shopify-section-{{ section.id }} .stage-tabs__tab-icon--emoji {
+      width: 56px;
+      height: 56px;
+    }
+    #shopify-section-{{ section.id }} .stage-tabs__tab-badge {
+      width: 28px;
+      height: 28px;
+      font-size: 13px;
+    }
+    #shopify-section-{{ section.id }} .stage-tabs__tab-name {
+      font-size: 10px;
+    }
   }
 
   /* Panels */
@@ -442,54 +511,7 @@ Anchor ID configurable, default "stage-tabs" so the hero-split CTA can scroll he
     padding-top: 0 !important;
   }
 
-  #shopify-section-{{ section.id }} .stage-tabs__tab-image-wrap {
-    position: relative;
-    width: var(--tabs-image-size, 72px);
-    height: var(--tabs-image-size, 72px);
-    margin: 0 auto var(--spacing-2);
-  }
 
-  #shopify-section-{{ section.id }} .stage-tabs__tab-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid transparent;
-    transition: border-color 0.2s;
-  }
-
-  #shopify-section-{{ section.id }} .stage-tabs__tab.is-active .stage-tabs__tab-img {
-    border-color: {{ section.settings.tab_active_color | default: "#2dd4bf" }};
-  }
-
-  #shopify-section-{{ section.id }} .stage-tabs__tab-badge {
-    position: absolute;
-    bottom: -4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: {{ section.settings.tab_badge_color | default: "#2f1562" }};
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-  }
-
-  #shopify-section-{{ section.id }} .stage-tabs__tab.is-active .stage-tabs__tab-badge {
-    background: {{ section.settings.tab_active_color | default: "#2dd4bf" }};
-  }
-
-  #shopify-section-{{ section.id }} .stage-tabs__tab-icon--emoji {
-    display: block;
-    font-size: var(--tabs-tab-font-size, 28px);
-    margin-bottom: var(--spacing-2);
-    line-height: 1;
-  }
 </style>
 
 {%- comment -%}
@@ -555,9 +577,9 @@ LIQUID
           {%- assign tab_img = section.settings[img_key] -%}
           {%- if tab_img != blank -%}
             <span class="stage-tabs__tab-image-wrap">
-              <img src="{{ tab_img | image_url: width: 200 }}" alt="{{ section.settings[name_key] | escape }}" width="72" height="72" loading="lazy" class="stage-tabs__tab-img">
-              <span class="stage-tabs__tab-badge" aria-hidden="true">{{ i }}</span>
+              <img src="{{ tab_img | image_url: width: 200 }}" alt="{{ section.settings[name_key] | escape }}" width="88" height="88" loading="lazy" class="stage-tabs__tab-img">
             </span>
+            <span class="stage-tabs__tab-badge" aria-hidden="true">{{ i }}</span>
           {%- elsif section.settings[icon_key] != blank -%}
             <span class="stage-tabs__tab-icon--emoji" aria-hidden="true">{{ section.settings[icon_key] | escape }}</span>
           {%- endif -%}
@@ -789,7 +811,7 @@ LIQUID
     { "type": "range", "id": "tab_age_size", "label": "Tab age range size", "min": 9, "max": 13, "step": 1, "unit": "px", "default": 11 },
     { "type": "color", "id": "tab_badge_color", "label": "Stage number badge colour", "default": "#2f1562" },
     { "type": "color", "id": "tab_badge_active_color", "label": "Active stage badge colour", "default": "#2dd4bf" },
-    { "type": "range", "id": "tab_image_size", "label": "Tab image size", "min": 40, "max": 120, "step": 4, "default": 72, "unit": "px" },
+    { "type": "range", "id": "tab_image_size", "label": "Tab image size", "min": 56, "max": 120, "step": 4, "default": 88, "unit": "px" },
 
     { "type": "header", "content": "Stage 0 — basics" },
     { "type": "text", "id": "s0_name", "label": "Tab name", "default": "Stage 0" },
