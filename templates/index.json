@@ -26,23 +26,30 @@
     },
     "trust_bar": {
       "type": "trust-bar",
-      "settings": {},
+      "settings": {
+        "bg_color": "#190e3e",
+        "number_color": "#2dd4bf",
+        "number_size": 28,
+        "label_color": "#8b8da8",
+        "label_size": 13,
+        "divider_color": "#2a1560"
+      },
       "blocks": {
         "metric_1": {
           "type": "trust_metric",
-          "settings": { "stat": "25,000+", "label": "Verified reviews" }
+          "settings": { "icon": "", "stat": "25,000+", "label": "Verified reviews" }
         },
         "metric_2": {
           "type": "trust_metric",
-          "settings": { "stat": "5", "label": "Developmental stages covered" }
+          "settings": { "icon": "", "stat": "5", "label": "Developmental stages covered" }
         },
         "metric_3": {
           "type": "trust_metric",
-          "settings": { "stat": "500+", "label": "Parents trust doddl across the UK" }
+          "settings": { "icon": "", "stat": "500+", "label": "Parents trust doddl across the UK" }
         },
         "metric_4": {
           "type": "trust_metric",
-          "settings": { "stat": "OT✓", "label": "Occupational therapist recommended" }
+          "settings": { "icon": "", "stat": "OT✓", "label": "Occupational therapist recommended" }
         }
       },
       "block_order": ["metric_1", "metric_2", "metric_3", "metric_4"]
