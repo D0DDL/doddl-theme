@@ -30,6 +30,7 @@ Anchor ID configurable, default "stage-tabs" so the hero-split CTA can scroll he
     --tabs-product-img-size: {{ section.settings.product_img_size }}px;
     --tabs-product-name-size: {{ section.settings.product_name_size }}px;
     --tabs-product-price-size: {{ section.settings.product_price_size }}px;
+    --tabs-image-size: {{ section.settings.tab_image_size | default: 72 }}px;
   }
 
   /* Wrapper */
@@ -440,6 +441,55 @@ Anchor ID configurable, default "stage-tabs" so the hero-split CTA can scroll he
   #shopify-section-{{ section.id }} .section {
     padding-top: 0 !important;
   }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab-image-wrap {
+    position: relative;
+    width: var(--tabs-image-size, 72px);
+    height: var(--tabs-image-size, 72px);
+    margin: 0 auto var(--spacing-2);
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab.is-active .stage-tabs__tab-img {
+    border-color: {{ section.settings.tab_active_color | default: "#2dd4bf" }};
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab-badge {
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: {{ section.settings.tab_badge_color | default: "#2f1562" }};
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab.is-active .stage-tabs__tab-badge {
+    background: {{ section.settings.tab_active_color | default: "#2dd4bf" }};
+  }
+
+  #shopify-section-{{ section.id }} .stage-tabs__tab-icon--emoji {
+    display: block;
+    font-size: var(--tabs-tab-font-size, 28px);
+    margin-bottom: var(--spacing-2);
+    line-height: 1;
+  }
 </style>
 
 {%- comment -%}
@@ -501,8 +551,15 @@ LIQUID
           {%- assign icon_key = s | append: '_icon' -%}
           {%- assign name_key = s | append: '_name' -%}
           {%- assign age_key = s | append: '_age' -%}
-          {%- if section.settings[icon_key] != blank -%}
-            <span class="stage-tabs__tab-icon" aria-hidden="true">{{ section.settings[icon_key] | escape }}</span>
+          {%- assign img_key = s | append: '_tab_image' -%}
+          {%- assign tab_img = section.settings[img_key] -%}
+          {%- if tab_img != blank -%}
+            <span class="stage-tabs__tab-image-wrap">
+              <img src="{{ tab_img | image_url: width: 200 }}" alt="{{ section.settings[name_key] | escape }}" width="72" height="72" loading="lazy" class="stage-tabs__tab-img">
+              <span class="stage-tabs__tab-badge" aria-hidden="true">{{ i }}</span>
+            </span>
+          {%- elsif section.settings[icon_key] != blank -%}
+            <span class="stage-tabs__tab-icon--emoji" aria-hidden="true">{{ section.settings[icon_key] | escape }}</span>
           {%- endif -%}
           <span class="stage-tabs__tab-name">{{ section.settings[name_key] | escape }}</span>
           {%- if section.settings[age_key] != blank -%}
@@ -730,11 +787,15 @@ LIQUID
     { "type": "color", "id": "tab_active_color", "label": "Active tab indicator colour", "info": "Bottom border on the active tab. Also used for milestones, expert-quote accents, and the best-value badge.", "default": "#30BEAA" },
     { "type": "range", "id": "tab_font_size", "label": "Tab name size", "min": 11, "max": 16, "step": 1, "unit": "px", "default": 13 },
     { "type": "range", "id": "tab_age_size", "label": "Tab age range size", "min": 9, "max": 13, "step": 1, "unit": "px", "default": 11 },
+    { "type": "color", "id": "tab_badge_color", "label": "Stage number badge colour", "default": "#2f1562" },
+    { "type": "color", "id": "tab_badge_active_color", "label": "Active stage badge colour", "default": "#2dd4bf" },
+    { "type": "range", "id": "tab_image_size", "label": "Tab image size", "min": 40, "max": 120, "step": 4, "default": 72, "unit": "px" },
 
     { "type": "header", "content": "Stage 0 — basics" },
     { "type": "text", "id": "s0_name", "label": "Tab name", "default": "Stage 0" },
     { "type": "text", "id": "s0_age", "label": "Age range", "default": "0–6 months" },
     { "type": "text", "id": "s0_icon", "label": "Tab icon (emoji)", "default": "🌱" },
+    { "type": "image_picker", "id": "s0_tab_image", "label": "Stage 0 tab image", "info": "Circular avatar image shown in the tab strip. Recommended: square, min 200x200px." },
     { "type": "text", "id": "s0_pill", "label": "Stage pill", "default": "Stage 0 · 0–6 months" },
     { "type": "text", "id": "s0_heading", "label": "Panel headline", "default": "Your journey starts now" },
     { "type": "range", "id": "s0_heading_size", "label": "Panel heading size", "min": 20, "max": 40, "step": 2, "unit": "px", "default": 28 },
@@ -763,6 +824,7 @@ LIQUID
     { "type": "text", "id": "s1_name", "label": "Tab name", "default": "Stage 1" },
     { "type": "text", "id": "s1_age", "label": "Age range", "default": "6–12 months" },
     { "type": "text", "id": "s1_icon", "label": "Tab icon (emoji)", "default": "🥄" },
+    { "type": "image_picker", "id": "s1_tab_image", "label": "Stage 1 tab image", "info": "Circular avatar image shown in the tab strip. Recommended: square, min 200x200px." },
     { "type": "text", "id": "s1_pill", "label": "Stage pill", "default": "Stage 1 · 6–12 months" },
     { "type": "text", "id": "s1_heading", "label": "Panel headline", "default": "First foods, first wins" },
     { "type": "range", "id": "s1_heading_size", "label": "Panel heading size", "min": 20, "max": 40, "step": 2, "unit": "px", "default": 28 },
@@ -786,6 +848,7 @@ LIQUID
     { "type": "text", "id": "s2_name", "label": "Tab name", "default": "Stage 2" },
     { "type": "text", "id": "s2_age", "label": "Age range", "default": "12–18 months" },
     { "type": "text", "id": "s2_icon", "label": "Tab icon (emoji)", "default": "🍴" },
+    { "type": "image_picker", "id": "s2_tab_image", "label": "Stage 2 tab image", "info": "Circular avatar image shown in the tab strip. Recommended: square, min 200x200px." },
     { "type": "text", "id": "s2_pill", "label": "Stage pill", "default": "Stage 2 · 12–18 months" },
     { "type": "text", "id": "s2_heading", "label": "Panel headline", "default": "More confident, more independent" },
     { "type": "range", "id": "s2_heading_size", "label": "Panel heading size", "min": 20, "max": 40, "step": 2, "unit": "px", "default": 28 },
@@ -809,6 +872,7 @@ LIQUID
     { "type": "text", "id": "s3_name", "label": "Tab name", "default": "Stage 3" },
     { "type": "text", "id": "s3_age", "label": "Age range", "default": "18 months – 3 years" },
     { "type": "text", "id": "s3_icon", "label": "Tab icon (emoji)", "default": "🥄" },
+    { "type": "image_picker", "id": "s3_tab_image", "label": "Stage 3 tab image", "info": "Circular avatar image shown in the tab strip. Recommended: square, min 200x200px." },
     { "type": "text", "id": "s3_pill", "label": "Stage pill", "default": "Stage 3 · 18 months – 3 years" },
     { "type": "text", "id": "s3_heading", "label": "Panel headline", "default": "Ready for the full set" },
     { "type": "range", "id": "s3_heading_size", "label": "Panel heading size", "min": 20, "max": 40, "step": 2, "unit": "px", "default": 28 },
@@ -833,6 +897,7 @@ LIQUID
     { "type": "text", "id": "s4_name", "label": "Tab name", "default": "Stage 4" },
     { "type": "text", "id": "s4_age", "label": "Age range", "default": "3–5 years" },
     { "type": "text", "id": "s4_icon", "label": "Tab icon (emoji)", "default": "🍽️" },
+    { "type": "image_picker", "id": "s4_tab_image", "label": "Stage 4 tab image", "info": "Circular avatar image shown in the tab strip. Recommended: square, min 200x200px." },
     { "type": "text", "id": "s4_pill", "label": "Stage pill", "default": "Stage 4 · 3–5 years" },
     { "type": "text", "id": "s4_heading", "label": "Panel headline", "default": "[TBD — see content handoff]" },
     { "type": "range", "id": "s4_heading_size", "label": "Panel heading size", "min": 20, "max": 40, "step": 2, "unit": "px", "default": 28 },
