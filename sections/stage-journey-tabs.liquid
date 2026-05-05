@@ -629,6 +629,16 @@ Anchor ID configurable, default "stage-tabs" so the hero-split CTA can scroll he
     {% unless section.settings.show_stage_4 %}display: none !important;{% endunless %}
   }
 
+
+  /* Split-colour panel heading */
+  #shopify-section-{{ section.id }} .stage-tabs__heading-accent {
+    display: inline;
+  }
+  #shopify-section-{{ section.id }} [id$="-0"] .stage-tabs__heading-accent { color: {{ section.settings.s0_badge_color | default: "#C8901A" }}; }
+  #shopify-section-{{ section.id }} [id$="-1"] .stage-tabs__heading-accent { color: {{ section.settings.s1_badge_color | default: "#C4717A" }}; }
+  #shopify-section-{{ section.id }} [id$="-2"] .stage-tabs__heading-accent { color: {{ section.settings.s2_badge_color | default: "#8B7BAF" }}; }
+  #shopify-section-{{ section.id }} [id$="-3"] .stage-tabs__heading-accent { color: {{ section.settings.s3_badge_color | default: "#3A8A7D" }}; }
+
 </style>
 
 {%- comment -%}
@@ -715,6 +725,7 @@ LIQUID
       {%- if forloop.index0 == default_active -%}{%- assign is_active = true -%}{%- endif -%}
       {%- assign pill_key = s | append: '_pill' -%}
       {%- assign heading_key = s | append: '_heading' -%}
+      {%- assign heading2_key = s | append: '_heading_2' -%}
       {%- assign body_key = s | append: '_body' -%}
 
       <div
@@ -730,7 +741,7 @@ LIQUID
         {%- endif -%}
 
         {%- if section.settings[heading_key] != blank -%}
-          <h3 class="stage-tabs__panel-heading">{{ section.settings[heading_key] | escape }}</h3>
+          <h3 class="stage-tabs__panel-heading">{{ section.settings[heading_key] | escape }}{%- if section.settings[heading2_key] != blank -%} <span class="stage-tabs__heading-accent">{{ section.settings[heading2_key] | escape }}</span>{%- endif -%}</h3>
         {%- endif -%}
 
         {%- if section.settings[body_key] != blank -%}
@@ -951,7 +962,7 @@ LIQUID
     { "type": "text", "id": "s0_icon", "label": "Tab icon (emoji)", "default": "🌱" },
     { "type": "image_picker", "id": "s0_tab_image", "label": "Stage 0 tab image", "info": "Circular avatar image shown in the tab strip. Recommended: square, min 200x200px." },
     { "type": "text", "id": "s0_pill", "label": "Stage pill", "default": "Stage 0 · 0–6 months" },
-    { "type": "text", "id": "s0_heading", "label": "Panel headline", "default": "Your journey starts now" },
+    { "type": "text", "id": "s0_heading", "label": "Panel headline", "default": "Your journey starts now" }, { "type": "text", "id": "s0_heading_2", "label": "Headline accent word (stage colour)", "info": "Displays after main headline in the stage colour. Leave blank for single-colour heading." },
     { "type": "range", "id": "s0_heading_size", "label": "Panel heading size", "min": 20, "max": 40, "step": 2, "unit": "px", "default": 28 },
     { "type": "color", "id": "s0_heading_color", "label": "Panel heading colour", "default": "#3D157D" },
     { "type": "textarea", "id": "s0_body", "label": "Body copy", "default": "Before the first spoon comes out, your baby is preparing in countless small ways. This is the watching stage — the curiosity stage. We'll be here when they're ready." },
@@ -980,7 +991,7 @@ LIQUID
     { "type": "text", "id": "s1_icon", "label": "Tab icon (emoji)", "default": "🥄" },
     { "type": "image_picker", "id": "s1_tab_image", "label": "Stage 1 tab image", "info": "Circular avatar image shown in the tab strip. Recommended: square, min 200x200px." },
     { "type": "text", "id": "s1_pill", "label": "Stage pill", "default": "Stage 1 · 6–12 months" },
-    { "type": "text", "id": "s1_heading", "label": "Panel headline", "default": "First foods, first wins" },
+    { "type": "text", "id": "s1_heading", "label": "Panel headline", "default": "First foods, first wins" }, { "type": "text", "id": "s1_heading_2", "label": "Headline accent word (stage colour)", "info": "Displays after main headline in the stage colour. Leave blank for single-colour heading." },
     { "type": "range", "id": "s1_heading_size", "label": "Panel heading size", "min": 20, "max": 40, "step": 2, "unit": "px", "default": 28 },
     { "type": "color", "id": "s1_heading_color", "label": "Panel heading colour", "default": "#3D157D" },
     { "type": "textarea", "id": "s1_body", "label": "Body copy" },
@@ -1004,7 +1015,7 @@ LIQUID
     { "type": "text", "id": "s2_icon", "label": "Tab icon (emoji)", "default": "🍴" },
     { "type": "image_picker", "id": "s2_tab_image", "label": "Stage 2 tab image", "info": "Circular avatar image shown in the tab strip. Recommended: square, min 200x200px." },
     { "type": "text", "id": "s2_pill", "label": "Stage pill", "default": "Stage 2 · 12–18 months" },
-    { "type": "text", "id": "s2_heading", "label": "Panel headline", "default": "More confident, more independent" },
+    { "type": "text", "id": "s2_heading", "label": "Panel headline", "default": "More confident, more independent" }, { "type": "text", "id": "s2_heading_2", "label": "Headline accent word (stage colour)", "info": "Displays after main headline in the stage colour. Leave blank for single-colour heading." },
     { "type": "range", "id": "s2_heading_size", "label": "Panel heading size", "min": 20, "max": 40, "step": 2, "unit": "px", "default": 28 },
     { "type": "color", "id": "s2_heading_color", "label": "Panel heading colour", "default": "#3D157D" },
     { "type": "textarea", "id": "s2_body", "label": "Body copy" },
@@ -1028,7 +1039,7 @@ LIQUID
     { "type": "text", "id": "s3_icon", "label": "Tab icon (emoji)", "default": "🥄" },
     { "type": "image_picker", "id": "s3_tab_image", "label": "Stage 3 tab image", "info": "Circular avatar image shown in the tab strip. Recommended: square, min 200x200px." },
     { "type": "text", "id": "s3_pill", "label": "Stage pill", "default": "Stage 3 · 18 months – 3 years" },
-    { "type": "text", "id": "s3_heading", "label": "Panel headline", "default": "Ready for the full set" },
+    { "type": "text", "id": "s3_heading", "label": "Panel headline", "default": "Ready for the full set" }, { "type": "text", "id": "s3_heading_2", "label": "Headline accent word (stage colour)", "info": "Displays after main headline in the stage colour. Leave blank for single-colour heading." },
     { "type": "range", "id": "s3_heading_size", "label": "Panel heading size", "min": 20, "max": 40, "step": 2, "unit": "px", "default": 28 },
     { "type": "color", "id": "s3_heading_color", "label": "Panel heading colour", "default": "#3D157D" },
     { "type": "textarea", "id": "s3_body", "label": "Body copy" },

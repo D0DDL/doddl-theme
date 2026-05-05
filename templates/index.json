@@ -37,22 +37,47 @@
       "blocks": {
         "metric_1": {
           "type": "trust_metric",
-          "settings": { "icon": "", "stat": "25,000", "stat_suffix": "+", "label": "5-star reviews" }
+          "settings": {
+            "icon": "",
+            "stat": "25,000",
+            "stat_suffix": "+",
+            "label": "5-star reviews"
+          }
         },
         "metric_2": {
           "type": "trust_metric",
-          "settings": { "icon": "", "stat": "4 stages", "stat_suffix": "", "label": "0 months – 5+ years" }
+          "settings": {
+            "icon": "",
+            "stat": "4 stages",
+            "stat_suffix": "",
+            "label": "0 months – 5+ years"
+          }
         },
         "metric_3": {
           "type": "trust_metric",
-          "settings": { "icon": "", "stat": "1,000,000", "stat_suffix": "", "label": "parents trust doddl" }
+          "settings": {
+            "icon": "",
+            "stat": "1,000,000",
+            "stat_suffix": "",
+            "label": "parents trust doddl"
+          }
         },
         "metric_4": {
           "type": "trust_metric",
-          "settings": { "icon": "", "stat": "OT", "stat_suffix": "✓", "label": "NHS Paediatric Occupational Therapist" }
+          "settings": {
+            "icon": "",
+            "stat": "OT",
+            "stat_suffix": "✓",
+            "label": "NHS Paediatric Occupational Therapist"
+          }
         }
       },
-      "block_order": ["metric_1", "metric_2", "metric_3", "metric_4"]
+      "block_order": [
+        "metric_1",
+        "metric_2",
+        "metric_3",
+        "metric_4"
+      ]
     },
     "stage_intro": {
       "type": "stage-intro",
@@ -74,14 +99,14 @@
         "s2_name": "Building Control",
         "s3_name": "Growing Skills",
         "s4_name": "Little Adult",
-        "sub_heading_size": 32,
+        "sub_heading_size": 40,
         "s0_badge_color": "#C8901A",
         "s1_badge_color": "#C4717A",
         "s2_badge_color": "#8B7BAF",
         "s3_badge_color": "#3A8A7D",
         "s4_badge_color": "#6B7280",
         "show_stage_4": false,
-        "s0_heading": "Your journey starts soon",
+        "s0_heading": "Preparing for",
         "s0_body": "At doddl we've spent over 10 years studying how children's fine motor-skills develop so when you think your baby is ready to start eating, explore Stage 1. In the meantime, you can help your baby get ready to self-feed right now.",
         "s0_m1": "Offer different objects to grasp",
         "s0_m2": "Let them explore touching different textures",
@@ -94,7 +119,7 @@
         "s0_expert_attr": "Christine Pollack — Paediatric OT",
         "s0_next_heading": "Stage 1 — First Foods (6–12 months)",
         "s0_next_body": "Think your baby is ready for baby-led weaning cutlery? Explore stage 1 products",
-        "s1_heading": "Explore, taste, try",
+        "s1_heading": "Explore,",
         "s1_body": "This stage is all about exploring. Embrace the food on your baby's face and the floor; doddl stage 1 products are designed for tiny hands that are just discovering what mealtimes are all about. You'll know when to introduce cutlery when your baby is showing these signs:",
         "s1_m1": "Sitting in a highchair with gentle support",
         "s1_m2": "Reaching and grasping objects consistently",
@@ -104,7 +129,7 @@
         "s1_expert_attr": "Colleen Sarrazin, Paediatric Feeding Therapist and Speech-Language Pathologist",
         "s1_next_body": "When your baby has developed some hand-eye co-ordination, they're able to consistently move food from the bowl to their mouth and are eating more substantial meals, you'll need the best cutlery for toddlers. Time for stage 2.",
         "s2_pill": "Stage 2 · 12–24 months",
-        "s2_heading": "Watch ME Go!",
+        "s2_heading": "Watch ME",
         "s2_body": "Your toddlers desire for independence is growing and their hands are making their biggest development leap. The right tools will make that transition happen faster — and with a lot less mess and stress. doddl stage 2 products are designed for when your toddler is showing these signs",
         "s2_m1": "Eating more substantial meals",
         "s2_m2": "Desire to scoop effectively",
@@ -113,7 +138,7 @@
         "s2_expert_quote": "I love the unique design of doddl cutlery. The short, moulded handles fit perfectly in little hands and have a soft middle for a comfortable grip. I also love how they support motor skill development like dexterity and coordination, making self-feeding easier.",
         "s2_expert_attr": "Penelope Henderson - Registered Children's Nutritionist & SOS Trained Feeding Therapist",
         "s2_next_body": "When your toddler is successfully self-feeding with a spoon and fork, is less inclined to throw their plate on the floor and would love to chop up their own food - they're ready for stage 3",
-        "s3_heading": "Independence: unlocked",
+        "s3_heading": "Independence:",
         "s3_body": "You'll know that your toddlers desire for independence is powerful. The right tools will turn that determination into genuine skill. doddl stage 3 products develop your toddlers fine motor-skills at mealtimes and beyond. When your toddler shows these signs, they're ready for stage 3.",
         "s3_m1": "Using a fork and spoon successfully",
         "s3_m2": "Growing confidence at mealtimes",
@@ -121,7 +146,12 @@
         "s3_m4": "Eager to get involved in the kitchen",
         "s3_expert_quote": "As practitioners we have seen amazing results in independence at lunchtime and snack time, as well as with fine motorskill development.",
         "s3_expert_attr": "The Coigne Nursery, UK",
-        "s3_next_body": "Once your child is confident with doddl stage 3 products they will be ready to transition to adult tableware - but there's no rush. The ergonomic design supports the correct grip, so your child can easily move on whenever they are ready."
+        "s3_next_body": "Once your child is confident with doddl stage 3 products they will be ready to transition to adult tableware - but there's no rush. The ergonomic design supports the correct grip, so your child can easily move on whenever they are ready.",
+        "tab_image_size": 120,
+        "s0_heading_2": "weaning",
+        "s1_heading_2": "taste, try",
+        "s2_heading_2": "Go!",
+        "s3_heading_2": "unlocked"
       }
     }
   },
