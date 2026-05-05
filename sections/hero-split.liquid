@@ -204,6 +204,9 @@ LIQUID
           {%- if section.settings.heading_2 != blank -%}
             <span class="hero-split__heading-line hero-split__heading-line--accent">{{ section.settings.heading_2 | escape }}</span>
           {%- endif -%}
+          {%- if section.settings.heading_3 != blank -%}
+            <span class="hero-split__heading-line">{{ section.settings.heading_3 | escape }}</span>
+          {%- endif -%}
         </h1>
       {%- endif -%}
 
@@ -308,6 +311,11 @@ LIQUID
       "id": "heading_2",
       "label": "Headline — line 2 (accent colour)",
       "default": "At every stage."
+    },
+    {
+      "type": "text",
+      "id": "heading_3",
+      "label": "Heading line 3 (white)"
     },
     {
       "type": "range",
