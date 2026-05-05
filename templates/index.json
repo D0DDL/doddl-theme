@@ -56,7 +56,10 @@
     },
     "stage_intro": {
       "type": "stage-intro",
-      "settings": {}
+      "settings": {
+        "padding_top": 24,
+        "padding_bottom": 8
+      }
     },
     "stage_journey_tabs": {
       "type": "stage-journey-tabs",
