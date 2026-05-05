@@ -12,11 +12,11 @@
     "hero_split": {
       "type": "hero-split",
       "settings": {
-        "eyebrow": "EVERY CHILD IS ON A JOURNEY",
-        "heading_1": "The right tool",
-        "heading_2": "at the right stage",
-        "heading_3": "changes everything",
-        "body_text": "doddl products are engineered for each stage of your child's development — from first foods to full independence at the family dinner table.",
+        "eyebrow": "Development tableware trusted by 1 million+ parents",
+        "heading_1": "The right tool at the right age changes everything",
+        "heading_2": "",
+        "heading_3": "",
+        "body_text": "Tableware designed to enhance development and make mealtimes easier — from first tastes at 6 months to confident independence at 5 years. Trusted by 1 million+ parents and recommended by paediatric OTs.",
         "cta1_label": "Find your child's stage →",
         "cta1_url": "/pages/shop-by-stage",
         "cta2_label": "Explore the Bundle Box",
@@ -37,19 +37,19 @@
       "blocks": {
         "metric_1": {
           "type": "trust_metric",
-          "settings": { "icon": "", "stat": "25,000", "stat_suffix": "+", "label": "Verified reviews" }
+          "settings": { "icon": "", "stat": "25,000", "stat_suffix": "+", "label": "5-star reviews" }
         },
         "metric_2": {
           "type": "trust_metric",
-          "settings": { "icon": "", "stat": "5", "stat_suffix": "", "label": "Developmental stages covered" }
+          "settings": { "icon": "", "stat": "4 stages", "stat_suffix": "", "label": "0 months – 5+ years" }
         },
         "metric_3": {
           "type": "trust_metric",
-          "settings": { "icon": "", "stat": "500", "stat_suffix": "+", "label": "Parents trust doddl across the UK" }
+          "settings": { "icon": "", "stat": "1,000,000", "stat_suffix": "", "label": "parents trust doddl" }
         },
         "metric_4": {
           "type": "trust_metric",
-          "settings": { "icon": "", "stat": "OT", "stat_suffix": "✓", "label": "Occupational therapist recommended" }
+          "settings": { "icon": "", "stat": "OT", "stat_suffix": "✓", "label": "NHS Paediatric Occupational Therapist" }
         }
       },
       "block_order": ["metric_1", "metric_2", "metric_3", "metric_4"]
@@ -58,7 +58,8 @@
       "type": "stage-intro",
       "settings": {
         "padding_top": 24,
-        "padding_bottom": 8
+        "padding_bottom": 8,
+        "body": "Every child finds their own pace — but most move through four key stages between 6 months and 5 years, each shaped by what their little hands can do. doddl products are designed around exactly those stages, so the products your child is using always works with their developing grip, not against it."
       }
     },
     "stage_journey_tabs": {
@@ -67,6 +68,7 @@
         "intro_heading_1": "The right tool at the",
         "intro_heading_2": "right stage",
         "intro_body_text": "Every child develops at their own pace — but the developmental window for each stage is real, and the right tool makes a measurable difference. doddl is engineered for exactly where your child is right now.",
+        "instruction": "Click a stage below to check the signs to look for, the right products, and when to know it's time to move on",
         "s0_name": "Preparing",
         "s1_name": "First Foods",
         "s2_name": "Building Control",
@@ -77,7 +79,48 @@
         "s1_badge_color": "#C4717A",
         "s2_badge_color": "#8B7BAF",
         "s3_badge_color": "#3A8A7D",
-        "s4_badge_color": "#6B7280"
+        "s4_badge_color": "#6B7280",
+        "s0_heading": "Your journey starts soon",
+        "s0_body": "At doddl we've spent over 10 years studying how children's fine motor-skills develop so when you think your baby is ready to start eating, explore Stage 1. In the meantime, you can help your baby get ready to self-feed right now.",
+        "s0_m1": "Offer different objects to grasp",
+        "s0_m2": "Let them explore touching different textures",
+        "s0_m3": "Allow your baby to experience cooking smells",
+        "s0_m4": "Let your baby watch you eat",
+        "s0_email_heading": "Weaning is recommended from 6 months",
+        "s0_email_body": "Not quite ready for weaning yet? Sign up for our free development series — built around exactly where your baby is right now.",
+        "s0_email_btn": "Sign me up",
+        "s0_expert_quote": "Grasping skills are vital for future participation in every day tasks such as self-feeding, self-care, writing, colouring and manipulating classroom tools",
+        "s0_expert_attr": "Christine Pollack — Paediatric OT",
+        "s0_next_heading": "Stage 1 — First Foods (6–12 months)",
+        "s0_next_body": "Think your baby is ready for baby-led weaning cutlery? Explore stage 1 products",
+        "s1_heading": "Explore, taste, try",
+        "s1_body": "This stage is all about exploring. Embrace the food on your baby's face and the floor; doddl stage 1 products are designed for tiny hands that are just discovering what mealtimes are all about. You'll know when to introduce cutlery when your baby is showing these signs:",
+        "s1_m1": "Sitting in a highchair with gentle support",
+        "s1_m2": "Reaching and grasping objects consistently",
+        "s1_m3": "Using their hands to explore foods",
+        "s1_m4": "Growing appetite",
+        "s1_expert_quote": "As a pediatric feeding therapist, I frequently have parents ask me for recommendations on feeding tools like forks and spoons. The handles are also ergonomically designed to encourage a proper grip. These are perfect for helping to develop independent feeding skills.",
+        "s1_expert_attr": "Colleen Sarrazin, Paediatric Feeding Therapist and Speech-Language Pathologist",
+        "s1_next_body": "When your baby has developed some hand-eye co-ordination, they're able to consistently move food from the bowl to their mouth and are eating more substantial meals, you'll need the best cutlery for toddlers. Time for stage 2.",
+        "s2_pill": "Stage 2 · 12–24 months",
+        "s2_heading": "Watch ME Go!",
+        "s2_body": "Your toddlers desire for independence is growing and their hands are making their biggest development leap. The right tools will make that transition happen faster — and with a lot less mess and stress. doddl stage 2 products are designed for when your toddler is showing these signs",
+        "s2_m1": "Eating more substantial meals",
+        "s2_m2": "Desire to scoop effectively",
+        "s2_m3": "Eager to stab food",
+        "s2_m4": "Getting frustrated if you try to help",
+        "s2_expert_quote": "I love the unique design of doddl cutlery. The short, moulded handles fit perfectly in little hands and have a soft middle for a comfortable grip. I also love how they support motor skill development like dexterity and coordination, making self-feeding easier.",
+        "s2_expert_attr": "Penelope Henderson - Registered Children's Nutritionist & SOS Trained Feeding Therapist",
+        "s2_next_body": "When your toddler is successfully self-feeding with a spoon and fork, is less inclined to throw their plate on the floor and would love to chop up their own food - they're ready for stage 3",
+        "s3_heading": "Independence: unlocked",
+        "s3_body": "You'll know that your toddlers desire for independence is powerful. The right tools will turn that determination into genuine skill. doddl stage 3 products develop your toddlers fine motor-skills at mealtimes and beyond. When your toddler shows these signs, they're ready for stage 3.",
+        "s3_m1": "Using a fork and spoon successfully",
+        "s3_m2": "Growing confidence at mealtimes",
+        "s3_m3": "Interest in chopping their own food",
+        "s3_m4": "Eager to get involved in the kitchen",
+        "s3_expert_quote": "As practitioners we have seen amazing results in independence at lunchtime and snack time, as well as with fine motorskill development.",
+        "s3_expert_attr": "The Coigne Nursery, UK",
+        "s3_next_body": "Once your child is confident with doddl stage 3 products they will be ready to transition to adult tableware - but there's no rush. The ergonomic design supports the correct grip, so your child can easily move on whenever they are ready."
       }
     }
   },
