@@ -512,25 +512,22 @@ Anchor ID configurable, default "stage-tabs" so the hero-split CTA can scroll he
     padding-top: 0 !important;
   }
 
-  /* Per-stage badge colours */
+
   #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="0"] .stage-tabs__tab-badge { background: {{ section.settings.s0_badge_color | default: "#E8A020" }}; color: #fff; }
   #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="1"] .stage-tabs__tab-badge { background: {{ section.settings.s1_badge_color | default: "#2DD4BF" }}; color: #fff; }
   #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="2"] .stage-tabs__tab-badge { background: {{ section.settings.s2_badge_color | default: "#A78BFA" }}; color: #fff; }
   #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="3"] .stage-tabs__tab-badge { background: {{ section.settings.s3_badge_color | default: "#60A5FA" }}; color: #fff; }
   #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="4"] .stage-tabs__tab-badge { background: {{ section.settings.s4_badge_color | default: "#9CA3AF" }}; color: #fff; }
-
-  /* Active tab: border and name colour match stage badge colour */
-  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="0"].is-active { border-bottom-color: {{ section.settings.s0_badge_color | default: "#E8A020" }}; }
-  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="1"].is-active { border-bottom-color: {{ section.settings.s1_badge_color | default: "#2DD4BF" }}; }
-  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="2"].is-active { border-bottom-color: {{ section.settings.s2_badge_color | default: "#A78BFA" }}; }
-  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="3"].is-active { border-bottom-color: {{ section.settings.s3_badge_color | default: "#60A5FA" }}; }
-  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="4"].is-active { border-bottom-color: {{ section.settings.s4_badge_color | default: "#9CA3AF" }}; }
-
   #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="0"].is-active .stage-tabs__tab-name { color: {{ section.settings.s0_badge_color | default: "#E8A020" }}; }
   #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="1"].is-active .stage-tabs__tab-name { color: {{ section.settings.s1_badge_color | default: "#2DD4BF" }}; }
   #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="2"].is-active .stage-tabs__tab-name { color: {{ section.settings.s2_badge_color | default: "#A78BFA" }}; }
   #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="3"].is-active .stage-tabs__tab-name { color: {{ section.settings.s3_badge_color | default: "#60A5FA" }}; }
   #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="4"].is-active .stage-tabs__tab-name { color: {{ section.settings.s4_badge_color | default: "#9CA3AF" }}; }
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="0"].is-active { border-bottom-color: {{ section.settings.s0_badge_color | default: "#E8A020" }}; }
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="1"].is-active { border-bottom-color: {{ section.settings.s1_badge_color | default: "#2DD4BF" }}; }
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="2"].is-active { border-bottom-color: {{ section.settings.s2_badge_color | default: "#A78BFA" }}; }
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="3"].is-active { border-bottom-color: {{ section.settings.s3_badge_color | default: "#60A5FA" }}; }
+  #shopify-section-{{ section.id }} .stage-tabs__tab[data-stage-tab="4"].is-active { border-bottom-color: {{ section.settings.s4_badge_color | default: "#9CA3AF" }}; }
 
 </style>
 
