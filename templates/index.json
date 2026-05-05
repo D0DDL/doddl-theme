@@ -69,10 +69,10 @@
         "s2_name": "Building Control",
         "s3_name": "Growing Skills",
         "s4_name": "Little Adult",
-        "s0_badge_color": "#E8A020",
-        "s1_badge_color": "#2DD4BF",
-        "s2_badge_color": "#A78BFA",
-        "s3_badge_color": "#60A5FA",
+        "s0_badge_color": "#F5E3B7",
+        "s1_badge_color": "#F9DFE0",
+        "s2_badge_color": "#EEEAF2",
+        "s3_badge_color": "#9ECFC6",
         "s4_badge_color": "#9CA3AF"
       }
     }
